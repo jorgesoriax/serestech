@@ -1,0 +1,40 @@
+01 Equipo 
+  - Marca
+  - Línea
+  - Modelo
+02 Estado
+  - Uso de equipo
+  - Estética
+03 Almacenamiento
+  - Capacidad
+  - Tipo de disco duro
+  - Marca
+  - Estado (reciendo instalado, preinstalado, de fabrica)
+  - Uso de disco duro
+04 RAM
+  - Capacidad
+  - Tipo de memoria RAM
+05 Procesador
+  - Marca
+  - Línea
+  - Modelo
+  - Cantidad de núcleos
+  - Velocidad
+  - Generación
+06 Teclado
+  - Idioma
+  - Retroiluminado (y/n)
+07 Pantalla
+  - Tamaño
+  - Tactil (y/n)
+08 Software instalado (lista)
+  - Office 2016
+  - Antivirus
+  - Programas básicos (Adobe Reader, Java, WinRaR)
+09 Garantía
+  - Vigencia
+10 Entrega
+  - Tiempo
+11 Soporte
+  - Vigencia
+  - Remoto (y/n)
