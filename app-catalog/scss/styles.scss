@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+@import "components/color";
+@import "components/mixins";
+@import "components/maps";
+@import "components/sizes";
+
+body{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    > h1{
+        width: 100%;
+        text-align: center;
+    }
+}
+*{
+    box-sizing: border-box;
+}
