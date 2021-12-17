@@ -1,1 +1,125 @@
-// Componentes CSS
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+@import "size";
+
+// Buttons
+// Property list:
+//  1 background-color
+//  2 background-color:hover
+//  3 border
+//  4 outline
+//  5 color
+
+// Button states over white background
+$buttons-overwhite: (
+    positive-ow: (
+        setcolor(green),
+        setcolor(green, actv),
+        setcolor(green, dark),
+        setcolor(green, outl),
+        setcolor(white)
+    ),
+    negative-ow: (
+        setcolor(red),
+        setcolor(red, actv),
+        setcolor(red, dark),
+        setcolor(red, outl),
+        setcolor(white)
+    ),
+    neutral-ow: (
+        setcolor(white, light),
+        setcolor(blue, actv),
+        setcolor(gray, light),
+        setcolor(blue, outl),
+        setcolor(black)
+    ),
+    whatsapp-ow: (
+        setcolor(WApp),
+        setcolor(WApp, actv),
+        setcolor(WApp, dark),
+        setcolor(green, outl),
+        setcolor(white)
+    )
+);
+
+@each $name, $colors in $buttons-overwhite{
+    $bg-color: nth($colors, 1);
+    $bg-color-active: nth($colors, 2);
+    $border-color: nth($colors, 3);
+    $outline-color: nth($colors, 4);
+    $font-color: nth($colors, 5);
+
+    .btn--#{$name}{
+        background: $bg-color;
+        border: $border solid $border-color;
+        color: $font-color;
+        &:active{
+            background: $bg-color-active;
+        }
+        &:hover{
+            outline: $outline-px solid $outline-color;
+        }
+    }
+};
+
+// Button states over blue background
+$buttons-overblue: (
+    positive-ob: (
+        setcolor(green),
+        setcolor(green, actv),
+        setcolor(green, dark),
+        setcolor(green, outl),
+        setcolor(white)
+    ),
+    negative-ob: (
+        setcolor(red),
+        setcolor(red, actv),
+        setcolor(red, dark),
+        setcolor(red, outl),
+        setcolor(white)
+    ),
+    neutral-ob: (
+        setcolor(white, light),
+        setcolor(blue, actv-ob),
+        setcolor(gray, light),
+        setcolor(white, outl),
+        setcolor(black)
+    ),
+    whatsapp-ob: (
+        setcolor(WApp),
+        setcolor(WApp, actv),
+        setcolor(green),
+        setcolor(green, outl),
+        setcolor(white)
+    )
+);
+
+@each $name, $colors in $buttons-overblue{
+    $bg-color: nth($colors, 1);
+    $bg-color-active: nth($colors, 2);
+    $border-color: nth($colors, 3);
+    $outline-color: nth($colors, 4);
+    $font-color: nth($colors, 5);
+
+    .btn--#{$name}{
+        background: $bg-color;
+        border: $border solid $border-color;
+        color: $font-color;
+        &:active{
+            background: $bg-color-active;
+        }
+        &:hover{
+            outline: $outline-px solid $outline-color;
+        }
+    }
+}
+
+// Fonts
+$font-head:  'Poppins', sans-serif;
+$font-title: 'Inter', sans-serif;
+
+@mixin f-family($type, $weight:600){
+    font-family: $type;
+    font-weight: $weight;
+}

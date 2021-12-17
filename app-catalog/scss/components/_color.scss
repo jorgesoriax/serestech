@@ -1,5 +1,6 @@
 // Función para obtener map
 // $tone tiene como valor por defecto la key base
+
 @function setcolor($scheme ,$tone: base){
     @return map-get(map-get($color-scheme, $scheme), $tone);
 }
@@ -7,7 +8,8 @@
 $color-scheme: (
     white: (
         base: #ffffff,               // Blanco por defecto
-        light: #fafafa               // Contraste fondo-contenedor
+        light: #fafafa,               // Contraste fondo-contenedor
+        outl: rgba(250, 250, 250, .4)
     ),
     black: (
         base: #2a2a2a                // Texto principal e iconos
@@ -19,13 +21,15 @@ $color-scheme: (
     blue: (
         base: #3C90FC,               // Principal para elementos y degradado
         dark: #3983E3,               // Border para elemento en focus
-        out: rgba(60, 144, 252, .4), // Outline
-        deg: #3C80FC                 // Color secundario para degradado
+        actv: #EDF5FF,
+        actv-ob: #E0EEFF,
+        outl: rgba(59, 143, 252, .4)
     ),
     red: (
         base: #ED4025,               // Background y texto de error
-        dark: #B43622,               // Border 
-        out: rgba(237, 64, 37, .4)   // Outline
+        dark: #B43622,               // Border
+        actv: #DE3C23,                // Active
+        outl: rgba(237, 64, 37, .4)
     ),
     orange: (
         base: #ED7C25                // Border y texto de alerta
@@ -34,9 +38,14 @@ $color-scheme: (
         base: #FFF982                // Background de alerta
     ),
     green: (
-        base: #4ADF83,               // Background y border bW sobre azul
+        base: #4ADF83,               // Background y border WApp sobre azul
         dark: #3EB76C,               // Border 
-        out: rgba(74, 223, 131, .4), // Outline
-        deg: #00BCA2                 // Color secundario para degradado y border bW sobre blanco
+        actv: #43D27A,                // Active
+        outl: rgba(74, 223, 131, .4)
+    ),
+    WApp: (
+        base: linear-gradient(180deg, rgba(51,212,142,1) 0%, rgba(24,199,153,1) 100%), // Background WApp
+        dark: #00BCA2, // Border WApp
+        actv: #33D48E // Active WApp
     )
 );

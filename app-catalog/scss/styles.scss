@@ -1,22 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-
 @import "components/color";
-@import "components/mixins";
-@import "components/maps";
-@import "components/sizes";
+@import "components/block";
+@import "components/size";
 
 body{
     margin: 0;
     padding: 0;
     border: 0;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    > h1{
-        width: 100%;
-        text-align: center;
-    }
 }
 *{
     box-sizing: border-box;
+}
+// button{
+    
+// }
+header{
+    background: setcolor(blue);
+    padding: $container-padd-max;
+
+    img{
+        height: 30px;
+    }
+}
+// input{
+// }
+// div{
+//     border: 1px solid black;
+// }
+button{
+    border-radius: $border-rad-min;
+    padding: 10px 25px;
+    font-size: $button;
+    cursor: pointer;
+    position: relative;
+
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+
+    img{
+        height: 21px;
+        right: 10px;
+        position: absolute;
+    }
+}
+#container--temp{
+    border: 1px solid setcolor(gray, light);
+    padding: 25px;
+    // display: grid;
+    // grid-template-columns: auto;
+    // gap: 25px;
+
+    border-radius: $border-rad-max;
+}
+.parent{
+    margin: 50px auto;
+}
+.onblue{
+    background: setcolor(blue);
+}
+h1, h2, h3{
+    margin: 16px 0;
+}
+h1, h2{
+    @include f-family($font-head);
+}
+h3{
+    @include f-family($font-title)
+}
+p{
+    @include f-family($font-title,400);
+}
+.descr{
+    color: setcolor(gray);
 }
