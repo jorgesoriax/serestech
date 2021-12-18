@@ -1,6 +1,11 @@
 @import "components/color";
-@import "components/block";
+@import "components/button";
 @import "components/size";
+@import "components/font";
+@import "components/outline";
+
+// TODO Corregir color blanco para botón afirmativo puede ser poco legible
+// TODO Corregir que se puedan arrastrar y seleccionar elementos
 
 body{
     margin: 0;
@@ -10,9 +15,6 @@ body{
 *{
     box-sizing: border-box;
 }
-// button{
-    
-// }
 header{
     background: setcolor(blue);
     padding: $container-padd-max;
@@ -21,42 +23,25 @@ header{
         height: 30px;
     }
 }
-// input{
-// }
-// div{
-//     border: 1px solid black;
-// }
 button{
     border-radius: $border-rad-min;
-    padding: 10px 25px;
+    padding: $text-button-padd;
     font-size: $button;
     cursor: pointer;
-    position: relative;
 
     font-family: 'Inter', sans-serif;
     font-weight: 500;
 
+    display: flex;
+    justify-content: center;
+
     img{
         height: 21px;
-        right: 10px;
-        position: absolute;
+        margin-left: 10px;
     }
 }
-#container--temp{
-    border: 1px solid setcolor(gray, light);
-    padding: 25px;
-    // display: grid;
-    // grid-template-columns: auto;
-    // gap: 25px;
 
-    border-radius: $border-rad-max;
-}
-.parent{
-    margin: 50px auto;
-}
-.onblue{
-    background: setcolor(blue);
-}
+// Fuentes utilizadas en el proyecto
 h1, h2, h3{
     margin: 16px 0;
 }
@@ -69,6 +54,60 @@ h3{
 p{
     @include f-family($font-title,400);
 }
-.descr{
+
+// Esta clase se agrega a un elemento <p>
+// para indicar que se trata de un párrafo
+// que funciona como una descripción
+.p--descr{
     color: setcolor(gray);
+}
+
+// Label
+label{
+    background: setcolor(yellow);
+    padding: $text-button-padd;
+    border-radius: $border-rad-min;
+    border: $border-px solid setcolor(orange);
+    color: setcolor(orange);
+    @include f-family($font-title,500);
+}
+
+// Propiedades provisionales para previsualizar
+// los estilos de cada elemento
+#container--temp{
+    border: 1px solid setcolor(gray, light);
+    padding: 25px;
+    border-radius: $border-rad-max;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: auto;
+    gap: 25px;
+
+    #container--title{
+        background: setcolor(white);
+        transform: translate(25px, -10px);
+        position: absolute;
+        font-family: unset;
+    }
+}
+.parent{
+    margin: 25px 25px;
+    float: left;
+}
+.onblue{
+    background: setcolor(blue);
+}
+a{
+    cursor: pointer;
+}
+.a--icon{
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    cursor: pointer;
+
+    img{
+        width: 100%;
+    }
 }

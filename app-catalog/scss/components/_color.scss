@@ -5,6 +5,8 @@
     @return map-get(map-get($color-scheme, $scheme), $tone);
 }
 
+// TODO corregir colores y establecer descripciones
+
 $color-scheme: (
     white: (
         base: #ffffff,               // Blanco por defecto
@@ -19,11 +21,12 @@ $color-scheme: (
         light: #c5c5c5               // Border de contenedores
     ),
     blue: (
-        base: #3C90FC,               // Principal para elementos y degradado
-        dark: #3983E3,               // Border para elemento en focus
+        base: #3C90FC,
+        light: #3C8AFC,
+        dark: #276FCC,               // Border para elemento en focus
         actv: #EDF5FF,
         actv-ob: #E0EEFF,
-        outl: rgba(59, 143, 252, .4)
+        outl: rgba(59, 143, 252, .4),
     ),
     red: (
         base: #ED4025,               // Background y texto de error
@@ -39,6 +42,7 @@ $color-scheme: (
     ),
     green: (
         base: #4ADF83,               // Background y border WApp sobre azul
+        light: #53f190,
         dark: #3EB76C,               // Border 
         actv: #43D27A,                // Active
         outl: rgba(74, 223, 131, .4)
