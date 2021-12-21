@@ -1,0 +1,34 @@
+.message{
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+
+    h3, p{
+        margin: 0;
+    }
+    h3{
+        font-weight: 500;
+    }
+    div{
+        grid-row: 1 / 3;
+
+        width: 42px;
+        height: 42px;
+        font-size: 25px;
+
+        line-height: 40px;
+        text-align: center;
+
+        background: setcolor(white, light);
+        border-radius: 100%;
+        border: $border--px solid setcolor(gray, light);
+    }
+}
+.message--error{
+    h3{
+        color: setcolor(red);
+    }
+}

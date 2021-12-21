@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 .button--positive-ow {
-  background: #4ADF83;
+  background: #37dd77;
   border: 1px solid #3EB76C;
   color: #ffffff; }
   .button--positive-ow:active {
@@ -51,7 +51,7 @@
     border: 1px solid #276FCC; }
 
 .button--positive-ob {
-  background: #4ADF83;
+  background: #37dd77;
   border: 1px solid #53f190;
   color: #ffffff; }
   .button--positive-ob:active {
@@ -82,13 +82,13 @@
 
 .button--whatsapp-ob {
   background: linear-gradient(180deg, #33d48e 0%, #18c799 100%);
-  border: 1px solid #4ADF83;
+  border: 1px solid #37dd77;
   color: #ffffff; }
   .button--whatsapp-ob:active {
     background: #33D48E; }
   .button--whatsapp-ob:hover {
     outline: 3px solid rgba(74, 223, 131, 0.4);
-    border: 1px solid #4ADF83; }
+    border: 1px solid #37dd77; }
 
 h1, h2, h3, p {
   margin: 16px; }
@@ -161,6 +161,86 @@ i {
 #icon--pass {
   cursor: pointer; }
 
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #929292; }
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #929292;
+  opacity: 1; }
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #929292;
+  opacity: 1; }
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #929292; }
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #929292; }
+
+::placeholder {
+  /* Most modern browsers support this now. */
+  color: #929292; }
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center; }
+  .checkbox input {
+    position: absolute;
+    visibility: hidden; }
+    .checkbox input:checked ~ .checkmark {
+      background-color: #3C90FC;
+      border: 1px solid #276FCC; }
+    .checkbox input:checked ~ .checkmark > i {
+      display: block; }
+  .checkbox .checkmark {
+    background: #fafafa;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center; }
+    .checkbox .checkmark i {
+      display: none;
+      color: #ffffff; }
+
+.checkmark {
+  border: 1px solid #c5c5c5; }
+
+.message {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  column-gap: 10px;
+  justify-content: flex-start;
+  align-items: center; }
+  .message h3, .message p {
+    margin: 0; }
+  .message h3 {
+    font-weight: 500; }
+  .message div {
+    grid-row: 1 / 3;
+    width: 42px;
+    height: 42px;
+    font-size: 25px;
+    line-height: 40px;
+    text-align: center;
+    background: #fafafa;
+    border-radius: 100%;
+    border: 1px solid #c5c5c5; }
+
+.message--error h3 {
+  color: #ED4025; }
+
 body {
   margin: 0;
   padding: 0;
@@ -185,10 +265,10 @@ button {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  gap: 10px; }
   button img {
-    height: 21px;
-    margin-left: 10px; }
+    height: 21px; }
 
 .label {
   background: #FFF982;
@@ -197,7 +277,30 @@ button {
   border: 1px solid #ED7C25;
   color: #ED7C25;
   font-family: "Inter", sans-serif;
-  font-weight: 500; }
+  font-weight: 500;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */ }
+
+a {
+  cursor: pointer; }
+
+.a--icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  cursor: pointer; }
+  .a--icon img {
+    width: 100%; }
 
 #container--temp {
   border: 1px solid #c5c5c5;
@@ -222,32 +325,3 @@ button {
 
 .onblue {
   background: #3C90FC; }
-
-a {
-  cursor: pointer; }
-
-.a--icon {
-  width: 35px;
-  height: 35px;
-  border-radius: 100%;
-  cursor: pointer; }
-  .a--icon img {
-    width: 100%; }
-
-.message {
-  border-radius: 8px;
-  min-width: 400px;
-  display: inline-grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto; }
-  .message h3, .message p, .message div {
-    border: 1px solid red; }
-  .message h3, .message p {
-    margin: 0; }
-  .message div {
-    grid-row: 1 / 3;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    background: #fafafa; }

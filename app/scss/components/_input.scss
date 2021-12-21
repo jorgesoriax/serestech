@@ -1,3 +1,4 @@
+@import "../compatibility";
 .input{
     background: setcolor(white);
     height: 50px;
@@ -9,7 +10,7 @@
 
     i{
         cursor: text;
-        margin: 10px;
+        margin: $gap--min;
     }
 
     input{
@@ -28,13 +29,59 @@ i{
 }
 
 .input--ow{
-    border: 1px solid setcolor(gray, light);
+    border: $border--px solid setcolor(gray, light);
     
 }
 .input--ob{
-    border: 1px solid setcolor(blue);
+    border: $border--px solid setcolor(blue);
     
 }
 #icon--pass{
     cursor: pointer;
+}
+@include placeholder--color;
+
+// Checkbox
+.checkbox{
+    display: flex;
+    flex-direction: row;
+    gap: $gap--min;
+    align-items: center;
+
+    // Hidden input
+    input{
+        position: absolute;
+        visibility: hidden;
+        
+        // When checkbox is checked, add this styles
+        &:checked ~ .checkmark{
+            background-color: setcolor(blue);
+            border: $border--px solid setcolor(blue, dark);
+        }
+        // When checkbox is checked, show i
+        &:checked ~ .checkmark > i{
+            display: block;
+        }
+    }
+
+    .checkmark{
+        background: setcolor(white, light);
+        border-radius: $border--rad-min;
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+
+        font-size: $i--font-size;
+        line-height: 25px;
+        text-align: center;
+
+        // By default i is hidden
+        i{
+            display: none;
+            color: setcolor(white);
+        }
+    }
+}
+.checkmark{
+    border: $border--px solid setcolor(gray,light)
 }

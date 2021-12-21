@@ -4,6 +4,8 @@
 @import "components/font";
 @import "components/outline";
 @import "components/input";
+@import "components/message";
+@import "compatibility";
 
 // TODO Corregir color blanco para botón afirmativo puede ser poco legible
 // TODO Corregir que se puedan arrastrar y seleccionar elementos
@@ -36,10 +38,10 @@ button{
 
     display: flex;
     justify-content: center;
+    gap: $gap--min;
 
     img{
         height: 21px;
-        margin-left: 10px;
     }
 }
 
@@ -53,6 +55,20 @@ button{
     border: $border--px solid setcolor(orange);
     color: setcolor(orange);
     @include font-family($font--title,500);
+    @include noselect;
+}
+a{
+    cursor: pointer;
+}
+.a--icon{
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    cursor: pointer;
+
+    img{
+        width: 100%;
+    }
 }
 
 // Propiedades provisionales para previsualizar
@@ -82,46 +98,4 @@ button{
 }
 .onblue{
     background: setcolor(blue);
-}
-a{
-    cursor: pointer;
-}
-.a--icon{
-    width: 35px;
-    height: 35px;
-    border-radius: 100%;
-    cursor: pointer;
-
-    img{
-        width: 100%;
-    }
-}
-
-// HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-.message{
-    border-radius: $border--rad-min;
-    min-width: 400px;
-
-    display: inline-grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto;
-
-    h3, p, div{
-        border: 1px solid red;
-    }
-    h3, p{
-        margin: 0;
-    }
-    div{
-        grid-row: 1 / 3;
-
-        width: 50px;
-        height: 50px;
-
-        line-height: 50px;
-        text-align: center;
-
-        background: setcolor(white, light);
-        // border: $border--px solid setcolor(gray, light);
-    }
 }
