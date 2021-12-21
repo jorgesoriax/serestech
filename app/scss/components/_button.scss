@@ -10,7 +10,7 @@
 //  6 color
 
 // MAP Button states over white background
-$buttons-overwhite: (
+$buttons--overwhite: (
     positive-ow: (
         setcolor(green),        
         setcolor(green, actv),  
@@ -53,7 +53,7 @@ $buttons-overwhite: (
     )
 );
 // MAP Button states over blue background
-$buttons-overblue: (
+$buttons--overblue: (
     positive-ob: (
         setcolor(green),
         setcolor(green, actv),
@@ -88,46 +88,46 @@ $buttons-overblue: (
     )
 );
 // EACH Button states over white background
-@each $name, $colors in $buttons-overwhite{
-    $bg-color: nth($colors, 1);
-    $bg-color-active: nth($colors, 2);
-    $border-color: nth($colors, 3);
-    $border-color-active: nth($colors, 4);
-    $outline-color: nth($colors, 5);
-    $font-color: nth($colors, 6);
+@each $name, $colors in $buttons--overwhite{
+    $bg--color: nth($colors, 1);
+    $bg--color-active: nth($colors, 2);
+    $border--color: nth($colors, 3);
+    $border--color-active: nth($colors, 4);
+    $outline--color: nth($colors, 5);
+    $font--color: nth($colors, 6);
 
-    .btn--#{$name}{
-        background: $bg-color;
-        border: $border-px solid $border-color;
-        color: $font-color;
+    .button--#{$name}{
+        background: $bg--color;
+        border: $border--px solid $border--color;
+        color: $font--color;
         &:active{
-            background: $bg-color-active;
+            background: $bg--color-active;
         }
         &:hover{
-            outline: $outline-px solid $outline-color;
-            border: $border-px solid $border-color-active;
+            outline: $outline--px solid $outline--color;
+            border: $border--px solid $border--color-active;
         }
     }
 }
 // EACH Button states over blue background
-@each $name, $colors in $buttons-overblue{
-    $bg-color: nth($colors, 1);
-    $bg-color-active: nth($colors, 2);
-    $border-color: nth($colors, 3);
-    $border-color-active: nth($colors, 4);
-    $outline-color: nth($colors, 5);
-    $font-color: nth($colors, 6);
+@each $name, $colors in $buttons--overblue{
+    $bg--color: nth($colors, 1);
+    $bg--color-active: nth($colors, 2);
+    $border--color: nth($colors, 3);
+    $border--color-active: nth($colors, 4);
+    $outline--color: nth($colors, 5);
+    $font--color: nth($colors, 6);
 
-    .btn--#{$name}{
-        background: $bg-color;
-        border: $border-px solid $border-color;
-        color: $font-color;
+    .button--#{$name}{
+        background: $bg--color;
+        border: $border--px solid $border--color;
+        color: $font--color;
         &:active{
-            background: $bg-color-active;
+            background: $bg--color-active;
         }
         &:hover{
-            outline: $outline-px solid $outline-color;
-            border: $border-px solid $border-color-active;
+            outline: $outline--px solid $outline--color;
+            border: $border--px solid $border--color-active;
         }
     }
 }

@@ -1,0 +1,40 @@
+.input{
+    background: setcolor(white);
+    height: 50px;
+    border-radius: $border--rad-min;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    i{
+        cursor: text;
+        margin: 10px;
+    }
+
+    input{
+        background: transparent;
+        border: 0;
+        outline: none;
+        height: 100%;
+        width: 100%;
+        font-size: $button--font-size;
+        @include font-family($font--title,400);
+    }
+}
+i{
+    font-size: $i--font-size;
+    color: setcolor(black);
+}
+
+.input--ow{
+    border: 1px solid setcolor(gray, light);
+    
+}
+.input--ob{
+    border: 1px solid setcolor(blue);
+    
+}
+#icon--pass{
+    cursor: pointer;
+}

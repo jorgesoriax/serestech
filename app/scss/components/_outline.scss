@@ -1,0 +1,42 @@
+// MAP Outline states over white background
+$outline--overwhite: (
+    blue: (
+        setcolor(blue ),
+        setcolor(blue, outl)
+    )
+);
+// MAP Outline states over blue background
+$outline-overblue: (
+    white: (
+        setcolor(blue),
+        setcolor(white, outl)
+    )
+);
+// EACH Button states over white background
+@each $name, $colors in $outline--overwhite{
+    $border--color: nth($colors, 1);
+    $outline--color: nth($colors, 2);
+
+    .outl--#{$name}{
+        border: $border--px solid setcolor(white);
+
+        &:hover{
+            border: $border--px solid $border--color;
+            outline: $outline--px solid $outline--color;
+        }
+    }
+};
+// EACH Button states over blue background
+@each $name, $colors in $outline-overblue{
+    $border--color: nth($colors, 1);
+    $outline--color: nth($colors, 2);
+
+    .outl--#{$name}{
+        border: $border--px solid setcolor(blue);
+
+        &:hover{
+            border: $border--px solid $border--color;
+            outline: $outline--px solid $outline--color;
+        }
+    }
+};

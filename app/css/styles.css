@@ -1,99 +1,125 @@
 @import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
-.btn--positive-ow {
+.button--positive-ow {
   background: #4ADF83;
   border: 1px solid #3EB76C;
   color: #ffffff; }
-  .btn--positive-ow:active {
+  .button--positive-ow:active {
     background: #43D27A; }
-  .btn--positive-ow:hover {
+  .button--positive-ow:hover {
     outline: 3px solid rgba(74, 223, 131, 0.4);
     border: 1px solid #3EB76C; }
 
-.btn--negative-ow {
+.button--negative-ow {
   background: #ED4025;
   border: 1px solid #B43622;
   color: #ffffff; }
-  .btn--negative-ow:active {
+  .button--negative-ow:active {
     background: #DE3C23; }
-  .btn--negative-ow:hover {
+  .button--negative-ow:hover {
     outline: 3px solid rgba(237, 64, 37, 0.4);
     border: 1px solid #B43622; }
 
-.btn--neutral-ow {
+.button--neutral-ow {
   background: #fafafa;
   border: 1px solid #c5c5c5;
   color: #2a2a2a; }
-  .btn--neutral-ow:active {
+  .button--neutral-ow:active {
     background: #EDF5FF; }
-  .btn--neutral-ow:hover {
+  .button--neutral-ow:hover {
     outline: 3px solid rgba(59, 143, 252, 0.4);
     border: 1px solid #3C90FC; }
 
-.btn--whatsapp-ow {
+.button--whatsapp-ow {
   background: linear-gradient(180deg, #33d48e 0%, #18c799 100%);
   border: 1px solid #00BCA2;
   color: #ffffff; }
-  .btn--whatsapp-ow:active {
+  .button--whatsapp-ow:active {
     background: #33D48E; }
-  .btn--whatsapp-ow:hover {
+  .button--whatsapp-ow:hover {
     outline: 3px solid rgba(74, 223, 131, 0.4);
     border: 1px solid #00BCA2; }
 
-.btn--alternative-ow {
+.button--alternative-ow {
   background: #3C90FC;
   border: 1px solid #276FCC;
   color: #ffffff; }
-  .btn--alternative-ow:active {
+  .button--alternative-ow:active {
     background: #3C8AFC; }
-  .btn--alternative-ow:hover {
+  .button--alternative-ow:hover {
     outline: 3px solid rgba(59, 143, 252, 0.4);
     border: 1px solid #276FCC; }
 
-.btn--positive-ob {
+.button--positive-ob {
   background: #4ADF83;
   border: 1px solid #53f190;
   color: #ffffff; }
-  .btn--positive-ob:active {
+  .button--positive-ob:active {
     background: #43D27A; }
-  .btn--positive-ob:hover {
+  .button--positive-ob:hover {
     outline: 3px solid rgba(74, 223, 131, 0.4);
     border: 1px solid #53f190; }
 
-.btn--negative-ob {
+.button--negative-ob {
   background: #ED4025;
   border: 1px solid #B43622;
   color: #ffffff; }
-  .btn--negative-ob:active {
+  .button--negative-ob:active {
     background: #DE3C23; }
-  .btn--negative-ob:hover {
+  .button--negative-ob:hover {
     outline: 3px solid rgba(237, 64, 37, 0.4);
     border: 1px solid #B43622; }
 
-.btn--neutral-ob {
+.button--neutral-ob {
   background: #fafafa;
   border: 1px solid transparent;
   color: #2a2a2a; }
-  .btn--neutral-ob:active {
+  .button--neutral-ob:active {
     background: #E0EEFF; }
-  .btn--neutral-ob:hover {
+  .button--neutral-ob:hover {
     outline: 3px solid rgba(250, 250, 250, 0.4);
     border: 1px solid #3C90FC; }
 
-.btn--whatsapp-ob {
+.button--whatsapp-ob {
   background: linear-gradient(180deg, #33d48e 0%, #18c799 100%);
   border: 1px solid #4ADF83;
   color: #ffffff; }
-  .btn--whatsapp-ob:active {
+  .button--whatsapp-ob:active {
     background: #33D48E; }
-  .btn--whatsapp-ob:hover {
+  .button--whatsapp-ob:hover {
     outline: 3px solid rgba(74, 223, 131, 0.4);
     border: 1px solid #4ADF83; }
+
+h1, h2, h3, p {
+  margin: 16px; }
+
+h1, h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600; }
+
+h1 {
+  font-size: 32px; }
+
+h2 {
+  font-size: 24px; }
+
+h3 {
+  font-family: "Inter", sans-serif;
+  font-weight: 600; }
+
+p {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 14px; }
+
+.p--description {
+  color: #929292;
+  font-size: 14px; }
 
 .outl--blue {
   border: 1px solid #ffffff; }
   .outl--blue:hover {
-    border: 1px solid #ffffff;
+    border: 1px solid #3C90FC;
     outline: 3px solid rgba(59, 143, 252, 0.4); }
 
 .outl--white {
@@ -102,10 +128,45 @@
     border: 1px solid #3C90FC;
     outline: 3px solid rgba(250, 250, 250, 0.4); }
 
+.input {
+  background: #ffffff;
+  height: 50px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+  .input i {
+    cursor: text;
+    margin: 10px; }
+  .input input {
+    background: transparent;
+    border: 0;
+    outline: none;
+    height: 100%;
+    width: 100%;
+    font-size: 15px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400; }
+
+i {
+  font-size: 20px;
+  color: #2a2a2a; }
+
+.input--ow {
+  border: 1px solid #c5c5c5; }
+
+.input--ob {
+  border: 1px solid #3C90FC; }
+
+#icon--pass {
+  cursor: pointer; }
+
 body {
   margin: 0;
   padding: 0;
-  border: 0; }
+  border: 0;
+  font-family: "Inter", sans-serif;
+  font-weight: 400; }
 
 * {
   box-sizing: border-box; }
@@ -129,25 +190,7 @@ button {
     height: 21px;
     margin-left: 10px; }
 
-h1, h2, h3 {
-  margin: 16px 0; }
-
-h1, h2 {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600; }
-
-h3 {
-  font-family: "Inter", sans-serif;
-  font-weight: 600; }
-
-p {
-  font-family: "Inter", sans-serif;
-  font-weight: 400; }
-
-.p--descr {
-  color: #929292; }
-
-label {
+.label {
   background: #FFF982;
   padding: 10px 25px;
   border-radius: 8px;
@@ -168,7 +211,10 @@ label {
     background: #ffffff;
     transform: translate(25px, -10px);
     position: absolute;
-    font-family: unset; }
+    font-family: unset;
+    padding: 0 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500; }
 
 .parent {
   margin: 25px 25px;
@@ -187,3 +233,21 @@ a {
   cursor: pointer; }
   .a--icon img {
     width: 100%; }
+
+.message {
+  border-radius: 8px;
+  min-width: 400px;
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto; }
+  .message h3, .message p, .message div {
+    border: 1px solid red; }
+  .message h3, .message p {
+    margin: 0; }
+  .message div {
+    grid-row: 1 / 3;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #fafafa; }
