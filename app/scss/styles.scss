@@ -6,9 +6,9 @@
 @import "components/input";
 @import "components/message";
 @import "compatibility";
+@import "components/slider";
 
 @import "pages/home";
-@import "pages/animations";
 
 body{
     margin: 0;
@@ -19,6 +19,7 @@ body{
 *{
     box-sizing: border-box;
 }
+// TODO rediseñar header
 header{
     background: setcolor(blue);
     padding: $container--padd-max;
@@ -52,9 +53,6 @@ button{
         height: 21px;
     }
 }
-
-
-
 // Label
 .label{
     background: setcolor(yellow);
@@ -78,6 +76,13 @@ a{
     img{
         height: 100%;
     }
+}
+main{
+    padding: $main--padd;
+}
+footer{
+    background: setcolor(white, lights);
+    border: $border--px solid setcolor(gray, light);
 }
  
 // Propiedades provisionales para previsualizar

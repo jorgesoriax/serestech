@@ -1,0 +1,53 @@
+.container--slider{
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+.slider{
+    display: flex;
+    // El width debe ser equivalente a nuestra cantidad
+    // de imagenes, cada imagen ocupa 100%
+    // por lo que, 3 imagenes = 300%
+    width: 300%;
+    max-height: 400px;
+    margin-left: -100%;
+
+    background-color: green;
+}
+.slider--section{
+    width: 100%;
+    
+    img{
+        display: block;
+        width: 100%;
+    }
+}
+.slider--button{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    top: calc(50% - 25px);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+
+    opacity: .25;
+    transition: .1s;
+
+    &:hover{
+        opacity: 1;
+    }
+    
+    i{
+        font-size: $i--font-size-max;
+    }
+}
+.slider--button-r{
+    right: $container--padd-max;
+}
+.slider--button-l{
+    left: $container--padd-max;
+}

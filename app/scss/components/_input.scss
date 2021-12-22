@@ -21,10 +21,12 @@
         width: 100%;
         font-size: $paragraph--font-size;
         @include font-family($font--title,400);
+
+        cursor: text;
     }
 }
 i{
-    font-size: $i--font-size;
+    font-size: $i--font-size-min;
     color: setcolor(black);
 }
 
@@ -71,7 +73,7 @@ i{
         width: 25px;
         height: 25px;
 
-        font-size: $i--font-size;
+        font-size: $i--font-size-min;
         line-height: 25px;
         text-align: center;
 

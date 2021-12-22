@@ -146,7 +146,8 @@ p {
     width: 100%;
     font-size: 14px;
     font-family: "Inter", sans-serif;
-    font-weight: 400; }
+    font-weight: 400;
+    cursor: text; }
 
 i {
   font-size: 20px;
@@ -241,7 +242,49 @@ i {
 .message--error h3 {
   color: #ED4025; }
 
-.nav--buttons-l {
+.container--slider {
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+  position: relative; }
+
+.slider {
+  display: flex;
+  width: 300%;
+  max-height: 400px;
+  margin-left: -100%;
+  background-color: green; }
+
+.slider--section {
+  width: 100%; }
+  .slider--section img {
+    display: block;
+    width: 100%; }
+
+.slider--button {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  top: calc(50% - 25px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  opacity: .25;
+  transition: .1s; }
+  .slider--button:hover {
+    opacity: 1; }
+  .slider--button i {
+    font-size: 35px; }
+
+.slider--button-r {
+  right: 25px; }
+
+.slider--button-l {
+  left: 25px; }
+
+.nav--buttons-r {
   display: flex;
   align-items: center;
   gap: 25px; }
@@ -315,6 +358,12 @@ a {
   cursor: pointer; }
   .a--icon img {
     height: 100%; }
+
+main {
+  padding: 25px 50px; }
+
+footer {
+  border: 1px solid #c5c5c5; }
 
 #container--library {
   border: 1px solid #c5c5c5;
