@@ -7,8 +7,8 @@
 @import "components/message";
 @import "compatibility";
 
-// TODO Corregir color blanco para botón afirmativo puede ser poco legible
-// TODO Corregir que se puedan arrastrar y seleccionar elementos
+@import "pages/home";
+@import "pages/animations";
 
 body{
     margin: 0;
@@ -22,9 +22,16 @@ body{
 header{
     background: setcolor(blue);
     padding: $container--padd-max;
+    width: 100%;
+    
+    display: grid;
+    grid-template-columns: 245.35px auto 419.45px;
+    align-items: center;
+    gap: $gap--max;
 
-    img{
+    > img{
         height: 30px;
+        cursor: pointer;
     }
 }
 button{
@@ -33,10 +40,11 @@ button{
     font-size: $button--font-size;
     cursor: pointer;
 
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
+    @include font-family($font--title, 600);
 
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
     justify-content: center;
     gap: $gap--min;
 
@@ -63,17 +71,18 @@ a{
 .a--icon{
     width: 35px;
     height: 35px;
+    display: block;
     border-radius: 100%;
     cursor: pointer;
 
     img{
-        width: 100%;
+        height: 100%;
     }
 }
-
+ 
 // Propiedades provisionales para previsualizar
 // los estilos de cada elemento
-#container--temp{
+#container--library{
     border: 1px solid setcolor(gray, light);
     padding: 25px;
     border-radius: $border--rad-max;
@@ -83,7 +92,7 @@ a{
     grid-template-columns: auto;
     gap: 25px;
 
-    #container--title{
+    #container--library-title{
         background: setcolor(white);
         transform: translate(25px, -10px);
         position: absolute;

@@ -1,13 +1,13 @@
 // MAP Outline states over white background
 $outline--overwhite: (
-    blue: (
+    blue-ow: (
         setcolor(blue ),
         setcolor(blue, outl)
     )
 );
 // MAP Outline states over blue background
 $outline-overblue: (
-    white: (
+    white-ob: (
         setcolor(blue),
         setcolor(white, outl)
     )

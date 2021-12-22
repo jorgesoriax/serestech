@@ -19,7 +19,7 @@
         outline: none;
         height: 100%;
         width: 100%;
-        font-size: $button--font-size;
+        font-size: $paragraph--font-size;
         @include font-family($font--title,400);
     }
 }
@@ -33,7 +33,7 @@ i{
     
 }
 .input--ob{
-    border: $border--px solid setcolor(blue);
+    border: $border--px solid transparent;
     
 }
 #icon--pass{

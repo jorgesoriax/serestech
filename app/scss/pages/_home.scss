@@ -1,0 +1,7 @@
+@import "../components/size";
+
+.nav--buttons-l{
+    display: flex;
+    align-items: center;
+    gap: $gap--max;
+}

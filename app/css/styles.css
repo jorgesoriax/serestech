@@ -116,15 +116,15 @@ p {
   color: #929292;
   font-size: 14px; }
 
-.outl--blue {
+.outl--blue-ow {
   border: 1px solid #ffffff; }
-  .outl--blue:hover {
+  .outl--blue-ow:hover {
     border: 1px solid #3C90FC;
     outline: 3px solid rgba(59, 143, 252, 0.4); }
 
-.outl--white {
+.outl--white-ob {
   border: 1px solid #3C90FC; }
-  .outl--white:hover {
+  .outl--white-ob:hover {
     border: 1px solid #3C90FC;
     outline: 3px solid rgba(250, 250, 250, 0.4); }
 
@@ -144,7 +144,7 @@ p {
     outline: none;
     height: 100%;
     width: 100%;
-    font-size: 15px;
+    font-size: 14px;
     font-family: "Inter", sans-serif;
     font-weight: 400; }
 
@@ -156,7 +156,7 @@ i {
   border: 1px solid #c5c5c5; }
 
 .input--ob {
-  border: 1px solid #3C90FC; }
+  border: 1px solid transparent; }
 
 #icon--pass {
   cursor: pointer; }
@@ -241,6 +241,11 @@ i {
 .message--error h3 {
   color: #ED4025; }
 
+.nav--buttons-l {
+  display: flex;
+  align-items: center;
+  gap: 25px; }
+
 body {
   margin: 0;
   padding: 0;
@@ -253,18 +258,26 @@ body {
 
 header {
   background: #3C90FC;
-  padding: 25px; }
-  header img {
-    height: 30px; }
+  padding: 25px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 245.35px auto 419.45px;
+  align-items: center;
+  gap: 25px; }
+  header > img {
+    height: 30px;
+    cursor: pointer; }
 
 button {
   border-radius: 8px;
   padding: 10px 25px;
   font-size: 15px;
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  display: flex;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
   justify-content: center;
   gap: 10px; }
   button img {
@@ -297,12 +310,13 @@ a {
 .a--icon {
   width: 35px;
   height: 35px;
+  display: block;
   border-radius: 100%;
   cursor: pointer; }
   .a--icon img {
-    width: 100%; }
+    height: 100%; }
 
-#container--temp {
+#container--library {
   border: 1px solid #c5c5c5;
   padding: 25px;
   border-radius: 15px;
@@ -310,7 +324,7 @@ a {
   display: grid;
   grid-template-columns: auto;
   gap: 25px; }
-  #container--temp #container--title {
+  #container--library #container--library-title {
     background: #ffffff;
     transform: translate(25px, -10px);
     position: absolute;
