@@ -10,10 +10,11 @@
     <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
     
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 <body>
+    <div id="responsive-indicator"></div>
 <!-- ||||||||||||||||||||||||||||| HEADER ||||||||||||||||||||||||||||| -->
     <header>
 
@@ -81,7 +82,7 @@
 
     </header>
  <!-- ||||||||||||||||||||||||||||| SLIDER ||||||||||||||||||||||||||||| -->   
-    <section class="container--slider">
+    <!-- <section class="container--slider">
         <div class="slider" id="slider">
 
             <div class="slider--section">
@@ -105,31 +106,136 @@
         <button class="button--neutral-ow slider--button slider--button-l" id="button--l">
             <i class='bx bx-chevron-left'></i>
         </button>
-    </section>
+    </section> -->
 <!-- ||||||||||||||||||||||||||||| MAIN ||||||||||||||||||||||||||||| -->
-    <main>
-        <h2>Nuestro stock</h2>
-        <div>
-            <div>
-                <img src="img/" alt="Imagen de laptop">
-                <div>@etiqueta</div>
+    <main id="main--products">
+    <!-- 💻 PRODUCT CARD 💻 -->
+        <div id="container--catalog">
+            <h2>Nuestro stock</h2>
+
+            <!-- TODO Corregir cambios de altura -->
+
+            <div id="catalog">
+                <div class="box--ow product--card" id="1">
+                    <div class="product--image">
+                        <label class="label">Nuevo</label>
+
+                        <img src="img/products/img4.jpg">
+                    </div>
+                    <div class="product--info">
+                        <h3 id="product--title">
+                            Huawei MateBook D15
+                        </h3>
+
+                        <p id="product--description" class="p--description" >
+                           Space gray 15.6", Intel Core i3 1011 0U 8GB de RAM 256GB SSD
+                        </p>
+
+                        <h2 id="product--price">
+                            $ 12,499
+                        </h2>
+                        <p id="product--discount">
+                            20% OFF
+                        </p>
+                        <p id="product--orig-price" class="p--description">
+                            $ 15,999
+                        </p>
+                    </div>
+                </div>
+                <div class="box--ow product--card" id="1">
+                    <div class="product--image">
+                        <label class="label">Nuevo</label>
+
+                        <img src="img/products/img5.jpg">
+                    </div>
+                    <div class="product--info">
+                        <h3 id="product--title">
+                            Huawei MateBook D15
+                        </h3>
+
+                        <p id="product--description" class="p--description" >
+                           Space gray 15.6", Intel Core i3 1011 0U 8GB de RAM 256GB SSD
+                        </p>
+
+                        <h2 id="product--price">
+                            $ 12,499
+                        </h2>
+                        <p id="product--discount">
+                            20% OFF
+                        </p>
+                        <p id="product--orig-price" class="p--description">
+                            $ 15,999
+                        </p>
+                    </div>
+                </div>
+                <div class="box--ow product--card" id="1">
+                    <div class="product--image">
+                        <label class="label">Nuevo</label>
+
+                        <img src="img/products/img6.jpg">
+                    </div>
+                    <div class="product--info">
+                        <h3 id="product--title">
+                            Huawei MateBook D15
+                        </h3>
+
+                        <p id="product--description" class="p--description" >
+                           Space gray 15.6", Intel Core i3 1011 0U 8GB de RAM 256GB SSD
+                        </p>
+
+                        <h2 id="product--price">
+                            $ 12,499
+                        </h2>
+                        <p id="product--discount">
+                            20% OFF
+                        </p>
+                        <p id="product--orig-price" class="p--description">
+                            $ 15,999
+                        </p>
+                    </div>
+                </div>
+                <div class="box--ow product--card" id="1">
+                    <div class="product--image">
+                        <label class="label">Nuevo</label>
+
+                        <img src="img/products/img1.webp">
+                    </div>
+                    <div class="product--info">
+                        <h3 id="product--title">
+                            Huawei MateBook D15
+                        </h3>
+
+                        <p id="product--description" class="p--description" >
+                           Space gray 15.6", Intel Core i3 1011 0U 8GB de RAM 256GB SSD
+                        </p>
+
+                        <h2 id="product--price">
+                            $ 12,499
+                        </h2>
+                        <p id="product--discount">
+                            20% OFF
+                        </p>
+                        <p id="product--orig-price" class="p--description">
+                            $ 15,999
+                        </p>
+                    </div>
+                </div>
             </div>
-            <h2>$ 00,000</h2>
-            <h5>$ 00,000</h5>
-            <h5>20% OFF</h5>
-            <p>Este es el contenido para la descripción del producto</p>
-        </div>
-        
-        <div>
+    
+
+    <!-- PRODUCT CARD -->
+    <!-- ➡️ PAGE NAVIGATION BUTTONS ➡️ -->
+        <!-- <div>
             <button class="button--neutral-ow">Anterior</button>
             <button class="button--neutral-ow">1</button>
             <button class="button--neutral-ow">2</button>
             <button class="button--neutral-ow">3</button>
             <button class="button--neutral-ow">Siguiente</button>
-        </div>
+        </div> -->
+    <!-- PAGE NAVIGATION BUTTONS -->
     </main>
 <!-- ||||||||||||||||||||||||||||| FOOTER ||||||||||||||||||||||||||||| -->
-    <footer>
+    <!-- <footer>
         <div class="nav--buttons-r">
             <a class="a--icon outl--blue-ow" target="_blank" rel="noopener noreferrer"
             href="https://www.facebook.com/SeresTech21/" >
@@ -159,7 +265,7 @@
                 @Metodos de pago convencionales
             </div>
         </div>
-    </footer>
+    </footer> -->
 
     <script src="js/scripts.js"></script>
     <script src="js/slider.js"></script>

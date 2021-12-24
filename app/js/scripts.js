@@ -18,5 +18,5 @@ const showHiddenPass = (inputPass, iconPass) => {
 showHiddenPass('input--pass','icon--pass');
 
 // Prevenir window.open()
-var newWindow = window.open();
-newWindow.opener = null;
+// var newWindow = window.open();
+// newWindow.opener = null;

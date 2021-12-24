@@ -1,29 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-$font--head:  'Poppins', sans-serif;
+$font--head:  'Open sans', sans-serif;
 $font--title: 'Inter', sans-serif;
 
-@mixin font-family($type, $weight:600){
+@mixin font-family($type, $weight:500){
     font-family: $type;
     font-weight: $weight;
 }
 
 // Fuentes utilizadas en el proyecto
 h1, h2, h3, p{
-    margin: $font--margin;
-}
-h1, h2{
-    @include font-family($font--head);
+    margin: $font--margin 0;
 }
 h1{
+    @include font-family($font--head,600);
     font-size: $head--font-size;
 }
 h2{
+    @include font-family($font--head,600);
     font-size: $title--font-size;
 }
 h3{
-    @include font-family($font--title)
+    @include font-family($font--title);
 }
 p{
     @include font-family($font--title,400);

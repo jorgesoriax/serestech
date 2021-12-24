@@ -5,16 +5,18 @@
 @import "components/outline";
 @import "components/input";
 @import "components/message";
-@import "compatibility";
 @import "components/slider";
 
+@import "pages/compatibility";
 @import "pages/home";
+@import "pages/responsive";
 
 body{
     margin: 0;
     padding: 0;
     border: 0;
     @include font-family($font--title, 400);
+    color: setcolor(black);
 }
 *{
     box-sizing: border-box;
@@ -53,7 +55,6 @@ button{
         height: 21px;
     }
 }
-// Label
 .label{
     background: setcolor(yellow);
     padding: $button-text--padd;
@@ -62,6 +63,7 @@ button{
     color: setcolor(orange);
     @include font-family($font--title,500);
     @include noselect;
+    font-size: $description--font-size;
 }
 a{
     cursor: pointer;
@@ -92,7 +94,6 @@ footer{
     padding: 25px;
     border-radius: $border--rad-max;
     position: relative;
-
     display: grid;
     grid-template-columns: auto;
     gap: 25px;
@@ -112,4 +113,9 @@ footer{
 }
 .onblue{
     background: setcolor(blue);
+}
+.box--ow{
+    background: setcolor(white, light);
+    border: $border--px solid setcolor(gray, light);
+    border-radius: $border--rad-max;
 }

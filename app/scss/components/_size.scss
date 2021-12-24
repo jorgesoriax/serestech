@@ -13,6 +13,7 @@ $border--rad-max: 15px;
 $outline--px: 3px;
 
 // Paddings
+$container--padd-min: 15px;
 $container--padd-max: 25px;
 $button-text--padd: 10px 25px;
 $main--padd: 25px 50px;
@@ -24,3 +25,10 @@ $i--font-size-max: 35px;
 // Gap
 $gap--min: 10px;
 $gap--max: 25px;
+
+// Width
+// Container product card
+$cont--p-card--min-width: 1075px;
+
+// Animations
+$short--transition: .1s;
