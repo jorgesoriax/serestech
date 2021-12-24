@@ -1,27 +1,31 @@
-@import "../components/size";
+@import "../vars/sizes";
 
-// * CARD
+// * CONTENEDOR DERECHO DE LINKS
+// * Contiene diferentes acciones y se encuentra
+// * situado a la derecha del header
+
 .nav--buttons-r{
     display: flex;
     align-items: center;
     gap: $gap--max;
 }
 
-// * PRODUCT CARD 
+// * SLIDER
+// * Estilos para el despliegue de diapositivas
+// * que se encuentra en el home
 
-// TODO reordenar ficheros
-// TODO crear un fichero para mixins en general
-// TODO añadir mixin para diplay flex center
 
-#main--products{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
+// * TARJETAS DE PRODUCTO
+// * Estilos para la caja de productos que se
+// * encuentran en el main de home 
+
+// #main--products{
+//     @include flex;
+// }
 #container--catalog{
     width: 952px;
     max-width: $cont--p-card--min-width;
-    // border: 1px solid rgba(0, 0, 255, .1);
 }
 #catalog{
     width: 100%;
@@ -90,7 +94,6 @@
     #product--orig-price{
         margin: 0;
         text-decoration: line-through;
-        
         opacity: 0;
         transform: translateY(-17px);
         transition: $short--transition;

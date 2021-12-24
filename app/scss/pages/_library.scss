@@ -1,0 +1,25 @@
+#container--library{
+    border: 1px solid setcolor(gray, light);
+    padding: 25px;
+    border-radius: $border--rad-max;
+    position: relative;
+    display: grid;
+    grid-template-columns: auto;
+    gap: 25px;
+
+    #container--library-title{
+        background: setcolor(white);
+        transform: translate(25px, -10px);
+        position: absolute;
+        font-family: unset;
+        padding: 0 10px;
+        @include font-family($font--head,500);
+    }
+}
+.parent{
+    margin: 25px 25px;
+    float: left;
+}
+.onblue{
+    background: setcolor(blue);
+}

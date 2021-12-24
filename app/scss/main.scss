@@ -1,15 +1,20 @@
-@import "components/color";
-@import "components/button";
-@import "components/size";
-@import "components/font";
-@import "components/outline";
-@import "components/input";
-@import "components/message";
+@import "vars/colors";
+@import "vars/typography";
+@import "vars/sizes";
+
+@import "components/buttons";
+@import "components/inputs";
+@import "components/messages";
+@import "components/outlines";
 @import "components/slider";
 
-@import "pages/compatibility";
 @import "pages/home";
-@import "pages/responsive";
+@import "pages/library";
+
+@import "tools/animations";
+@import "tools/breakpoints";
+@import "tools/crossbrowsing";
+@import "tools/mixins";
 
 body{
     margin: 0;
@@ -21,7 +26,6 @@ body{
 *{
     box-sizing: border-box;
 }
-// TODO rediseñar header
 header{
     background: setcolor(blue);
     padding: $container--padd-max;
@@ -42,9 +46,7 @@ button{
     padding: $button-text--padd;
     font-size: $button--font-size;
     cursor: pointer;
-
     @include font-family($font--title, 600);
-
     display: grid;
     grid-template-columns: auto auto;
     align-items: center;
@@ -85,34 +87,6 @@ main{
 footer{
     background: setcolor(white, lights);
     border: $border--px solid setcolor(gray, light);
-}
- 
-// Propiedades provisionales para previsualizar
-// los estilos de cada elemento
-#container--library{
-    border: 1px solid setcolor(gray, light);
-    padding: 25px;
-    border-radius: $border--rad-max;
-    position: relative;
-    display: grid;
-    grid-template-columns: auto;
-    gap: 25px;
-
-    #container--library-title{
-        background: setcolor(white);
-        transform: translate(25px, -10px);
-        position: absolute;
-        font-family: unset;
-        padding: 0 10px;
-        @include font-family($font--head,500);
-    }
-}
-.parent{
-    margin: 25px 25px;
-    float: left;
-}
-.onblue{
-    background: setcolor(blue);
 }
 .box--ow{
     background: setcolor(white, light);
