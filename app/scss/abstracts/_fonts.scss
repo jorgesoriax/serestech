@@ -1,11 +1,11 @@
+@use "sizes" as *;
+
 @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
-@import "../vars/sizes";
 
 $font--head:  'Open sans', sans-serif;
 $font--title: 'Inter', sans-serif;
@@ -15,7 +15,6 @@ $font--title: 'Inter', sans-serif;
     font-weight: $weight;
 }
 
-// Fuentes utilizadas en el proyecto
 h1, h2, h3, p{
     margin: $font--margin 0;
 }
@@ -33,9 +32,4 @@ h3{
 p{
     @include font-family($font--title,400);
     font-size: $paragraph--font-size;
-}
-// Clase para p, indica que se trata de un elemento decriptivo
-.p--description{
-    color: setcolor(gray);
-    font-size: $description--font-size;
 }

@@ -1,0 +1,41 @@
+@use "../abstracts" as *;
+@use "../tools/crossbrowsing" as *;
+
+// * Label
+.label{
+    background: setcolor(yellow);
+    padding: $button-text--padd;
+    border-radius: $border--rad-min;
+    border: $border--px solid setcolor(orange);
+    color: setcolor(orange);
+    @include font-family($font--title,500);
+    @include noselect;
+    font-size: $description--font-size;
+}
+// * Iconos con enlace
+// Comportamiento de un enlace con imagen
+.a--icon{
+    width: 35px;
+    height: 35px;
+    display: block;
+    border-radius: 100%;
+    cursor: pointer;
+
+    img{
+        height: 100%;
+    }
+}
+// * Box
+// Estilos básicos para un elemento box básico
+.box--ow{
+    background: setcolor(white, light);
+    border: $border--px solid setcolor(gray, light);
+    border-radius: $border--rad-max;
+}
+// * Texto descriptivo
+// Se utiliza para indicar que el texto contenido 
+// se trata de una descripción
+.p--description{
+    color: setcolor(gray);
+    font-size: $description--font-size;
+}

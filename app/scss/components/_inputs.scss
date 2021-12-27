@@ -1,12 +1,14 @@
-@import "../tools/crossbrowsing";
+@use "../abstracts" as *;
+@use "../tools/crossbrowsing" as *;
+@use "../tools/mixins" as *;
+
+// * INPUT
 .input{
     background: setcolor(white);
     height: 50px;
     border-radius: $border--rad-min;
-
-    display: flex;
+    @include flex;
     flex-direction: row;
-    align-items: center;
 
     i{
         cursor: text;
@@ -21,7 +23,6 @@
         width: 100%;
         font-size: $paragraph--font-size;
         @include font-family($font--title,400);
-
         cursor: text;
     }
 }
@@ -29,61 +30,57 @@ i{
     font-size: $i--font-size-min;
     color: setcolor(black);
 }
-
+// Estilos auxiliares para estado
 .input--ow{
     border: $border--px solid setcolor(gray, light);
-    
 }
 .input--ob{
     border: $border--px solid transparent;
-    
 }
+// Cursor del icono interactivo del input pass
 #icon--pass{
     cursor: pointer;
 }
 @include placeholder--color;
 
-// Checkbox
+// * CHECKBOX
 .checkbox{
-    display: flex;
+    @include flex;
     flex-direction: row;
     gap: $gap--min;
-    align-items: center;
 
-    // Hidden input
+    // Input hidden
     input{
         position: absolute;
         visibility: hidden;
         
-        // When checkbox is checked, add this styles
+        // Cuando checkbox se encuentra checked, se añaden los sig estilos
         &:checked ~ .checkmark{
             background-color: setcolor(blue);
             border: $border--px solid setcolor(blue, dark);
         }
-        // When checkbox is checked, show i
+        // Cuando checkbox se encuentra checked, se muestra i(icono)
         &:checked ~ .checkmark > i{
             display: block;
         }
     }
 
+    // Elemento que sustituye a input(el cuál sera ocultado)
     .checkmark{
         background: setcolor(white, light);
         border-radius: $border--rad-min;
         cursor: pointer;
         width: 25px;
         height: 25px;
-
+        border: $border--px solid setcolor(gray,light);
         font-size: $i--font-size-min;
         line-height: 25px;
         text-align: center;
 
-        // By default i is hidden
+        // Por default, i esta oculta
         i{
             display: none;
             color: setcolor(white);
         }
     }
-}
-.checkmark{
-    border: $border--px solid setcolor(gray,light)
 }

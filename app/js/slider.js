@@ -2,7 +2,7 @@ const slider = document.querySelector('#slider');
 let sliderSection = document.querySelectorAll('.slider--section');
 let sliderSectionLast = sliderSection[sliderSection.length -1] // Obtener último section
 
-// Esta variable no permiten la ejecución de una nueva instrucción
+// Esta variable no permite la ejecución de una nueva instrucción
 // hasta que no termine la anterior, 
 // resuelve el problema de interrupción de instrucciones
 let sliderState = 0;
@@ -24,7 +24,6 @@ function slideToRight(){
             slider.style.transition = 'none';
             slider.insertAdjacentElement('beforeend', sliderSectionFirst);
             slider.style.marginLeft = '-100%';
-
             // Reiniciar variable despues de 500 ms
             sliderState = 0;
         }, 500)

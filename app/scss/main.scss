@@ -1,21 +1,8 @@
-@import "vars/colors";
-@import "vars/fonts";
-@import "vars/sizes";
+@use "abstracts" as *;
+@use "tools" as *;
 
-@import "components/buttons";
-@import "components/outlines";
-@import "components/inputs";
-@import "components/messages";
-@import "components/slider";
 
-@import "pages/home";
-@import "pages/library";
-
-@import "tools/animations";
-@import "tools/breakpoints";
-@import "tools/crossbrowsing";
-@import "tools/mixins";
-
+// * BASE
 body{
     margin: 0;
     padding: 0;
@@ -57,29 +44,8 @@ button{
         height: 21px;
     }
 }
-.label{
-    background: setcolor(yellow);
-    padding: $button-text--padd;
-    border-radius: $border--rad-min;
-    border: $border--px solid setcolor(orange);
-    color: setcolor(orange);
-    @include font-family($font--title,500);
-    @include noselect;
-    font-size: $description--font-size;
-}
 a{
     cursor: pointer;
-}
-.a--icon{
-    width: 35px;
-    height: 35px;
-    display: block;
-    border-radius: 100%;
-    cursor: pointer;
-
-    img{
-        height: 100%;
-    }
 }
 main{
     padding: $main--padd;
@@ -87,9 +53,4 @@ main{
 footer{
     background: setcolor(white, lights);
     border: $border--px solid setcolor(gray, light);
-}
-.box--ow{
-    background: setcolor(white, light);
-    border: $border--px solid setcolor(gray, light);
-    border-radius: $border--rad-max;
 }

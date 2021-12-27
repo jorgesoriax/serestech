@@ -1,28 +1,68 @@
-@import "../vars/sizes";
+@use "../abstracts" as *;
+@use "../tools/mixins" as *;
 
-// * CONTENEDOR DERECHO DE LINKS
-// * Contiene diferentes acciones y se encuentra
-// * situado a la derecha del header
-
-.nav--buttons-r{
+// * SLIDER
+.container--slider{
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+.slider{
     display: flex;
-    align-items: center;
+    // El width debe ser equivalente a nuestra cantidad de imagenes, 
+    // cada imagen ocupa 100%, por lo que 3 imagenes son igual a 300%.
+    // El cambio en el width no afecta a su función en slider.js
+    width: 300%;
+    max-height: 400px;
+    margin-left: -100%;
+
+}
+.slider--section{
+    width: 100%;
+    
+    img{
+        display: block;
+        width: 100%;
+    }
+}
+.slider--button{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    top: calc(50% - 25px);
+    @include flex;
+    padding: 0;
+
+    opacity: .25;
+    transition: .1s;
+
+    &:hover{
+        opacity: 1;
+    }
+    
+    i{
+        font-size: $i--font-size-max;
+    }
+}
+.slider--button-r{
+    right: $container--padd-max;
+}
+.slider--button-l{
+    left: $container--padd-max;
+}
+
+// * CONTENEDOR HEADER LINKS
+.nav--buttons-r{
+    @include flex;
     gap: $gap--max;
 }
 
-// * SLIDER
-// * Estilos para el despliegue de diapositivas
-// * que se encuentra en el home
-
-
-
-// * TARJETAS DE PRODUCTO
-// * Estilos para la caja de productos que se
-// * encuentran en el main de home 
-
-// #main--products{
-//     @include flex;
-// }
+// * TARJETAS DE PRODUCTO 
+#main--products{
+    @include flex;
+}
 #container--catalog{
     width: 952px;
     max-width: $cont--p-card--min-width;
@@ -56,9 +96,7 @@
     border-bottom: $border--px solid setcolor(gray, light);
     background: setcolor(white);
     border-radius: $border--rad-max $border--rad-max 0 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex;
     position: relative;
     
     label{

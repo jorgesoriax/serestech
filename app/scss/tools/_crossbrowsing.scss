@@ -1,3 +1,6 @@
+@use "../abstracts/" as *;
+
+// * Anula el select de un elemento
 @mixin noselect{
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -7,6 +10,7 @@
   user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
+// * Color del placeholder de los inputs
 @mixin placeholder--color{
   ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color: setcolor(gray);

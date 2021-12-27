@@ -1,15 +1,14 @@
-@import "../vars/sizes";
+@use "../abstracts" as *;
 
-// Buttons
-// Property list:
-//  1 background-color
-//  2 background-color:active
-//  3 border
-//  4 border:active
-//  5 outline:hover
-//  6 color
+// * Property list:
+// * 1 background-color
+// * 2 background-color:active
+// * 3 border
+// * 4 border:active
+// * 5 outline:hover
+// * 6 color
 
-// MAP Button states over white background
+// * MAP Button states over white background
 $buttons--overwhite: (
     positive-ow: (
         setcolor(green),        
@@ -52,7 +51,7 @@ $buttons--overwhite: (
         setcolor(white)
     )
 );
-// MAP Button states over blue background
+// * MAP Button states over blue background
 $buttons--overblue: (
     positive-ob: (
         setcolor(green),
@@ -87,7 +86,7 @@ $buttons--overblue: (
         setcolor(white)
     )
 );
-// EACH Button states over white background
+// * EACH Button states over white background
 @each $name, $colors in $buttons--overwhite{
     $bg--color: nth($colors, 1);
     $bg--color-active: nth($colors, 2);
@@ -109,7 +108,7 @@ $buttons--overblue: (
         }
     }
 }
-// EACH Button states over blue background
+// * EACH Button states over blue background
 @each $name, $colors in $buttons--overblue{
     $bg--color: nth($colors, 1);
     $bg--color-active: nth($colors, 2);
