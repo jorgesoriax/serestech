@@ -1,5 +1,6 @@
 @use "../abstracts" as *;
 @use "../tools/crossbrowsing" as *;
+@use "../tools/mixins" as *; 
 
 // * Label
 .label{
@@ -26,7 +27,7 @@
     }
 }
 // * Box
-// Estilos básicos para un elemento box básico
+// Estilos para un elemento box básico
 .box--ow{
     background: setcolor(white, light);
     border: $border--px solid setcolor(gray, light);
@@ -38,4 +39,15 @@
 .p--description{
     color: setcolor(gray);
     font-size: $description--font-size;
+}
+// * Paginación
+.pagination{
+    @include flex;
+    gap: $gap--min;
+    padding-top: $container--padd-max * 5;
+}
+// * Boton cuadrado
+.sq{
+    width: 39px;
+    padding: 10px 0;
 }

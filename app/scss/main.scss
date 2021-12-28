@@ -1,5 +1,6 @@
 @use "abstracts" as *;
 @use "tools" as *;
+@use "tools/mixins" as *;
 
 
 // * BASE
@@ -34,10 +35,7 @@ button{
     font-size: $button--font-size;
     cursor: pointer;
     @include font-family($font--title, 600);
-    display: grid;
-    grid-template-columns: auto auto;
-    align-items: center;
-    justify-content: center;
+    @include flex;
     gap: $gap--min;
 
     img{
@@ -50,7 +48,48 @@ a{
 main{
     padding: $main--padd;
 }
+
+// TODO terminar de ordenar FOOTER
+
 footer{
-    background: setcolor(white, lights);
+    background: setcolor(white, light);
     border: $border--px solid setcolor(gray, light);
+    display: flex;
+    flex-wrap: wrap;
+
+    padding: $container--padd-max;
+
+    justify-content: right;
+
+    div{
+        width: 50%;
+        border: 1px solid rgba(255, 0, 0,.1);
+        gap: $gap--min;
+
+        > img{
+            height: 25px;
+        }
+    }
+
+    .nav--buttons{
+        justify-content: left;
+    }
+    #adress{
+        justify-content: left;
+        position: relative;
+
+        p{
+            margin: 0;
+            position: absolute;
+            bottom: 0;
+        }
+    }
+    #cryptocurrencies{
+        padding: 0;
+        float: right;
+    }
+    #currencies{
+        float: right;
+    }
+
 }

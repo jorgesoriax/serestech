@@ -24,8 +24,7 @@ $color-scheme: (                        // * Lista de usos, si no se especifica 
         base: #3C90FC,                // Background-color de head
         light: #3C8AFC,               // Background-color:active
         dark: #276FCC,                // Border
-        actv: red,                    // ! deprecated
-        actv-ob: red,                 // ! deprecated
+        actv: #EDF5FF,                // Background-color:active
         outl: rgba(59, 143, 252, .4)  // Outline overwhite
     ),
     red: (

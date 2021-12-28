@@ -79,7 +79,7 @@ p {
   color: #2a2a2a;
 }
 .button--neutral-ow:active {
-  background: red;
+  background: #EDF5FF;
 }
 .button--neutral-ow:hover {
   outline: 3px solid rgba(59, 143, 252, 0.4);
@@ -144,7 +144,7 @@ p {
   color: #2a2a2a;
 }
 .button--neutral-ob:active {
-  background: red;
+  background: #EDF5FF;
 }
 .button--neutral-ob:hover {
   outline: 3px solid rgba(250, 250, 250, 0.4);
@@ -347,6 +347,19 @@ i {
   font-size: 14px;
 }
 
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 125px;
+}
+
+.sq {
+  width: 39px;
+  padding: 10px 0;
+}
+
 .container--slider {
   width: 100%;
   margin: auto;
@@ -397,7 +410,7 @@ i {
   left: 25px;
 }
 
-.nav--buttons-r {
+.nav--buttons {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -428,11 +441,8 @@ i {
   cursor: pointer;
   transition: 0.1s;
 }
-.product--card:hover .product--info {
-  height: 173px;
-}
 .product--card:hover #product--orig-price {
-  transform: translateY(0);
+  transform: translate(105px, -28px);
   opacity: 1;
 }
 
@@ -459,7 +469,7 @@ i {
 }
 
 .product--info {
-  height: 156px;
+  height: 147.33px;
   display: grid;
   grid-template-columns: auto auto;
   transition: 0.1s;
@@ -480,7 +490,7 @@ i {
   margin: 0;
   text-decoration: line-through;
   opacity: 0;
-  transform: translateY(-17px);
+  transform: translate(65px, -28px);
   transition: 0.1s;
 }
 .product--info #product--discount {
@@ -923,8 +933,7 @@ button {
   cursor: pointer;
   font-family: "Inter", sans-serif;
   font-weight: 600;
-  display: grid;
-  grid-template-columns: auto auto;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
@@ -942,7 +951,39 @@ main {
 }
 
 footer {
+  background: #fafafa;
   border: 1px solid #c5c5c5;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 25px;
+  justify-content: right;
+}
+footer div {
+  width: 50%;
+  border: 1px solid rgba(255, 0, 0, 0.1);
+  gap: 10px;
+}
+footer div > img {
+  height: 25px;
+}
+footer .nav--buttons {
+  justify-content: left;
+}
+footer #adress {
+  justify-content: left;
+  position: relative;
+}
+footer #adress p {
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+}
+footer #cryptocurrencies {
+  padding: 0;
+  float: right;
+}
+footer #currencies {
+  float: right;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -34,7 +34,6 @@
     top: calc(50% - 25px);
     @include flex;
     padding: 0;
-
     opacity: .25;
     transition: .1s;
 
@@ -54,7 +53,7 @@
 }
 
 // * CONTENEDOR HEADER LINKS
-.nav--buttons-r{
+.nav--buttons{
     @include flex;
     gap: $gap--max;
 }
@@ -80,12 +79,8 @@
     transition: $short--transition;
 
     &:hover{
-        .product--info{
-            height: 173px;
-        }
-
         #product--orig-price{
-            transform: translateY(0);
+            transform: translate(105px,-28px);
             opacity: 1;
         }
     }    
@@ -112,7 +107,7 @@
     }
 }
 .product--info{
-    height: 156px;
+    height: 147.33px;
     display: grid;
     grid-template-columns: auto auto;
     transition: $short--transition;
@@ -133,7 +128,7 @@
         margin: 0;
         text-decoration: line-through;
         opacity: 0;
-        transform: translateY(-17px);
+        transform: translate(65px,-28px);
         transition: $short--transition;
     }
     #product--discount{
