@@ -79,6 +79,8 @@
     transition: $short--transition;
 
     &:hover{
+        transform: translateY(-10px);
+
         #product--orig-price{
             transform: translate(105px,-28px);
             opacity: 1;

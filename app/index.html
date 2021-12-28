@@ -15,7 +15,38 @@
 </head>
 <body>
     <div id="responsive-indicator"></div>
-<!-- ||||||||||||||||||||||||||||| HEADER ||||||||||||||||||||||||||||| -->
+<!-- * ||||||||||||||||||||||||||| MESSENGER |||||||||||||||||||||||||||| -->
+    <!-- Messenger Plugin de chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin de chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "102771732286590");
+    chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+        xfbml            : true,
+        version          : 'v12.0'
+        });
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+<!-- * ||||||||||||||||||||||||||||| HEADER ||||||||||||||||||||||||||||| -->
     <header>
 
         <svg width="100%" height="100%" viewBox="0 0 597 73" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
@@ -81,7 +112,7 @@
         </div>
 
     </header>
- <!-- ||||||||||||||||||||||||||||| SLIDER ||||||||||||||||||||||||||||| -->   
+ <!-- * ||||||||||||||||||||||||||||| SLIDER ||||||||||||||||||||||||||||| -->   
     <section class="container--slider">
         <div class="slider" id="slider">
 
@@ -107,7 +138,7 @@
             <i class='bx bx-chevron-left'></i>
         </button>
     </section>
-<!-- ||||||||||||||||||||||||||||| MAIN ||||||||||||||||||||||||||||| -->
+<!-- * ||||||||||||||||||||||||||||| MAIN ||||||||||||||||||||||||||||| -->
     <main id="main--products">
     <!-- 💻 PRODUCT CARD 💻 -->
         <div id="container--catalog">
@@ -224,7 +255,7 @@
     
 
     <!-- PRODUCT CARD -->
-    <!-- ➡️ PAGE NAVIGATION BUTTONS ➡️ -->
+    <!-- * PAGE NAVIGATION BUTTONS -->
         <div class="pagination">
             <button class="button--neutral-ow">Anterior</button>
             <button class="button--neutral-ow sq">1</button>

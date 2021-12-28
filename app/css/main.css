@@ -441,6 +441,9 @@ i {
   cursor: pointer;
   transition: 0.1s;
 }
+.product--card:hover {
+  transform: translateY(-10px);
+}
 .product--card:hover #product--orig-price {
   transform: translate(105px, -28px);
   opacity: 1;
