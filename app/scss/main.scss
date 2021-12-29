@@ -16,7 +16,7 @@ body{
 }
 header{
     background: setcolor(blue);
-    padding: $container--padd-max;
+    padding: $container--padd-mix;
     width: 100%;
     
     display: grid;
@@ -48,48 +48,11 @@ a{
 main{
     padding: $main--padd;
 }
-
-// TODO terminar de ordenar FOOTER
-
-footer{
-    background: setcolor(white, light);
-    border: $border--px solid setcolor(gray, light);
-    display: flex;
-    flex-wrap: wrap;
-
-    padding: $container--padd-max;
-
-    justify-content: right;
-
-    div{
-        width: 50%;
-        border: 1px solid rgba(255, 0, 0,.1);
-        gap: $gap--min;
-
-        > img{
-            height: 25px;
-        }
-    }
-
-    .nav--buttons{
-        justify-content: left;
-    }
-    #adress{
-        justify-content: left;
-        position: relative;
-
-        p{
-            margin: 0;
-            position: absolute;
-            bottom: 0;
-        }
-    }
-    #cryptocurrencies{
-        padding: 0;
-        float: right;
-    }
-    #currencies{
-        float: right;
-    }
-
+p::selection {
+    background: setcolor(blue);
+    color: setcolor(white);
+}
+p::-moz-selection { /* Firefox */
+    background: setcolor(blue);
+    color: setcolor(white);
 }

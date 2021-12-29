@@ -3,7 +3,7 @@
 // * MAP Outline states over white background
 $outline--overwhite: (
     blue-ow: (
-        setcolor(blue ),
+        setcolor(white),
         setcolor(blue, outl)
     )
 );
@@ -20,7 +20,7 @@ $outline-overblue: (
     $outline--color: nth($colors, 2);
 
     .outl--#{$name}{
-        border: $border--px solid setcolor(white);
+        border: $border--px solid transparent;
 
         &:hover{
             border: $border--px solid $border--color;

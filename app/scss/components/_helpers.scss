@@ -4,6 +4,8 @@
 
 // * Label
 .label{
+    @include flex;
+    gap: $gap--min;
     background: setcolor(yellow);
     padding: $button-text--padd;
     border-radius: $border--rad-min;
@@ -12,6 +14,10 @@
     @include font-family($font--title,500);
     @include noselect;
     font-size: $description--font-size;
+
+    i{
+        color: setcolor(orange);
+    }
 }
 // * Iconos con enlace
 // Comportamiento de un enlace con imagen
