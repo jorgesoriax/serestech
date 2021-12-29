@@ -35,15 +35,15 @@ p {
   border: 1px solid transparent;
 }
 .outl--blue-ow:hover {
-  border: 1px solid #ffffff;
+  border: 1px solid transparent;
   outline: 3px solid rgba(59, 143, 252, 0.4);
 }
 
 .outl--white-ob {
-  border: 1px solid #3C90FC;
+  border: 1px solid transparent;
 }
 .outl--white-ob:hover {
-  border: 1px solid #3C90FC;
+  border: 1px solid transparent;
   outline: 3px solid rgba(250, 250, 250, 0.4);
 }
 
@@ -367,91 +367,17 @@ i {
   padding: 10px 0;
 }
 
-footer {
-  background: #fafafa;
-  border: 1px solid #c5c5c5;
-  padding: 25px 100px;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 50% 50%;
+header #header--logo {
+  display: flex;
+  align-items: center;
 }
-footer div {
-  padding: 15px 0;
+header #header--logo svg {
+  width: 288px;
+  height: 35px;
 }
-footer div > img {
-  height: 30px;
-}
-footer div p {
-  margin: 16px 0;
-  width: 100%;
-}
-
-#footer--logo {
-  grid-column: 1/3;
-  height: 30px;
-  padding: 0;
-  margin: 0 0 15px 0;
-}
-#footer--logo img {
-  height: 100%;
-}
-
-#footer--buttons {
-  border-bottom: 1px solid #c5c5c5;
+header #header--nav--buttons {
+  display: flex;
   justify-content: right;
-  padding-top: 0;
-}
-
-#footer--number {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  gap: 10px;
-  border-bottom: 1px solid #c5c5c5;
-  position: relative;
-  padding-top: 0;
-}
-#footer--number p {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  gap: 10px;
-  position: absolute;
-  bottom: 0;
-}
-
-#footer--adress {
-  position: relative;
-  padding-bottom: 0;
-}
-#footer--adress p {
-  position: absolute;
-  top: 0;
-}
-
-#footer--currencies {
-  display: flex;
-  align-items: center;
-  justify-content: right;
-  gap: 25px;
-  padding-bottom: 0;
-}
-
-#cryptocurrencies {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 25px;
-  padding: 10px;
-}
-
-#i--footer-ig {
-  border-radius: 100%;
-  border: 1px solid #c5c5c5;
-}
-
-#i-footer--visa {
-  height: 25px;
 }
 
 .container--slider {
@@ -595,6 +521,88 @@ footer div p {
   margin: 0;
   color: #37dd77;
   font-weight: 600;
+}
+
+footer {
+  background: #fafafa;
+  border: 1px solid #c5c5c5;
+  padding: 25px 100px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+}
+footer div {
+  padding: 15px 0;
+}
+footer div > img {
+  height: 30px;
+}
+footer div p {
+  margin: 16px 0;
+  width: 100%;
+}
+
+#footer--logo {
+  grid-column: 1/3;
+  height: 30px;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+#footer--logo img {
+  height: 100%;
+}
+
+#footer--buttons {
+  border-bottom: 1px solid #c5c5c5;
+  justify-content: right;
+  padding-top: 0;
+}
+
+#footer--number {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 10px;
+  border-bottom: 1px solid #c5c5c5;
+  position: relative;
+  padding-top: 0;
+}
+#footer--number p {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 10px;
+  position: absolute;
+  bottom: 0;
+}
+
+#footer--adress {
+  position: relative;
+  padding-bottom: 0;
+}
+#footer--adress p {
+  position: absolute;
+  top: 0;
+}
+
+#footer--currencies {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 25px;
+  padding-bottom: 0;
+}
+
+#cryptocurrencies {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  padding: 10px;
+}
+
+#i-footer--visa {
+  height: 25px;
 }
 
 #container--library {
@@ -1011,9 +1019,10 @@ header {
   padding: 25px 100px;
   width: 100%;
   display: grid;
-  grid-template-columns: 245.35px auto 419.45px;
-  align-items: center;
-  gap: 25px;
+  grid-template-columns: 30% 40% 30%;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 header > img {
   height: 30px;

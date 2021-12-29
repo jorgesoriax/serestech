@@ -1,3 +1,8 @@
+// * Alerta para dar avisos en la página
+// window.onload = () => {
+//     alert("12/29/21: Por lo pronto, esta página se visualiza correctamente en Firefox");
+// }
+
 const showHiddenPass = (inputPass, iconPass) => {
     const input = document.getElementById(inputPass),
           icon = document.getElementById(iconPass)

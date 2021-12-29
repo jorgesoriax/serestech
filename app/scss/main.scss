@@ -18,11 +18,12 @@ header{
     background: setcolor(blue);
     padding: $container--padd-mix;
     width: 100%;
-    
     display: grid;
-    grid-template-columns: 245.35px auto 419.45px;
-    align-items: center;
-    gap: $gap--max;
+    grid-template-columns: 30% 40% 30%;
+    // Sticky navbar
+    position: sticky;
+    top: 0;
+    z-index: 1;
 
     > img{
         height: 30px;

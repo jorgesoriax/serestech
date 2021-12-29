@@ -1,6 +1,23 @@
 @use "../abstracts" as *;
 @use "../tools/mixins" as *;
 
+// * HEADER
+header{
+    #header--logo{
+        display: flex;
+        align-items: center;
+
+        svg{
+            width: 288px;
+            height: 35px;
+        }
+    }
+    #header--nav--buttons{
+        display: flex;
+        justify-content: right;
+    }
+}
+
 // * SLIDER
 .container--slider{
     width: 100%;
@@ -139,4 +156,80 @@
         color: setcolor(green);
         font-weight: 600;
     }
+}
+
+// * FOOTER
+footer{
+    background: setcolor(white, light);
+    border: $border--px solid setcolor(gray, light);
+    padding: $container--padd-mix;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+
+    div{
+        padding: $container--padd-min 0;
+
+        > img{
+            height: $i--font-size-mid;
+        }
+
+        p{
+            margin: $font--margin 0;
+            width: 100%;
+        }
+    }
+}
+// * ELEMENTOS DEL GRID
+#footer--logo{
+    grid-column: 1 / 3;
+    height: 30px;
+    padding: 0;
+    margin: 0 0 $container--padd-min 0;
+
+    img{
+        height: 100%;
+    }
+}
+#footer--buttons{
+    border-bottom: $border--px solid setcolor(gray, light);
+    justify-content: right;
+    padding-top: 0;
+}
+#footer--number{
+    @include flex(center, left);
+    gap: $gap--min;
+    border-bottom: $border--px solid setcolor(gray, light);
+    position: relative;
+    padding-top: 0;
+
+    p{
+        @include flex(center,left);
+        gap: $gap--min;
+        position: absolute;
+        bottom: 0;
+    }
+}
+#footer--adress{
+    position: relative;
+    padding-bottom: 0;
+
+    p{
+        position: absolute;
+        top: 0;
+    }
+}
+#footer--currencies{
+    @include flex(center,right);
+    gap: $gap--max;
+    padding-bottom: 0;
+}
+#cryptocurrencies{
+    @include flex;
+    gap: $gap--max;
+    padding: $gap--min;
+}
+// * CORRECCIONES
+#i-footer--visa{
+    height: 25px;
 }

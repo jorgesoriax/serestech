@@ -3,14 +3,14 @@
 // * MAP Outline states over white background
 $outline--overwhite: (
     blue-ow: (
-        setcolor(white),
+        transparent,
         setcolor(blue, outl)
     )
 );
 // * MAP Outline states over blue background
 $outline-overblue: (
     white-ob: (
-        setcolor(blue),
+        transparent,
         setcolor(white, outl)
     )
 );
@@ -34,7 +34,7 @@ $outline-overblue: (
     $outline--color: nth($colors, 2);
 
     .outl--#{$name}{
-        border: $border--px solid setcolor(blue);
+        border: $border--px solid transparent;
 
         &:hover{
             border: $border--px solid $border--color;
