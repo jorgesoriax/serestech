@@ -20,22 +20,16 @@ header{
     width: 100%;
     display: grid;
     grid-template-columns: 30% 40% 30%;
-    // Sticky navbar
     position: sticky;
     top: 0;
     z-index: 1;
-
-    > img{
-        height: 30px;
-        cursor: pointer;
-    }
 }
 button{
     border-radius: $border--rad-min;
     padding: $button-text--padd;
     font-size: $button--font-size;
     cursor: pointer;
-    @include font-family($font--title, 600);
+    @include font-family($font--title, 500);
     @include flex;
     gap: $gap--min;
 
@@ -45,6 +39,7 @@ button{
 }
 a{
     cursor: pointer;
+    text-decoration: none;
 }
 main{
     padding: $main--padd;

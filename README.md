@@ -1,2 +1,12 @@
-# SERESTECH WEB
-✅ Aqui encontrarás el registro de los cambios realizados al proyecto.
+# SERESTECH 
+### Tecnologías
+En este proyecto se emplearon las siguientes tecnologías:
+
+- ✅ SASS
+- ✅ CSS
+- ✅ JavaScript
+- ✅ HTML
+- ✅ PHP
+- ✅ phpMyAdmin
+- ✅ Git
+- ✅ GitHub
