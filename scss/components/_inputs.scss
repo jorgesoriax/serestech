@@ -6,13 +6,17 @@
 .input{
     background: setcolor(white);
     height: 50px;
-    border-radius: $border--rad-min;
+    border-radius: $border--rad-mid;
     @include flex;
     flex-direction: row;
 
     i{
-        cursor: text;
         margin: $gap--min;
+    }
+    label{
+        height: 100%;
+        @include flex;
+        cursor: text;
     }
 
     input{

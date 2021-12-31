@@ -8,7 +8,7 @@
     gap: $gap--min;
     background: setcolor(yellow);
     padding: $button-text--padd;
-    border-radius: $border--rad-min;
+    border-radius: $border--rad-mid;
     border: $border--px solid setcolor(orange);
     color: setcolor(orange);
     @include font-family($font--title,500);
@@ -45,12 +45,6 @@
 .p--description{
     color: setcolor(gray);
     font-size: $description--font-size;
-}
-// * Paginación
-.pagination{
-    @include flex;
-    gap: $gap--min;
-    padding-top: $container--padd-max * 5;
 }
 // * Boton cuadrado
 .sq{

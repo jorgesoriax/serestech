@@ -24,8 +24,8 @@ header{
     top: 0;
     z-index: 1;
 }
-button{
-    border-radius: $border--rad-min;
+button, input[type=submit]{
+    border-radius: $border--rad-mid;
     padding: $button-text--padd;
     font-size: $button--font-size;
     cursor: pointer;

@@ -93,7 +93,7 @@ header{
 .product--card{
     max-width: 300px;
     cursor: pointer;
-    transition: $short--transition;
+    transition: $short--animation-duration;
 
     &:hover{
         transform: translateY(-10px);
@@ -117,7 +117,7 @@ header{
         position: absolute;
         top: $container--padd-min;
         right: $container--padd-min;
-        transition: $short--transition;
+        transition: $short--animation-duration;
     }
 
     img{
@@ -129,7 +129,7 @@ header{
     height: 147.33px;
     display: grid;
     grid-template-columns: auto auto;
-    transition: $short--transition;
+    transition: $short--animation-duration;
     padding: $container--padd-max;
 
     #product--title{
@@ -148,7 +148,7 @@ header{
         text-decoration: line-through;
         opacity: 0;
         transform: translate(65px,-28px);
-        transition: $short--transition;
+        transition: $short--animation-duration;
     }
     #product--discount{
         text-align: right;
@@ -237,27 +237,24 @@ footer{
 // * LOGO ANIMATION
 
 // Figura R
-#logo-header--principal-shape{
-    opacity: 0;
-}
-#logo-header--secondary-shape{
-    opacity: 0;
+#logo-header--shape{
+    opacity: 1;
+    animation: logo__header_s $logo--animation-duration;
 }
 // Letra R
 #logo-header--r{
     opacity: 1;
+    animation: logo__header_r $logo--animation-duration;
+    transform: translateY(73px);
 }
 // Letras restantes después de la R (ESTECH)
 .logo-header--i{
-    transform: translateX(-35px);
-    // animation: logo 1s infinite linear;
+    animation: logo__header_i $logo--animation-duration;
 }
-@keyframes logo{
-    0%{
-        transform: translateX(0px);
-    }
-    100%{
-        transform: translateX(0px);
-        background-color: red;
-    }
+
+// * Paginación
+.pagination{
+    @include flex;
+    gap: $gap--min;
+    padding-top: $container--padd-max * 5;
 }

@@ -3,7 +3,7 @@
 // * MAP Outline states over white background
 $outline--overwhite: (
     blue-ow: (
-        transparent,
+        setcolor(blue),
         setcolor(blue, outl)
     )
 );

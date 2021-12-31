@@ -5,10 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PANEL LOGIN</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
-<body>
-    <div>
+<body id="panel">
+    <div id="panel--logo">
         <img src="img/panel-logo-large-b.svg" alt="">
     </div>
+    <div id="panel--login">
+            
+        <div class="message">
+            <h3>
+                Bienvenido al panel de control
+            </h3>
+            <p class="p--description">
+                Para iniciar ingrese sus credenciales
+            </p>
+            <div>🥑</div>
+        </div>
+
+        <form action="#" method="POST">
+
+            <div class="input input--ow outl--blue-ow">
+                <label for="text-a"><i class='bx bx-meh-blank'></i></label>
+                <input id="text-a" type="text" placeholder="Ingrese su usuario">
+            </div>
+    
+            <div class="input input--ow outl--blue-ow">
+                <label for="input--pass"><i class="bx bxs-lock-alt"></i></label>
+                <input id="input--pass" type="password" placeholder="Ingrese su contraseña">
+                <i class="bx bxs-hide" id="icon--pass"></i>
+            </div>
+    
+            <label class="checkbox">
+                <input type="checkbox" checked="checked">
+                <div class="checkmark outl--blue-ow"><i class='bx bx-check'></i></div>
+                Mantener la sesión iniciada
+            </label>
+    
+            <input class="button--positive-ob" type="submit" value="Entrar">
+        </form>
+        
+        
+    </div>
+
+    <script src="js/scripts.js"></script>
 </body>
 </html>

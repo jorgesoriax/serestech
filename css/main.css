@@ -35,7 +35,7 @@ p {
   border: 1px solid transparent;
 }
 .outl--blue-ow:hover {
-  border: 1px solid transparent;
+  border: 1px solid #3C90FC;
   outline: 3px solid rgba(59, 143, 252, 0.4);
 }
 
@@ -174,8 +174,14 @@ p {
   flex-direction: row;
 }
 .input i {
-  cursor: text;
   margin: 10px;
+}
+.input label {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: text;
 }
 .input input {
   background: transparent;
@@ -258,7 +264,7 @@ i {
 }
 .checkbox .checkmark {
   background: #fafafa;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
   width: 25px;
   height: 25px;
@@ -296,6 +302,18 @@ i {
   background: #fafafa;
   border-radius: 100%;
   border: 1px solid #c5c5c5;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 .message--error h3 {
@@ -354,21 +372,51 @@ i {
   font-size: 14px;
 }
 
-.pagination {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding-top: 125px;
-}
-
 .sq {
   width: 39px;
   padding: 10px 0;
 }
 
-@keyframes logo-header--shape {}
-@keyframes logo-header--r {}
+@keyframes logo__header_s {
+  0% {
+    transform: translateY(-73px);
+  }
+  90% {
+    opacity: 0;
+    transform: translateY(-73px);
+  }
+  95% {
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes logo__header_r {
+  0% {
+    transform: translateX(0);
+  }
+  90% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(73px);
+    opacity: 0;
+  }
+}
+@keyframes logo__header_i {
+  0% {
+    transform: translateX(-35px);
+  }
+  90% {
+    transform: translateX(-35px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 header #header--logo {
   display: flex;
   align-items: center;
@@ -606,31 +654,29 @@ footer div p {
   height: 25px;
 }
 
-#logo-header--principal-shape {
-  opacity: 0;
-}
-
-#logo-header--secondary-shape {
-  opacity: 0;
+#logo-header--shape {
+  opacity: 1;
+  animation: logo__header_s 2s;
 }
 
 #logo-header--r {
   opacity: 1;
+  animation: logo__header_r 2s;
+  transform: translateY(73px);
 }
 
 .logo-header--i {
-  transform: translateX(-35px);
+  animation: logo__header_i 2s;
 }
 
-@keyframes logo {
-  0% {
-    transform: translateX(0px);
-  }
-  100% {
-    transform: translateX(0px);
-    background-color: red;
-  }
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 125px;
 }
+
 #container--library {
   border: 1px solid #c5c5c5;
   padding: 25px;
@@ -659,8 +705,41 @@ footer div p {
   background: #3C90FC;
 }
 
+#panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#panel--logo {
+  position: absolute;
+  top: 50px;
+}
+#panel--logo img {
+  height: 35px;
+}
+
+#panel--login .message {
+  margin-bottom: 50px;
+}
+#panel--login form > div, #panel--login form > label {
+  margin-bottom: 25px;
+}
+#panel--login form label {
+  float: left;
+}
+#panel--login form input {
+  width: 100%;
+}
+
 #responsive-indicator {
   position: fixed;
+  z-index: 2;
+}
+#responsive-indicator a {
+  text-decoration: underline;
 }
 
 @media (max-width: 480px) {
@@ -1051,7 +1130,7 @@ header {
   z-index: 1;
 }
 
-button {
+button, input[type=submit] {
   border-radius: 8px;
   padding: 10px 25px;
   font-size: 15px;
@@ -1063,7 +1142,7 @@ button {
   justify-content: center;
   gap: 10px;
 }
-button img {
+button img, input[type=submit] img {
   height: 21px;
 }
 

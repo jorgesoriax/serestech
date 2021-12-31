@@ -10,6 +10,11 @@ $screen--xl-min: 1281px;
 // * Responsive indicator
 #responsive-indicator{
     position: fixed;
+    z-index: 2;
+
+    a{
+        text-decoration: underline;
+    }
 }
 
 // * MIXINS

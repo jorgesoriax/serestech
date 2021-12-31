@@ -1,0 +1,36 @@
+@use "../abstracts" as *;
+@use "../tools/mixins" as *;
+
+#panel{
+    @include flex;
+    flex-direction: column;
+    height: 100vh;
+}
+#panel--logo{
+    position: absolute;
+    top: $container--padd-max * 2;
+
+    img{
+        height: 35px;
+    }
+}
+#panel--login{
+
+    .message{
+        margin-bottom: $container--padd-max * 2;
+    }
+
+    form{
+        > div, > label{
+            margin-bottom: $container--padd-max;
+        }
+
+        label{
+            float: left;
+        }
+
+        input{
+            width: 100%;
+        }
+    }
+}

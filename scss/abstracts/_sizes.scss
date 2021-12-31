@@ -8,11 +8,12 @@ $font--margin: 16px;
 // * Button
 $button--font-size: 15px;
 $border--px: 1px;
-$border--rad-min: 8px;
+$border--rad-min: 6px;
+$border--rad-mid: 8px;
 $border--rad-max: 15px;
 $outline--px: 3px;
 
-// * Paddings
+// * Paddings and margins
 $container--padd-min: 15px;
 $container--padd-max: 25px;
 $container--padd-mix: 25px 100px;
@@ -33,7 +34,8 @@ $gap--max: 25px;
 $cont--p-card--min-width: 1075px;
 
 // * Animations
-$short--transition: .1s;
+$short--animation-duration: .1s;
+$logo--animation-duration: 2s;
 
 // * Logo
 $logo--height-min: 30px;

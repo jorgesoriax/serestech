@@ -1,4 +1,5 @@
 @use "../abstracts" as *;
+@use "../tools/crossbrowsing" as *;
 
 // * Mensaje con respuesta positiva
 .message{
@@ -27,6 +28,7 @@
         background: setcolor(white, light);
         border-radius: 100%;
         border: $border--px solid setcolor(gray, light);
+        @include noselect;
     }
 }
 
