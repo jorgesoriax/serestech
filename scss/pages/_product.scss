@@ -15,19 +15,13 @@
     // El gap es de 25px y se divide entre ambas columnas
     grid-template-columns: auto auto;
     gap: $gap--max;
+    position: relative;
 }
 #container--imgs{
     display: grid;
-    grid-template-columns: 50px 410px;
+    grid-template-columns: 50px auto;
     grid-template-rows: auto;
     gap: $gap--min;
-
-    #img--prod-preview{
-        border: $border--px solid setcolor(gray, light);
-        border-radius: $border--rad-max;
-        grid-column: 2 / 3;
-        grid-row: 1 / 8;
-    }
 
     .img--miniature{
         width: 50px;
@@ -49,6 +43,51 @@
     }
 }
 
+#img--prod-preview{
+    height: 420px;
+    width: 420px;
+    border: $border--px solid setcolor(gray, light);
+    border-radius: $border--rad-max;
+    grid-column: 2 / 3;
+    grid-row: 1 / 8;
+    @include flex;
+    position: relative;
+    cursor: zoom-in;
+    overflow: hidden;
+
+    img{
+        width: 100%;
+    }
+
+    &:hover + #zoom{
+        visibility: visible;
+    }
+}
+.img-zoom-lens{
+    position: absolute;
+    border: $border--px solid #d4d4d4;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+#zoom{
+    background: setcolor(white);
+    width: 420px;
+    height: 420px;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    visibility: hidden;
+    background-image: url(../../img/products/product-page/prod-page-1.webp);
+    background-position: 150px 50px;
+    background-repeat: no-repeat;
+    background-size: 250%;
+
+}
+
 #container--dets{
     position: relative;
 
@@ -58,6 +97,7 @@
 
     #info--sku{
         margin-top: 5px;
+        font-weight: 500;
     }
 
     .label{
@@ -70,16 +110,13 @@
         text-decoration: line-through;
     }
 
-    #info--IVA{
-    }
-
     #info--units{
         color: setcolor(blue);
         margin-top: $gap--max;
         position: absolute;
         bottom: 43px;
     }
-
+ 
     #info--buy{
         width: 100%;
         position: absolute;
@@ -96,8 +133,52 @@
   * * SPECS
   */
 #product--specs{
-    border: 1px solid rgba(0, 0, 255, .1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap--max;
+    padding: 0;
+    
+    section{
+        width: calc(50% - 12.5px);
+    }
+
+    table{
+        width: 100%;
+        border-spacing: 0;
+        font-size: $paragraph--font-size;
+        margin-bottom: $container--padd-max;
+    }
+    td{
+        width: 50%;
+        padding: $container--padd-min;
+    }
+    caption{
+
+        h2{
+            margin-top: 0;
+            text-align: left;
+        }
+    }
+}        
+h1{
+    width: 100%;
 }
+#table--equip{
+    width: calc(50% - 12.5px);
+}
+.td-w{
+    border-top: $border--px solid setcolor(gray, light);
+    border-bottom: $border--px solid setcolor(gray, light);
+    background: setcolor(white);
+}
+.td-w--end{
+    border-top: $border--px solid setcolor(gray, light);
+    background: setcolor(white);
+}
+.td-bold{
+    font-weight: 500;
+}
+
 /**
   * * WTY
   */

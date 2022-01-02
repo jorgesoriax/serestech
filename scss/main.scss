@@ -19,7 +19,7 @@ header{
     grid-template-columns: 30% 40% 30%;
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 2;
 }
 button, input[type=submit]{
     border-radius: $border--rad-mid;

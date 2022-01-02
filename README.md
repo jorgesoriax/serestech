@@ -18,4 +18,4 @@ Lista de tareas pendientes
 5. PANEL
     1. Habilitar el focus sobre la checkbox
 6. AVISOS POR AÑADIR
-    1. Se recomienda que las imagenes a subir sean cuadradas o por lo menos su alto sea mayor que su largo (retrato). Si la imagen cuenta con fondo blanco, ignore estas recomendaciones.
+    1. Se recomienda que las imagenes a subir sean cuadradas o por lo menos su alto sea mayor que su largo (retrato). Si la imagen cuenta con fondo blanco, ignore estas recomendaciones. Además de centrar la imagen y mantener margenes anchos para mejor visualización con respecto al zoom.

@@ -85,10 +85,19 @@
      * -->
     <section id="product--info">
 
+
+
         <div  id="container--imgs">
-            <div id="img--prod-preview">
-                
+
+            
+            <div id="img--prod-preview" >
+                <img id="img-original" src="img/products/product-page/prod-page-1.webp" alt="" onmousemove="zoom(event)">
+
+                <!-- <div id="lens" class="img-zoom-lens"></div> -->
             </div>
+            
+            <div id="zoom" class="box--ow-max"></div>
+            
             <div class="img--miniature outl--blue-ow" id="img--prod-1">
                 <img src="img/products/product-page/prod-page-1.webp" alt="">
             </div>
@@ -110,6 +119,7 @@
             <div class="img--miniature outl--blue-ow" id="img--prod-7">
                 <img src="img/products/product-page/prod-page-7.webp" alt="">
             </div>
+
         </div>
 
         <div id="container--dets">
@@ -164,6 +174,93 @@
             al momento de cargar la base de datos, que asigne uno de dos
             estilos diferentes para casilla en cada iteración
         -->
+
+        <section id="product--specs-l">
+
+            <table id="table--equip" class="box--ow-max">
+                <caption><h2>Equipo</h2></caption>
+                <tr>
+                    <td>Marca</td>
+                    <td class="td-bold">
+                        Huawei
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-w">Línea</td>
+                    <td class="td-w td-bold">
+                        Matebook
+                    </td>
+                </tr>
+                <tr>
+                    <td>Modelo</td>
+                    <td class="td-bold">
+                        D16 HVY-WAP9
+                    </td>
+                </tr>
+            </table>
+
+            <table id="table--equip" class="box--ow-max">
+                <caption><h2>Estado</h2></caption>
+                <tr>
+                    <td>Marca</td>
+                    <td class="td-bold">
+                        Medio
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-w--end">Línea</td>
+                    <td class="td-w--end td-bold">
+                        9 de 10
+                    </td>
+                </tr>
+            </table>
+
+        </section>
+        <section id="product--specs-r">
+
+            <table id="table--equip" class="box--ow-max">
+                <caption><h2>Estado</h2></caption>
+                <tr>
+                    <td>Marca</td>
+                    <td class="td-bold">
+                        Medio
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-w--end">Línea</td>
+                    <td class="td-w--end td-bold">
+                        9 de 10
+                    </td>
+                </tr>
+            </table>
+
+            <table id="table--equip" class="box--ow-max">
+                <caption><h2>Equipo</h2></caption>
+                <tr>
+                    <td>Marca</td>
+                    <td class="td-bold">
+                        Huawei
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-w">Línea</td>
+                    <td class="td-w td-bold">
+                        Matebook
+                    </td>
+                </tr>
+                <tr>
+                    <td>Modelo</td>
+                    <td class="td-bold">
+                        D16 HVY-WAP9
+                    </td>
+                </tr>
+            </table>
+
+        </section>
+        
+
+
+
     </main>
 <!-- * 
      * ||||||||||||||||||||||||||||||| WTY ||||||||||||||||||||||||||||||| 
@@ -243,6 +340,6 @@
         </div>
     </footer>
 
-    <script src="js/scripts.js"></script>
+    <script src="js/product.js"></script>
 </body>
 </html>
