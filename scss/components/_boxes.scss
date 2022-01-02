@@ -1,0 +1,9 @@
+@use "../abstracts" as *;
+
+// * Box
+// Estilos para un elemento box básico
+.box--ow-max{
+    background: setcolor(white, light);
+    border: $border--px solid setcolor(gray, light);
+    border-radius: $border--rad-max;
+}

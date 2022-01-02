@@ -10,7 +10,7 @@ $outline--overwhite: (
 // * MAP Outline states over blue background
 $outline-overblue: (
     white-ob: (
-        transparent,
+        setcolor(blue),
         setcolor(white, outl)
     )
 );
@@ -26,6 +26,10 @@ $outline-overblue: (
             border: $border--px solid $border--color;
             outline: $outline--px solid $outline--color;
         }
+        &:focus{
+            border: $border--px solid $border--color;
+            outline: $outline--px solid $outline--color;
+        }
     }
 };
 // * EACH Button states over blue background
@@ -37,6 +41,10 @@ $outline-overblue: (
         border: $border--px solid transparent;
 
         &:hover{
+            border: $border--px solid $border--color;
+            outline: $outline--px solid $outline--color;
+        }
+        &:focus{
             border: $border--px solid $border--color;
             outline: $outline--px solid $outline--color;
         }

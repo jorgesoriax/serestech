@@ -11,6 +11,8 @@ $screen--xl-min: 1281px;
 #responsive-indicator{
     position: fixed;
     z-index: 2;
+    background: yellow;
+    top: 100px;
 
     a{
         text-decoration: underline;

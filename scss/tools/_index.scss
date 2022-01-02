@@ -1,12 +1,13 @@
-@use "../components/outlines" as *;
-@use "../components/buttons" as *;
-@use "../components/inputs" as *;
-@use "../components/messages" as *;
-@use "../components/helpers" as *;
+@forward "../abstracts";
+
+@use "../components";
 
 @use "../pages/home";
 @use "../pages/library";
 @use "../pages/panel";
+@use "../pages/product";
 
 @use "breakpoints";
 @use "normalize";
+@use "animations";
+@forward "mixins";

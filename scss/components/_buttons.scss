@@ -1,4 +1,6 @@
 @use "../abstracts" as *;
+@use "../tools/mixins" as *;
+@use "../tools/crossbrowsing" as *;
 
 // * Property list:
 // * 1 background-color
@@ -106,6 +108,10 @@ $buttons--overblue: (
             outline: $outline--px solid $outline--color;
             border: $border--px solid $border--color-active;
         }
+        &:focus{
+            outline: $outline--px solid $outline--color;
+            border: $border--px solid $border--color-active;
+        }
     }
 }
 // * EACH Button states over blue background
@@ -125,6 +131,10 @@ $buttons--overblue: (
             background: $bg--color-active;
         }
         &:hover{
+            outline: $outline--px solid $outline--color;
+            border: $border--px solid $border--color-active;
+        }
+        &:focus{
             outline: $outline--px solid $outline--color;
             border: $border--px solid $border--color-active;
         }

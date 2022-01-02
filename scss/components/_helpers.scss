@@ -2,23 +2,6 @@
 @use "../tools/crossbrowsing" as *;
 @use "../tools/mixins" as *; 
 
-// * Label
-.label{
-    @include flex;
-    gap: $gap--min;
-    background: setcolor(yellow);
-    padding: $button-text--padd;
-    border-radius: $border--rad-mid;
-    border: $border--px solid setcolor(orange);
-    color: setcolor(orange);
-    @include font-family($font--title,500);
-    @include noselect;
-    font-size: $description--font-size;
-
-    i{
-        color: setcolor(orange);
-    }
-}
 // * Iconos con enlace
 // Comportamiento de un enlace con imagen
 .a--icon{
@@ -32,13 +15,6 @@
         height: 100%;
     }
 }
-// * Box
-// Estilos para un elemento box básico
-.box--ow{
-    background: setcolor(white, light);
-    border: $border--px solid setcolor(gray, light);
-    border-radius: $border--rad-max;
-}
 // * Texto descriptivo
 // Se utiliza para indicar que el texto contenido 
 // se trata de una descripción
@@ -50,4 +26,26 @@
 .sq{
     width: 39px;
     padding: 10px 0;
+}
+// * Label
+.label{
+    background: setcolor(yellow);
+    padding: $label-text--padd;
+    border-radius: $border--rad-min;
+    border: $border--px solid setcolor(orange);
+    color: setcolor(orange);
+    @include font-family($font--title,500);
+    @include noselect;
+    font-size: $description--font-size;
+    cursor: default;
+    display: inline-block;
+
+    i{
+        color: setcolor(orange);
+    }
+}
+.label--b{
+    border: $border--px solid setcolor(blue);
+    background: setcolor(blue,actv);
+    color: setcolor(blue);
 }

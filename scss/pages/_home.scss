@@ -1,6 +1,5 @@
 @use "../abstracts" as *;
 @use "../tools/mixins" as *;
-@use "../tools/animations" as *;
 
 // * HEADER
 header{
@@ -113,11 +112,10 @@ header{
     @include flex;
     position: relative;
     
-    label{
+    .label{
         position: absolute;
         top: $container--padd-min;
         right: $container--padd-min;
-        transition: $short--animation-duration;
     }
 
     img{

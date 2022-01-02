@@ -4,50 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SERESTECH</title>
+    <title>product-view</title>
 
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
-    
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 <body>
-    <div id="responsive-indicator"><br>
-        <a href="panel.html" target="_blank" rel="noopener noreferrer">
-           Clic para ver diseño de panel-login 
-        </a><br>
-        <a href="product.html" target="_blank" rel="noopener noreferrer">
-            Clic aquí para ver el diseño de producto o en cualquier tarjeta de producto de abajo
-        </a>
-    </div>
-<!-- * ||||||||||||||||||||||||||| MESSENGER |||||||||||||||||||||||||||| -->
-    
-    <div id="fb-root"></div>
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
-    <script>
-    var chatbox = document.getElementById('fb-customer-chat');
-    chatbox.setAttribute("page_id", "102771732286590");
-    chatbox.setAttribute("attribution", "biz_inbox");
-    </script>
-    <script>
-    window.fbAsyncInit = function() {
-        FB.init({
-        xfbml            : true,
-        version          : 'v12.0'
-        });
-    };
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    </script>
-<!-- * ||||||||||||||||||||||||||||| HEADER ||||||||||||||||||||||||||||| -->
+<!-- **
+     * ||||||||||||||||||||||||||||| HEADER ||||||||||||||||||||||||||||| 
+     * -->
     <header>
 
         <div id="header--logo">
@@ -115,172 +80,117 @@
         </div>
 
     </header>
- <!-- * ||||||||||||||||||||||||||||| SLIDER ||||||||||||||||||||||||||||| -->   
-    <section class="container--slider">
-        <div class="slider" id="slider">
+<!-- **
+     * |||||||||||||||||||||| IMGS AND STOCK INFO ||||||||||||||||||||||| 
+     * -->
+    <section id="product--info">
 
-            <div class="slider--section">
-            <img src="img/slider/img1.jpg" alt="">
+        <div  id="container--imgs">
+            <div id="img--prod-preview">
+                
             </div>
+            <div class="img--miniature outl--blue-ow" id="img--prod-1">
+                <img src="img/products/product-page/prod-page-1.webp" alt="">
+            </div>
+            <div class="img--miniature outl--blue-ow" id="img--prod-2">
+                <img src="img/products/product-page/prod-page-2.webp" alt="">
+            </div>
+            <div class="img--miniature outl--blue-ow" id="img--prod-3">
+                <img src="img/products/product-page/prod-page-3.webp" alt="">
+            </div>
+            <div class="img--miniature outl--blue-ow" id="img--prod-4">
+                <img src="img/products/product-page/prod-page-4.webp" alt="">
+            </div>
+            <div class="img--miniature outl--blue-ow" id="img--prod-5">
+                <img src="img/products/product-page/prod-page-5.webp" alt="">
+            </div>
+            <div class="img--miniature outl--blue-ow" id="img--prod-6">
+                <img src="img/products/product-page/prod-page-6.webp" alt="">
+            </div>
+            <div class="img--miniature outl--blue-ow" id="img--prod-7">
+                <img src="img/products/product-page/prod-page-7.webp" alt="">
+            </div>
+        </div>
 
-            <div class="slider--section">
-            <img src="img/slider/img2.jpg" alt="">
-            </div>
+        <div id="container--dets">
 
-            <div class="slider--section">
-            <img src="img/slider/img3.jpg" alt="">
-            </div>
+            <h1>
+                Asus X509MA gris 15.6", Intel Celeron N4000 4GB de RAM 500GB HDD
+            </h1>
+
+            <p id="info--sku" class="p--description">
+                SKU 9999
+            </p>
+
+            <label class="label">
+                Equipo nuevo
+            </label>
+
+            <label class="label label--b">
+                Garantía por 60 días
+            </label>
+
+            <p id="info--disc-price" class="p--description">
+                $ 99,999
+            </p>
+
+            <h1 id="info--orig-price">
+                $99,999 MX
+            </h1>
+
+            <p id="info--IVA" class="p--description">+ IVA en caso de requerir factura</p>
+            
+            <p id="info--units">
+                2 unidades disponibles
+            </p>
+
+            <a href="https://api.whatsapp.com/send?phone=+8123626323&text=Hola" target="_blank" rel="noopener noreferrer">
+                <button id="info--buy" class="button--whatsapp-ow">
+                    Comprar ahora
+                    <img src="img/social-media/whatsapp-w.svg">
+                </button>
+            </a>
 
         </div>
 
-        <button class="button--neutral-ow slider--button slider--button-r" id="button--r">
-            <i class='bx bx-chevron-right'></i>
-        </button>
-
-        <button class="button--neutral-ow slider--button slider--button-l" id="button--l">
-            <i class='bx bx-chevron-left'></i>
-        </button>
     </section>
-<!-- * ||||||||||||||||||||||||||||| MAIN ||||||||||||||||||||||||||||| -->
-    <main id="main--products">
-    <!-- PRODUCT CARD -->
-        <div id="container--catalog">
-            <h2>Nuestro stock</h2>
-
-            <div id="catalog">
-                <a href="product.html">
-                    <div class="box--ow-max product--card" id="1">
-                        <div class="product--image">
-                            <label class="label">
-                                Nuevo
-                            </label>
-    
-                            <img src="img/products/img4.jpg">
-                        </div>
-                        <div class="product--info">
-                            <h3 id="product--title">
-                                Huawei MateBook D15
-                            </h3>
-    
-                            <p id="product--description" class="p--description" >
-                               Space gray 15.6", Intel Core i3 1011 0U 8GB de RAM 256GB SSD
-                            </p>
-    
-                            <h2 id="product--price">
-                                $ 12,499
-                            </h2>
-                            <p id="product--discount">
-                                20% OFF
-                            </p>
-                            <p id="product--orig-price" class="p--description">
-                                $ 15,999
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                <a href="product.html">
-                    <div class="box--ow-max product--card" id="1">
-                        <div class="product--image">
-                            <label class="label">
-                                Nuevo
-                            </label>
-    
-                            <img src="img/products/img5.jpg">
-                        </div>
-                        <div class="product--info">
-                            <h3 id="product--title">
-                                Huawei MateBook D15
-                            </h3>
-    
-                            <p id="product--description" class="p--description" >
-                               Space gray 15.6", Intel Core i3 1011 0U 8GB de RAM 256GB SSD
-                            </p>
-    
-                            <h2 id="product--price">
-                                $ 12,499
-                            </h2>
-                            <p id="product--discount">
-                                20% OFF
-                            </p>
-                            <p id="product--orig-price" class="p--description">
-                                $ 15,999
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                <a href="product.html">
-                    <div class="box--ow-max product--card" id="1">
-                        <div class="product--image">
-                            <label class="label">
-                                Semi nuevo
-                            </label>
-    
-                            <img src="img/products/img6.jpg">
-                        </div>
-                        <div class="product--info">
-                            <h3 id="product--title">
-                                Huawei MateBook D15
-                            </h3>
-    
-                            <p id="product--description" class="p--description" >
-                               Space gray 15.6", Intel Core i3 1011 0U 8GB de RAM 256GB SSD
-                            </p>
-    
-                            <h2 id="product--price">
-                                $ 12,499
-                            </h2>
-                            <p id="product--discount">
-                                20% OFF
-                            </p>
-                            <p id="product--orig-price" class="p--description">
-                                $ 15,999
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                <a href="product.html">
-                    <div class="box--ow-max product--card" id="1">
-                        <div class="product--image">
-                            <label class="label">
-                                Semi nuevo
-                            </label>
-    
-                            <img src="img/products/img1.webp">
-                        </div>
-                        <div class="product--info">
-                            <h3 id="product--title">
-                                Huawei MateBook D15
-                            </h3>
-    
-                            <p id="product--description" class="p--description" >
-                               Space gray 15.6", Intel Core i3 1011 0U 8GB de RAM 256GB SSD
-                            </p>
-    
-                            <h2 id="product--price">
-                                $ 12,499
-                            </h2>
-                            <p id="product--discount">
-                                20% OFF
-                            </p>
-                            <p id="product--orig-price" class="p--description">
-                                $ 15,999
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-    <!-- PRODUCT CARD -->
-    <!-- * PAGE NAVIGATION BUTTONS -->
-        <div class="pagination">
-            <button class="button--neutral-ow">Anterior</button>
-            <button class="button--neutral-ow sq">1</button>
-            <button class="button--neutral-ow sq">2</button>
-            <button class="button--neutral-ow sq">3</button>
-            <button class="button--neutral-ow">Siguiente</button>
-        </div>
-    <!-- PAGE NAVIGATION BUTTONS -->
+<!-- **
+     * |||||||||||||||||||||||||||||| SPECS |||||||||||||||||||||||||||||| 
+     * -->
+    <main id="product--specs">
+        <h1>Especificaciones</h1>
+        <!--
+            Se require función php para generar un layout dinámico
+            al momento de cargar la base de datos, que asigne uno de dos
+            estilos diferentes para casilla en cada iteración
+        -->
     </main>
-<!-- * ||||||||||||||||||||||||||||| FOOTER ||||||||||||||||||||||||||||| -->
+<!-- * 
+     * ||||||||||||||||||||||||||||||| WTY ||||||||||||||||||||||||||||||| 
+     * -->
+    <section id="product--wty">
+        <div class="box--ow-max">
+            <i class='bx bxs-check-shield'></i>
+            <p>
+                Garantía de 60 días
+            </p>
+        </div>
+        <div class="box--ow-max">
+            <i class='bx bx-support' ></i>
+            <p>
+                1 mes de soporte remoto sin costo
+            </p>
+        </div>
+        <div class="box--ow-max">
+            <i class='bx bxs-package' ></i>
+            <p>
+                Entrega a domicilio de inmediato
+            </p>
+        </div>
+    </section>
+<!-- * 
+     * ||||||||||||||||||||||||||||| FOOTER ||||||||||||||||||||||||||||| 
+     * -->
     <footer>
     <!-- * LOGO -->
        <div id="footer--logo">
@@ -334,6 +244,5 @@
     </footer>
 
     <script src="js/scripts.js"></script>
-    <script src="js/slider.js"></script>
 </body>
 </html>

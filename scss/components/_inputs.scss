@@ -4,30 +4,40 @@
 
 // * INPUT
 .input{
-    background: setcolor(white);
     height: 50px;
-    border-radius: $border--rad-mid;
     @include flex;
     flex-direction: row;
+    position: relative;
+    min-width: 300px;
 
-    i{
+    > i{
+        width: 40px;
+        height: 100%;
+        right: -8px;
+        position: absolute;
+        @include flex;
         margin: $gap--min;
+        
     }
     label{
+        width: 40px;
         height: 100%;
+        left: 0;
+        position: absolute;
         @include flex;
         cursor: text;
     }
 
-    input{
-        background: transparent;
-        border: 0;
+    input{ 
+        background: setcolor(white);
         outline: none;
         height: 100%;
         width: 100%;
         font-size: $paragraph--font-size;
         @include font-family($font--title,400);
         cursor: text;
+        border-radius: $border--rad-mid;
+        padding: 0 40px;
     }
 }
 i{

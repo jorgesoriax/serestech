@@ -1,7 +1,4 @@
-@use "abstracts" as *;
 @use "tools" as *;
-@use "tools/mixins" as *;
-
 
 // * BASE
 body{
@@ -32,6 +29,7 @@ button, input[type=submit]{
     @include font-family($font--title, 500);
     @include flex;
     gap: $gap--min;
+    height: 43px;
 
     img{
         height: 21px;
@@ -40,6 +38,10 @@ button, input[type=submit]{
 a{
     cursor: pointer;
     text-decoration: none;
+    color: setcolor(black);
+}
+a:active{
+    color: setcolor(black);
 }
 main{
     padding: $main--padd;
