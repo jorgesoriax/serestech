@@ -18,7 +18,8 @@ $color-scheme: (                        // * Lista de usos, si no se especifica 
     ),
     gray: (
         base: #929292,                // Texto descriptivo
-        light: #c5c5c5                // Border de containers
+        light: #c5c5c5,               // Border de containers
+        patt: rgba(197, 197, 197, .2) // Patrón de malla
     ),
     blue: (
         base: #3C90FC,                // Background-color de head

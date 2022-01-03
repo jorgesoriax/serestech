@@ -806,22 +806,13 @@ footer div p {
   position: relative;
   cursor: zoom-in;
   overflow: hidden;
+  background-color: #ffffff;
+  background-image: linear-gradient(rgba(197, 197, 197, 0.2) 1.1px, transparent 1.1px), linear-gradient(to right, rgba(197, 197, 197, 0.2) 1.1px, #ffffff 1.1px);
+  background-size: 20px 20px;
+  background-position: 0;
 }
 #img--prod-preview img {
   width: 100%;
-}
-#img--prod-preview:hover + #zoom {
-  visibility: visible;
-}
-
-.img-zoom-lens {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  width: 50px;
-  height: 50px;
-  z-index: 1;
-  top: 0;
-  left: 0;
 }
 
 #zoom {
@@ -846,7 +837,6 @@ footer div p {
 }
 #container--dets #info--sku {
   margin-top: 5px;
-  font-weight: 500;
 }
 #container--dets .label {
   margin-bottom: 25px;
@@ -915,6 +905,7 @@ h1 {
 
 .td-w--end {
   border-top: 1px solid #c5c5c5;
+  border-radius: 0 0 15px 15px;
   background: #ffffff;
 }
 

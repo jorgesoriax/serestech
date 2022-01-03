@@ -8,7 +8,7 @@ Lista de tareas pendientes
     4. ~~Messenger Plugin incompatible en Edge y Firefox~~
     5. Cambiar estilos a outline de redes sociales en footer
 2. PRODUCT PAGE
-    1. Añadir nuevo estilos de label para garantía
+    1. ~~Añadir nuevo estilos de label para garantía~~
 3. OTROS
     1. Consultar https://stackoverflow.com/questions/55170708/detect-if-the-browser-is-using-dark-mode-and-use-a-different-favicon
 4. OPTIMIZACIÓN

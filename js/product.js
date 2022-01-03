@@ -1,7 +1,8 @@
 const prodPreview = document.querySelector('#img--prod-preview');
-let prodPreviewImg = document.querySelector('#img--prod-preview').querySelector('img');
+let prodPreviewImg = document.querySelector('#img-original')
 const prodMiniature = document.querySelectorAll('.img--miniature');
 const prodPreviewZoom = document.querySelector('#zoom');
+const prodDetails = document.querySelector('#container--dets');
 
 
 // * SIMULACIÓN DE PREVIEW IMG
@@ -33,3 +34,13 @@ function zoom(e){
 
   prodPreviewZoom.style.backgroundPosition = x + '% ' + y + '%';
 }
+
+prodPreviewImg.addEventListener('mouseover', () => {
+  prodPreviewZoom.style.visibility = 'visible';
+  prodDetails.style.visibility = 'hidden';
+});
+prodPreviewImg.addEventListener('mouseout', () => {
+  prodPreviewZoom.style.visibility = 'hidden';
+  prodDetails.style.visibility = 'visible';
+
+});
