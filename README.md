@@ -15,8 +15,9 @@ Lista de tareas pendientes
     1. Cambiar formato de imagenes
     2. Cambiar url de whatsapp para abrir whatsapp web. Consultar https://faq.whatsapp.com/iphone/how-to-link-to-whatsapp-from-a-different-app/?lang=es_pe
     
-5. PANEL
+5. LOGIN PANEL
     1. Habilitar el focus sobre la checkbox
+    2. Verificar origen de animación al cargar
 6. AVISOS POR AÑADIR
     1. Se recomienda que las imagenes a subir sean cuadradas o por lo menos su alto sea mayor que su largo (retrato). Si la imagen cuenta con fondo blanco, ignore estas recomendaciones. Además de cen
     trar la imagen y mantener margenes anchos para mejor visualización con respecto al zoom.
