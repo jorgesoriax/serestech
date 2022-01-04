@@ -1,0 +1,195 @@
+@use "../abstracts" as *;
+@use "../tools/mixins" as *;
+
+/**
+  * * BASE
+  */
+#product--info, #product--specs, #product--wty{
+    margin: $container--padd-mix-compact;
+}
+/**
+  * * INFO
+  */
+#product--info{
+    display: grid;
+    // El gap es de 25px y se divide entre ambas columnas
+    grid-template-columns: auto auto;
+    gap: $gap--max;
+    position: relative;
+}
+#container--imgs{
+    display: grid;
+    grid-template-columns: 50px auto;
+    grid-template-rows: auto;
+    gap: $gap--min;
+
+    .img--miniature{
+        width: 50px;
+        height: 50px;
+        border: $border--px solid setcolor(gray, light);
+        border-radius: $border--rad-mid;
+        overflow: hidden;
+        cursor: pointer;
+        @include flex;
+
+        &:hover{
+            border: $border--px solid setcolor(blue);
+        }
+
+        img{
+            width: 100%;
+
+        }
+    }
+}
+
+#img--prod-preview{
+    height: 420px;
+    width: 420px;
+    border: $border--px solid setcolor(gray, light);
+    border-radius: $border--rad-max;
+    grid-column: 2 / 3;
+    grid-row: 1 / 8;
+    @include flex;
+    position: relative;
+    overflow: hidden;
+    // Pattern
+    background-color: #ffffff;
+    background-image:  linear-gradient(setcolor(gray, patt) 1.1px, transparent 1.1px), linear-gradient(to right, setcolor(gray, patt) 1.1px, #ffffff 1.1px);
+    background-size: 20px 20px;
+    background-position: 0;
+
+    img{
+        width: 100%;
+        cursor: zoom-in;
+    }
+}
+
+#zoom{
+    width: 420px;
+    height: 420px;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    visibility: hidden;
+    background-image: url(../img/products/product-page/prod-page-1.webp);
+    background-position: 150px 50px;
+    background-repeat: no-repeat;
+    background-size: 250%;
+
+}
+
+#container--dets{
+    position: relative;
+
+    h1{
+        margin: 0;
+    }
+
+    #info--sku{
+        margin-top: 5px;
+    }
+
+    .label{
+        margin-bottom: $gap--max;
+        margin-right: $gap--min;
+    }
+
+    #info--disc-price{
+        margin-bottom: 0;
+        text-decoration: line-through;
+    }
+
+    #info--units{
+        color: setcolor(blue);
+        margin-top: $gap--max;
+        position: absolute;
+        bottom: 43px;
+    }
+ 
+    #info--buy{
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+
+        img{
+            position: absolute;
+            right: 25px;
+        }
+    }
+}
+
+/**
+  * * SPECS
+  */
+#product--specs{
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap--max;
+    padding: 0;
+    
+    section{
+        width: calc(50% - 12.5px);
+    }
+
+    table{
+        width: 100%;
+        border-spacing: 0;
+        font-size: $paragraph--font-size;
+        margin-bottom: $container--padd-max;
+    }
+    td{
+        width: 50%;
+        padding: $container--padd-min;
+    }
+    caption{
+
+        h2{
+            margin-top: 0;
+            text-align: left;
+        }
+    }
+}        
+h1{
+    width: 100%;
+}
+#table--equip{
+    width: calc(50% - 12.5px);
+}
+.td-w{
+    border-top: $border--px solid setcolor(gray, light);
+    border-bottom: $border--px solid setcolor(gray, light);
+    background: setcolor(white);
+}
+.td-w--end{
+    border-top: $border--px solid setcolor(gray, light);
+    border-radius: 0 0 $border--rad-max $border--rad-max;
+    background: setcolor(white);
+}
+.td-bold{
+    font-weight: 500;
+}
+
+/**
+  * * WTY
+  */
+#product--wty{
+    display: grid;
+    grid-template-columns: 33% 34% 33%;
+    gap: $gap--max;
+
+    div{
+        padding: $container--padd-max;
+        @include flex;
+        flex-direction: column;
+
+        i{
+            font-size: $i--font-size-mega;
+            color: setcolor(blue);
+        }
+
+        p{
+            margin-bottom: 0;
+        }
+    }
+}
