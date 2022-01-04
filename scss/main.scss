@@ -30,11 +30,13 @@ button, input[type=submit]{
     @include flex;
     gap: $gap--min;
     height: 43px;
+    white-space: nowrap;
 
     img{
         height: 21px;
     }
 }
+
 a{
     cursor: pointer;
     text-decoration: none;
@@ -43,9 +45,6 @@ a{
 a:active{
     color: setcolor(black);
 }
-main{
-    padding: $main--padd;
-}
 p::selection {
     background: setcolor(blue);
     color: setcolor(white);
@@ -53,4 +52,10 @@ p::selection {
 p::-moz-selection { /* Firefox */
     background: setcolor(blue);
     color: setcolor(white);
+}
+i{
+    color: setcolor(black);
+}
+span{
+    font-size: $paragraph--font-size;
 }

@@ -52,7 +52,6 @@
     grid-row: 1 / 8;
     @include flex;
     position: relative;
-    cursor: zoom-in;
     overflow: hidden;
     // Pattern
     background-color: #ffffff;
@@ -62,6 +61,7 @@
 
     img{
         width: 100%;
+        cursor: zoom-in;
     }
 }
 

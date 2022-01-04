@@ -255,14 +255,6 @@ i {
   color: #2a2a2a;
 }
 
-.input--ow {
-  border: 1px solid #c5c5c5;
-}
-
-.input--ob {
-  border: 1px solid transparent;
-}
-
 #icon--pass {
   cursor: pointer;
 }
@@ -348,10 +340,11 @@ i {
   font-weight: 500;
 }
 .message div {
+  grid-column: 2;
   grid-row: 1/3;
   width: 42px;
   height: 42px;
-  font-size: 25px;
+  font-size: 20px;
   line-height: 40px;
   text-align: center;
   background: #fafafa;
@@ -375,6 +368,16 @@ i {
   color: #ED4025;
 }
 
+.message--panel-ow h3 {
+  font-size: 14px;
+  text-align: right;
+}
+.message--panel-ow div {
+  width: 37px;
+  height: 37px;
+  line-height: 39px;
+}
+
 .a--icon {
   width: 35px;
   height: 35px;
@@ -392,8 +395,8 @@ i {
 }
 
 .sq {
-  width: 39px;
-  padding: 10px 0;
+  width: 43px;
+  padding: 10px 10px;
 }
 
 .label {
@@ -430,6 +433,14 @@ i {
   color: #3C90FC;
 }
 
+.input--ow {
+  border: 1px solid #c5c5c5;
+}
+
+.input--ob {
+  border: 1px solid transparent;
+}
+
 .box--ow-max {
   background: #fafafa;
   border: 1px solid #c5c5c5;
@@ -446,6 +457,10 @@ header #header--logo svg {
 header #header--nav--buttons {
   display: flex;
   justify-content: right;
+}
+
+main {
+  padding: 25px 50px;
 }
 
 .container--slider {
@@ -723,7 +738,7 @@ footer div p {
   background: #3C90FC;
 }
 
-#panel {
+#login-panel {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -750,6 +765,121 @@ footer div p {
 }
 #panel--login form input {
   width: 100%;
+}
+
+#panel {
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 65px auto;
+  grid-template-rows: 50px auto;
+  gap: 25px;
+}
+#panel aside {
+  background: #ffffff;
+  border: 1px solid #c5c5c5;
+  height: calc(100vh - 50px);
+  width: 100%;
+  grid-row: 1/3;
+  border-radius: 15px 15px 30px 30px;
+  padding: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+#panel aside div {
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  border-radius: 6px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+#panel aside div i {
+  color: #929292;
+  font-size: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#panel aside div:hover {
+  background: #fafafa;
+}
+#panel aside div:hover i {
+  color: #3C90FC;
+}
+#panel aside div:hover span {
+  left: 40px;
+  opacity: 1;
+}
+#panel aside div span {
+  background: #ffffff;
+  border: 1px solid #c5c5c5;
+  white-space: nowrap;
+  position: absolute;
+  left: 30px;
+  padding: 5px 15px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: 0.1s;
+  pointer-events: none;
+  z-index: 1;
+}
+#panel aside #logo {
+  margin-bottom: 25px;
+}
+#panel aside #logo img {
+  width: 100%;
+}
+#panel aside #stock, #panel aside #users {
+  margin-bottom: 15px;
+}
+#panel aside #stock i {
+  color: #3C90FC;
+}
+#panel aside #logout {
+  position: absolute;
+  bottom: 15px;
+  border-radius: 100%;
+}
+#panel nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  height: 75px;
+  position: relative;
+  border-bottom: 1px solid #c5c5c5;
+  padding-bottom: 25px;
+}
+#panel nav .input {
+  width: 100%;
+  justify-content: left;
+}
+#panel nav .input input {
+  width: 400px;
+}
+#panel nav .button--neutral-ow {
+  margin-right: 25px;
+}
+#panel nav .button--positive-ow {
+  padding-left: 19px;
+}
+#panel nav .button--positive-ow i {
+  color: #ffffff;
+}
+#panel nav .message h3 {
+  white-space: nowrap;
+}
+#panel nav .message p {
+  text-align: right;
+}
+#panel main {
+  padding: 0;
+  border-radius: 15px;
 }
 
 /**
@@ -804,15 +934,15 @@ footer div p {
   align-items: center;
   justify-content: center;
   position: relative;
-  cursor: zoom-in;
   overflow: hidden;
   background-color: #ffffff;
-  background-image: linear-gradient(rgba(197, 197, 197, 0.2) 1.1px, transparent 1.1px), linear-gradient(to right, rgba(197, 197, 197, 0.2) 1.1px, #ffffff 1.1px);
+  background-image: linear-gradient(rgba(197, 197, 197, 0.4) 1.1px, transparent 1.1px), linear-gradient(to right, rgba(197, 197, 197, 0.4) 1.1px, #ffffff 1.1px);
   background-size: 20px 20px;
   background-position: 0;
 }
 #img--prod-preview img {
   width: 100%;
+  cursor: zoom-in;
 }
 
 #zoom {
@@ -1386,6 +1516,7 @@ button, input[type=submit] {
   justify-content: center;
   gap: 10px;
   height: 43px;
+  white-space: nowrap;
 }
 button img, input[type=submit] img {
   height: 21px;
@@ -1401,10 +1532,6 @@ a:active {
   color: #2a2a2a;
 }
 
-main {
-  padding: 25px 50px;
-}
-
 p::selection {
   background: #3C90FC;
   color: #ffffff;
@@ -1414,6 +1541,14 @@ p::-moz-selection {
   /* Firefox */
   background: #3C90FC;
   color: #ffffff;
+}
+
+i {
+  color: #2a2a2a;
+}
+
+span {
+  font-size: 14px;
 }
 
 /*# sourceMappingURL=main.css.map */

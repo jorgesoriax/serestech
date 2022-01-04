@@ -44,13 +44,6 @@ i{
     font-size: $i--font-size-min;
     color: setcolor(black);
 }
-// Estilos auxiliares para estado
-.input--ow{
-    border: $border--px solid setcolor(gray, light);
-}
-.input--ob{
-    border: $border--px solid transparent;
-}
 // Cursor del icono interactivo del input pass
 #icon--pass{
     cursor: pointer;

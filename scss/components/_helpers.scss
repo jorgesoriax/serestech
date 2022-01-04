@@ -24,8 +24,8 @@
 }
 // * Boton cuadrado
 .sq{
-    width: 39px;
-    padding: 10px 0;
+    width: 43px;
+    padding: 10px 10px;
 }
 // * Label
 .label{
@@ -48,4 +48,11 @@
     border: $border--px solid setcolor(blue);
     background: setcolor(blue,actv);
     color: setcolor(blue);
+}
+// * Estilos auxiliares para estado de inputs
+.input--ow{
+    border: $border--px solid setcolor(gray, light);
+}
+.input--ob{
+    border: $border--px solid transparent;
 }
