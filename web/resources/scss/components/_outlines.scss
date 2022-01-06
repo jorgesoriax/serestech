@@ -1,0 +1,52 @@
+@use "../abstracts" as *;
+ 
+// * MAP Outline states over white background
+$outline--overwhite: (
+    blue-ow: (
+        setcolor(blue),
+        setcolor(blue, outl)
+    )
+);
+// * MAP Outline states over blue background
+$outline-overblue: (
+    white-ob: (
+        setcolor(blue),
+        setcolor(white, outl)
+    )
+);
+// * EACH Button states over white background
+@each $name, $colors in $outline--overwhite{
+    $border--color: nth($colors, 1);
+    $outline--color: nth($colors, 2);
+
+    .outl--#{$name}{
+        border: $border--px solid transparent;
+
+        &:hover{
+            border: $border--px solid $border--color;
+            outline: $outline--px solid $outline--color;
+        }
+        &:focus{
+            border: $border--px solid $border--color;
+            outline: $outline--px solid $outline--color;
+        }
+    }
+};
+// * EACH Button states over blue background
+@each $name, $colors in $outline-overblue{
+    $border--color: nth($colors, 1);
+    $outline--color: nth($colors, 2);
+
+    .outl--#{$name}{
+        border: $border--px solid transparent;
+
+        &:hover{
+            border: $border--px solid $border--color;
+            outline: $outline--px solid $outline--color;
+        }
+        &:focus{
+            border: $border--px solid $border--color;
+            outline: $outline--px solid $outline--color;
+        }
+    }
+};

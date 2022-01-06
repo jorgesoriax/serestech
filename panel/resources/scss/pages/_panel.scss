@@ -1,0 +1,176 @@
+@use "../abstracts" as *;
+@use "../tools/mixins" as *;
+
+// * LOGIN
+
+#login-panel{
+    @include flex;
+    flex-direction: column;
+    height: 100vh;
+}
+#panel--logo{
+    position: absolute;
+    top: $container--padd-max * 2;
+
+    img{
+        height: 35px;
+    }
+}
+#panel--login{
+    width: 336px;
+
+    .message{
+        margin-bottom: $container--padd-max * 2;
+    }
+
+    form{
+        > div, > label{
+            margin-bottom: $container--padd-max;
+        }
+
+        label{
+            float: left;
+        }
+
+        input[type=submit]{
+            width: 100%;
+            margin-top: 100px;
+        }
+    }
+}
+
+// * PANEL
+#panel{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    padding: $container--padd-max;
+    display: grid;
+    grid-template-columns: 65px auto;
+    grid-template-rows: 50px auto;
+    gap: $gap--max;
+
+    aside{
+        background: setcolor(white);
+        border: $border--px solid setcolor(gray, light);
+        height: calc(100vh - 50px);
+        width: 100%;
+        grid-row: 1 / 3;
+        border-radius: $border--rad-max $border--rad-max 30px 30px;
+        padding: $container--padd-min;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: $gap--max;
+
+        div{
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            border-radius: $border--rad-min;
+            position: relative;
+            @include flex(center, left);
+
+            i{
+                color: setcolor(gray);
+                font-size: $i--font-size-min;
+                width: 100%;
+                height: 100%;
+                @include flex;
+            }
+
+            &:hover{
+                background: setcolor(white, light);
+
+                i{
+                    color: setcolor(blue);
+                }
+
+                span{
+                    left: 40px;
+                    opacity: 1;
+                }
+            }
+
+            span{
+                background: setcolor(white);
+                border: $border--px solid setcolor(gray, light);
+                white-space: nowrap;
+                position: absolute;
+                left: 30px;
+                padding: $container--padd-mix-min;
+                border-radius: $border--rad-min;
+                opacity: 0;
+                transition: $short--animation-duration;
+                pointer-events: none;
+                z-index: 1;
+            }
+        }
+        
+        #logo{
+            
+            img{
+                width: 100%;
+            }
+        }
+        
+        #stock, #users{
+        }
+
+        #stock{
+
+            i{
+                color: setcolor(blue);
+            }
+        }
+        
+        #logout{
+            position: absolute;
+            bottom: $container--padd-min;
+            border-radius: 100%;
+        }
+    }
+// * NAV
+    nav{
+        @include flex;
+        gap: $gap--max;
+        height: 75px;
+        position: relative;
+        border-bottom: $border--px solid setcolor(gray, light);
+        padding-bottom: $container--padd-max;
+
+        .input{
+            width: 100%;
+            justify-content: left;
+
+            input{
+                width: 400px;
+            }
+        }
+
+        .button--neutral-ow{
+            margin-right: 25px;
+        }
+        .button--positive-ow{
+            padding-left: 19px;
+
+            i{
+                color: setcolor(white);
+            }
+        }
+        .message{
+            h3{
+                white-space: nowrap;
+            }
+
+            p{
+                text-align: right;
+            }
+        }
+    }
+
+    main{
+        padding: 0;
+        border-radius: $border--rad-max;
+    }
+}

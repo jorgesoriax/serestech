@@ -1,0 +1,56 @@
+@use "../abstracts" as *;
+@use "../tools/crossbrowsing" as *;
+
+// * Mensaje con respuesta positiva
+.message{
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+
+    h3, p{
+        margin: 0;
+    }
+    p{
+        height: 16px;
+    }
+
+    h3{
+        font-weight: 500;
+    }
+
+    div{
+        grid-row: 1 / 3;
+        width: 42px;
+        height: 42px;
+        font-size: $i--font-size-min;
+        line-height: 40px;
+        text-align: center;
+        background: setcolor(white, light);
+        border-radius: 100%;
+        border: $border--px solid setcolor(gray, light);
+        @include noselect;
+    }
+}
+
+// * Mensaje con respuesta negativa
+.message--error{
+    h3{
+        color: setcolor(red);
+    }
+}
+.message--panel-ow{
+    h3{
+        font-size: $paragraph--font-size;
+        // color: setcolor(blue, ddark);
+        text-align: right;
+    }
+    div{
+        width: 37px;
+        height: 37px;
+        line-height: 39px;
+        grid-column: 2;
+    }
+}

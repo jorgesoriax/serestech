@@ -1,0 +1,142 @@
+@use "../abstracts" as *;
+@use "../tools/mixins" as *;
+@use "../tools/crossbrowsing" as *;
+
+// * Property list:
+// * 1 background-color
+// * 2 background-color:active
+// * 3 border
+// * 4 border:active
+// * 5 outline:hover
+// * 6 color
+
+// * MAP Button states over white background
+$buttons--overwhite: (
+    positive-ow: (
+        setcolor(green),        
+        setcolor(green, actv),  
+        setcolor(green, dark),  
+        setcolor(green, dark),  
+        setcolor(green, outl),  
+        setcolor(white)         
+    ),
+    negative-ow: (
+        setcolor(red),
+        setcolor(red, actv),
+        setcolor(red, dark),
+        setcolor(red, dark),
+        setcolor(red, outl),
+        setcolor(white)
+    ),
+    neutral-ow: (
+        setcolor(white, light),
+        setcolor(blue, actv),
+        setcolor(gray, light),
+        setcolor(blue),
+        setcolor(blue, outl),
+        setcolor(black)
+    ),
+    whatsapp-ow: (
+        setcolor(WApp),
+        setcolor(WApp, actv),
+        setcolor(WApp, dark),
+        setcolor(WApp, dark),
+        setcolor(green, outl),
+        setcolor(white)
+    ),
+    alternative-ow: (
+        setcolor(blue),
+        setcolor(blue, light),
+        setcolor(blue, dark),
+        setcolor(blue, dark),
+        setcolor(blue, outl),
+        setcolor(white)
+    )
+);
+// * MAP Button states over blue background
+$buttons--overblue: (
+    positive-ob: (
+        setcolor(green),
+        setcolor(green, actv),
+        setcolor(green, light),
+        setcolor(green, light),
+        setcolor(green, outl),
+        setcolor(white)
+    ),
+    negative-ob: (
+        setcolor(red),
+        setcolor(red, actv),
+        setcolor(red, dark),
+        setcolor(red, dark),
+        setcolor(red, outl),
+        setcolor(white)
+    ),
+    neutral-ob: (
+        setcolor(white, light),
+        setcolor(blue, actv),
+        transparent,
+        setcolor(blue),
+        setcolor(white, outl),
+        setcolor(black)
+    ),
+    whatsapp-ob: (
+        setcolor(WApp),
+        setcolor(WApp, actv),
+        setcolor(green),
+        setcolor(green),
+        setcolor(green, outl-ob),
+        setcolor(white)
+    )
+);
+// * EACH Button states over white background
+@each $name, $colors in $buttons--overwhite{
+    $bg--color: nth($colors, 1);
+    $bg--color-active: nth($colors, 2);
+    $border--color: nth($colors, 3);
+    $border--color-active: nth($colors, 4);
+    $outline--color: nth($colors, 5);
+    $font--color: nth($colors, 6);
+
+    .button--#{$name}{
+        background: $bg--color;
+        border: $border--px solid $border--color;
+        color: $font--color;
+        &:active{
+            background: $bg--color-active;
+        }
+        &:hover{
+            outline: $outline--px solid $outline--color;
+            border: $border--px solid $border--color-active;
+        }
+        &:focus{
+            outline: $outline--px solid $outline--color;
+            border: $border--px solid $border--color-active;
+        }
+    }
+}
+// * EACH Button states over blue background
+@each $name, $colors in $buttons--overblue{
+    $bg--color: nth($colors, 1);
+    $bg--color-active: nth($colors, 2);
+    $border--color: nth($colors, 3);
+    $border--color-active: nth($colors, 4);
+    $outline--color: nth($colors, 5);
+    $font--color: nth($colors, 6);
+
+    .button--#{$name}{
+        background: $bg--color;
+        border: $border--px solid $border--color;
+        color: $font--color;
+        &:active{
+            background: $bg--color-active;
+        }
+        &:hover{
+            outline: $outline--px solid $outline--color;
+            border: $border--px solid $border--color-active;
+        }
+        &:focus{
+            outline: $outline--px solid $outline--color;
+            border: $border--px solid $border--color-active;
+        }
+    }
+}

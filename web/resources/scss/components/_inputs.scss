@@ -1,0 +1,92 @@
+@use "../abstracts" as *;
+@use "../tools/crossbrowsing" as *;
+@use "../tools/mixins" as *;
+
+// * INPUT
+.input{
+    height: 50px;
+    @include flex;
+    flex-direction: row;
+    position: relative;
+    min-width: 300px;
+
+    > i{
+        width: 40px;
+        height: 100%;
+        right: -8px;
+        position: absolute;
+        @include flex;
+        margin: $gap--min;
+        
+    }
+    label{
+        width: 40px;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        @include flex;
+        cursor: text;
+    }
+
+    input{ 
+        background: setcolor(white);
+        outline: none;
+        height: 100%;
+        width: 100%;
+        font-size: $paragraph--font-size;
+        @include font-family($font--title,400);
+        cursor: text;
+        border-radius: $border--rad-mid;
+        padding: 0 40px;
+    }
+}
+i{
+    font-size: $i--font-size-min;
+    color: setcolor(black);
+}
+// Cursor del icono interactivo del input pass
+#icon--pass{
+    cursor: pointer;
+}
+@include placeholder--color;
+
+// * CHECKBOX
+.checkbox{
+    @include flex;
+    flex-direction: row;
+    gap: $gap--min;
+
+    // Input hidden
+    input{
+        position: absolute;
+        visibility: hidden;
+        
+        // Cuando checkbox se encuentra checked, se añaden los sig estilos
+        &:checked ~ .checkmark{
+            background-color: setcolor(blue);
+            border: $border--px solid setcolor(blue, dark);
+        }
+        // Cuando checkbox se encuentra checked, se muestra i(icono)
+        &:checked ~ .checkmark > i{
+            display: block;
+        }
+    }
+
+    // Elemento que sustituye a input(el cuál sera ocultado)
+    .checkmark{
+        background: setcolor(white, light);
+        border-radius: $border--rad-min;
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+        font-size: $i--font-size-min;
+        line-height: 25px;
+        text-align: center;
+
+        // Por default, i esta oculta
+        i{
+            display: none;
+            color: setcolor(white);
+        }
+    }
+}

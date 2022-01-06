@@ -1,0 +1,61 @@
+@use "tools" as *;
+
+// * BASE
+body{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    @include font-family($font--title, 400);
+    color: setcolor(black);
+}
+*{
+    box-sizing: border-box;
+}
+header{
+    background: setcolor(blue);
+    padding: $container--padd-mix;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+button, input[type=submit]{
+    border-radius: $border--rad-mid;
+    padding: $button-text--padd;
+    font-size: $button--font-size;
+    cursor: pointer;
+    @include font-family($font--title, 500);
+    @include flex;
+    gap: $gap--min;
+    height: 43px;
+    white-space: nowrap;
+
+    img{
+        height: 21px;
+    }
+}
+
+a{
+    cursor: pointer;
+    text-decoration: none;
+    color: setcolor(black);
+}
+a:active{
+    color: setcolor(black);
+}
+p::selection {
+    background: setcolor(blue);
+    color: setcolor(white);
+}
+p::-moz-selection { /* Firefox */
+    background: setcolor(blue);
+    color: setcolor(white);
+}
+i{
+    color: setcolor(black);
+}
+span{
+    font-size: $paragraph--font-size;
+}
