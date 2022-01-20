@@ -73,6 +73,36 @@
      * |||||||||||||||||||||||||||||| MAIN ||||||||||||||||||||||||||||| 
      * -->
     <main>
+        <br>
+        <table border="1" width="100%" style="border-spacing: 0px;">
+            <thead>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>SKU</th>
+                <th>Precio</th>
+                <th>Precio con descuento</th>
+                <th>Cantidad</th>
+                <th>Etiquetas</th>
+                <th>Borrar</th>
+                <th>Editar</th>
+            </thead>
+            <tbody>
+                @foreach ($specs as $spec)
+                    <tr>
+                        <td>{{ $spec->product->image_1 }}</td>
+                        <td>{{ $spec->equipo_marca }} {{ $spec->equipo_linea }} {{ $spec->equipo_modelo }}</td>
+                        <td>{{ $spec->product->sku }}</td>
+                        <td>{{ $spec->product->price }}</td>
+                        <td>{{ $spec->product->discount_price }}</td>
+                        <td>{{ $spec->product->inventory->stock}}</td>
+                        <td>{{ $spec->product->label_new}} Garantía de {{ $spec->product->label_warranty}} días</td>
+                        <td>A</td>
+                        <td>B</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+
     </main>     
 </div>  
 @endsection

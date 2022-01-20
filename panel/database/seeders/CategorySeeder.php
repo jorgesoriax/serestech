@@ -14,16 +14,8 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        $categoria = new Category();
-        $categoria->name = "Laptop";
-        $categoria->save();
-        
-        $categoria = new Category();
-        $categoria->name = "Monitor";
-        $categoria->save();
-
-        $categoria = new Category();
-        $categoria->name = "Disco duro";
-        $categoria->save();
+        $category = new Category();
+            $category->name = "Laptop";
+        $category->save();
     }
 }

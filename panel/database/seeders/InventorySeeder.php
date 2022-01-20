@@ -15,15 +15,15 @@ class InventorySeeder extends Seeder
     public function run()
     {
         $inventory = new Inventory();
-        $inventory->quantity = 123;
+            $inventory->stock = 2;
         $inventory->save();
 
         $inventory = new Inventory();
-        $inventory->quantity = 456;
+            $inventory->stock = 5;
         $inventory->save();
 
         $inventory = new Inventory();
-        $inventory->quantity = 789;
+            $inventory->stock = 0;
         $inventory->save();
     }
 }

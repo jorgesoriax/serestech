@@ -16,9 +16,15 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('sku');
-            $table->integer('price');
-            $table->integer('discount_price');
+            $table->string('sku', 45);
+            $table->float('price');
+            $table->float('price_discount');
+            $table->string('status_usage', 45);
+            $table->integer('status_aesthetics');
+            $table->integer('warranty_days');
+            $table->string('support', 45);
+            $table->string('delivery', 45);
+
             $table->string('image_1', 155);
             $table->string('image_2', 155);
             $table->string('image_3', 155);
@@ -27,13 +33,13 @@ class CreateProductsTable extends Migration
             $table->string('image_6', 155);
             $table->string('image_7', 155);
 
-            // Categories
+            // Categories FK
             $table->foreignId('category_id')
                   ->constrained('categories')
                   ->restrictOnDelete()
                   ->cascadeOnUpdate();
 
-            // Inventories
+            // Inventories FK
             $table->foreignId('inventory_id')
                   ->constrained('inventories')
                   ->restrictOnDelete()

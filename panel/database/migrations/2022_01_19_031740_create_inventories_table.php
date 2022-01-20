@@ -16,7 +16,7 @@ class CreateInventoriesTable extends Migration
         Schema::create('inventories', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('quantity');
+            $table->integer('stock');
 
             $table->timestamps();
         });

@@ -21,7 +21,7 @@ use Illuminate\Validation\ValidationException;
 */
 
 Route::view('/', 'auth/login')->name('login')->middleware('guest');
-Route::view('panel', 'panel')->middleware('auth');
+Route::get('panel', [PanelController::class, 'index'])->middleware('auth');
 
 Route::get('test', [TestController::class,'index']);
 

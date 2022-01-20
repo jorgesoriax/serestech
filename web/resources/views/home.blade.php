@@ -12,11 +12,11 @@
 * RESPONSIVE INDICATOR
 -->
 
-<div id="responsive-indicator"><br>
+{{-- <div id="responsive-indicator"><br>
     <a href="product" target="_blank" rel="noopener noreferrer">
         Clic aquí para ver el diseño de producto o en cualquier tarjeta de producto de abajo
     </a>
-</div>
+</div> --}}
 
 <!--
 * MESSENGER PLUGIN
@@ -50,7 +50,7 @@
     * HEADER 
 -->
 
-<header>
+{{-- <header>
     <div id="header--logo">
         <a href="../public/">
             <svg width="100%" height="100%" viewBox="0 0 597 73" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
@@ -107,11 +107,11 @@
         -->
     </div>
 
-</header>
+</header> --}}
 <!-- 
     * SLIDER
 -->   
-<section class="container--slider">
+{{-- <section class="container--slider">
 
     <div class="slider" id="slider">
         <div class="slider--section">
@@ -135,7 +135,7 @@
         <i class='bx bx-chevron-left'></i>
     </button>
     
-</section>
+</section> --}}
 <!-- 
     * MAIN
 -->
@@ -143,140 +143,68 @@
 
     <div id="container--catalog">
         <h2>Nuestro stock</h2>
-
         <div id="catalog">
-            <a href="product">
+
+        <!--
+            * Consulta de productos desde el modelo SpecificationsLaptop
+        -->
+        @foreach ($specs as $spec)
+    
+            <a href="{{ $spec->id }}" >
                 <div class="box--ow-max product--card" id="1">
                     <div class="product--image">
                         <label class="label">
-                            Nuevo
+                            {{ $spec->product->status_usage}}
                         </label>
 
                         <img src="../resources/img/products/img4.jpg">
                     </div>
                     <div class="product--info">
                         <h3 id="product--title">
-                            Huawei MateBook D15
+                            {{ $spec->equipo_marca }} 
+                            {{ $spec->equipo_linea }} 
+                            {{ $spec->equipo_modelo }}
                         </h3>
 
                         <p id="product--description" class="p--description" >
-                           Space gray 15.6", Intel Core i3 1011 0U 8GB de RAM 256GB SSD
+                           {{ $spec->ram_gb }}
+                           {{ $spec->ram_tipo }},
+                           {{ $spec->discod_gb }}
+                           {{ $spec->discod_tipo }},
+                           {{ $spec->procesador_marca }}
+                           {{ $spec->procesador_modelo }} Gen
+                           {{ $spec->procesador_gen }}, 
+                           {{ $spec->procesador_mhz }} MHz,
+                           {{ $spec->procesador_nucleos }} Núcleos...
                         </p>
 
                         <h2 id="product--price">
-                            $ 12,499
+                            $ {{ $spec->product->price_discount }}
                         </h2>
                         <p id="product--discount">
-                            20% OFF
+                            @if ($spec->product->price_discount === "")
+                                Nulo    
+                            @else
+                                {{ round( 100 - (($spec->product->price_discount / $spec->product->price) * 100)) }} % OFF
+                            @endif
                         </p>
                         <p id="product--orig-price" class="p--description">
-                            $ 15,999
+                            $ {{ $spec->product->price }}
                         </p>
                     </div>
                 </div>
             </a>
 
-            <a href="product">
-                <div class="box--ow-max product--card" id="1">
-                    <div class="product--image">
-                        <label class="label">
-                            Nuevo
-                        </label>
+            @endforeach
 
-                        <img src="../resources/img/products/img5.jpg">
-                    </div>
-                    <div class="product--info">
-                        <h3 id="product--title">
-                            Huawei MateBook D15
-                        </h3>
-
-                        <p id="product--description" class="p--description" >
-                           Space gray 15.6", Intel Core i3 1011 0U 8GB de RAM 256GB SSD
-                        </p>
-
-                        <h2 id="product--price">
-                            $ 12,499
-                        </h2>
-                        <p id="product--discount">
-                            20% OFF
-                        </p>
-                        <p id="product--orig-price" class="p--description">
-                            $ 15,999
-                        </p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="product">
-                <div class="box--ow-max product--card" id="1">
-                    <div class="product--image">
-                        <label class="label">
-                            Semi nuevo
-                        </label>
-
-                        <img src="../resources/img/products/img6.jpg">
-                    </div>
-                    <div class="product--info">
-                        <h3 id="product--title">
-                            Huawei MateBook D15
-                        </h3>
-
-                        <p id="product--description" class="p--description" >
-                           Space gray 15.6", Intel Core i3 1011 0U 8GB de RAM 256GB SSD
-                        </p>
-
-                        <h2 id="product--price">
-                            $ 12,499
-                        </h2>
-                        <p id="product--discount">
-                            20% OFF
-                        </p>
-                        <p id="product--orig-price" class="p--description">
-                            $ 15,999
-                        </p>
-                    </div>
-                </div>
-            </a>
-            
-            <a href="product">
-                <div class="box--ow-max product--card" id="1">
-                    <div class="product--image">
-                        <label class="label">
-                            Semi nuevo
-                        </label>
-
-                        <img src="../resources/img/products/img1.webp">
-                    </div>
-                    <div class="product--info">
-                        <h3 id="product--title">
-                            Huawei MateBook D15
-                        </h3>
-
-                        <p id="product--description" class="p--description" >
-                           Space gray 15.6", Intel Core i3 1011 0U 8GB de RAM 256GB SSD
-                        </p>
-
-                        <h2 id="product--price">
-                            $ 12,499
-                        </h2>
-                        <p id="product--discount">
-                            20% OFF
-                        </p>
-                        <p id="product--orig-price" class="p--description">
-                            $ 15,999
-                        </p>
-                    </div>
-                </div>
-            </a>
-        </div>
     
-    <div class="pagination">
+    {{-- <div class="pagination">
         <button class="button--neutral-ow">Anterior</button>
         <button class="button--neutral-ow sq">1</button>
         <button class="button--neutral-ow sq">2</button>
         <button class="button--neutral-ow sq">3</button>
         <button class="button--neutral-ow">Siguiente</button>
-    </div>
+    </div> --}}
 
 </main>
 <!--

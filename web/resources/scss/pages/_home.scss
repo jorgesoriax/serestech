@@ -97,7 +97,7 @@ main{
     transition: $short--animation-duration;
 
     &:hover{
-        transform: translateY(-10px);
+        transform: translateY(-5px);
 
         #product--orig-price{
             transform: translate(105px,-28px);

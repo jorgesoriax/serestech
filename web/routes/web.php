@@ -3,11 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\LoginPanelController;
-use App\Http\Controllers\PanelController;
 use Illuminate\Support\Facades\Auth;
 
-/*
+/*s
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -19,29 +17,9 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', HomeController::class);
+Route::get('product', [ProductController::class, 'index']);
+Route::get('{id}', [ProductController::class, 'show']);
 
-Route::get('product', ProductController::class); // Con esta sintáxis el controlador buscara __invoke
-
-// Route::get('login-panel', LoginPanelController::class);
-// Route::get('panel', PanelController::class);
-
-
-// TODO Confirmar
-// Route::view('home', 'home');
-// Route::view('login-panel', 'auth/login-panel')->name('login')->middleware('guest');
-// Route::view('panel', 'panel')->middleware('auth');
-
-// Route::post('login-panel', function(){
-//     $credentials = request()->validate([
-//         'email' => ['required', 'email', 'string'],
-//         'password' => ['required', 'string']
-//     ]);
-//     $remember = request()->filled('remember');
-
-//     if(Auth::attempt($credentials, $remember)){
-//         request()->session()->regenerate();
-
-//         return redirect('panel');
-//     }
-//     return redirect('login-panel');
+// Route::get('product/{id}', function($id){
+//     return "Producto con id: $id";
 // });

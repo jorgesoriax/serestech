@@ -105,39 +105,47 @@
 
         </div>
 
+        <!-- 
+            * ESPECIFICACIONES ESPECIFICACIONES  ESPECIFICACIONES 
+        -->
         <div id="container--dets">
-
-            <h1>
-                Asus X509MA gris 15.6", Intel Celeron N4000 4GB de RAM 500GB HDD
+            <h1> 
+                {{ $specs->equipo_marca }}
+                {{ $specs->equipo_linea }}
+                {{ $specs->equipo_modelo }}
             </h1>
 
             <p id="info--sku" class="p--description">
-                SKU 9999
+                SKU {{ $specs->product->sku }}
             </p>
 
-            <label class="label">
-                Equipo nuevo
-            </label>
+            @if ($specs->product->status_usage )
+                <label class="label">{{ $specs->product->status_usage }}</label>
+            @endif
 
             <label class="label label--b">
-                Garantía por 60 días
+                Garantía por {{ $specs->product->warranty_days }} días
             </label>
 
             <p id="info--disc-price" class="p--description">
-                $ 99,999
+                $ {{ $specs->product->price_discount }}
             </p>
 
             <h1 id="info--orig-price">
-                $99,999 MX
+                $ {{ $specs->product->price }}
             </h1>
 
             <p id="info--IVA" class="p--description">+ IVA en caso de requerir factura</p>
             
             <p id="info--units">
-                2 unidades disponibles
+                @if ($specs->product->inventory->stock > 1)
+                    {{ $specs->product->inventory->stock }} unidades disponibles
+                @else
+                    {{ $specs->product->inventory->stock }} unidad disponible
+                @endif
             </p>
 
-            <a href="https://wa.me/528110649320" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/528110649320?text=Me%20interesa%20{{ $specs->equipo_marca }}%20{{ $specs->equipo_linea }}%20{{ $specs->equipo_modelo }}%20SKU%20{{ $specs->product->sku }}%20(Prueba)" target="_blank" rel="noopener noreferrer">
                 <button id="info--buy" class="button--whatsapp-ow">
                     Comprar ahora
                     <img src="../resources/img/social-media/whatsapp-w.svg">
@@ -155,110 +163,429 @@
         
         <section id="product--specs-l">
 
-            <table id="table--equip" class="box--ow-max">
-                <caption><h2>Equipo</h2></caption>
+            <!-- 
+                * EQUIPO EQUIPO EQUIPO
+            -->
+            <table class="box--ow-max">
+                <caption><h3>Equipo</h3></caption>
                 <tr>
                     <td>Marca</td>
                     <td class="td-bold">
-                        Huawei
+                        {{ $specs->equipo_marca}}
                     </td>
                 </tr>
                 <tr>
                     <td class="td-w">Línea</td>
                     <td class="td-w td-bold">
-                        Matebook
+                        {{ $specs->equipo_linea}}
                     </td>
                 </tr>
                 <tr>
                     <td>Modelo</td>
                     <td class="td-bold">
-                        D16 HVY-WAP9
+                        {{ $specs->equipo_modelo}}
                     </td>
                 </tr>
             </table>
-
-            <table id="table--equip" class="box--ow-max">
-                <caption><h2>Estado</h2></caption>
+            <!-- 
+                * RAM RAM RAM
+            -->
+            <table class="box--ow-max">
+                <caption><h3>Memoria RAM</h3></caption>
                 <tr>
-                    <td>Marca</td>
+                    <td>Cantidad</td>
                     <td class="td-bold">
-                        Medio
+                        {{ $specs->ram_gb}} GB
                     </td>
                 </tr>
                 <tr>
-                    <td class="td-w--end">Línea</td>
+                    <td class="td-w--end">Tipo</td>
                     <td class="td-w--end td-bold">
-                        9 de 10
+                        {{ $specs->ram_tipo}}
                     </td>
                 </tr>
             </table>
-
-        </section>
-        <section id="product--specs-r">
-
-            <table id="table--equip" class="box--ow-max">
-                <caption><h2>Estado</h2></caption>
+            <!-- 
+                * Disco duro Disco duro Disco duro
+            -->
+            <table class="box--ow-max">
+                <caption><h3>Disco duro</h3></caption>
                 <tr>
-                    <td>Marca</td>
+                    <td>Cantidad</td>
                     <td class="td-bold">
-                        Medio
+                        {{ $specs->discod_gb}}
                     </td>
                 </tr>
                 <tr>
-                    <td class="td-w--end">Línea</td>
+                    <td class="td-w--end">Tipo</td>
                     <td class="td-w--end td-bold">
-                        9 de 10
+                        {{ $specs->discod_tipo}}
                     </td>
                 </tr>
             </table>
-
-            <table id="table--equip" class="box--ow-max">
-                <caption><h2>Equipo</h2></caption>
+            <!-- 
+                * Procesador Procesador Procesador
+            -->
+            <table class="box--ow-max">
+                <caption><h3>Procesador</h3></caption>
                 <tr>
                     <td>Marca</td>
                     <td class="td-bold">
-                        Huawei
+                        {{ $specs->procesador_marca}}
                     </td>
                 </tr>
                 <tr>
-                    <td class="td-w">Línea</td>
+                    <td class="td-w">Modelo</td>
                     <td class="td-w td-bold">
-                        Matebook
+                        {{ $specs->procesador_modelo}}
                     </td>
                 </tr>
                 <tr>
-                    <td>Modelo</td>
+                    <td>Generación</td>
                     <td class="td-bold">
-                        D16 HVY-WAP9
+                        {{ $specs->procesador_gen}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-w">Velocidad</td>
+                    <td class="td-w td-bold">
+                        {{ $specs->procesador_mhz}} MHz
+                    </td>
+                </tr>
+                <tr>
+                    <td>Núcleos</td>
+                    <td class="td-bold">
+                        {{ $specs->procesador_nucleos}}
                     </td>
                 </tr>
             </table>
-
+            <!-- 
+                * Tarjeta gráfica Tarjeta gráfica Tarjeta gráfica
+            -->
+            @if ($specs->tarjetag)
+                <table class="box--ow-max">
+                    <caption><h3>Tarjeta gráfica</h3></caption>
+                    <tr>
+                        <td>Marca</td>
+                        <td class="td-bold">
+                            {{ $specs->tarjetag_marca}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-w">Modelo</td>
+                        <td class="td-w td-bold">
+                            {{ $specs->tarjetag_modelo}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tipo de memoria</td>
+                        <td class="td-bold">
+                            {{ $specs->tarjetag_tipomemoria}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-w--end">Cantidad de memoria</td>
+                        <td class="td-w--end td-bold">
+                            {{ $specs->tarjetag_gb}} GB
+                        </td>
+                    </tr>
+                </table>
+            @endif
+            <!-- 
+                * Pantalla Pantalla Pantalla
+            -->
+            <table class="box--ow-max">
+                <caption><h3>Pantalla</h3></caption>
+                <tr>
+                    <td>Tipo</td>
+                    <td class="td-bold">
+                        {{ $specs->pantalla_tipo}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-w">Tamaño</td>
+                    <td class="td-w td-bold">
+                        {{ $specs->pantalla_tamaño}} "
+                    </td>
+                </tr>
+                <tr>
+                    <td>Táctil</td>
+                    <td class="td-bold">
+                        @if ($specs->pantalla_tactil)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                </tr>
+            </table>
+            <!-- 
+                * Teclado Teclado Teclado
+            -->
+            <table class="box--ow-max">
+                <caption><h3>Teclado</h3></caption>
+                <tr>
+                    <td>Idioma</td>
+                    <td class="td-bold">
+                        {{ $specs->teclado_idioma}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-w">Retroiluminado</td>
+                    <td class="td-w td-bold">
+                        @if ($specs->teclado_retroi)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td>Teclado númerico</td>
+                    <td class="td-bold">
+                        @if ($specs->teclado_num)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                </tr>
+            </table>
+            <!-- 
+                * Conectividad Conectividad Conectividad
+            -->
+            <table class="box--ow-max">
+                <caption><h3>Conectividad</h3></caption>
+                <tr>
+                    <td>Cantidad de puertos USB 2.0</td>
+                    <td class="td-bold">
+                        {{ $specs->conectv_usb2 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-w">Cantidad de puertos USB 3.0</td>
+                    <td class="td-w td-bold">
+                        {{ $specs->conectv_usb3 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cantidad de puertos USB C</td>
+                    <td class="td-bold">
+                        {{ $specs->conectv_usbc }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-w">Wifi</td>
+                    <td class="td-w td-bold">
+                        @if ($specs->conectv_wifi)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td>Bluetooth</td>
+                    <td class="td-bold">
+                        @if ($specs->conectv_bluetooth)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-w">Puerto jack para audífonos</td>
+                    <td class="td-w td-bold">
+                        @if ($specs->conectv_jack)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td>Puerto HDMI</td>
+                    <td class="td-bold">
+                        @if ($specs->conectv_hdmi)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-w">Puerto VGA</td>
+                    <td class="td-w td-bold">
+                        @if ($specs->conectv_vga)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td>Puerto DisplayPort</td>
+                    <td class="td-bold">
+                        @if ($specs->conectv_displayp)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-w">Puerto Ethernet</td>
+                    <td class="td-w td-bold">
+                        @if ($specs->conectv_ethernet)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td>Puerto Serial COM</td>
+                    <td class="td-bold">
+                        @if ($specs->conectv_serialcom)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-w--end">Puerto IEEE 1394</td>
+                    <td class="td-w--end td-bold">
+                        @if ($specs->conectv_ieee1394)
+                            Si
+                        @else
+                            No
+                        @endif
+                        
+                    </td>
+                </tr>
+                
+            </table>
+            <!-- 
+                * Sistema Operativo Sistema Operativo Sistema Operativo
+            -->
+            <table class="box--ow-max">
+                <caption><h3>Sistema Operativo</h3></caption>
+                <tr>
+                    <td>Nombre</td>
+                    <td class="td-bold">
+                        {{ $specs->so}}
+                    </td>
+                </tr>
+            </table>
+            <!-- 
+                * Software adicional Software adicional Software adicional
+            -->
+            <table class="box--ow-max">
+                <caption><h3>Software adicional</h3></caption>
+                <tr>
+                    <td>Programas</td>
+                    <td class="td-bold">
+                        {{ $specs->software_ad}}
+                    </td>
+                </tr>
+            </table>
+            <!-- 
+                * Audio y video Audio y video Audio y video
+            -->
+            <table class="box--ow-max">
+                <caption><h3>Audio y video</h3></caption>
+                <tr>
+                    <td>Idioma</td>
+                    <td class="td-bold">
+                        @if ($specs->audiov_camara)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-w--end">Retroiluminado</td>
+                    <td class="td-w--end td-bold">
+                        @if ($specs->audiov_microfono)
+                            Si
+                        @else
+                            No
+                        @endif
+                    </td>
+                </tr>
+            </table>
+            <!-- 
+                * Batería Batería Batería
+            -->
+            <table class="box--ow-max">
+                <caption><h3>Batería</h3></caption>
+                <tr>
+                    <td>Tipo</td>
+                    <td class="td-bold">
+                        {{ $specs->bateria_tipo}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-w--end">Cantidad de celdas</td>
+                    <td class="td-w--end td-bold">
+                        {{ $specs->bateria_celdas}}
+                    </td>
+                </tr>
+            </table>
+            <!-- 
+                * Estado Estado Estado
+            -->
+            <table class="box--ow-max">
+                <caption><h3>Estado</h3></caption>
+                <tr>
+                    <td>Uso</td>
+                    <td class="td-bold">
+                        {{ $specs->estado_uso}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-w--end">Estética</td>
+                    <td class="td-w--end td-bold">
+                        {{ $specs->estado_estetica}}
+                    </td>
+                </tr>
+                
+            </table>
         </section>
+
+        {{-- <section id="product--specs-r">
+        </section> --}}
     
     </main>
 <!--
     * WTY 
 -->
     <section id="product--wty">
+        
         <div class="box--ow-max">
             <i class='bx bxs-check-shield'></i>
             <p>
-                Garantía de 60 días
+                Garantía de {{ $specs->product->warranty_days }} días
             </p>
         </div>
+
         <div class="box--ow-max">
             <i class='bx bx-support' ></i>
             <p>
-                1 mes de soporte remoto sin costo
+                {{ $specs->product->support }}
             </p>
         </div>
+
         <div class="box--ow-max">
             <i class='bx bxs-package' ></i>
             <p>
-                Entrega a domicilio de inmediato
+                {{ $specs->product->delivery }}
             </p>
         </div>
+
     </section>
 <!--
     * FOOTER
