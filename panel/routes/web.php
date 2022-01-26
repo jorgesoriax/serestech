@@ -20,10 +20,38 @@ use Illuminate\Validation\ValidationException;
 |
 */
 
-Route::view('/', 'auth/login')->name('login')->middleware('guest');
-Route::get('panel', [PanelController::class, 'index'])->middleware('auth');
+// TODO Decidir la manera más eficiente de ordenar las rutas
 
-Route::get('test', [TestController::class,'index']);
+// La route en el middleware Authenticate se ha midificado
+Route::get('/', [LoginController::class, 'index'])
+->name('login.index')
+->middleware('guest');
 
 Route::post('/', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout']);
+
+Route::get('panel', [PanelController::class, 'index'])
+     ->name('panel.index')
+     ->middleware('auth');
+Route::get('panel/create', [PanelController::class, 'create'])
+     ->name('panel.create')
+     ->middleware('auth');
+Route::get('panel/{specLaptop}', [PanelController::class, 'show'])
+     ->name('panel.show')
+     ->middleware('auth');
+Route::post('panel', [PanelController::class, 'store'])
+     ->name('panel.store')
+     ->middleware('auth');
+Route::get('panel/{specLaptop}/edit', [PanelController::class, 'edit'])
+     ->name('panel.edit')
+     ->middleware('auth');
+Route::put('panel/{specLaptop}', [PanelController::class, 'update'])
+     ->name('panel.update')
+     ->middleware('auth');
+Route::delete('panel/{specLaptop}', [PanelController::class, 'destroy'])
+     ->name('panel.destroy')
+     ->middleware('auth');
+
+Route::get('test', [TestController::class,'index'])
+     ->name('panel.test');
+

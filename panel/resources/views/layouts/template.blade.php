@@ -14,6 +14,7 @@
     <!-- styles -->
     <link rel="stylesheet" href="../resources/css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    @yield('css')
 </head>
 <body>
     @yield('content')

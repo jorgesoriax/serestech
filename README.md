@@ -12,6 +12,7 @@
 
 ### VISTA PRODUCTO
 1. Modificar el orden de las especificaciones
+2. Añadir paginación
 
 ### BASE DE DATOS
 1. ~~Cambiar tipo de datos para precios a **float**.~~
@@ -20,6 +21,8 @@
 4. ~~Retirar label_new, información replicada en estado_uso~~
 5. ~~Agregar tipo string para valores: en lugar de generación 3 => generación 3era~~
 6. Añadir restricción en Frontend para productos con 0 existencias
+### RUTAS
+1. Añadir método name() a rutas
 ## Notas
 Debido a la cantidad de informacion que contiene la db, el crud necesita un modal para modificar la información, es por esto que es necesario mostrar solo información de primera mano, como podría ser:
 

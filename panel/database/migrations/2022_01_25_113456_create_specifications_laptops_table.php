@@ -15,7 +15,7 @@ class CreateSpecificationsLaptopsTable extends Migration
     {
         Schema::create('specifications_laptops', function (Blueprint $table) {
             $table->id();
-            
+
             $table->string('equipo_marca', 45);
             $table->string('equipo_linea', 45);
             $table->string('equipo_modelo', 45);
@@ -34,8 +34,9 @@ class CreateSpecificationsLaptopsTable extends Migration
             $table->string('tarjetag_tipomemoria', 45);
             $table->integer('tarjetag_gb');
             $table->string('pantalla_tipo', 45);
-            $table->float('pantalla_tamaño');
+            $table->float('pantalla_tamano');
             $table->boolean('pantalla_tactil');
+            $table->float('pantalla_resolucion');
             $table->string('teclado_idioma', 45);
             $table->boolean('teclado_retroi', 45);
             $table->boolean('teclado_num', 45);
@@ -62,8 +63,9 @@ class CreateSpecificationsLaptopsTable extends Migration
 
             // Product
             $table->foreignId('product_id')
+                  ->unique()
                   ->constrained('products')
-                  ->restrictOnDelete()
+                  ->cascadeOnDelete()
                   ->cascadeOnUpdate();
 
             $table->timestamps();

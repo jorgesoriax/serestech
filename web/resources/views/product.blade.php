@@ -71,37 +71,59 @@
 <!--
     * IMG AND STOCK INFO
 -->
-    <section id="product--info">
+<section id="product--info">
 
         <div  id="container--imgs">
 
             <div id="img--prod-preview" >
-                <img id="img-original" src="../resources/img/products/product-page/prod-page-1.webp" alt="" onmousemove="zoom(event)">
+                <img id="img-original" src="http://localhost/git-repos/serestech.web/panel/public{{ $specs->product->image->image_1 }}">
             </div>
             
             <div id="zoom" class="box--ow-max"></div>
+
             
-            <div class="img--miniature outl--blue-ow" id="img--prod-1">
-                <img src="../resources/img/products/product-page/prod-page-1.webp" alt="">
-            </div>
-            <div class="img--miniature outl--blue-ow" id="img--prod-2">
-                <img src="../resources/img/products/product-page/prod-page-2.webp" alt="">
-            </div>
-            <div class="img--miniature outl--blue-ow" id="img--prod-3">
-                <img src="../resources/img/products/product-page/prod-page-3.webp" alt="">
-            </div>
-            <div class="img--miniature outl--blue-ow" id="img--prod-4">
-                <img src="../resources/img/products/product-page/prod-page-4.webp" alt="">
-            </div>
-            <div class="img--miniature outl--blue-ow" id="img--prod-5">
-                <img src="../resources/img/products/product-page/prod-page-5.webp" alt="">
-            </div>
-            <div class="img--miniature outl--blue-ow" id="img--prod-6">
-                <img src="../resources/img/products/product-page/prod-page-6.webp" alt="">
-            </div>
-            <div class="img--miniature outl--blue-ow" id="img--prod-7">
-                <img src="../resources/img/products/product-page/prod-page-7.webp" alt="">
-            </div>
+            @if ($specs->product->image->image_1)
+                <div class="img--miniature outl--blue-ow" id="img--prod-1">
+                    
+                    <img src="http://localhost/git-repos/serestech.web/panel/public{{ $specs->product->image->image_1 }}">
+                </div>
+            @endif
+            @if ($specs->product->image->image_2)
+                <div class="img--miniature outl--blue-ow" id="img--prod-2">
+                    
+                    <img src="http://localhost/git-repos/serestech.web/panel/public{{ $specs->product->image->image_2 }}">
+                </div>
+            @endif
+            @if ($specs->product->image->image_3)
+                <div class="img--miniature outl--blue-ow" id="img--prod-3">
+                    
+                    <img src="http://localhost/git-repos/serestech.web/panel/public{{ $specs->product->image->image_3 }}">
+                </div>
+            @endif
+            @if ($specs->product->image->image_4)
+                <div class="img--miniature outl--blue-ow" id="img--prod-4">
+                    
+                    <img src="http://localhost/git-repos/serestech.web/panel/public{{ $specs->product->image->image_4 }}">
+                </div>
+            @endif
+            @if ($specs->product->image->image_5)
+                <div class="img--miniature outl--blue-ow" id="img--prod-5">
+                    
+                    <img src="http://localhost/git-repos/serestech.web/panel/public{{ $specs->product->image->image_5 }}">
+                </div>
+            @endif
+            @if ($specs->product->image->image_6)
+                <div class="img--miniature outl--blue-ow" id="img--prod-6">
+                    
+                    <img src="http://localhost/git-repos/serestech.web/panel/public{{ $specs->product->image->image_6 }}">
+                </div>
+            @endif
+            @if ($specs->product->image->image_7)
+                <div class="img--miniature outl--blue-ow" id="img--prod-7">
+                    
+                    <img src="http://localhost/git-repos/serestech.web/panel/public{{ $specs->product->image->image_7 }}">
+                </div>
+            @endif
 
         </div>
 

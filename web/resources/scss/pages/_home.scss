@@ -113,6 +113,7 @@ main{
     border-radius: $border--rad-max $border--rad-max 0 0;
     @include flex;
     position: relative;
+    overflow: hidden;
     
     .label{
         position: absolute;

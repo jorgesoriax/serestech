@@ -25,13 +25,19 @@ class CreateProductsTable extends Migration
             $table->string('support', 45);
             $table->string('delivery', 45);
 
-            $table->string('image_1', 155);
-            $table->string('image_2', 155);
-            $table->string('image_3', 155);
-            $table->string('image_4', 155);
-            $table->string('image_5', 155);
-            $table->string('image_6', 155);
-            $table->string('image_7', 155);
+            // $table->string('image_1', 155)->nullable();
+            // $table->string('image_2', 155)->nullable();
+            // $table->string('image_3', 155)->nullable();
+            // $table->string('image_4', 155)->nullable();
+            // $table->string('image_5', 155)->nullable();
+            // $table->string('image_6', 155)->nullable();
+            // $table->string('image_7', 155)->nullable();
+
+            // Images FK
+            $table->foreignId('image_id')
+                ->constrained('images')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
 
             // Categories FK
             $table->foreignId('category_id')
@@ -41,8 +47,9 @@ class CreateProductsTable extends Migration
 
             // Inventories FK
             $table->foreignId('inventory_id')
+                  ->unique()
                   ->constrained('inventories')
-                  ->restrictOnDelete()
+                  ->cascadeOnDelete()
                   ->cascadeOnUpdate();
 
             $table->timestamps();

@@ -12,11 +12,11 @@
 * RESPONSIVE INDICATOR
 -->
 
-{{-- <div id="responsive-indicator"><br>
+<div id="responsive-indicator"><br>
     <a href="product" target="_blank" rel="noopener noreferrer">
         Clic aquí para ver el diseño de producto o en cualquier tarjeta de producto de abajo
     </a>
-</div> --}}
+</div>
 
 <!--
 * MESSENGER PLUGIN
@@ -50,7 +50,7 @@
     * HEADER 
 -->
 
-{{-- <header>
+<header>
     <div id="header--logo">
         <a href="../public/">
             <svg width="100%" height="100%" viewBox="0 0 597 73" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
@@ -107,11 +107,11 @@
         -->
     </div>
 
-</header> --}}
+</header>
 <!-- 
     * SLIDER
 -->   
-{{-- <section class="container--slider">
+<section class="container--slider">
 
     <div class="slider" id="slider">
         <div class="slider--section">
@@ -135,7 +135,7 @@
         <i class='bx bx-chevron-left'></i>
     </button>
     
-</section> --}}
+</section>
 <!-- 
     * MAIN
 -->
@@ -156,8 +156,7 @@
                         <label class="label">
                             {{ $spec->product->status_usage}}
                         </label>
-
-                        <img src="../resources/img/products/img4.jpg">
+                        <img src="http://localhost/git-repos/serestech.web/panel/public{{ $spec->product->image->image_1 }}">
                     </div>
                     <div class="product--info">
                         <h3 id="product--title">

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
 
 /*s
@@ -16,10 +17,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', HomeController::class);
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/{str}', [HomeController::class, 'test']);
 Route::get('product', [ProductController::class, 'index']);
 Route::get('{id}', [ProductController::class, 'show']);
-
-// Route::get('product/{id}', function($id){
-//     return "Producto con id: $id";
-// });

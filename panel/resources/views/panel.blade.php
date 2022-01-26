@@ -48,10 +48,12 @@
             <input id="text-search" type="text" placeholder="Buscar producto" class="input--ow outl--blue-ow">
         </div>
 
-        <button class="button--positive-ow">
-            <i class='bx bxs-add-to-queue'></i>
-            Nuevo
-        </button>
+        <a href="{{ route('panel.create') }}">
+            <button class="button--positive-ow">
+                <i class='bx bxs-add-to-queue'></i>
+                Nuevo
+            </button>
+        </a>
 
         <button class="button--neutral-ow sq" title="Ver manual">
             <i class='bx bxs-book'></i>
@@ -59,13 +61,13 @@
 
 
         <div class="message message--panel-ow">
-            <h3>
-                Buen día
+            <h3 id="bienvenida">
+                
             </h3>
             <p class="p--description">
-                {{ auth()->user()->email }}
+                {{ auth()->user()->name }}
             </p>
-            <div>🥑</div>
+            <div id="emoji"></div>
         </div>
         
     </nav>
@@ -73,7 +75,14 @@
      * |||||||||||||||||||||||||||||| MAIN ||||||||||||||||||||||||||||| 
      * -->
     <main>
-        <br>
+
+        <style>
+            img{
+                width: 100px;
+            }
+        </style>
+
+        <h3>Resumen</h3>
         <table border="1" width="100%" style="border-spacing: 0px;">
             <thead>
                 <th>Imagen</th>
@@ -81,27 +90,56 @@
                 <th>SKU</th>
                 <th>Precio</th>
                 <th>Precio con descuento</th>
-                <th>Cantidad</th>
+                <th>Stock</th>
                 <th>Etiquetas</th>
-                <th>Borrar</th>
+                <th>Ver</th>
                 <th>Editar</th>
+                <th>Eliminar</th>
             </thead>
             <tbody>
-                @foreach ($specs as $spec)
+                @foreach ($specsLaptop as $specLaptop)
                     <tr>
-                        <td>{{ $spec->product->image_1 }}</td>
-                        <td>{{ $spec->equipo_marca }} {{ $spec->equipo_linea }} {{ $spec->equipo_modelo }}</td>
-                        <td>{{ $spec->product->sku }}</td>
-                        <td>{{ $spec->product->price }}</td>
-                        <td>{{ $spec->product->discount_price }}</td>
-                        <td>{{ $spec->product->inventory->stock}}</td>
-                        <td>{{ $spec->product->label_new}} Garantía de {{ $spec->product->label_warranty}} días</td>
-                        <td>A</td>
-                        <td>B</td>
+                        <td><img src="{{ asset($specLaptop->product->image->image_1) }}"></td>
+                        <td>{{ $specLaptop->equipo_marca }} {{ $specLaptop->equipo_linea }} {{ $specLaptop->equipo_modelo }}</td>
+                        <td>{{ $specLaptop->product->sku }}</td>
+                        <td>$ {{ $specLaptop->product->price }}</td>
+                        <td>$ {{ $specLaptop->product->price_discount }}</td>
+                        <td>{{ $specLaptop->product->inventory->stock}}</td>
+                        <td>{{ $specLaptop->product->status_usage}} /
+                            Garantía de {{ $specLaptop->product->warranty_days}} días</td>
+                        <td><a href="{{ route('panel.show', $specLaptop->id) }}"><i class='bx bxs-show'></i></a></td>
+                        <td><a href="{{ route('panel.edit', $specLaptop->id) }}"><i class='bx bxs-edit-alt'></i></a></td>
+                        <td>
+                            <form action="{{ route('panel.destroy', $specLaptop) }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button type="submit"><i class='bx bxs-trash'></i></button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+
+        {{ $specsLaptop->links() }}
+
+        <script>
+            let frases = new Array()
+                frases[0] = 'Bienvenido';
+                frases[1] = 'Hola de nuevo';
+                frases[2] = 'Buen día';
+                frases[3] = 'Comencemos';
+            let F = frases.length;
+
+            let emojis = ['👋', '👀', '💻', '🕓'];
+             
+            function mostrarFrases() {
+                let numAleatorio = Math.round(Math.random() * (F-1));
+                document.getElementById("bienvenida").innerHTML = frases[numAleatorio];
+                document.getElementById("emoji").innerHTML = emojis[numAleatorio];
+            }
+            mostrarFrases();
+        </script>
 
     </main>     
 </div>  

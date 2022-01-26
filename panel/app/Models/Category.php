@@ -12,7 +12,7 @@ class Category extends Model
     use HasFactory;
     
     // Uno a muchos
-    public function products(){
+    public function product(){
         return $this->hasMany(Product::class);
     }
 }

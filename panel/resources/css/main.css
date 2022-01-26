@@ -1,9 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 h1, h2, h3, p {
   margin: 16px 0;
 }
@@ -589,6 +585,10 @@ i {
 }
 #panel nav .message p {
   text-align: right;
+  white-space: nowrap;
+}
+#panel nav .message div {
+  line-height: 35px;
 }
 #panel main {
   padding: 0;
@@ -969,46 +969,6 @@ template {
   display: none;
 }
 
-@keyframes logo__header_s {
-  0% {
-    transform: translateY(-73px);
-  }
-  90% {
-    opacity: 0;
-    transform: translateY(-73px);
-  }
-  95% {
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
-@keyframes logo__header_r {
-  0% {
-    transform: translateX(0);
-  }
-  90% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(73px);
-    opacity: 0;
-  }
-}
-@keyframes logo__header_i {
-  0% {
-    transform: translateX(-35px);
-  }
-  90% {
-    transform: translateX(-35px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
 body {
   margin: 0;
   padding: 0;

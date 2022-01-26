@@ -33,7 +33,7 @@ class SpecificationsLaptopSeeder extends Seeder
             $specification->tarjetag_tipomemoria = "DDR5";
             $specification->tarjetag_gb          = 2;
             $specification->pantalla_tipo        = "LCD";
-            $specification->pantalla_tamaño      = 15.6;
+            $specification->pantalla_tamano      = 15.6;
             $specification->pantalla_tactil      = 1;
             $specification->teclado_idioma       = "Español";
             $specification->teclado_retroi       = 0;
@@ -80,7 +80,7 @@ class SpecificationsLaptopSeeder extends Seeder
             $specification->tarjetag_tipomemoria = "DDR5";
             $specification->tarjetag_gb          = 2;
             $specification->pantalla_tipo        = "LCD";
-            $specification->pantalla_tamaño      = 15.6;
+            $specification->pantalla_tamano      = 15.6;
             $specification->pantalla_tactil      = 1;
             $specification->teclado_idioma       = "Español";
             $specification->teclado_retroi       = 0;
@@ -127,7 +127,7 @@ class SpecificationsLaptopSeeder extends Seeder
             $specification->tarjetag_tipomemoria = "";
             $specification->tarjetag_gb          = 0;
             $specification->pantalla_tipo        = "LED";
-            $specification->pantalla_tamaño      = 15.6;
+            $specification->pantalla_tamano      = 15.6;
             $specification->pantalla_tactil      = 1;
             $specification->teclado_idioma       = "Inglés";
             $specification->teclado_retroi       = 0;

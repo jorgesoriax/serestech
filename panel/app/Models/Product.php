@@ -12,14 +12,20 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['image_1','image_2','image_3','image_4','image_5','image_6','image_7'];
+
     // Uno a uno
-    public function specification(){
+    public function specificationLaptop(){
         return $this->hasOne(SpecificationsLaptop::class);
     }
 
     // Uno a uno inverso
     public function inventory(){
         return $this->belongsTo(Inventory::class);
+    }
+
+    public function image(){
+        return $this->belongsTo(Image::class);
     }
 
     // Uno a muchos inverso

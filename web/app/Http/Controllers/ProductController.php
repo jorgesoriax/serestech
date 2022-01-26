@@ -11,12 +11,7 @@ class ProductController extends Controller
         return view('product');
     }
 
-    public function create(){ 
-
-    }
-
     public function show($id){
-
         $specs = SpecificationsLaptop::find($id);
         return view('product', compact('specs'));
     }

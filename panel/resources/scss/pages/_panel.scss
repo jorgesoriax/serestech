@@ -113,9 +113,6 @@
                 width: 100%;
             }
         }
-        
-        #stock, #users{
-        }
 
         #stock{
 
@@ -165,6 +162,11 @@
 
             p{
                 text-align: right;
+                white-space: nowrap;
+            }
+
+            div{
+                line-height: 35px;
             }
         }
     }

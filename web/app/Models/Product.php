@@ -22,6 +22,10 @@ class Product extends Model
         return $this->belongsTo(Inventory::class);
     }
 
+    public function image(){
+        return $this->belongsTo(Image::class);
+    }
+
     // Uno a muchos inverso
     public function category(){
         return $this->belongsTo(Category::class);
