@@ -18,6 +18,5 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/{str}', [HomeController::class, 'test']);
 Route::get('product', [ProductController::class, 'index']);
 Route::get('{id}', [ProductController::class, 'show']);

@@ -13,9 +13,4 @@ class HomeController extends Controller
         $specs = SpecificationsLaptop::all();
         return view('home', compact('specs'));
     }
-
-    public function test($str){ 
-        
-        return encrypt($str);
-    }
 }
