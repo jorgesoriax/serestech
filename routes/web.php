@@ -1,11 +1,10 @@
 <?php
 
-use App\Http\Controllers\LoginController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PanelController;
-use App\Http\Controllers\TestController;
+use App\Http\Controllers\LoginController;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 
 /*
@@ -19,7 +18,9 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // * PANEL
 // La route en el middleware Authenticate se ha modificado
@@ -31,7 +32,7 @@ Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout']);
 
 // Consultar Providers/RouteServiceProvider cada que se cambia ruta
-Route::get('NxjmXULDiNCBL7WDBTkbK7GnJ8hkHh', [PanelController::class, 'index'])
+Route::get('panel', [PanelController::class, 'index'])
      ->name('panel.index')
      ->middleware('auth');
 Route::get('panel/create', [PanelController::class, 'create'])
@@ -52,9 +53,6 @@ Route::put('panel/{specLaptop}', [PanelController::class, 'update'])
 Route::delete('panel/{specLaptop}', [PanelController::class, 'destroy'])
      ->name('panel.destroy')
      ->middleware('auth');
-
-Route::get('test', [TestController::class,'index'])
-     ->name('panel.test');
 
 // * HOME
 Route::get('/', [HomeController::class, 'index'])

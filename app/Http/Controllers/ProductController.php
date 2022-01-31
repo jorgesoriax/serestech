@@ -11,8 +11,4 @@ class ProductController extends Controller
         $specsLaptop = SpecificationsLaptop::find($id);
         return view('product', compact('specsLaptop'));
     }
-
-    public function edit(){
-
-    }
 }

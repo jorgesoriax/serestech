@@ -3,7 +3,7 @@
 @section('title', 'Bievenido al panel')
 
 @section('scripts')
-    <script src="../resources/js/panel.js"></script>
+    <script src="{{ asset('storage/js/panel.js') }}"></script>
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@
      <aside>
         <a href="{{ route('home.index') }}" target="_blank" rel="noopener noreferrer">
             <div id="logo">
-                <i><img src="../resources/img/logo-b.svg" alt=""></i>
+                <i><img src="{{ asset('storage/images/logo-b.svg') }}" alt=""></i>
                 <span>Ir al catálogo</span>
             </div>
         </a>
@@ -133,12 +133,12 @@
 
             let emojis = ['👋', '👀', '💻', '🕓'];
              
-            function mostrarFrases() {
+            function showPhrases() {
                 let numAleatorio = Math.round(Math.random() * (F-1));
                 document.getElementById("bienvenida").innerHTML = frases[numAleatorio];
                 document.getElementById("emoji").innerHTML = emojis[numAleatorio];
             }
-            mostrarFrases();
+            showPhrases();
         </script>
 
     </main>     

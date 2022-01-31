@@ -100,7 +100,7 @@
                 padding: $container--padd-mix-min;
                 border-radius: $border--rad-min;
                 opacity: 0;
-                transition: $short--animation-duration;
+                transition: $animation-duration--min;
                 pointer-events: none;
                 z-index: 1;
             }

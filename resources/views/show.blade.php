@@ -205,5 +205,6 @@
         <tr>
             <td>bateria_celdas: </td><td>{{ $specLaptop->bateria_celdas }}</td>
         </tr>
-    </table>
+    </table><br>
+    <a href="{{ route('panel.index') }}">Volver al panel</a><br><br>
 @endsection

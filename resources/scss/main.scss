@@ -1,6 +1,7 @@
 @use "tools" as *;
 
 // * BASE
+// Contiene los estilos de aplicación general
 body{
     margin: 0;
     padding: 0;
@@ -15,22 +16,35 @@ header{
     background: setcolor(blue);
     padding: $container--padd-mix;
     width: 100%;
-    display: grid;
-    grid-template-columns: 30% 40% 30%;
+    // display: grid;
+    // grid-template-columns: 30% 40% 30%;
+
+    display: flex;
+    flex-direction: row;
     position: sticky;
     top: 0;
     z-index: 2;
+}
+footer{
+    background: setcolor(white, light);
+    width: 100%;
+    border-top: $border--px solid setcolor(gray, light);
+    padding: $container--padd-mix;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto auto;
 }
 button, input[type=submit]{
     border-radius: $border--rad-mid;
     padding: $button-text--padd;
     font-size: $button--font-size;
     cursor: pointer;
-    @include font-family($font--title, 500);
+    @include font-family($font--head);
     @include flex;
     gap: $gap--min;
     height: 43px;
     white-space: nowrap;
+    position: relative;
 
     img{
         height: 21px;

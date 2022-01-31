@@ -8,7 +8,6 @@ use App\Models\Product;
 use App\Models\SpecificationsLaptop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Prophecy\Doubler\Generator\Node\ReturnTypeNode;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Str;
 
@@ -114,80 +113,81 @@ class PanelController extends Controller
 
         if($request->file('image_1')){
             $name_1 = Str::random(40) . '.webp';
-            $url_1 = storage_path() . '\app\public\images/' . $name_1;
+            $url_1 = public_path() . '/storage/images/upload/' . $name_1;
 
             Image::make($request->file('image_1'))
                  ->fit(600)
                  ->save($url_1);
 
                  
-                 $image->image_1 = '/storage/images/' . $name_1;
+                 $image->image_1 = '/storage/images/upload/' . $name_1;
         }
+
         if($request->file('image_2')){
             $name_2 = Str::random(40) . '.webp';
-            $url_2 = storage_path() . '\app\public\images/' . $name_2;
+            $url_2 = public_path() . '/storage/images/upload/' . $name_2;
 
             Image::make($request->file('image_2'))
                  ->fit(600)
                  ->save($url_2);
 
                  
-                 $image->image_2 = '/storage/images/' . $name_2;
+                 $image->image_2 = '/storage/images/upload/' . $name_2;
         }
         if($request->file('image_3')){
             $name_3 = Str::random(40) . '.webp';
-            $url_3 = storage_path() . '\app\public\images/' . $name_3;
+            $url_3 = public_path() . '/storage/images/upload/' . $name_3;
 
             Image::make($request->file('image_3'))
                  ->fit(600)
                  ->save($url_3);
 
                  
-                 $image->image_3 = '/storage/images/' . $name_3;
+                 $image->image_3 = '/storage/images/upload/' . $name_3;
         }
         if($request->file('image_4')){
             $name_4 = Str::random(40) . '.webp';
-            $url_4 = storage_path() . '\app\public\images/' . $name_4;
+            $url_4 = public_path() . '/storage/images/upload/' . $name_4;
 
             Image::make($request->file('image_4'))
                  ->fit(600)
                  ->save($url_4);
 
                  
-                 $image->image_4 = '/storage/images/' . $name_4;
+                 $image->image_4 = '/storage/images/upload/' . $name_4;
         }
         if($request->file('image_5')){
             $name_5 = Str::random(40) . '.webp';
-            $url_5 = storage_path() . '\app\public\images/' . $name_5;
+            $url_5 = public_path() . '/storage/images/upload/' . $name_5;
 
             Image::make($request->file('image_5'))
                  ->fit(600)
                  ->save($url_5);
 
                  
-                 $image->image_5 = '/storage/images/' . $name_5;
+                 $image->image_5 = '/storage/images/upload/' . $name_5;
         }
         if($request->file('image_6')){
             $name_6 = Str::random(40) . '.webp';
-            $url_6 = storage_path() . '\app\public\images/' . $name_6;
+            $url_6 = public_path() . '/storage/images/upload/' . $name_6;
 
             Image::make($request->file('image_6'))
                  ->fit(600)
                  ->save($url_6);
 
                  
-                 $image->image_6 = '/storage/images/' . $name_6;
+                 $image->image_6 = '/storage/images/upload/' . $name_6;
         }
         if($request->file('image_7')){
             $name_7 = Str::random(40) . '.webp';
-            $url_7 = storage_path() . '\app\public\images/' . $name_7;
+            $url_7 = public_path() . '/storage/images/upload/' . $name_7;
 
             Image::make($request->file('image_7'))
                  ->fit(600)
                  ->save($url_7);
 
                  
-                 $image->image_7 = '/storage/images/' . $name_7;
+                 $image->image_7 = '/storage/images/upload/' . $name_7;
         }
 
         $image->save();
@@ -349,7 +349,7 @@ class PanelController extends Controller
         // * File
         if($request->file('image_1')){
             $name = Str::random(40) . '.webp';
-            $url = storage_path() . '\app\public\images/' . $name;
+            $url = public_path() . '/storage/images/upload/' . $name;
 
             Image::make($request->file('image_1'))
                  ->fit(600)
@@ -361,11 +361,11 @@ class PanelController extends Controller
                 Storage::delete($urlOld);
 
                 // Subir nueva imagen
-                $specLaptop->product->file->image_1 = '/storage/images/' . $name;
+                $specLaptop->product->file->image_1 = '/storage/images/upload/' . $name;
         }
         if($request->file('image_2')){
             $name = Str::random(40) . '.webp';
-            $url = storage_path() . '\app\public\images/' . $name;
+            $url = public_path() . '/storage/images/upload/' . $name;
 
             Image::make($request->file('image_2'))
                  ->fit(600)
@@ -377,11 +377,11 @@ class PanelController extends Controller
                 Storage::delete($urlOld);
 
                 // Subir nueva imagen
-                $specLaptop->product->file->image_2 = '/storage/images/' . $name;
+                $specLaptop->product->file->image_2 = '/storage/images/upload/' . $name;
         }
         if($request->file('image_3')){
             $name = Str::random(40) . '.webp';
-            $url = storage_path() . '\app\public\images/' . $name;
+            $url = public_path() . '/storage/images/upload/' . $name;
 
             Image::make($request->file('image_3'))
                  ->fit(600)
@@ -393,11 +393,11 @@ class PanelController extends Controller
                 Storage::delete($urlOld);
 
                 // Subir nueva imagen
-                $specLaptop->product->file->image_3 = '/storage/images/' . $name;
+                $specLaptop->product->file->image_3 = '/storage/images/upload/' . $name;
         }
         if($request->file('image_4')){
             $name = Str::random(40) . '.webp';
-            $url = storage_path() . '\app\public\images/' . $name;
+            $url = public_path() . '/storage/images/upload/' . $name;
 
             Image::make($request->file('image_4'))
                  ->fit(600)
@@ -409,11 +409,11 @@ class PanelController extends Controller
                 Storage::delete($urlOld);
 
                 // Subir nueva imagen
-                $specLaptop->product->file->image_4 = '/storage/images/' . $name;
+                $specLaptop->product->file->image_4 = '/storage/images/upload/' . $name;
         }
         if($request->file('image_5')){
             $name = Str::random(40) . '.webp';
-            $url = storage_path() . '\app\public\images/' . $name;
+            $url = public_path() . '/storage/images/upload/' . $name;
 
             Image::make($request->file('image_5'))
                  ->fit(600)
@@ -425,11 +425,11 @@ class PanelController extends Controller
                 Storage::delete($urlOld);
 
                 // Subir nueva imagen
-                $specLaptop->product->file->image_5 = '/storage/images/' . $name;
+                $specLaptop->product->file->image_5 = '/storage/images/upload/' . $name;
         }
         if($request->file('image_6')){
             $name = Str::random(40) . '.webp';
-            $url = storage_path() . '\app\public\images/' . $name;
+            $url = public_path() . '/storage/images/upload/' . $name;
 
             Image::make($request->file('image_6'))
                  ->fit(600)
@@ -441,11 +441,11 @@ class PanelController extends Controller
                 Storage::delete($urlOld);
 
                 // Subir nueva imagen
-                $specLaptop->product->file->image_6 = '/storage/images/' . $name;
+                $specLaptop->product->file->image_6 = '/storage/images/upload/' . $name;
         }
         if($request->file('image_7')){
             $name = Str::random(40) . '.webp';
-            $url = storage_path() . '\app\public\images/' . $name;
+            $url = public_path() . '/storage/images/upload/' . $name;
 
             Image::make($request->file('image_7'))
                  ->fit(600)
@@ -457,7 +457,7 @@ class PanelController extends Controller
                 Storage::delete($urlOld);
 
                 // Subir nueva imagen
-                $specLaptop->product->file->image_7 = '/storage/images/' . $name;
+                $specLaptop->product->file->image_7 = '/storage/images/upload/' . $name;
         }
 
         $specLaptop->product->file->save();
@@ -532,4 +532,4 @@ class PanelController extends Controller
 
         return redirect()->route('panel.index');  
     }
-}   
+}

@@ -20,6 +20,39 @@
             height: 150px;
         }
     </style>
+    <style>
+        .imgPreview img{
+            width: 250px;
+            border: 1px solid red
+        }
+        #scroll-top{
+            border: 1px solid red;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            position: fixed;
+            bottom: 80px;
+            right: 25px;
+        }
+        #scroll-bot{
+            border: 1px solid red;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+        }
+        input{
+            width: 250px;
+        }
+        textarea{
+            height: 100px;
+        }
+    </style>
+
+    <div id="scroll-bot">Ir hacia abajo</div>
+    <div id="scroll-top">Ir hacia arriba</div>
 
 <form action="{{ route('panel.update', $specLaptop) }}" method="POST" enctype="multipart/form-data">
     @csrf
@@ -268,12 +301,9 @@
 
     <br><input type="submit" value="Actualizar">
     
-</form>
+</form><br>
 
-<!-- BUSCAR UNA MANERA DE ORDENAR EL SELECT -->
-<!-- BUSCAR UNA MANERA DE ORDENAR EL SELECT -->
-<!-- BUSCAR UNA MANERA DE ORDENAR EL SELECT -->
-<!-- BUSCAR UNA MANERA DE ORDENAR EL SELECT -->
+<a href="{{ route('panel.index') }}">Volver al panel</a><br><br>
 
 <script>
     // Contador de caracteres
@@ -281,7 +311,7 @@
         document.getElementById('charNum').innerHTML = obj.value.length+' caracteres';
     }
 
-    // Asignación de índices
+    // Recuperación de índices
     function selectsEdit() {
 
         // Creamos la colección (selectID: consulta)
@@ -310,5 +340,10 @@
         }
     }
     selectsEdit();
+
+    // Nos desplaza hacia la altura máxima de nuestra página
+    document.getElementById('scroll-top').addEventListener('click', () => window.scrollTo(0, 0));
+    // Nos desplaza hacia la altura mínima de nuestra página
+    document.getElementById('scroll-bot').addEventListener('click', () => window.scrollTo(0, 1170));
 </script>
 @endsection

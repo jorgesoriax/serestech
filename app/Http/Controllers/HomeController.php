@@ -7,10 +7,9 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    // Este controlador con Método invoke administra una sola ruta
     public function index(){
 
-        $specsLaptop = SpecificationsLaptop::all();
+        $specsLaptop = SpecificationsLaptop::paginate(6);
         return view('home', compact('specsLaptop'));
     }
 }

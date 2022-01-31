@@ -37,9 +37,10 @@ $gap--max: 25px;                          // Gap grande
 $cont--p-card--min-width: 1075px;         // Container product-card
 // *                                      //
 // * Animations _________________________ // Animations
-$short--animation-duration: .1s;          // Animación instantanea
-$long--animation-duration: 1s;            // Animación larga
-$logo--animation-duration: 2s;            // Animación del logo
+$animation-duration--min: .1s; 
+$animation-duration--mid: .25s;         // Animación instantanea
+$animation-duration--max: 1s;            // Animación larga
+$animation-duration--logo: 2s;            // Animación del logo
 // *                                      //
 // * Logo _______________________________ // Logo
 $logo--height-min: 30px;                  // Altura mínima del logo

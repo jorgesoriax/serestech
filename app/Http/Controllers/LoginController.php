@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Facade\FlareClient\Truncation\TruncationStrategy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Routing\Redirector;
 
@@ -26,7 +24,7 @@ class LoginController extends Controller
         if(Auth::attempt($credentials, $remember)){
             $request->session()->regenerate();
     
-            return $redirect->intended('NxjmXULDiNCBL7WDBTkbK7GnJ8hkHh'); // Panel
+            return $redirect->intended('panel'); // Panel
         }
         
         throw ValidationException::withMessages([ 

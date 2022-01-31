@@ -54,26 +54,26 @@ $screen--xl-min: 1281px;
 // * MEDIA
 @include tiny{
     #responsive-indicator::before{
-        content: 'Tiny size';
+        content: 'Tiny (Móvil)';
     }
 }
 @include small{
     #responsive-indicator::before{
-        content: "small size";
+        content: "Small (Tablet pequeña)";
     }
 }
 @include medium{
     #responsive-indicator::before{
-        content: "medium size";
+        content: "Medium (Tablet vertical))";
     }
 }
 @include large{
     #responsive-indicator::before{
-        content: "large size";
+        content: "Large size (Laptop y monitor)";
     }   
 }
 @include xlarge{
     #responsive-indicator::before{
-        content: "xlarge size";
+        content: "XLarge size (Monitor extra largo)";
     }
 }

@@ -3,14 +3,14 @@
 @section('title', 'Iniciar sesión')
 
 @section('scripts')
-    <script src="../resources/js/main.js"></script>
+    <script src="{{ asset('storage/js/login.js') }}"></script>
 @endsection
 
 @section('content')
 
 <body id="login-panel">
     <div id="panel--logo">
-        <img src="../resources/img/panel-logo-large-b.svg" alt="">
+        <img src="{{ asset('storage/images/panel-logo-large-b.svg') }}" alt="">
     </div>
     <div id="panel--login">
         
@@ -45,7 +45,7 @@
                 <label for="text-a"><i class='bx bx-meh-blank'></i></label>
                 <input name="email" id="text-a" type="email" 
                 required autofocus value="{{ old('email') }}"
-                placeholder="Usuario" class="input--ow outl--blue-ow">
+                placeholder="Email" class="input--ow outl--blue-ow">
             </div>
     
             <div class="input">

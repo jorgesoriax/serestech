@@ -4,20 +4,19 @@
 // * HEADER
 header{
     #header--logo{
-        display: flex;
         align-items: center;
+        width: 50%;
 
-        svg{
+        img{
             height: $logo--height-max;
         }
     }
     #header--nav--buttons{
-        display: flex;
-        justify-content: right;
+        width: 50%;
     }
 }
 main{
-    padding: $main--padd
+    padding: $main--padd;
 }
 // * SLIDER
 .container--slider{
@@ -70,9 +69,9 @@ main{
     left: $container--padd-max;
 }
 
-// * CONTENEDOR HEADER LINKS
+// * CONTENEDOR LINKS HEADER & FOOTER
 .nav--buttons{
-    @include flex;
+    @include flex(center, right);
     gap: $gap--max;
 }
 
@@ -94,16 +93,25 @@ main{
 .product--card{
     max-width: 300px;
     cursor: pointer;
-    transition: $short--animation-duration;
+    transition: $animation-duration--min;
 
     &:hover{
-        // transform: translateY(-5px);
+        transform: translateY(-5px);
+        box-shadow: 0px 0px 5px -1px rgb(0, 0, 0, .25);
 
         #product--orig-price{
             transform: translateY(0px);
             opacity: 1;
         }
-    }    
+    }  
+    
+    .product--image-cover{
+        transition: $animation-duration--mid;
+    }
+
+    &:hover .product--image-cover{
+        opacity: 0;
+    }
 }
 .product--image{
     width: 100%;
@@ -112,22 +120,25 @@ main{
     background: setcolor(white);
     @include flex;
     position: relative;
-    overflow: hidden;
+    text-align: center;
     
     .label{
         position: absolute;
         top: $container--padd-min;
         right: $container--padd-min;
+        cursor: pointer;
+        z-index: 1;
     }
 
     img{
         width: 100%;
+        position: absolute;
     }
 }
 .product--info{
     display: grid;
     grid-template-columns: auto auto;
-    transition: $short--animation-duration;
+    transition: $animation-duration--min;
     padding: $container--padd-max;
 
     #product--title{
@@ -148,7 +159,7 @@ main{
         margin: 0;
         text-decoration: line-through;
         opacity: 0;
-        transition: $short--animation-duration;
+        transition: $animation-duration--min;
         grid-column: 2 / 3;
         text-align: right;
         transform: translateY(16px);
@@ -162,12 +173,6 @@ main{
 }
 // * FOOTER
 footer{
-    background: setcolor(white, light);
-    border: $border--px solid setcolor(gray, light);
-    padding: $container--padd-mix;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: auto auto auto;
 
     div{
         padding: $container--padd-min 0;
@@ -253,17 +258,17 @@ footer{
 // Figura R
 #logo-header--shape{
     opacity: 1;
-    animation: logo__header_s $logo--animation-duration;
+    animation: logo__header_s $animation-duration--logo;
 }
 // Letra R
 #logo-header--r{
     opacity: 1;
-    animation: logo__header_r $logo--animation-duration;
+    animation: logo__header_r $animation-duration--logo;
     transform: translateY(73px);
 }
 // Letras restantes después de la R (ESTECH)
 .logo-header--i{
-    animation: logo__header_i $logo--animation-duration;
+    animation: logo__header_i $animation-duration--logo;
 }
 
 // * Paginación

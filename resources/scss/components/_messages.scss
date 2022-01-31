@@ -54,3 +54,47 @@
         grid-column: 2;
     }
 }
+// * POPUP MESSAGE
+// Añade un elemento flotante con una descripción
+.popup--message{
+    cursor: help;
+
+    p{
+        width: 350px;
+        position: absolute;
+        background: setcolor(black);
+        color: setcolor(white);
+        white-space: normal;
+        padding: $container--padd-min;
+        border-radius: $border--rad-min;
+        pointer-events: none;
+        // visibility: hidden;
+        // transition: $animation-duration--min;
+        // opacity: 0;
+        display: none;
+    }
+
+    &:hover p{
+        // visibility: visible;
+        display: block;
+        opacity: 1;
+    }
+}
+.popup--message-top{
+    p{
+        top: 75%;
+    }
+
+    &:hover p{
+        top: 100%;
+    }
+}
+.popup--message-bot{
+    p{
+        bottom: 75%;
+    }
+
+    &:hover p{
+        bottom: 100%;
+    }
+}

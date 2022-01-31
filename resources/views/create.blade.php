@@ -183,9 +183,12 @@
         </tr>
         <tr>
             <td>Imagen 1</td>
-            <td><input type="file" accept="image/*" id="images" name="image_1"> 
-                 Nota: Las imágenes son redimensionadas a 600 x 600px,
-                por lo que se recomienda centrar el contenido importante.</td>
+            <td><input type="file" accept="image/*" id="images" name="image_1"></td>
+            <td>
+                Nota: Las imágenes son redimensionadas a 600 x 600px,
+                por lo que se recomienda centrar el contenido importante.
+                Cada registro debe contar con al menos 2 imágenes.
+            </td>
         </tr>
         <tr>
             <td>Imagen 2</td>
@@ -698,8 +701,6 @@
     document.getElementById('scroll-top').addEventListener('click', () => window.scrollTo(0, 0));
     // Nos desplaza hacia la altura mínima de nuestra página
     document.getElementById('scroll-bot').addEventListener('click', () => window.scrollTo(0, 1170));
-
-    console.log(window.scrollY);
 
     // Multiple preview images
     // $(function(){
