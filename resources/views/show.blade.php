@@ -104,7 +104,7 @@
             <td>procesador_gen: </td><td>{{ $specLaptop->procesador_gen }}</td>
         </tr>
         <tr>
-            <td>procesador_mhz: </td><td>{{ $specLaptop->procesador_mhz }}</td>
+            <td>procesador_ghz: </td><td>{{ $specLaptop->procesador_ghz }}</td>
         </tr>
         <tr>
             <td>procesador_nucleos: </td><td>{{ $specLaptop->procesador_nucleos }}</td>

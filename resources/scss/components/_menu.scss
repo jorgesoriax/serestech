@@ -1,0 +1,31 @@
+@use "../abstracts" as *;
+@use "../tools/mixins" as *;
+
+#menu--container{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    z-index: 10;
+    transition: $animation-duration--mid;
+    transform: translateX(100%);
+
+    #content{
+        background: setcolor(white);
+        width: 75%;
+        height: 100vh;
+        border: $border--px solid setcolor(gray, light);
+        padding: $container--padd-min;
+        position: absolute;
+        right: 0;
+    }
+}
+#shadow{
+    background: setcolor(black);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 9;
+    opacity: .5;
+    display: none;
+}

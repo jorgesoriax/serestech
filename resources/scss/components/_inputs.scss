@@ -3,6 +3,7 @@
 @use "../tools/mixins" as *;
 
 // * INPUT
+// Estilos generales para inputs
 .input{
     height: 50px;
     @include flex;

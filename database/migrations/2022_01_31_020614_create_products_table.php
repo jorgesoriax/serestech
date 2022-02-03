@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->float('price');
             $table->float('price_discount')->nullable();
             $table->string('status_usage', 45);
-            $table->integer('status_aesthetic');
+            $table->float('status_aesthetic');
             $table->integer('warranty_days');
             $table->string('support', 45);
             $table->string('delivery', 45);

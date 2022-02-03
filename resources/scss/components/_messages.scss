@@ -56,7 +56,16 @@
 }
 // * POPUP MESSAGE
 // Añade un elemento flotante con una descripción
-.popup--message{
+.static-message{
+    width: 350px;
+    background: setcolor(black);
+    color: setcolor(white);
+    white-space: normal;
+    text-align: center;
+    padding: $container--padd-min;
+    border-radius: $border--rad-min;
+}
+.popup-message{
     cursor: help;
 
     p{
@@ -68,19 +77,15 @@
         padding: $container--padd-min;
         border-radius: $border--rad-min;
         pointer-events: none;
-        // visibility: hidden;
-        // transition: $animation-duration--min;
-        // opacity: 0;
         display: none;
     }
 
     &:hover p{
-        // visibility: visible;
         display: block;
         opacity: 1;
     }
 }
-.popup--message-top{
+.popup-message-top{
     p{
         top: 75%;
     }
@@ -89,7 +94,7 @@
         top: 100%;
     }
 }
-.popup--message-bot{
+.popup-message-bot{
     p{
         bottom: 75%;
     }

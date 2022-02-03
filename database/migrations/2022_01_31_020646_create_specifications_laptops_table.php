@@ -26,7 +26,7 @@ class CreateSpecificationsLaptopsTable extends Migration
             $table->string('procesador_marca', 45);
             $table->string('procesador_modelo', 45);
             $table->integer('procesador_gen');
-            $table->float('procesador_mhz');
+            $table->float('procesador_ghz');
             $table->integer('procesador_nucleos');
             $table->boolean('tarjetag');
             $table->string('tarjetag_marca', 45)->nullable();
@@ -36,7 +36,7 @@ class CreateSpecificationsLaptopsTable extends Migration
             $table->string('pantalla_tipo', 45);
             $table->float('pantalla_tamano');
             $table->boolean('pantalla_tactil');
-            $table->float('pantalla_resolucion');
+            $table->string('pantalla_resolucion');
             $table->string('teclado_idioma', 45);
             $table->boolean('teclado_retroi', 45);
             $table->boolean('teclado_num', 45);

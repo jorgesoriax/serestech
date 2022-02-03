@@ -11,16 +11,16 @@ body{
 }
 *{
     box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0,0,0,0); 
 }
 header{
     background: setcolor(blue);
     padding: $container--padd-mix;
     width: 100%;
-    // display: grid;
-    // grid-template-columns: 30% 40% 30%;
-
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
+    gap: $gap--max;
     position: sticky;
     top: 0;
     z-index: 2;

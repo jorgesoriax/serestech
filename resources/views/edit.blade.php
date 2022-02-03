@@ -178,7 +178,7 @@
             </td>
         </tr>
         <tr>
-            <td>Procesador velocidad</td><td><input type="text" placeholder="Flotante" name="procesador_mhz" value="{{ $specLaptop->procesador_mhz }}">00.0 MHZ</td>
+            <td>Procesador velocidad</td><td><input type="text" placeholder="Flotante" name="procesador_ghz" value="{{ $specLaptop->procesador_ghz }}">00.0 MHZ</td>
         </tr>
         <tr>
             <td>Procesador núcleos</td><td><input type="text" placeholder="Numérico" name="procesador_nucleos" value="{{ $specLaptop->procesador_nucleos }}"></td>

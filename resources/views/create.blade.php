@@ -139,7 +139,7 @@
         <tr>
             <td>Estética</td>
             <td><input type="text" 
-                placeholder="Numérico" 
+                placeholder="Flotante" 
                 name="status_aesthetic"
                 value="{{ old('status_aesthetic') }}">
                 @error('status_aesthetic')
@@ -164,7 +164,7 @@
             <td><input type="text" 
                 placeholder="Alfanumérico" 
                 name="support" 
-                value="1 mes de soporte sin costo">
+                value="1 mes de soporte remoto y físico sin costo">
                 @error('support')
                     <br><small>*{{$message}}</small><br>
                 @enderror
@@ -319,9 +319,9 @@
             <td>Procesador velocidad</td>
             <td><input type="text" 
                 placeholder="Flotante" 
-                name="procesador_mhz"
-                value="{{ old('procesador_mhz') }}">
-                @error('procesador_mhz')
+                name="procesador_ghz"
+                value="{{ old('procesador_ghz') }}">GHz
+                @error('procesador_ghz')
                     <br><small>*{{$message}}</small><br>
                 @enderror
             </td>
@@ -430,7 +430,7 @@
         <tr>
             <td>Pantalla resolución</td>
             <td><input type="text" 
-                placeholder="Flotante" 
+                placeholder="Alfanumérico" 
                 name="pantalla_resolucion"
                 value="{{ old('pantalla_resolucion') }}">
                 @error('pantalla_resolucion')
@@ -615,7 +615,7 @@
             <td>Software adicional</td>
             <td><textarea name="software_ad" 
                 onkeyup="countChars(this)"
-                placeholder="Alfanumérico, agregar lista de programas, con un  máximo de 155 caracteres">{{ old('software_ad') }}</textarea>
+                placeholder="Alfanumérico">Adobe Reader, Java, Winrar, Office 201x, Actualizaciones</textarea>
                 <label id="charNum">0 caracteres</label>
                 @error('software_ad')
                     <br><small>*{{$message}}</small><br>

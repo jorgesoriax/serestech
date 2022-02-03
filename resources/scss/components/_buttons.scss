@@ -140,3 +140,66 @@ $buttons--overblue: (
         }
     }
 }
+
+// * MENU
+.menu{
+    border: 0;
+    background: transparent;
+     
+    i{
+        font-size: $i--font-size-max;
+        color: setcolor(white);
+    }
+}
+
+// * PAGINATE
+#paginate{
+    width: 90vw;
+    @include flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: $container--padd-max;
+    padding: $container--padd-min - 3px;
+
+    .button--neutral-ow{
+        border-radius: $border--rad-mid;
+    }
+
+    #elements{
+        width: 100%;
+        gap: $gap--min;
+        display: flex;
+        justify-content: center;
+
+        #buttons{
+            @include flex;
+            flex-direction: row;
+            gap: $gap--min;
+            padding: 3px;
+            padding-bottom: 10px;
+            @include noselect;
+
+            .disabled{
+                opacity: .5; 
+                outline: none;
+            }
+            
+            .selected{
+                border: 1px solid setcolor(blue);
+                background: setcolor(blue, actv);
+            }
+            
+            i{
+                font-size: $i--font-size-min;
+            }
+        }
+
+    }
+    #description{
+        text-align: center;
+    
+        p{
+            margin-top: 6px;
+        }
+    }
+}

@@ -62,7 +62,7 @@ class PanelController extends Controller
             'procesador_marca'     => 'required|string',
             'procesador_modelo'    => 'required|string',
             'procesador_gen'       => 'required|numeric',
-            'procesador_mhz'       => 'required|numeric',
+            'procesador_ghz'       => 'required|numeric',
             'procesador_nucleos'   => 'required|numeric',
             'tarjetag'             => 'required|boolean',
 
@@ -74,7 +74,7 @@ class PanelController extends Controller
             'pantalla_tipo'        => 'required|string',
             'pantalla_tamano'      => 'required|numeric',
             'pantalla_tactil'      => 'required|boolean',
-            'pantalla_resolucion'  => 'required|numeric',
+            'pantalla_resolucion'  => 'required|string',
             'teclado_idioma'       => 'required|string',
             'teclado_retroi'       => 'required|boolean',
             'teclado_num'          => 'required|boolean',
@@ -220,7 +220,7 @@ class PanelController extends Controller
         $spec->procesador_marca = $request->procesador_marca;
         $spec->procesador_modelo = $request->procesador_modelo;
         $spec->procesador_gen = $request->procesador_gen;
-        $spec->procesador_mhz = $request->procesador_mhz;
+        $spec->procesador_ghz = $request->procesador_ghz;
         $spec->procesador_nucleos = $request->procesador_nucleos;
         $spec->tarjetag = $request->tarjetag;
         $spec->tarjetag_marca = $request->tarjetag_marca;
@@ -293,7 +293,7 @@ class PanelController extends Controller
             'procesador_marca'     => 'required|string',
             'procesador_modelo'    => 'required|string',
             'procesador_gen'       => 'required|numeric',
-            'procesador_mhz'       => 'required|numeric',
+            'procesador_ghz'       => 'required|numeric',
             'procesador_nucleos'   => 'required|numeric',
             'tarjetag'             => 'required|boolean',
 
@@ -305,7 +305,7 @@ class PanelController extends Controller
             'pantalla_tipo'        => 'required|string',
             'pantalla_tamano'      => 'required|numeric',
             'pantalla_tactil'      => 'required|boolean',
-            'pantalla_resolucion'  => 'required|numeric',
+            'pantalla_resolucion'  => 'required|string',
             'teclado_idioma'       => 'required|string',
             'teclado_retroi'       => 'required|boolean',
             'teclado_num'          => 'required|boolean',
@@ -473,7 +473,7 @@ class PanelController extends Controller
         $specLaptop->procesador_marca = $request->procesador_marca;
         $specLaptop->procesador_modelo = $request->procesador_modelo;
         $specLaptop->procesador_gen = $request->procesador_gen;
-        $specLaptop->procesador_mhz = $request->procesador_mhz;
+        $specLaptop->procesador_ghz = $request->procesador_ghz;
         $specLaptop->procesador_nucleos = $request->procesador_nucleos;
         $specLaptop->tarjetag = $request->tarjetag;
         $specLaptop->tarjetag_marca = $request->tarjetag_marca;

@@ -13,20 +13,82 @@
 @section('content')
 
 {{-- <div id="responsive-indicator"><br></div> --}}
-<!--
-    * HEADER
--->
-<header>
+
+<div id="fb-root"></div>
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+<script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "102771732286590");
+    chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+        xfbml            : true,
+        version          : 'v12.0'
+        });
+    };
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div id="menu--container" class="menu--container">
+    <div id="content">
+        Siguenos en nuestras redes
+        <div id="content--social-media">
+            <a class="a--icon outl--blue-ow" target="_blank" rel="noopener noreferrer" 
+            href="https://www.facebook.com/SeresTech21/">
+                <img src="{{ asset('storage/images/social-media/fb-rounded-style.svg') }}" 
+                title="Encuentranos en Facebook">
+            </a>
+    
+            <a class="a--icon outl--blue-ow input--ow" target="_blank" rel="noopener noreferrer" 
+            href="https://www.instagram.com/serestech21/">
+                <img src="{{ asset('storage/images/social-media/ig-rounded-style-a.svg') }}" 
+                title="Siguenos en Instagram">
+            </a>
+        </div>
+        
+        <div class="static-message">
+            <p>
+                El envio de nuestros productos se acuerda al momento
+                de la compra. <br><br> Usted puede solicitar un envio a su domicilio,
+                pasar a recogerlo a nuestras oficinas o acordar un punto de encuentro.
+            </p>
+        </div>
+        <div id="content--whatsapp">
+            <a href="https://wa.me/528110649320" target="_blank" rel="noopener noreferrer">
+                <button class="button--whatsapp-ow">
+                    Contactanos
+                    <img src="{{ asset('storage/images/social-media/whatsapp-w.svg') }}">
+                </button>
+            </a>
+        </div>
+        
+    </div>
+</div>
+<div id="shadow"></div>
+
+<header class="header">
     <div id="header--logo">
         <a href="{{ route('home.index') }}">
-            <img src="{{ asset('storage/images/logo-large-w.svg') }}">
+            <img src="{{ asset('storage/images/logo-large-w.svg') }}" id="logo-large">
+            <img src="{{ asset('storage/images/logo-w.svg') }}"       id="logo-tiny">
         </a>
     </div>
    
-    {{-- <div id="header--search" class="input">
+    <div id="header--search" class="input">
         <label for="text-search"><i class="bx bx-search"></i></label>
-        <input id="text-search" type="text" placeholder="Buscar por modelo, marca, componente y más..." class="input--ob outl--white-ob">    
-    </div> --}}
+        <input id="text-search" type="text" 
+        placeholder="Buscar marca y más..." 
+        class="input--ob outl--white-ob">    
+    </div>
 
     <div id="header--nav--buttons" class="nav--buttons">
 
@@ -42,7 +104,7 @@
             title="Siguenos en Instagram">
         </a>
 
-        <button class="button--neutral-ob popup--message popup--message-top"> Envios 
+        <button class="button--neutral-ob popup-message popup-message-top"> Envios 
             <p>
                 El envio de nuestros productos se acuerda al momento
                 de la compra. <br><br> Usted puede solicitar un envio a su domicilio,
@@ -57,12 +119,13 @@
             </button>
         </a>
 
+        <button class="menu sq outl--white-ob">
+            <i class='bx bx-menu'></i>
+        </button>
     </div>
 
 </header>
-<!--
-    * IMG AND STOCK INFO
--->
+
 <section id="product--info">
 
         <div  id="container--imgs">
@@ -128,6 +191,17 @@
                 {{ $specsLaptop->equipo_linea }}
                 {{ $specsLaptop->equipo_modelo }}
             </h1>
+            <h3>
+                {{ $specsLaptop->procesador_marca }}
+                {{ $specsLaptop->procesador_modelo }}
+                {{ $specsLaptop->procesador_gen }}a gen, 
+                {{ $specsLaptop->procesador_ghz }} GHz,
+                {{ $specsLaptop->procesador_nucleos }} Núcleos,
+                {{ $specsLaptop->ram_gb }} GB
+                {{ $specsLaptop->ram_tipo }},
+                {{ $specsLaptop->discod_gb }} GB
+                {{ $specsLaptop->discod_tipo }}
+            </h3>
 
             <p id="info--sku" class="p--description">
                 SKU {{ $specsLaptop->product->sku }}
@@ -141,9 +215,11 @@
                 Garantía por {{ $specsLaptop->product->warranty_days }} días
             </label>
 
-            <p id="info--disc-price" class="p--description">
-                $ @convert($specsLaptop->product->price_discount)
-            </p>
+            @if ($specsLaptop->product->price_discount)
+                <p id="info--disc-price" class="p--description">
+                    $ @convert($specsLaptop->product->price_discount)
+                </p>
+            @endif
 
             <h1 id="info--orig-price">
                 $ @convert($specsLaptop->product->price)
@@ -263,7 +339,7 @@
                 <tr>
                     <td class="td-w">Velocidad</td>
                     <td class="td-w td-bold">
-                        {{ $specsLaptop->procesador_mhz}} MHz
+                        {{ $specsLaptop->procesador_ghz}} GHz
                     </td>
                 </tr>
                 <tr>
@@ -319,12 +395,18 @@
                 <tr>
                     <td class="td-w">Tamaño</td>
                     <td class="td-w td-bold">
-                        {{ $specsLaptop->pantalla_tamano}} "
+                        {{ $specsLaptop->pantalla_tamano}}"
                     </td>
                 </tr>
                 <tr>
-                    <td>Táctil</td>
+                    <td>Tamaño</td>
                     <td class="td-bold">
+                        {{ $specsLaptop->pantalla_resolucion}}"
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-w--end">Táctil</td>
+                    <td class="td-w--end td-bold">
                         @if ($specsLaptop->pantalla_tactil)
                             Si
                         @else
@@ -598,10 +680,8 @@
         </div>
 
     </section>
-<!--
-    * FOOTER
--->
-<footer>
+    
+<footer class="footer">
 
     <div id="footer--logo">
         <img src="{{ asset('storage/images/logo-large-b.svg') }}" alt="">
@@ -626,7 +706,7 @@
                 title="Siguenos en Instagram">
             </a>
 
-            <button class="button--neutral-ow popup--message popup--message-bot">
+            <button class="button--neutral-ow popup-message popup-message-bot">
                 Envios
                 <p>
                     El envio de nuestros productos se acuerda al momento
@@ -645,6 +725,14 @@
 
     <div id="footer--adress">
         <p>Mazapil 112, col, Mitras Centro, 64460 Monterrey, N.L.</p>
+    </div>
+
+    <div class="static-message">
+        <p>
+            El envio de nuestros productos se acuerda al momento
+            de la compra. <br><br> Usted puede solicitar un envio a su domicilio,
+            pasar a recogerlo a nuestras oficinas o acordar un punto de encuentro.
+        </p>
     </div>
        
     <div id="footer--currencies">
