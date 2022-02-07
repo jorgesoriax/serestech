@@ -8,36 +8,42 @@
 
 @section('scripts')
     <script src="{{ asset('storage/js/product.js') }}"></script>
+    <script src="{{ asset('storage/js/touchSlider.js') }}"></script>
+    <script src="{{ asset('storage/js/menu.js') }}"></script>
 @endsection
 
 @section('content')
-
+{{--*
+    * RESPONSIVE INDICATOR
+--}}
 {{-- <div id="responsive-indicator"><br></div> --}}
-
-<div id="fb-root"></div>
-<div id="fb-customer-chat" class="fb-customerchat">
-</div>
-<script>
-    var chatbox = document.getElementById('fb-customer-chat');
-    chatbox.setAttribute("page_id", "102771732286590");
-    chatbox.setAttribute("attribution", "biz_inbox");
-    </script>
-    <script>
-    window.fbAsyncInit = function() {
-        FB.init({
-        xfbml            : true,
-        version          : 'v12.0'
-        });
-    };
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+{{--*
+    * FACEBOOK PLUGIN
+--}}
+{{--  Messenger Chat Plugin Code -->
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute("page_id", "280004990468494");
+  chatbox.setAttribute("attribution", "biz_inbox");
 </script>
+ SDK code -->
+    FB.init({
+      xfbml            : true,
+      version          : 'v12.0'
+    });
+  };
 
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script> --}}
+
+{{--*
+    * MENU LIGHTBOX
+--}}
 <div id="menu--container" class="menu--container">
     <div id="content">
         Siguenos en nuestras redes
@@ -74,7 +80,9 @@
     </div>
 </div>
 <div id="shadow"></div>
-
+{{--*
+    * HEADER
+--}}
 <header class="header">
     <div id="header--logo">
         <a href="{{ route('home.index') }}">
@@ -125,66 +133,114 @@
     </div>
 
 </header>
-
+{{--*
+    * SCROLL TO TOP
+--}}
+<div class="scrollTop outl--blue-ow">
+    <i class='bx bx-chevron-up'></i>
+</div>
+{{--*
+    * TOUCH SLIDER
+--}}
+<div class="touch-slider">
+    <div class="count"><p>0 / 0</p></div>
+    <div class="slider-container">
+        @if ($specsLaptop->product->file->image_1)
+            <div class="slide">
+                <img src="{{ asset($specsLaptop->product->file->image_1) }}">
+            </div>
+        @endif
+        @if ($specsLaptop->product->file->image_2)
+            <div class="slide">
+                <img src="{{ asset($specsLaptop->product->file->image_2) }}">
+            </div>
+        @endif
+        @if ($specsLaptop->product->file->image_3)
+            <div class="slide">
+                <img src="{{ asset($specsLaptop->product->file->image_3) }}">
+            </div>
+        @endif
+        @if ($specsLaptop->product->file->image_4)
+            <div class="slide">
+                <img src="{{ asset($specsLaptop->product->file->image_4) }}">
+            </div>
+        @endif
+        @if ($specsLaptop->product->file->image_5)
+            <div class="slide">
+                <img src="{{ asset($specsLaptop->product->file->image_5) }}">
+            </div>
+        @endif
+        @if ($specsLaptop->product->file->image_6)
+            <div class="slide">
+                <img src="{{ asset($specsLaptop->product->file->image_6) }}">
+            </div>
+        @endif
+        @if ($specsLaptop->product->file->image_7)
+            <div class="slide">
+                <img src="{{ asset($specsLaptop->product->file->image_7) }}">
+            </div>
+        @endif
+        </div>
+    </div>
+</div>
+{{--*
+    * PRINCIPAL INFORMATION
+--}}
 <section id="product--info">
-
         <div  id="container--imgs">
-
             <div id="img--prod-preview" >
-                <img id="img-original" src="{{ asset($specsLaptop->product->file->image_1) }}">
+                <img id="img-original" src="{{ asset('storage/images/icons/noimage_75.png') }}" class="noimage-75">
             </div>
             
             <div id="zoom" class="box--ow-max"></div>
-
             
-            @if ($specsLaptop->product->file->image_1)
+            <div id="img--prod-items">
+                @if ($specsLaptop->product->file->image_1)
                 <div class="img--miniature outl--blue-ow" id="img--prod-1">
-                    
                     <img src="{{ asset($specsLaptop->product->file->image_1) }}">
                 </div>
-            @endif
-            @if ($specsLaptop->product->file->image_2)
-                <div class="img--miniature outl--blue-ow" id="img--prod-2">
-                    
-                    <img src="{{ asset($specsLaptop->product->file->image_2) }}">
-                </div>
-            @endif
-            @if ($specsLaptop->product->file->image_3)
-                <div class="img--miniature outl--blue-ow" id="img--prod-3">
-                    
-                    <img src="{{ asset($specsLaptop->product->file->image_3) }}">
-                </div>
-            @endif
-            @if ($specsLaptop->product->file->image_4)
-                <div class="img--miniature outl--blue-ow" id="img--prod-4">
-                    
-                    <img src="{{ asset($specsLaptop->product->file->image_4) }}">
-                </div>
-            @endif
-            @if ($specsLaptop->product->file->image_5)
-                <div class="img--miniature outl--blue-ow" id="img--prod-5">
-                    
-                    <img src="{{ asset($specsLaptop->product->file->image_5) }}">
-                </div>
-            @endif
-            @if ($specsLaptop->product->file->image_6)
-                <div class="img--miniature outl--blue-ow" id="img--prod-6">
-                    
-                    <img src="{{ asset($specsLaptop->product->file->image_6) }}">
-                </div>
-            @endif
-            @if ($specsLaptop->product->file->image_7)
-                <div class="img--miniature outl--blue-ow" id="img--prod-7">
-                    
-                    <img src="{{ asset($specsLaptop->product->file->image_7) }}">
-                </div>
-            @endif
+                @endif
+                @if ($specsLaptop->product->file->image_2)
+                    <div class="img--miniature outl--blue-ow" id="img--prod-2">
+                        
+                        <img src="{{ asset($specsLaptop->product->file->image_2) }}">
+                    </div>
+                @endif
+                @if ($specsLaptop->product->file->image_3)
+                    <div class="img--miniature outl--blue-ow" id="img--prod-3">
+                        
+                        <img src="{{ asset($specsLaptop->product->file->image_3) }}">
+                    </div>
+                @endif
+                @if ($specsLaptop->product->file->image_4)
+                    <div class="img--miniature outl--blue-ow" id="img--prod-4">
+                        
+                        <img src="{{ asset($specsLaptop->product->file->image_4) }}">
+                    </div>
+                @endif
+                @if ($specsLaptop->product->file->image_5)
+                    <div class="img--miniature outl--blue-ow" id="img--prod-5">
+                        
+                        <img src="{{ asset($specsLaptop->product->file->image_5) }}">
+                    </div>
+                @endif
+                @if ($specsLaptop->product->file->image_6)
+                    <div class="img--miniature outl--blue-ow" id="img--prod-6">
+                        
+                        <img src="{{ asset($specsLaptop->product->file->image_6) }}">
+                    </div>
+                @endif
+                @if ($specsLaptop->product->file->image_7)
+                    <div class="img--miniature outl--blue-ow" id="img--prod-7">
+                        
+                        <img src="{{ asset($specsLaptop->product->file->image_7) }}">
+                    </div>
+                @endif
+            </div>
 
         </div>
 
-        <!-- 
-            * ESPECIFICACIONES ESPECIFICACIONES  ESPECIFICACIONES 
-        -->
+         
         <div id="container--dets">
             <h1> 
                 {{ $specsLaptop->equipo_marca }}
@@ -225,7 +281,7 @@
                 $ @convert($specsLaptop->product->price)
             </h1>
 
-            <p id="info--IVA" class="p--description">+ IVA en caso de requerir factura</p>
+            <p id="info--iva" class="p--description">+ IVA en caso de requerir factura</p>
             
             <p id="info--units">
                 @if ($specsLaptop->product->inventory->stock > 1)
@@ -244,443 +300,418 @@
 
         </div>
 
-    </section>
-<!--
-    * SPECS
--->
-    <main id="product--specs">
-        <h1>Especificaciones</h1>
-        
-        <section id="product--specs-l">
-
-            <!-- 
-                * EQUIPO EQUIPO EQUIPO
-            -->
-            <table class="box--ow-max">
-                <caption><h3>Equipo</h3></caption>
-                <tr>
-                    <td>Marca</td>
-                    <td class="td-bold">
-                        {{ $specsLaptop->equipo_marca}}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td-w">Línea</td>
-                    <td class="td-w td-bold">
-                        {{ $specsLaptop->equipo_linea}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>Modelo</td>
-                    <td class="td-bold">
-                        {{ $specsLaptop->equipo_modelo}}
-                    </td>
-                </tr>
-            </table>
-            <!-- 
-                * RAM RAM RAM
-            -->
-            <table class="box--ow-max">
-                <caption><h3>Memoria RAM</h3></caption>
-                <tr>
-                    <td>Cantidad</td>
-                    <td class="td-bold">
-                        {{ $specsLaptop->ram_gb}} GB
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td-w--end">Tipo</td>
-                    <td class="td-w--end td-bold">
-                        {{ $specsLaptop->ram_tipo}}
-                    </td>
-                </tr>
-            </table>
-            <!-- 
-                * Disco duro Disco duro Disco duro
-            -->
-            <table class="box--ow-max">
-                <caption><h3>Disco duro</h3></caption>
-                <tr>
-                    <td>Cantidad</td>
-                    <td class="td-bold">
-                        {{ $specsLaptop->discod_gb}}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td-w--end">Tipo</td>
-                    <td class="td-w--end td-bold">
-                        {{ $specsLaptop->discod_tipo}}
-                    </td>
-                </tr>
-            </table>
-            <!-- 
-                * Procesador Procesador Procesador
-            -->
-            <table class="box--ow-max">
-                <caption><h3>Procesador</h3></caption>
-                <tr>
-                    <td>Marca</td>
-                    <td class="td-bold">
-                        {{ $specsLaptop->procesador_marca}}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td-w">Modelo</td>
-                    <td class="td-w td-bold">
-                        {{ $specsLaptop->procesador_modelo}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>Generación</td>
-                    <td class="td-bold">
-                        {{ $specsLaptop->procesador_gen}}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td-w">Velocidad</td>
-                    <td class="td-w td-bold">
-                        {{ $specsLaptop->procesador_ghz}} GHz
-                    </td>
-                </tr>
-                <tr>
-                    <td>Núcleos</td>
-                    <td class="td-bold">
-                        {{ $specsLaptop->procesador_nucleos}}
-                    </td>
-                </tr>
-            </table>
-            <!-- 
-                * Tarjeta gráfica Tarjeta gráfica Tarjeta gráfica
-            -->
-            @if ($specsLaptop->tarjetag)
+</section>
+{{--*
+    * SPECIFICATIONS
+--}}
+<main id="product--specs">
+        <div id="product--specs-items">
+            <h1>Especificaciones</h1>
+            <section>
+                
                 <table class="box--ow-max">
-                    <caption><h3>Tarjeta gráfica</h3></caption>
+                    <caption><h3>Equipo</h3></caption>
+                    <tr>
+                        <td id="here">Marca</td>
+                        <td class="td-bold">
+                            {{ $specsLaptop->equipo_marca}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-w">Línea</td>
+                        <td class="td-w td-bold">
+                            {{ $specsLaptop->equipo_linea}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Modelo</td>
+                        <td class="td-bold">
+                            {{ $specsLaptop->equipo_modelo}}
+                        </td>
+                    </tr>
+                </table>
+                 
+                <table class="box--ow-max">
+                    <caption><h3>Memoria RAM</h3></caption>
+                    <tr>
+                        <td>Cantidad</td>
+                        <td class="td-bold">
+                            {{ $specsLaptop->ram_gb}} GB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-w--end">Tipo</td>
+                        <td class="td-w--end td-bold">
+                            {{ $specsLaptop->ram_tipo}}
+                        </td>
+                    </tr>
+                </table>
+                
+                 
+                <table class="box--ow-max">
+                    <caption><h3>Disco duro</h3></caption>
+                    <tr>
+                        <td>Cantidad</td>
+                        <td class="td-bold">
+                            {{ $specsLaptop->discod_gb}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-w--end">Tipo</td>
+                        <td class="td-w--end td-bold">
+                            {{ $specsLaptop->discod_tipo}}
+                        </td>
+                    </tr>
+                </table>
+                 
+                <table class="box--ow-max">
+                    <caption><h3>Procesador</h3></caption>
                     <tr>
                         <td>Marca</td>
                         <td class="td-bold">
-                            {{ $specsLaptop->tarjetag_marca}}
+                            {{ $specsLaptop->procesador_marca}}
                         </td>
                     </tr>
                     <tr>
                         <td class="td-w">Modelo</td>
                         <td class="td-w td-bold">
-                            {{ $specsLaptop->tarjetag_modelo}}
+                            {{ $specsLaptop->procesador_modelo}}
                         </td>
                     </tr>
                     <tr>
-                        <td>Tipo de memoria</td>
+                        <td>Generación</td>
                         <td class="td-bold">
-                            {{ $specsLaptop->tarjetag_tipomemoria}}
+                            {{ $specsLaptop->procesador_gen}}
                         </td>
                     </tr>
                     <tr>
-                        <td class="td-w--end">Cantidad de memoria</td>
-                        <td class="td-w--end td-bold">
-                            {{ $specsLaptop->tarjetag_gb}} GB
+                        <td class="td-w">Velocidad</td>
+                        <td class="td-w td-bold">
+                            {{ $specsLaptop->procesador_ghz}} GHz
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Núcleos</td>
+                        <td class="td-bold">
+                            {{ $specsLaptop->procesador_nucleos}}
                         </td>
                     </tr>
                 </table>
-            @endif
-            <!-- 
-                * Pantalla Pantalla Pantalla
-            -->
-            <table class="box--ow-max">
-                <caption><h3>Pantalla</h3></caption>
-                <tr>
-                    <td>Tipo</td>
-                    <td class="td-bold">
-                        {{ $specsLaptop->pantalla_tipo}}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td-w">Tamaño</td>
-                    <td class="td-w td-bold">
-                        {{ $specsLaptop->pantalla_tamano}}"
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tamaño</td>
-                    <td class="td-bold">
-                        {{ $specsLaptop->pantalla_resolucion}}"
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td-w--end">Táctil</td>
-                    <td class="td-w--end td-bold">
-                        @if ($specsLaptop->pantalla_tactil)
-                            Si
-                        @else
-                            No
-                        @endif
-                    </td>
-                </tr>
-            </table>
-            <!-- 
-                * Teclado Teclado Teclado
-            -->
-            <table class="box--ow-max">
-                <caption><h3>Teclado</h3></caption>
-                <tr>
-                    <td>Idioma</td>
-                    <td class="td-bold">
-                        {{ $specsLaptop->teclado_idioma}}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td-w">Retroiluminado</td>
-                    <td class="td-w td-bold">
-                        @if ($specsLaptop->teclado_retroi)
-                            Si
-                        @else
-                            No
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                    <td>Teclado númerico</td>
-                    <td class="td-bold">
-                        @if ($specsLaptop->teclado_num)
-                            Si
-                        @else
-                            No
-                        @endif
-                    </td>
-                </tr>
-            </table>
-            <!-- 
-                * Conectividad Conectividad Conectividad
-            -->
-            <table class="box--ow-max">
-                <caption><h3>Conectividad</h3></caption>
-                <tr>
-                    <td>Cantidad de puertos USB 2.0</td>
-                    <td class="td-bold">
-                        {{ $specsLaptop->conectv_usb2 }}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td-w">Cantidad de puertos USB 3.0</td>
-                    <td class="td-w td-bold">
-                        {{ $specsLaptop->conectv_usb3 }}
-                    </td>
-                </tr>
-                <tr>
-                    <td>Cantidad de puertos USB C</td>
-                    <td class="td-bold">
-                        {{ $specsLaptop->conectv_usbc }}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td-w">Wifi</td>
-                    <td class="td-w td-bold">
-                        @if ($specsLaptop->conectv_wifi)
-                            Si
-                        @else
-                            No
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                    <td>Bluetooth</td>
-                    <td class="td-bold">
-                        @if ($specsLaptop->conectv_bluetooth)
-                            Si
-                        @else
-                            No
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td-w">Puerto jack para audífonos</td>
-                    <td class="td-w td-bold">
-                        @if ($specsLaptop->conectv_jack)
-                            Si
-                        @else
-                            No
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                    <td>Puerto HDMI</td>
-                    <td class="td-bold">
-                        @if ($specsLaptop->conectv_hdmi)
-                            Si
-                        @else
-                            No
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td-w">Puerto VGA</td>
-                    <td class="td-w td-bold">
-                        @if ($specsLaptop->conectv_vga)
-                            Si
-                        @else
-                            No
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                    <td>Puerto DisplayPort</td>
-                    <td class="td-bold">
-                        @if ($specsLaptop->conectv_displayp)
-                            Si
-                        @else
-                            No
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td-w">Puerto Ethernet</td>
-                    <td class="td-w td-bold">
-                        @if ($specsLaptop->conectv_ethernet)
-                            Si
-                        @else
-                            No
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                    <td>Puerto Serial COM</td>
-                    <td class="td-bold">
-                        @if ($specsLaptop->conectv_serialcom)
-                            Si
-                        @else
-                            No
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td-w--end">Puerto IEEE 1394</td>
-                    <td class="td-w--end td-bold">
-                        @if ($specsLaptop->conectv_ieee1394)
-                            Si
-                        @else
-                            No
-                        @endif
-                        
-                    </td>
-                </tr>
-                
-            </table>
-            <!-- 
-                * Sistema Operativo Sistema Operativo Sistema Operativo
-            -->
-            <table class="box--ow-max">
-                <caption><h3>Sistema Operativo</h3></caption>
-                <tr>
-                    <td>Nombre</td>
-                    <td class="td-bold">
-                        {{ $specsLaptop->so}}
-                    </td>
-                </tr>
-            </table>
-            <!-- 
-                * Software adicional Software adicional Software adicional
-            -->
-            <table class="box--ow-max">
-                <caption><h3>Software adicional</h3></caption>
-                <tr>
-                    <td>Programas</td>
-                    <td class="td-bold">
-                        {{ $specsLaptop->software_ad}}
-                    </td>
-                </tr>
-            </table>
-            <!-- 
-                * Audio y video Audio y video Audio y video
-            -->
-            <table class="box--ow-max">
-                <caption><h3>Audio y video</h3></caption>
-                <tr>
-                    <td>Idioma</td>
-                    <td class="td-bold">
-                        @if ($specsLaptop->audiov_camara)
-                            Si
-                        @else
-                            No
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td-w--end">Retroiluminado</td>
-                    <td class="td-w--end td-bold">
-                        @if ($specsLaptop->audiov_microfono)
-                            Si
-                        @else
-                            No
-                        @endif
-                    </td>
-                </tr>
-            </table>
-            <!-- 
-                * Batería Batería Batería
-            -->
-            <table class="box--ow-max">
-                <caption><h3>Batería</h3></caption>
-                <tr>
-                    <td>Tipo</td>
-                    <td class="td-bold">
-                        {{ $specsLaptop->bateria_tipo}}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td-w--end">Cantidad de celdas</td>
-                    <td class="td-w--end td-bold">
-                        {{ $specsLaptop->bateria_celdas}}
-                    </td>
-                </tr>
-            </table>
-            <!-- 
-                * Estado Estado Estado
-            -->
-            <table class="box--ow-max">
-                <caption><h3>Estado</h3></caption>
-                <tr>
-                    <td>Uso</td>
-                    <td class="td-bold">
-                        {{ $specsLaptop->product->status_usage}}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td-w--end">Estética</td>
-                    <td class="td-w--end td-bold">
-                        {{ $specsLaptop->product->status_aesthetic}} de 10
-                    </td>
-                </tr>
-                
-            </table>
-        </section>
+                 
+                @if ($specsLaptop->tarjetag)
+                    <table class="box--ow-max">
+                        <caption><h3>Tarjeta gráfica</h3></caption>
+                        <tr>
+                            <td>Marca</td>
+                            <td class="td-bold">
+                                {{ $specsLaptop->tarjetag_marca}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-w">Modelo</td>
+                            <td class="td-w td-bold">
+                                {{ $specsLaptop->tarjetag_modelo}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Tipo de memoria</td>
+                            <td class="td-bold">
+                                {{ $specsLaptop->tarjetag_tipomemoria}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-w--end">Cantidad de memoria</td>
+                            <td class="td-w--end td-bold">
+                                {{ $specsLaptop->tarjetag_gb}} GB
+                            </td>
+                        </tr>
+                    </table>
+                @endif
+                 
+                <table class="box--ow-max">
+                    <caption><h3>Pantalla</h3></caption>
+                    <tr>
+                        <td>Tipo</td>
+                        <td class="td-bold">
+                            {{ $specsLaptop->pantalla_tipo}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-w">Tamaño</td>
+                        <td class="td-w td-bold">
+                            {{ $specsLaptop->pantalla_tamano}}"
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tamaño</td>
+                        <td class="td-bold">
+                            {{ $specsLaptop->pantalla_resolucion}}"
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-w--end">Táctil</td>
+                        <td class="td-w--end td-bold">
+                            @if ($specsLaptop->pantalla_tactil)
+                                Si
+                            @else
+                                No
+                            @endif
+                        </td>
+                    </tr>
+                </table>
+                 
+                <table class="box--ow-max">
+                    <caption><h3>Teclado</h3></caption>
+                    <tr>
+                        <td>Idioma</td>
+                        <td class="td-bold">
+                            {{ $specsLaptop->teclado_idioma}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-w">Retroiluminado</td>
+                        <td class="td-w td-bold">
+                            @if ($specsLaptop->teclado_retroi)
+                                Si
+                            @else
+                                No
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Teclado númerico</td>
+                        <td class="td-bold">
+                            @if ($specsLaptop->teclado_num)
+                                Si
+                            @else
+                                No
+                            @endif
+                        </td>
+                    </tr>
+                </table>
+                 
+                <table class="box--ow-max">
+                    <caption><h3>Conectividad</h3></caption>
+                    <tr>
+                        <td>Cantidad de puertos USB 2.0</td>
+                        <td class="td-bold">
+                            {{ $specsLaptop->conectv_usb2 }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-w">Cantidad de puertos USB 3.0</td>
+                        <td class="td-w td-bold">
+                            {{ $specsLaptop->conectv_usb3 }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cantidad de puertos USB C</td>
+                        <td class="td-bold">
+                            {{ $specsLaptop->conectv_usbc }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-w">Wifi</td>
+                        <td class="td-w td-bold">
+                            @if ($specsLaptop->conectv_wifi)
+                                Si
+                            @else
+                                No
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bluetooth</td>
+                        <td class="td-bold">
+                            @if ($specsLaptop->conectv_bluetooth)
+                                Si
+                            @else
+                                No
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-w">Puerto jack para audífonos</td>
+                        <td class="td-w td-bold">
+                            @if ($specsLaptop->conectv_jack)
+                                Si
+                            @else
+                                No
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Puerto HDMI</td>
+                        <td class="td-bold">
+                            @if ($specsLaptop->conectv_hdmi)
+                                Si
+                            @else
+                                No
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-w">Puerto VGA</td>
+                        <td class="td-w td-bold">
+                            @if ($specsLaptop->conectv_vga)
+                                Si
+                            @else
+                                No
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Puerto DisplayPort</td>
+                        <td class="td-bold">
+                            @if ($specsLaptop->conectv_displayp)
+                                Si
+                            @else
+                                No
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-w">Puerto Ethernet</td>
+                        <td class="td-w td-bold">
+                            @if ($specsLaptop->conectv_ethernet)
+                                Si
+                            @else
+                                No
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Puerto Serial COM</td>
+                        <td class="td-bold">
+                            @if ($specsLaptop->conectv_serialcom)
+                                Si
+                            @else
+                                No
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-w--end">Puerto IEEE 1394</td>
+                        <td class="td-w--end td-bold">
+                            @if ($specsLaptop->conectv_ieee1394)
+                                Si
+                            @else
+                                No
+                            @endif
+
+                        </td>
+                    </tr>
+
+                </table>
+                 
+                <table class="box--ow-max">
+                    <caption><h3>Sistema Operativo</h3></caption>
+                    <tr>
+                        <td>Nombre</td>
+                        <td class="td-bold">
+                            {{ $specsLaptop->so}}
+                        </td>
+                    </tr>
+                </table>
+                 
+                <table class="box--ow-max">
+                    <caption><h3>Software adicional</h3></caption>
+                    <tr>
+                        <td>Programas</td>
+                        <td class="td-bold">
+                            {{ $specsLaptop->software_ad}}
+                        </td>
+                    </tr>
+                </table>
+                 
+                <table class="box--ow-max">
+                    <caption><h3>Audio y video</h3></caption>
+                    <tr>
+                        <td>Idioma</td>
+                        <td class="td-bold">
+                            @if ($specsLaptop->audiov_camara)
+                                Si
+                            @else
+                                No
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-w--end">Retroiluminado</td>
+                        <td class="td-w--end td-bold">
+                            @if ($specsLaptop->audiov_microfono)
+                                Si
+                            @else
+                                No
+                            @endif
+                        </td>
+                    </tr>
+                </table>
+                 
+                <table class="box--ow-max">
+                    <caption><h3>Batería</h3></caption>
+                    <tr>
+                        <td>Tipo</td>
+                        <td class="td-bold">
+                            {{ $specsLaptop->bateria_tipo}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-w--end">Cantidad de celdas</td>
+                        <td class="td-w--end td-bold">
+                            {{ $specsLaptop->bateria_celdas}}
+                        </td>
+                    </tr>
+                </table>
+                 
+                <table class="box--ow-max table-end">
+                    <caption><h3>Estado</h3></caption>
+                    <tr>
+                        <td>Uso</td>
+                        <td class="td-bold">
+                            {{ $specsLaptop->product->status_usage}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-w--end">Estética</td>
+                        <td class="td-w--end td-bold">
+                            {{ $specsLaptop->product->status_aesthetic}} de 10
+                        </td>
+                    </tr>
+
+                </table>
+            </section>
+        </div>
     
-    </main>
-<!--
-    * WTY 
--->
-    <section id="product--wty">
-        
-        <div class="box--ow-max">
-            <i class='bx bxs-check-shield'></i>
-            <p>
-                Garantía de {{ $specsLaptop->product->warranty_days }} días
-            </p>
-        </div>
-
-        <div class="box--ow-max">
-            <i class='bx bx-support' ></i>
-            <p>
-                {{ $specsLaptop->product->support }}
-            </p>
-        </div>
-
-        <div class="box--ow-max">
-            <i class='bx bxs-package' ></i>
-            <p>
-                {{ $specsLaptop->product->delivery }}
-            </p>
-        </div>
-
-    </section>
-    
+</main>
+{{--*
+    * WARRANTY ELEMENTS
+--}}
+<section id="product--wty">
+        <div id="product--wty-items">
+            <div class="box--ow-max">
+                <i class='bx bxs-check-shield'></i>
+                <p>
+                    Garantía de {{ $specsLaptop->product->warranty_days }} días
+                </p>
+            </div>
+            <div class="box--ow-max">
+                <i class='bx bx-support'></i>
+                <p>
+                    {{ $specsLaptop->product->support }}
+                </p>
+            </div>
+            <div class="box--ow-max">
+                <i class='bx bxs-package'></i>
+                <p>
+                    {{ $specsLaptop->product->delivery }}
+                </p>
+            </div>
+        </div> 
+</section>
+{{--*
+    * FOOTER
+--}}
 <footer class="footer">
 
     <div id="footer--logo">

@@ -1,7 +1,8 @@
 @use "tools" as *;
-
-// * BASE
-// Contiene los estilos de aplicación general
+/**
+  * * BASE
+  * Estilos de aplicación general
+  */
 body{
     margin: 0;
     padding: 0;
@@ -12,11 +13,12 @@ body{
 *{
     box-sizing: border-box;
     -webkit-tap-highlight-color: rgba(0,0,0,0); 
+    scroll-behavior: smooth;
 }
 header{
+    width: 100%;
     background: setcolor(blue);
     padding: $container--padd-mix;
-    width: 100%;
     display: flex;
     justify-content: space-between;
     flex-direction: row;

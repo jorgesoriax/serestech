@@ -340,7 +340,7 @@
         <tr>
             
             <td>Tarjeta gráfica</td>
-            <td>Si eliges NO, los 4 campos consecutivos puedes dejarlos vacios<br>
+            <td>Si eliges 0, los 4 campos consecutivos puedes dejarlos vacios<br>
                 <input type="text" 
                 placeholder="Booleano" 
                 name="tarjetag"

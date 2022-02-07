@@ -6,20 +6,62 @@
   */
 #product--info, #product--specs, #product--wty{
     margin: $container--padd-mix-compact;
+    display: flex;
+    justify-content: center;
+}
+#product--specs, #product--wty{
+    > div{
+        width: 905px;
+    }
+}
+.noimage-75{
+    border-radius: 0;
+    width: 75px;
+    height: 75px;
+}
+.noimage-200{
+    border-radius: 0;
+    width: 200px;
+    height: 200px;
 }
 /**
   * * INFO
   */
 #product--info{
-    display: grid;
-    grid-template-columns: auto auto;
+    flex-direction: row;
     gap: $gap--max;
     position: relative;
 }
 #container--imgs{
-    display: grid;
-    grid-template-columns: 50px auto;
-    grid-template-rows: auto;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: $gap--min;
+}
+
+#img--prod-preview{
+    height: 410px;
+    width: 410px;
+    border: $border--px solid setcolor(gray, light);
+    border-radius: $border--rad-mid;
+    @include flex;
+    overflow: hidden;
+    // * Pattern
+    background-color: #ffffff;
+    background-image:  linear-gradient(setcolor(gray, patt) 1.1px, transparent 1.1px), linear-gradient(to right, setcolor(gray, patt) 1.1px, #ffffff 1.1px);
+    background-size: 20px 20px;
+    background-position: 0;
+
+    img{
+        border-radius: $border--rad-max;
+        overflow: hidden;
+        width: 100%;
+        cursor: zoom-in;
+    }
+}
+
+#img--prod-items{
+    display: flex;
+    flex-direction: column;
     gap: $gap--min;
 
     .img--miniature{
@@ -42,42 +84,20 @@
     }
 }
 
-#img--prod-preview{
-    height: 420px;
-    width: 420px;
-    border: $border--px solid setcolor(gray, light);
-    border-radius: $border--rad-max;
-    grid-column: 2 / 3;
-    grid-row: 1 / 8;
-    @include flex;
-    position: relative;
-    overflow: hidden;
-    // Pattern
-    background-color: #ffffff;
-    background-image:  linear-gradient(setcolor(gray, patt) 1.1px, transparent 1.1px), linear-gradient(to right, setcolor(gray, patt) 1.1px, #ffffff 1.1px);
-    background-size: 20px 20px;
-    background-position: 0;
-
-    img{
-        width: 100%;
-        cursor: zoom-in;
-    }
-}
-
 #zoom{
-    width: 420px;
-    height: 420px;
+    width: 410px;
+    height: 410px;
     position: absolute;
-    z-index: 1;
-    right: 0;
+    z-index: 3;
     visibility: hidden;
     background-position: 150px 50px;
     background-repeat: no-repeat;
     background-size: 250%;
-
+    transform: translateX(calc(100% + 25px));
 }
 
 #container--dets{
+    width: 410px;
     position: relative;
 
     h1{
@@ -102,6 +122,10 @@
         text-decoration: line-through;
     }
 
+    #info--iva{
+        margin-top: 0;
+    }
+
     #info--units{
         color: setcolor(blue);
         margin-top: $gap--max;
@@ -120,47 +144,44 @@
         }
     }
 }
-
 /**
   * * SPECS
   */
 #product--specs{
     display: flex;
-    flex-wrap: wrap;
     gap: $gap--max;
     padding: 0;
+    margin-bottom: 25px;
     
-    section{
-        width: 100%;
-        height: 1500px;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        column-gap: $gap--max;
-    }
-
-    table{
-        width: calc(50% - 12.5px);
-        border-spacing: 0;
-        font-size: $paragraph--font-size;
-        margin-bottom: $container--padd-max;
-        border-radius: $border--rad-mid;
-    }
-    td{
-        width: 50%;
-        padding: $container--padd-min;
-    }
-    caption{
-
-        h3{
-            margin-top: 0;
-            text-align: left;
+    #product--specs-items{
+        h1{
+            width: 100%;
+        }
+        section{
+            min-height: 1000px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            column-gap: $gap--max;
+            table{
+                border-spacing: 0;
+                font-size: $paragraph--font-size;
+                overflow: visible;
+                caption{
+                    h3{
+                        margin-top: 0;
+                        text-align: left;
+                    }
+                }
+                tr{
+                    :nth-child(1){
+                        width: 60%;
+                    }
+                }
+            }
         }
     }
-}        
-h1{
-    width: 100%;
-}
+}   
 .td-w{
     border-top: $border--px solid setcolor(gray, light);
     border-bottom: $border--px solid setcolor(gray, light);
@@ -174,16 +195,19 @@ h1{
 .td-bold{
     font-weight: 600;
 }
-
 /**
   * * WTY
   */
 #product--wty{
-    display: grid;
-    grid-template-columns: 33% 34% 33%;
+    margin-top: 25px;   
+}
+#product--wty-items{
+    display: flex;
     gap: $gap--max;
+    flex-direction: row;
 
     div{
+        width: 100%;
         padding: $container--padd-max;
         @include flex;
         flex-direction: column;
@@ -195,6 +219,96 @@ h1{
 
         p{
             margin-bottom: 0;
+            text-align: center;
         }
+    }
+}
+/**
+  * * TOUCH SLIDER
+  */
+.touch-slider{
+    width: 100vw;
+    height: 100vw;
+    overflow: hidden;
+    border-bottom: 1px solid setcolor(gray, light);
+    position: relative;
+
+    .count{
+        position: absolute;
+        background: setcolor(white, light);
+        border: $border--px solid setcolor(gray, light);
+        z-index: 1;
+        padding: $container--padd-micro;
+        margin: $container--padd-min;
+        border-radius: $border--rad-min;
+
+        p{
+            margin: 0;
+        }
+    }
+
+    .slider-container{
+        height: 100vw;
+        display: inline-flex;
+        overflow: hidden;
+        transform: translateX(0);
+        transition: transform $animation-duration--mid ease-out;
+        cursor: grab;
+        position: relative;
+
+        .slide{
+            max-height: 100vw;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+            overflow: hidden;
+        
+            img{
+                width: 100%;
+                height: 100%;
+                transition: transform $animation-duration--mid ease-in-out;
+            }
+        }
+    }
+}
+
+
+.grabbing{
+    cursor: grabbing;
+
+    .slide{
+        img{
+            transform: scale(0.9);
+        }
+    }
+}
+/**
+  * * SCROLL TO TOP
+  */
+.scrollTop{
+    background: setcolor(blue);
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    left: $container--padd-max;
+    bottom: $container--padd-max; 
+    border-radius: 100%;
+    z-index: 2;
+    display: none;
+    opacity: .75;
+    cursor: pointer;
+    
+    i{
+        width: 100%;
+        height: 100%;
+        font-size: $i--font-size-mid;
+        color: setcolor(white);
+        @include flex;
+    }
+
+    &:hover{
+        opacity: 1;
     }
 }

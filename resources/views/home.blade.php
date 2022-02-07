@@ -1,43 +1,45 @@
 @extends('layouts.template')
-
-@section('title', 'SeresTech')
+@section('title', 'Bienvenido a SeresTech')
 
 @section('scripts')
     <script src="{{ asset('storage/js/home.js') }}"></script>
-@endsection
-
-@section('css')
-    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    <script src="{{ asset('storage/js/menu.js') }}"></script>
 @endsection
 
 @section('content')
-
-{{-- <div id="responsive-indicator"></div> --}}
-
+{{--*
+    * RESPONSIVE INDICATOR
+--}}
+<div id="responsive-indicator"></div>
+{{--*
+    * FACEBOOK PLUGIN
+--}}
+{{--
 <div id="fb-root"></div>
-<div id="fb-customer-chat" class="fb-customerchat">
-</div>
+<div id="fb-customer-chat" class="fb-customerchat"></div>
 <script>
-    var chatbox = document.getElementById('fb-customer-chat');
-    chatbox.setAttribute("page_id", "102771732286590");
-    chatbox.setAttribute("attribution", "biz_inbox");
-    </script>
-    <script>
-    window.fbAsyncInit = function() {
-        FB.init({
-        xfbml            : true,
-        version          : 'v12.0'
-        });
-    };
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute("page_id", "280004990468494");
+  chatbox.setAttribute("attribution", "biz_inbox");
 </script>
-
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v12.0'
+    });
+  };
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script> --}}
+{{--*
+    * MENU
+--}}
 <div id="menu--container" class="menu--container">
     <div id="content">
         Siguenos en nuestras redes
@@ -74,7 +76,9 @@
     </div>
 </div>
 <div id="shadow"></div>
-
+{{--*
+    * HEADER
+--}}
 <header class="header">
     <div id="header--logo">
         <a href="{{ route('home.index') }}">
@@ -91,7 +95,6 @@
     </div>
 
     <div id="header--nav--buttons" class="nav--buttons">
-
         <a class="a--icon outl--white-ob" target="_blank" rel="noopener noreferrer"
         href="https://www.facebook.com/SeresTech21/" >
             <img src="{{ asset('storage/images/social-media/fb-rounded-style-a.svg')}}" 
@@ -123,11 +126,11 @@
             <i class='bx bx-menu'></i>
         </button>
     </div>
-
 </header>
-
+{{--*
+    * SLIDER
+--}}
 <section class="container--slider">
-
     <div class="slider" id="slider">
         <div class="slider--section">
         <img src="{{ asset('storage/images/slider/img1.webp') }}" alt="">
@@ -149,11 +152,11 @@
     <button class="button--neutral-ow slider--button slider--button-l" id="button--l">
         <i class='bx bx-chevron-left'></i>
     </button>
-    
 </section>
-
+{{--*
+    * CATALOG
+--}}
 <main id="main--products">
-
     <div id="container--catalog">
         <h2>Conoce nuestro stock</h2>
         <div id="catalog">
@@ -171,15 +174,27 @@
                                     {{ $specLaptop->product->status_usage}}
                                 </label>
 
+                                {{-- @if ($specLaptop->product->file->image_1)
+                                    @if ($specLaptop->product->file->image_2)
+                                        <img src="{{ asset($specLaptop->product->file->image_2) }}">
+                                    @else
+                                        <img src="{{ asset('storage/images/icons/noimage_75.png') }}" class="noimage-75 product--image-cover">
+                                    @endif
+                                    <img src="{{ asset($specLaptop->product->file->image_1) }}" class="product--image-cover"> 
+                                @else
+                                    <img src="{{ asset('storage/images/icons/noimage_75.png') }}" class="noimage-75 product--image-cover">
+                                @endif --}}
+
                                 @if ($specLaptop->product->file->image_1)
                                     @if ($specLaptop->product->file->image_2)
                                         <img src="{{ asset($specLaptop->product->file->image_2) }}">
                                     @else
-                                        <img src="{{ asset('storage/images/icons/noimage_75.png') }}" class="noimage">
-                                    @endif
-                                    <img src="{{ asset($specLaptop->product->file->image_1) }}" class="product--image-cover"> 
+                                        <img src="{{ asset('storage/images/icons/noimage_75.png') }}" class="noimage-75 product--image-cover">
+                                    @endif 
+
+                                    <img src="{{ asset($specLaptop->product->file->image_1) }}" class="product--image-cover">
                                 @else
-                                    <img src="{{ asset('storage/images/icons/noimage_75.png') }}" class="noimage">
+                                    <img src="{{ asset('storage/images/icons/noimage_75.png') }}" class="noimage-75">
                                 @endif
                             </div>
                             <div class="product--info">
@@ -237,7 +252,9 @@
         {{ $specsLaptop->links() }}
     </div>
 </main>
-
+{{--*
+    * FOOTER
+--}}
 <footer class="footer">
 
     <div id="footer--logo">

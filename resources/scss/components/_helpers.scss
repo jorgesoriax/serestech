@@ -48,7 +48,10 @@
     background: setcolor(blue,actv);
     color: setcolor(blue);
 }
-// * Soluciona especificidad del estado de inputs
+/**
+  * * BORDER FIX
+  * Soluciona especificidad del hover de inputs (redes sociales footer)
+  */
 .input--ow{
     border: $border--px solid setcolor(gray, light);
 }

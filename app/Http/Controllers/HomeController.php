@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index(){
 
-        $specsLaptop = SpecificationsLaptop::paginate(6);
+        $specsLaptop = SpecificationsLaptop::paginate(9);
         return view('home', compact('specsLaptop'));
     }
 }
