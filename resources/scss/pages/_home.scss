@@ -4,16 +4,22 @@
   * * HEADER
   */
 header{
-    #header--logo{
-        @include flex(center, left);
-
-        img{
-            height: $logo--height-max;
+    .header--container{
+        #header--logo{
+            @include flex(center, left);
+    
+            img{
+                height: $logo--height-max;
+            }
         }
-    }
-    #header--search{
-        width: 100%;
-        max-width: 600px;
+        #header--search{
+            width: 100%;
+            justify-content: left;
+
+            #text-search{
+                max-width: 600px;
+            }
+        }
     }
 }
 /**
@@ -78,13 +84,11 @@ header{
 /**
   * * CATALOG
   */
-#main--products{
-    @include flex;
-    flex-direction: column;
-}
 #container--catalog{
+    width: $cont--p-card--min-width;
     max-width: $cont--p-card--min-width;
-    margin: $container--padd-mix;
+    margin: 0 auto;
+    margin-top: $container--padd-max;
 }
 #catalog{
     display: flex;
@@ -141,8 +145,7 @@ header{
     }
 
     .noimage-75{
-        width: 75px;
-        height: 75px;
+        width: initial;
     }
 }
 .product--info{

@@ -4,11 +4,16 @@
   * Estilos de aplicación general
   */
 body{
+    background: setcolor(white, light);
     margin: 0;
     padding: 0;
     border: 0;
     @include font-family($font--title, 400);
     color: setcolor(black);
+}
+#universal--container{
+    background: setcolor(white);
+    margin: 0 auto;
 }
 *{
     box-sizing: border-box;
@@ -16,19 +21,24 @@ body{
     scroll-behavior: smooth;
 }
 header{
-    width: 100%;
     background: setcolor(blue);
-    padding: $container--padd-mix;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    gap: $gap--max;
     position: sticky;
     top: 0;
-    z-index: 2;
+    z-index: 8;
+    padding: 0 100px;
+
+    .header--container{
+        width: 100%;
+        max-width: 1235px;
+        height: 100px;
+        margin: 0 auto;
+        @include flex(center, space-between);
+        flex-direction: row;
+        gap: $gap--max;
+    }
 }
 footer{
-    background: setcolor(white, light);
+    background: setcolor(white);
     width: 100%;
     border-top: $border--px solid setcolor(gray, light);
     padding: $container--padd-mix;

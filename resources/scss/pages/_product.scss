@@ -5,24 +5,17 @@
   * * BASE
   */
 #product--info, #product--specs, #product--wty{
-    margin: $container--padd-mix-compact;
+    width: 935px;
+    min-width: 935px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
+    margin-top: 25px;
 }
 #product--specs, #product--wty{
     > div{
         width: 905px;
     }
-}
-.noimage-75{
-    border-radius: 0;
-    width: 75px;
-    height: 75px;
-}
-.noimage-200{
-    border-radius: 0;
-    width: 200px;
-    height: 200px;
 }
 /**
   * * INFO
@@ -36,6 +29,10 @@
     display: flex;
     flex-direction: row-reverse;
     gap: $gap--min;
+
+    .noimage-75{
+        width: initial;
+    }
 }
 
 #img--prod-preview{
@@ -52,7 +49,6 @@
     background-position: 0;
 
     img{
-        border-radius: $border--rad-max;
         overflow: hidden;
         width: 100%;
         cursor: zoom-in;
@@ -163,43 +159,61 @@
             flex-wrap: wrap;
             flex-direction: column;
             column-gap: $gap--max;
+
             table{
                 border-spacing: 0;
                 font-size: $paragraph--font-size;
                 overflow: visible;
+
                 caption{
                     h3{
                         margin-top: 0;
                         text-align: left;
                     }
                 }
+                // Tr's totales
                 tr{
-                    :nth-child(1){
+                    // Primer td de cada tr
+                    td:nth-child(1){
                         width: 60%;
                     }
+                    // Segundo td de cada tr
+                    td:nth-child(2){
+                        font-weight: 600;
+                    }
                 }
+                // Tr's pares
+                tr:nth-child(even){
+                    background: setcolor(white);
+                    // Td's totales de tr's pares 
+                    td{
+                        border-top: $border--px solid setcolor(gray, light);
+                        border-bottom: $border--px solid setcolor(gray, light);
+                    }
+                }
+                // Último tr de la table
+                tr:last-child{
+                    // Primer td de último tr
+                    td:nth-child(1){
+                        border-bottom-left-radius: $border--rad-mid;
+                        border-bottom: 0;
+                    }
+                    // Segundo td de último tr
+                    td:nth-child(2){
+                        border-bottom-right-radius: $border--rad-mid;
+                        border-bottom: 0;
+                    }
+                }
+                
             }
         }
     }
 }   
-.td-w{
-    border-top: $border--px solid setcolor(gray, light);
-    border-bottom: $border--px solid setcolor(gray, light);
-    background: setcolor(white);
-}
-.td-w--end{
-    border-top: $border--px solid setcolor(gray, light);
-    border-radius: 0 0 $border--rad-mid $border--rad-mid;
-    background: setcolor(white);
-}
-.td-bold{
-    font-weight: 600;
-}
 /**
   * * WTY
   */
 #product--wty{
-    margin-top: 25px;   
+    margin-bottom: $container--padd-max;
 }
 #product--wty-items{
     display: flex;

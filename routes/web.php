@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 
@@ -22,7 +23,9 @@ use Illuminate\Support\Facades\Artisan;
 //     return view('welcome');
 // });
 
-// * PANEL
+/**
+ * * PANEL
+ */
 // La route en el middleware Authenticate se ha modificado
 Route::get('login', [LoginController::class, 'index'])
      ->name('login.index')
@@ -54,7 +57,9 @@ Route::delete('panel/{specLaptop}', [PanelController::class, 'destroy'])
      ->name('panel.destroy')
      ->middleware('auth');
 
-// * HOME
+/**
+ * * HOME
+ */
 Route::get('/', [HomeController::class, 'index'])
      ->name('home.index');
 // Route::get('product', [ProductController::class, 'index']);
@@ -67,3 +72,9 @@ Route::get('/cmd/{command}', function($command){
     Artisan::call($command);
     dd(Artisan::output());
 });
+
+
+/**
+ * * SEARCH
+ */
+Route::get('search/specs', [SearchController::class, 'specs'])->name('search.specs');

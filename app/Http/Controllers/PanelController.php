@@ -14,7 +14,7 @@ use Illuminate\Support\Str;
 class PanelController extends Controller
 {
     public function index(){
-        $specsLaptop = SpecificationsLaptop::paginate();
+        $specsLaptop = SpecificationsLaptop::paginate(15);
 
         return view('panel', compact('specsLaptop'));
     }
