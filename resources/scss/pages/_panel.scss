@@ -1,8 +1,8 @@
 @use "../abstracts" as *;
 @use "../tools/mixins" as *;
-
-// * LOGIN
-
+/**
+  * * LOGIN
+  */
 #login-panel{
     @include flex;
     flex-direction: column;
@@ -22,45 +22,53 @@
     .message{
         margin-bottom: $container--padd-max * 2;
     }
-
     form{
         > div, > label{
             margin-bottom: $container--padd-max;
         }
-
         label{
             float: left;
         }
-
         input[type=submit]{
             width: 100%;
             margin-top: 100px;
         }
     }
 }
-
-// * PANEL
+/**
+  * * PANEL
+  */
 #panel{
     width: 100%;
-    height: 100vh;
     padding: $container--padd-max;
+    background: setcolor(white);
     display: grid;
-    grid-template-columns: 65px auto;
-    grid-template-rows: 50px auto;
-    gap: $gap--max;
+    grid-template-columns: 90px auto;
+    grid-template-rows: auto auto auto;
 
-    aside{
+    header, main, #paginate{
+        // width: calc(100% - 90px);
+        // margin-left: 90px;
+        width: 100%;
+    }
+    /**
+      * * NAV
+      */
+    nav:first-child{
+        width: 65px;
         background: setcolor(white);
         border: $border--px solid setcolor(gray, light);
         height: calc(100vh - 50px);
-        width: 100%;
-        grid-row: 1 / 3;
         border-radius: $border--rad-max $border--rad-max 30px 30px;
         padding: $container--padd-min;
-        position: relative;
+        // position: fixed;
+        position: sticky;
+        top: 25px;
+        z-index: 10;
         display: flex;
         flex-direction: column;
         gap: $gap--max;
+        grid-row: 1 / 4;
 
         div{
             cursor: pointer;
@@ -77,7 +85,6 @@
                 height: 100%;
                 @include flex;
             }
-
             &:hover{
                 background: setcolor(white, light);
 
@@ -90,7 +97,6 @@
                     opacity: 1;
                 }
             }
-
             span{
                 background: setcolor(white);
                 border: $border--px solid setcolor(gray, light);
@@ -105,45 +111,38 @@
                 z-index: 1;
             }
         }
-        
         #logo{
-            
             img{
                 width: 100%;
             }
         }
-
         #stock{
-
             i{
                 color: setcolor(blue);
             }
         }
-        
         #logout{
             position: absolute;
             bottom: $container--padd-min;
             border-radius: 100%;
         }
     }
-// * NAV
-    nav{
+    /**
+      * * HEADER
+      */
+    header{
+        background: transparent;
+        padding: 0;
         @include flex;
+        margin-bottom: $container--padd-max;
+        z-index: initial;
+        position: initial;
         gap: $gap--max;
-        height: 75px;
-        position: relative;
-        border-bottom: $border--px solid setcolor(gray, light);
-        padding-bottom: $container--padd-max;
 
         .input{
             width: 100%;
             justify-content: left;
-
-            input{
-                width: 400px;
-            }
         }
-
         .button--neutral-ow{
             margin-right: 25px;
         }
@@ -158,20 +157,235 @@
             h3{
                 white-space: nowrap;
             }
-
             p{
                 text-align: right;
                 white-space: nowrap;
             }
-
             div{
                 line-height: 35px;
             }
         }
+        .manual{
+            i{
+                transition: $animation-duration--min;
+            }
+            &:hover{
+                i{
+                    color: setcolor(blue);
+                }
+            }
+        }
     }
-
-    main{
-        padding: 0;
+    /**
+    * * PANEL CRUD
+    */
+    .panel-crud{
+        width: 100%;
+        overflow: visible;
+        border-spacing: 0;
+        background: setcolor(white, light);
         border-radius: $border--rad-max;
+
+        thead{
+            tr{
+                position: sticky;
+                z-index: 1;
+                top: -6px;
+
+                th{
+                    border-bottom: 0;
+                    background: setcolor(white, light);
+
+                    // Agregamos un elemento after para que simule border bottom
+                    // al desplazar th sticky
+                    &::after{
+                        content: '';
+                        width: 100%;
+                        height: 1px;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        background: setcolor(gray, light);
+                    }
+                    &:first-child{
+                        border-top-left-radius: $border--rad-max;
+                    }
+                    &:last-child{
+                        border-top-right-radius: $border--rad-max;
+                    }
+                }
+                // Las medidas no son respetadas, pero son usadas
+                // como min-width
+                .th--id{
+                    width: 4%;
+                }
+                .th--image{
+                    width: 8%;
+                }
+                .th--name{
+                    width: 13%;
+                }
+                .th--sku, .th--price, .th--price-disc, .th--stock{
+                    width: 10%;
+                }
+                .th--label{
+                    width: 15%;
+                }
+                .th--crud{
+                    width: 20%;
+                }
+            }
+        }
+        tbody{
+            border-radius: 100px;
+            .tr--empty:hover{
+                background: setcolor(white);
+            }
+            tr{
+                td{
+                    text-align: center;
+                    // border: 0;
+                    border-bottom: $border--px solid setcolor(gray, light);
+                    padding: $container--padd-micro;
+
+                    &:first-child{
+                        border-left: 0;
+                    }
+                }
+                &:nth-child(odd){
+                    background: setcolor(white);
+                }
+                &:hover{
+                    background: setcolor(gray, patt);
+                }
+                &:last-child{
+                    td{
+                        border-bottom: 0;
+                    }
+                    td:first-child{
+                        border-bottom-left-radius: $border--rad-max;
+                    }
+                    td:last-child{
+                        border-bottom-right-radius: $border--rad-max;
+                    }
+                }
+                &:first-child{
+                    border-top: 0;
+                }
+                .td--label{
+                    text-align: left;
+                }
+                .td--marca{
+                    text-align: left;
+                    font-weight: 600;
+                }
+                .td--price{
+                    white-space: nowrap;
+                }
+                .td--stock{
+                    white-space: nowrap;
+                }
+            }
+        }
+        .img-container{
+            width: 75px;
+            height: 75px;
+            background: setcolor(white);
+            border: $border--px solid setcolor(gray, light);
+            border-radius: $border--rad-mid;
+            overflow: hidden;
+            @include flex;
+            margin: $container--padd-micro;
+
+            img{
+                cursor: pointer;
+                width: 100%;
+                height: 100%;
+            }
+            .noimage-50{
+                width: initial;
+                height: initial;
+            }
+        }
+        .button--alternative-ow, .button--negative-ow{
+            margin: 0 auto;
+            i{
+                color: white;
+            }
+        }
+        .button--neutral-ow{
+            margin: 0 auto;
+        }
+        .label--b{
+            margin-top: $container--padd-micro;
+        }
+    }
+    /**
+      * * PAGINATE
+      */
+      #paginate{
+        margin: 13px;
+    }
+}
+/**
+* * MODAL
+*/
+.modal-shadow--panel{
+    z-index: 11;
+    display: block;
+
+    .modal{
+        background: setcolor(white);
+        width: calc(100% - 200px);
+        height: calc(100% - 50px);
+        margin: $container--padd-mix;
+        border: $border--px solid setcolor(gray, light);
+        border-radius: $border--rad-max;
+        padding: $container--padd-max;
+        animation: slideUpModal $animation-duration--mid;
+
+        .content{
+            width: 100%;
+            height: 100%;
+            overflow-y: scroll;
+
+            .header{
+                background: setcolor(white);
+                border-bottom: $border--px solid setcolor(gray, light);
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                position: sticky;
+                top: 0;
+                margin-bottom: $container--padd-max;
+    
+                h2{
+                    margin-top: 5px;
+                }
+            }
+
+            .group{
+                width: 100%;
+                border: $border--px solid setcolor(gray, light);
+                padding: $container--padd-min;
+                border-radius: $border--rad-mid;
+
+                .instructions{
+                    margin-bottom: $container--padd-micro;
+                    p, h2, h3{
+                        margin: 0;
+                    }
+                }
+                .fields{
+                    width: 100%;
+                    display: flex;
+                    justify-content: left;
+                    gap: $gap--max;
+
+                    .item{
+                    }
+                }
+            }
+        }
     }
 }

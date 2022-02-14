@@ -1,20 +1,3 @@
-@extends('layouts.template')
-
-@section('title', 'Editar registro')
-
-@section('scripts')
-    <script src="../resources/js/panel.js"></script>
-@endsection
-
-@section('content')
-<a href="{{ route('panel.index') }}">Volver al panel</a><br><br>
-
-<h1>Editar producto: {{ $specLaptop->equipo_marca  }} 
-                     {{ $specLaptop->equipo_linea  }} 
-                     {{ $specLaptop->equipo_modelo }}
-             con id: {{ $specLaptop->id }}
-</h1>
-
     <style>
         img{
             height: 150px;
@@ -54,6 +37,7 @@
     <div id="scroll-bot">Ir hacia abajo</div>
     <div id="scroll-top">Ir hacia arriba</div>
 
+{{-- <form action="{{ route('panel.update', $specLaptop) }}" method="POST" enctype="multipart/form-data"> --}}
 <form action="{{ route('panel.update', $specLaptop) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('put')
@@ -299,11 +283,11 @@
         </tr>
     </table>
 
-    <br><input type="submit" value="Actualizar">
+    <br><button type="submit" id="btn-submit--edit">Editar</button>
     
 </form><br>
 
-<a href="{{ route('panel.index') }}">Volver al panel</a><br><br>
+{{-- <a href="{{ route('panel.index') }}">Volver al panel</a><br><br> --}}
 
 <script>
     // Contador de caracteres
@@ -346,4 +330,20 @@
     // Nos desplaza hacia la altura mínima de nuestra página
     document.getElementById('scroll-bot').addEventListener('click', () => window.scrollTo(0, 1170));
 </script>
-@endsection
+
+{{-- <script>
+    $('#btn-submit--edit').click(function(){
+        $.ajax({
+            url: "{{ route('panel.update', $specLaptop) }}",
+            data: $('form').serialize(),
+            type: 'post',
+            success: function(result){
+                // https://stackoverflow.com/questions/33801650/how-do-i-refresh-a-div-content/33801831
+                $( "#main" ).load(window.location.href + " #main" ); // Recargar main para reflejar nuevo registro
+                alert('Editado con exito');
+                // $('.modal-shadow--panel').css('display', 'none');
+                // $('body').css('overflow', 'initial');
+            }
+        });
+    });
+</script> --}}

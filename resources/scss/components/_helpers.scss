@@ -58,3 +58,17 @@
 .input--ob{
     border: $border--px solid transparent;
 }
+.noimage-50{
+    width: 50px;
+    height: 50px;
+}
+.noimage-75{
+    border-radius: 0;
+    width: 75px;
+    height: 75px;
+}
+.noimage-200{
+    border-radius: 0;
+    width: 200px;
+    height: 200px;
+}

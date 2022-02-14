@@ -1,95 +1,91 @@
-@extends('layouts.template')
+<script type="text/javascript" src="{{ asset('vendor/jquery-3.6.0/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/jquery-validation-1.19.3/dist/jquery.validate.min.js') }}"></script>
+<script>
+    $('.form-create').validate({
+        messages: {
+            equipo_marca: {
+                required: "Porfavor coma"
+            } 
+        }
+    });
+</script>
 
-@section('title', 'Añadir nuevo registro')
 
-@section('css')
-@endsection
+{{-- Component --}}
+{{-- <div class="field">
+    <div class="instructions">
+        <h3></h3><p class="p--description"></p>
+    </div>
+</div> --}}
 
-@section('scripts')
-    <script src="../resources/js/panel.js"></script>
-@endsection
-
-@section('content')
-<a href="{{ route('panel.index') }}">Volver al panel</a><br><br>
-
-<h1>Añadir nuevo registro</h1>
-
-<form action="{{ route('panel.store') }}" method="POST" enctype="multipart/form-data" >
+<form action="{{ route('panel.store') }}" method="POST" enctype="multipart/form-data" class="form-create">
+    <div class="header">
+        <p class="p--description">Agregando nuevo producto</p>
+        <button class="button--positive-ow btn-submit" type="submit" id="btn-submit--create">He terminado</button>
+        <button class="button--negative-ow btn-close">Cerrar</button>
+    </div>
     @csrf
+    <div class="group group--name">
+        <div class="instructions">
+            <h2>Nombre de tu producto</h2><p class="p--description">Comienza con rellenar los siguientes campos para dar un nombre a tu registro</p>
+        </div>
 
-    {{-- <div class="imgPreview"> </div> --}}
-    <style>
-        .imgPreview img{
-            width: 250px;
-            border: 1px solid red
-        }
-        #scroll-top{
-            border: 1px solid red;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            position: fixed;
-            bottom: 80px;
-            right: 25px;
-        }
-        #scroll-bot{
-            border: 1px solid red;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-        }
-        input{
-            width: 250px;
-        }
-        textarea{
-            height: 100px;
-        }
-    </style>
+        <div class="fields">
+            <div class="item">
+                <div class="instructions">
+                    <h3>Marca</h3>
+                </div>
+                <div class="input">
+                    <input type="text" name="equipo_marca" value="{{ old('equipo_marca') }}" id="equipo_marca" class="input--ow outl--blue-ow"
+                     required>
+                </div>
+                {{-- @error('equipo_marca')<br><small>*{{$message}}</small><br>@enderror --}}
+            </div>
+            <div class="item">
+                <div class="instructions">
+                    <h3>Línea</h3>
+                </div>
+                <input type="text"  name="equipo_linea" value="{{ old('equipo_linea') }}" id="equipo_linea" required>
+                {{-- @error('equipo_linea')<br><small>*{{$message}}</small><br>@enderror --}}
+            </div>
+            <div class="item">
+                <div class="instructions">
+                    <h3>Modelo</h3>
+                </div>
+                <input type="text" name="equipo_modelo" value="{{ old('equipo_modelo') }}" id="equipo_modelo" required>
+                {{-- @error('equipo_modelo')<br><small>*{{$message}}</small><br>@enderror --}}
+            </div>
+        </div>
+    </div>
 
-    <div id="scroll-bot">Ir hacia abajo</div>
-    <div id="scroll-top">Ir hacia arriba</div>
+    <div class="group group--product">
 
-    <table border="0" style="background: gainsboro">
+    </div>
+
+    <div class="group group--specs">
+
+    </div>
+
+    <table>
         <caption style="text-align: left">Equipo</caption>
         <tr>
             <td>Marca</td>
-            <td><input type="text" 
-                placeholder="Alfanumérico" 
-                name="equipo_marca"
-                value="{{ old('equipo_marca') }}">
-                @error('equipo_marca')
-                    <br><small>*{{$message}}</small><br>
-                @enderror
+            <td>
+
             </td>
         </tr>
         <tr>
             <td>Línea</td>
-            <td><input type="text" 
-                placeholder="Alfanumérico" 
-                name="equipo_linea"
-                value="{{ old('equipo_linea') }}">
-                @error('equipo_linea')
-                    <br><small>*{{$message}}</small><br>
-                @enderror
+            <td>
             </td>
         </tr>
         <tr>
             <td>Modelo</td>
-            <td><input type="text" 
-                placeholder="Alfanumérico" 
-                name="equipo_modelo"
-                value="{{ old('equipo_modelo') }}">
-                @error('equipo_modelo')
-                    <br><small>*{{$message}}</small><br>
-                @enderror
+            <td>
             </td>
         </tr>
     </table><br>
-
-    <table border="0" style="background: gainsboro">
+    <table>
         <caption style="text-align: left">Características del producto</caption>
         <tr>
             <td>SKU</td>
@@ -225,8 +221,7 @@
                 @enderror
             </td>
     </table><br>
-
-    <table border="0" style="background: gainsboro">
+    <table>
         <caption style="text-align: left">Especificaciones del producto</caption>
         <tr>
             <td>Cantidad de RAM</td>
@@ -614,7 +609,6 @@
         <tr>
             <td>Software adicional</td>
             <td><textarea name="software_ad" 
-                onkeyup="countChars(this)"
                 placeholder="Alfanumérico">Adobe Reader, Java, Winrar, Office 201x, Actualizaciones</textarea>
                 <label id="charNum">0 caracteres</label>
                 @error('software_ad')
@@ -686,43 +680,4 @@
             <td>
         </tr>
     </table>
-
-    <br><input type="submit" value="Crear nuevo registro">
-</form><br>
-
-<a href="{{ route('panel.index') }}">Volver al panel</a><br><br>
-
-<script>
-    function countChars(obj){
-        document.getElementById('charNum').innerHTML = obj.value.length+' caracteres';
-    }
-
-    // Nos desplaza hacia la altura máxima de nuestra página
-    document.getElementById('scroll-top').addEventListener('click', () => window.scrollTo(0, 0));
-    // Nos desplaza hacia la altura mínima de nuestra página
-    document.getElementById('scroll-bot').addEventListener('click', () => window.scrollTo(0, 1170));
-
-    // Multiple preview images
-    // $(function(){
-    //     var multiImgPreview = function(input, imgPreviewPlaceholder){
-    //         if(input.files){
-    //             var filesAmount = input.files.length;
-
-    //             for(i = 0; i < filesAmount; i++){
-    //                 var reader = new FileReader();
-
-    //                 reader.onload = function(e){
-    //                     $($.parseHTML('<img>')).attr('src', e.target.result).appendTo(imgPreviewPlaceholder);
-    //                 }
-
-    //                 reader.readAsDataURL(input.files[i]);
-    //             }
-    //         }
-    //     };
-
-    //     $('#images').on('change', function(){
-    //         multiImgPreview(this, 'div.imgPreview');
-    //     });
-    // });
-</script>
-@endsection
+</form>

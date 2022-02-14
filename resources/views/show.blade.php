@@ -1,4 +1,4 @@
-@extends('layouts.template')
+{{-- @extends('layouts.template')
 
 @section('title', 'Bievenido al panel')
 
@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    <a href="{{ route('panel.index') }}">Volver al panel</a><br><br>
+    <a href="{{ route('panel.index') }}">Volver al panel</a><br><br> --}}
 
     <style>
         img{
@@ -206,5 +206,5 @@
             <td>bateria_celdas: </td><td>{{ $specLaptop->bateria_celdas }}</td>
         </tr>
     </table><br>
-    <a href="{{ route('panel.index') }}">Volver al panel</a><br><br>
-@endsection
+    {{-- <a href="{{ route('panel.index') }}">Volver al panel</a><br><br>
+@endsection --}}

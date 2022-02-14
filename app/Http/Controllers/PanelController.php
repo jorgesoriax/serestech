@@ -7,6 +7,7 @@ use App\Models\Inventory;
 use App\Models\Product;
 use App\Models\SpecificationsLaptop;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Str;
@@ -14,23 +15,22 @@ use Illuminate\Support\Str;
 class PanelController extends Controller
 {
     public function index(){
-        $specsLaptop = SpecificationsLaptop::paginate();
+        $specsLaptop = SpecificationsLaptop::paginate(15);
 
         return view('panel', compact('specsLaptop'));
     }
-
     public function create(){
         return view('create');
     }
-
     public function show(SpecificationsLaptop $specLaptop){
         return view('show', compact('specLaptop'));
     }
-    
     public function edit(SpecificationsLaptop $specLaptop){
         return view('edit', compact('specLaptop'));
     }
-
+    public function delete(SpecificationsLaptop $specLaptop){
+        return view('delete', compact('specLaptop'));
+    }
     public function store(Request $request){
         $request->validate([
             'stock'                => 'required|numeric',
@@ -257,10 +257,9 @@ class PanelController extends Controller
         $spec->product_id = $id->id;
         $spec->save();
 
-        return redirect()->route('panel.index');
+        // return redirect()->route('panel.index');
+        return redirect()->back();
     }
-
-
     public function update(Request $request, SpecificationsLaptop $specLaptop){
 
         $request->validate([
@@ -510,9 +509,9 @@ class PanelController extends Controller
         $specLaptop->product_id = $specLaptop->id;
         $specLaptop->save();
         
-        return redirect()->route('panel.index');       
+        // return redirect()->route('panel.index');   
+        return redirect()->back();    
     }
-
     public function destroy(SpecificationsLaptop $specLaptop){
         $specLaptop->product->inventory->delete();
 
@@ -530,6 +529,6 @@ class PanelController extends Controller
         $specLaptop->product->delete();
         $specLaptop->delete();
 
-        return redirect()->route('panel.index');  
+        return redirect()->back();  
     }
 }

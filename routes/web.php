@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ManualController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 
@@ -22,7 +23,9 @@ use Illuminate\Support\Facades\Artisan;
 //     return view('welcome');
 // });
 
-// * PANEL
+/**
+ * * PANEL
+ */
 // La route en el middleware Authenticate se ha modificado
 Route::get('login', [LoginController::class, 'index'])
      ->name('login.index')
@@ -50,14 +53,20 @@ Route::get('panel/{specLaptop}/edit', [PanelController::class, 'edit'])
 Route::put('panel/{specLaptop}', [PanelController::class, 'update'])
      ->name('panel.update')
      ->middleware('auth');
+Route::get('panel/{specLaptop}/delete', [PanelController::class, 'delete'])
+     ->name('panel.delete')
+     ->middleware('auth');
 Route::delete('panel/{specLaptop}', [PanelController::class, 'destroy'])
      ->name('panel.destroy')
      ->middleware('auth');
-
-// * HOME
-Route::get('/', [HomeController::class, 'index'])
-     ->name('home.index');
-// Route::get('product', [ProductController::class, 'index']);
+/**
+ * * MANUAL
+ */
+Route::get('manual', [ManualController::class, 'index'])->name('manual.index')->middleware('auth');
+/**
+ * * HOME
+ */
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('{id}', [ProductController::class, 'show']);
 
 // * CMD
