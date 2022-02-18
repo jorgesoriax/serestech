@@ -1,349 +1,1375 @@
-@extends('layouts.template')
+<script src="{{ asset('vendor/jquery-3.6.0/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/jquery-validation-1.19.3/dist/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('storage/js/panelEdit.js') }}"></script>
 
-@section('title', 'Editar registro')
-
-@section('scripts')
-    <script src="../resources/js/panel.js"></script>
-@endsection
-
-@section('content')
-<a href="{{ route('panel.index') }}">Volver al panel</a><br><br>
-
-<h1>Editar producto: {{ $specLaptop->equipo_marca  }} 
-                     {{ $specLaptop->equipo_linea  }} 
-                     {{ $specLaptop->equipo_modelo }}
-             con id: {{ $specLaptop->id }}
-</h1>
-
-    <style>
-        img{
-            height: 150px;
-        }
-    </style>
-    <style>
-        .imgPreview img{
-            width: 250px;
-            border: 1px solid red
-        }
-        #scroll-top{
-            border: 1px solid red;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            position: fixed;
-            bottom: 80px;
-            right: 25px;
-        }
-        #scroll-bot{
-            border: 1px solid red;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-        }
-        input{
-            width: 250px;
-        }
-        textarea{
-            height: 100px;
-        }
-    </style>
-
-    <div id="scroll-bot">Ir hacia abajo</div>
-    <div id="scroll-top">Ir hacia arriba</div>
-
-<form action="{{ route('panel.update', $specLaptop) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('panel.update', $specLaptop) }}" method="POST" enctype="multipart/form-data" class="">
+    {{--*
+        * HEADER *
+        * Encabezado para título de acción y botones.
+    --}}
+    <div class="header">
+        <button class="button--neutral-ow sq btn-close" type="button"><i class='bx bx-arrow-back'></i></button>
+        <h2>
+            Editar Laptop
+            {{ $specLaptop->equipo_marca}}
+            {{ $specLaptop->equipo_linea}} 
+            {{ $specLaptop->equipo_modelo}}
+            con ID {{ $specLaptop->id}}
+        </h2>
+        <button class="button--positive-ow btn-submit" type="submit" tabindex="2">Estoy listo</button>
+    </div>
     @csrf
     @method('put')
-
-    <table border="0" style="background: gainsboro">
-        <caption style="text-align: left">Equipo</caption>
-        <tr>
-            <td>Marca</td><td><input type="text" placeholder="Alfanumérico" name="equipo_marca" value="{{ $specLaptop->equipo_marca }}"></td>
-        </tr>
-        <tr>
-            <td>Línea</td><td><input type="text" placeholder="Alfanumérico" name="equipo_linea" value="{{ $specLaptop->equipo_linea }}"></td>
-        </tr>
-        <tr>
-            <td>Modelo</td><td><input type="text" placeholder="Alfanumérico" name="equipo_modelo" value="{{ $specLaptop->equipo_modelo }}"></td>
-        </tr>
-    </table><br>
-
-    <table border="0" style="background: gainsboro">
-        <caption style="text-align: left">Características del producto</caption>
-        <tr>
-            <td>SKU</td><td><input type="text" placeholder="Alfanumérico" name="sku" value="{{ $specLaptop->product->sku }}"></td>
-        </tr>
-        <tr>
-            <td>Precio</td><td><input type="text" placeholder="Numérico" name="price" value="{{ $specLaptop->product->price }}"></td>
-        </tr>
-        <tr>
-            <td>Precio con descuento</td><td><input type="text" placeholder="Numérico" name="price_discount" value="{{ $specLaptop->product->price_discount }}">Dejar en blanco si no es necesario</td>
-        </tr>
-        <tr>
-            <td>Uso</td><td>
-                <select name="status_usage" id="status_usage">
-                    <option value="Nuevo">Nuevo</option>
-                    <option value="Seminuevo">Seminuevo</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Estética</td><td><input type="text" placeholder="Numérico" name="status_aesthetic" value="{{ $specLaptop->product->status_aesthetic }}">Del 1 al 10</td>
-        </tr>
-        <tr>
-            <td>Dias de garantía</td><td><input type="text" placeholder="Numérico" name="warranty_days" value="{{ $specLaptop->product->warranty_days }}"></td>
-        </tr>
-        <tr>
-            <td>Meses de soporte</td><td><input type="text" placeholder="Alfanumérico" name="support"  value="{{ $specLaptop->product->support }}">Solo cambiar el número de mes (1 mes, n meses...)</td>
-        </tr>
-        <tr>
-            <td>Entrega</td><td><input type="text" value="Entrega a domicilio de inmediato" placeholder="Numérico" name="delivery" value="{{ $specLaptop->product->delivery }}"></td>
-        </tr>
-        <tr>
-            <td>Stock</td><td><input type="text" placeholder="numérico" name="stock" value="{{ $specLaptop->product->inventory->stock }}"></td>
-        </tr>
-    </table><br>
-
-    <table border="0" style="background: gainsboro">
-        <caption style="text-align: left">Imagenes</caption>
-        <tr>
-            <td>Imagen 1</td><td><img src="{{ asset($specLaptop->product->file->image_1) }}"></td>
-            <td><input type="file" name="image_1"></td>
-        </tr>
-        <tr>
-            <td>Imagen 2</td><td><img src="{{ asset($specLaptop->product->file->image_2) }}"></td>
-            <td><input type="file" name="image_2"></td>
-        </tr>
-        <tr>
-            <td>Imagen 3</td><td><img src="{{ asset($specLaptop->product->file->image_3) }}"></td>
-            <td><input type="file" name="image_3"></td>
-        </tr>
-        <tr>
-            <td>Imagen 4</td><td><img src="{{ asset($specLaptop->product->file->image_4) }}"></td>
-            <td><input type="file" name="image_4"></td>
-        </tr>
-        <tr>
-            <td>Imagen 5</td><td><img src="{{ asset($specLaptop->product->file->image_5) }}"></td>
-            <td><input type="file" name="image_5"></td>
-        </tr>
-        <tr>
-            <td>Imagen 6</td><td><img src="{{ asset($specLaptop->product->file->image_6) }}"></td>
-            <td><input type="file" name="image_6"></td>
-        </tr>
-        <tr>
-            <td>Imagen 7</td><td><img src="{{ asset($specLaptop->product->file->image_7) }}"></td>
-            <td><input type="file" name="image_7"></td>
-        </tr>
-    </table><br>
-
-    <table border="0" style="background: gainsboro">
-        <caption style="text-align: left">Especificaciones del producto</caption>
-        <tr>
-            <td>Cantidad de RAM</td><td><input type="text" placeholder="Numérico" name="ram_gb" value="{{ $specLaptop->ram_gb }}">GB</td>
-        </tr>
-        <tr>
-            <td>Tipo de RAM</td><td><input type="text" placeholder="Alfanumérico" name="ram_tipo" value="{{ $specLaptop->ram_tipo }}"></td>
-        </tr>
-        <tr>
-            <td>Disco duro cantidad de GB</td><td><input type="text" placeholder="Numérico" name="discod_gb" value="{{ $specLaptop->discod_gb }}">GB</td>
-        </tr>
-        <tr>
-            <td>Tipo de disco duro</td><td><input type="text" placeholder="Alfanumérico" name="discod_tipo" value="{{ $specLaptop->discod_tipo }}"></td>
-        </tr>
-        <tr>
-            <td>Procesador marca</td><td><input type="text" placeholder="Alfanumérico" name="procesador_marca" value="{{ $specLaptop->procesador_marca }}"></td>
-        </tr>
-        <tr>
-            <td>Procesador modelo</td><td><input type="text" placeholder="Alfanumérico" name="procesador_modelo" value="{{ $specLaptop->procesador_modelo }}"></td>
-        </tr>
-        <tr>
-            <td>Procesador generación</td><td>
-                <select name="procesador_gen" id="procesador_gen">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Procesador velocidad</td><td><input type="text" placeholder="Flotante" name="procesador_ghz" value="{{ $specLaptop->procesador_ghz }}">00.0 MHZ</td>
-        </tr>
-        <tr>
-            <td>Procesador núcleos</td><td><input type="text" placeholder="Numérico" name="procesador_nucleos" value="{{ $specLaptop->procesador_nucleos }}"></td>
-        </tr>
-        <tr>
-            <td>Tarjeta gráfica</td><td><input type="text" placeholder="Booleano" name="tarjetag" value="{{ $specLaptop->tarjetag }}">1 = Si, 0 = No</td>
-        </tr>
-        <tr>
-            <td>Tarjeta gráfica marca</td><td><input type="text" placeholder="Alfanumérico" name="tarjetag_marca" value="{{ $specLaptop->tarjetag_marca }}"></td>
-        </tr>
-        <tr>
-            <td>Tarjeta gráfica modelo</td><td><input type="text" placeholder="Alfanumérico" name="tarjetag_modelo" value="{{ $specLaptop->tarjetag_modelo }}"></td>
-        </tr>
-        <tr>
-            <td>Tarjeta gráfica tipo de memoria</td><td><input type="text" placeholder="Alfanumérico" name="tarjetag_tipomemoria" value="{{ $specLaptop->tarjetag_tipomemoria }}"></td>
-        </tr>
-        <tr>
-            <td>Tarjeta gráfica GB</td><td><input type="text" placeholder="Numérico" name="tarjetag_gb" value="{{ $specLaptop->tarjetag_gb }}">GB</td>
-        </tr>
-        <tr>
-            <td>Pantalla tipo</td><td>
-                <select name="pantalla_tipo" id="pantalla_tipo">
-                    <option value="LED">LED</option>
-                    <option value="LCD">LCD</option>
-                    <option value="TFT">TFT</option>
-                    <option value="IPS">IPS</option>
-                    <option value="OLED">OLED</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Pantalla tamaño</td><td><input type="text" placeholder="Flotante" name="pantalla_tamano" value="{{ $specLaptop->pantalla_tamano }}">00.0 "</td>
-        </tr>
-        <tr>
-            <td>Pantalla táctil</td><td><input type="text" placeholder="Booleano" name="pantalla_tactil" value="{{ $specLaptop->pantalla_tactil }}">1 = Si, 0 = No</td>
-        </tr>
-        <tr>
-            <td>Pantalla resolución</td><td><input type="text" placeholder="Flotante" name="pantalla_resolucion" value="{{ $specLaptop->pantalla_resolucion }}">00.00</td>
-        </tr>
-        <tr>
-            <td>Teclado idioma</td><td>
-                <select name="teclado_idioma" id="teclado_idioma">
-                    <option value="Español">Español</option>
-                    <option value="Inglés">Inglés</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Teclado retroiluminado</td><td><input type="text" placeholder="Booleano" name="teclado_retroi" value="{{ $specLaptop->teclado_retroi }}">1 = Si, 0 = No</td>
-        </tr>
-        <tr>
-            <td>Teclado numérico</td><td><input type="text" placeholder="Booleano" name="teclado_num" value="{{ $specLaptop->teclado_num }}">1 = Si, 0 = No</td>
-        </tr>
-        <tr>
-            <td>Conectividad cantidad de USB 2.0</td><td><input type="text" placeholder="Numérico" name="conectv_usb2" value="{{ $specLaptop->conectv_usb2 }}">Mínimo 0</td>
-        </tr>
-        <tr>
-            <td>Conectividad cantidad de USB 3.0</td><td><input type="text" placeholder="Numérico" name="conectv_usb3" value="{{ $specLaptop->conectv_usb3 }}">Mínimo 0</td>
-        </tr>
-        <tr>
-            <td>Conectividad cantidad de USB C</td><td><input type="text" placeholder="Numérico" name="conectv_usbc" value="{{ $specLaptop->conectv_usbc }}">Mínimo 0</td>
-        </tr>
-        <tr>
-            <td>Conectividad Wifi</td><td><input type="text" placeholder="Booleano" name="conectv_wifi" value="{{ $specLaptop->conectv_wifi }}">1 = Si, 0 = No</td>
-        </tr>
-        <tr>
-            <td>Conectividad Bluetooth</td><td><input type="text" placeholder="Booleano" name="conectv_bluetooth" value="{{ $specLaptop->conectv_bluetooth }}">1 = Si, 0 = No</td>
-        </tr>
-        <tr>
-            <td>Conectividad JACK</td><td><input type="text" placeholder="Booleano" name="conectv_jack" value="{{ $specLaptop->conectv_jack }}">1 = Si, 0 = No</td>
-        </tr>
-        <tr>
-            <td>Conectividad HDMI</td><td><input type="text" placeholder="Booleano" name="conectv_hdmi" value="{{ $specLaptop->conectv_hdmi }}">1 = Si, 0 = No</td>
-        </tr>
-        <tr>
-            <td>Conectividad VGA</td><td><input type="text" placeholder="Booleano" name="conectv_vga" value="{{ $specLaptop->conectv_vga }}">1 = Si, 0 = No</td>
-        </tr>
-        <tr>
-            <td>Conectividad Display port</td><td><input type="text" placeholder="Booleano" name="conectv_displayp" value="{{ $specLaptop->conectv_displayp }}">1 = Si, 0 = No</td>
-        </tr>
-        <tr>
-            <td>Conectividad Ethernet</td><td><input type="text" placeholder="Booleano" name="conectv_ethernet" value="{{ $specLaptop->conectv_ethernet }}">1 = Si, 0 = No</td>
-        </tr>
-        <tr>
-            <td>Conectividad SerialCOM</td><td><input type="text" placeholder="Booleano" name="conectv_serialcom" value="{{ $specLaptop->conectv_serialcom }}">1 = Si, 0 = No</td>
-        </tr>
-        <tr>
-            <td>Conectividad IEEE1394</td><td><input type="text" placeholder="Booleano" name="conectv_ieee1394" value="{{ $specLaptop->conectv_ieee1394 }}">1 = Si, 0 = No</td>
-        </tr>
-        <tr>
-            <td>Sistema Operativo</td><td><input type="text" placeholder="Alfanumérico" name="so" value="{{ $specLaptop->so }}"></td>
-        </tr>
-        <tr>
-            <td>Software adicional</td><td><textarea name="software_ad" onkeyup="countChars(this)" style="height: 100px">{{ $specLaptop->software_ad }}</textarea><label id="charNum">0 caracteres</label></td>
-        </tr>
-        <tr>
-            <td>Audio y video Cámara</td><td><input type="text" placeholder="Booleano" name="audiov_camara" value="{{ $specLaptop->audiov_camara }}">1 = Si, 0 = No</td>
-        </tr>
-        <tr>
-            <td>Audio y video Micrófono</td><td><input type="text" placeholder="Booleano" name="audiov_microfono" value="{{ $specLaptop->audiov_microfono }}">1 = Si, 0 = No</td>
-        </tr>
-        <tr>
-            <td>Lectura Unidad Optica</td><td><input type="text" placeholder="Booleano" name="lectura_unidadoptica" value="{{ $specLaptop->lectura_unidadoptica }}">1 = Si, 0 = No</td>
-        </tr>
-        <tr>
-            <td>Lectura SD</td><td><input type="text" placeholder="Booleano" name="lectura_sd" value="{{ $specLaptop->lectura_sd }}">1 = Si, 0 = No</td>
-        </tr>
-        <tr>
-            <td>Bateria tipo</td><td>
-                <select name="bateria_tipo" id="bateria_tipo">
-                    <option value="Ion-Litio">Ion-Litio</option>
-                    <option value="Polimero-Litio" >Polimero-Litio</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Bateria cantidad de celdas</td><td><input type="text" placeholder="Numérico" name="bateria_celdas" value="{{ $specLaptop->bateria_celdas}}"></td>
-        </tr>
-    </table>
-
-    <br><input type="submit" value="Actualizar">
-    
-</form><br>
-
-<a href="{{ route('panel.index') }}">Volver al panel</a><br><br>
-
+    {{--*
+        * GRUPO NAME *
+        * Contiene 3 campos necesarios para formar el nombre del producto.
+    --}}
+    <div class="group group--name">
+        <div class="instructions">
+            <h3>Nombre</h3>
+            <p class="p--description">Comienza con rellenar los siguientes campos para indicar el nombre de tu laptop.</p>
+        </div>
+        <div class="fields">
+            <div class="item">
+                <div class="name">
+                    <p>Marca</p>
+                </div>
+                <div class="input input-min">
+                    <input type="text" name="equipo_marca" id="equipo_marca" class="input--ow outl--blue-ow" required placeholder="Marca de laptop" tabindex="1"
+                    value="{{ $specLaptop->equipo_marca }}">
+                </div>
+            </div>
+            <div class="item">
+                <div class="name">
+                    <p>Línea</p>
+                </div>
+                <div class="input input-min">
+                    <input type="text"  name="equipo_linea" id="equipo_linea" class="input--ow outl--blue-ow" required placeholder="Línea de laptop" tabindex="1"
+                    value="{{ $specLaptop->equipo_linea }}">
+                </div>
+            </div>
+            <div class="item">
+                <div class="name">
+                    <p>Modelo</p>
+                </div>
+                <div class="input input-min">
+                    <input type="text" name="equipo_modelo" id="equipo_modelo" class="input--ow outl--blue-ow" required placeholder="Modelo de laptop" tabindex="1"
+                    value="{{ $specLaptop->equipo_modelo }}">
+                </div>
+            </div>
+        </div>
+    </div>
+    {{--*
+        * GRUPO PRODUCT *
+        * Contiene la información básica del producto.
+    --}}
+    <div class="group group--product">
+        <div class="instructions">
+            <h3>Características básicas</h3>
+            <p class="p--description">Indica la información básica que indentifica a tu laptop como producto.</p>
+        </div>
+        <div class="fields">
+            <div class="item">
+                <div class="name">
+                    <p>SKU</p>
+                </div>
+                <div class="input input-min">
+                    <input type="text" name="sku" id="sku" class="input--ow outl--blue-ow" required placeholder="#A1B2" tabindex="1"
+                    value="{{ $specLaptop->product->sku }}">
+                </div>
+            </div>
+            <div class="item">
+                <div class="name">
+                    <p>Precio</p>
+                </div>
+                <div class="input input-min input-min--label-left">
+                    <label for="price"><h3>$</h3></label>
+                    <input type="text" name="price" id="price" class="input--ow outl--blue-ow" required placeholder="00.00" tabindex="1"
+                    value="{{ $specLaptop->product->price }}">
+                </div>
+            </div>
+            <div class="item">
+                <div class="name">
+                    <p>Descuento</p>
+                </div>
+                <div class="input input-min input-min--label-left">
+                    <label for="price_discount"><h3>$</h3></label>
+                    <input type="text" name="price_discount" id="price_discount" class="input--ow outl--blue-ow" placeholder="00.00 (Descuento aplicado)" tabindex="1"
+                    value="{{ $specLaptop->product->price_discount }}">
+                </div>
+            </div>
+            <div class="item">
+                <div class="name">
+                    <p>Estado del equipo</p>
+                </div>
+                <div class="input input-min">
+                    <select name="status_usage" id="status_usage" class="input--ow outl--blue-ow" required tabindex="1">
+                        <option value="Nuevo">Nuevo</option>
+                        <option value="Seminuevo">Seminuevo</option>
+                    </select>
+                </div>
+            </div>
+            <div class="item">
+                <div class="name">
+                    <p>Estética del equipo</p>
+                </div>
+                <div class="input input-min">
+                    <select name="status_aesthetic" id="status_aesthetic" class="input--ow outl--blue-ow" required tabindex="1">
+                        <option value="10">10</option>
+                        <option value="9.5">9.5</option>
+                        <option value="9">9</option>
+                        <option value="8.5">8.5</option>
+                        <option value="8">8</option>
+                        <option value="7.5">7.5</option>
+                        <option value="7">7</option>
+                    </select>
+                </div>
+            </div>
+            <div class="item">
+                <div class="name">
+                    <p>Garantía</p>
+                </div>
+                <div class="input input-min">
+                    <input type="text" name="warranty_days" id="warranty_days" class="input--ow outl--blue-ow" required placeholder="Días de duración" tabindex="1"
+                    value="{{ $specLaptop->product->warranty_days }}">
+                </div>
+            </div>
+            <div class="item">
+                <div class="name">
+                    <p>Soporte</p>
+                </div>
+                <div class="input input-min">
+                    <input type="text" name="support" id="support" class="input--ow outl--blue-ow" required placeholder="Duración y tipo de soporte" tabindex="1"
+                    value="{{ $specLaptop->product->support }}">
+                </div>
+            </div>
+            <div class="item">
+                <div class="name">
+                    <p>Envio</p>
+                </div>
+                <div class="input input-min">
+                    <input type="text" name="delivery" id="delivery" class="input--ow outl--blue-ow" required placeholder="Tipo de entrega" tabindex="1"
+                    value="{{ $specLaptop->product->delivery }}">
+                </div>
+            </div>
+            <div class="item">
+                <div class="name">
+                    <p>Stock</p>
+                </div>
+                <div class="input input-min">
+                    <input type="text" name="stock" id="stock" class="input--ow outl--blue-ow" required placeholder="Unidades disponibles" tabindex="1"
+                    value="{{ $specLaptop->product->inventory->stock }}">
+                </div>
+            </div>
+        </div>
+    </div>
+    {{--*
+        * GRUPO IMAGES *
+        * Contiene solo inputs para imágenes.
+    --}}
+    <div class="group group--images">
+        <div class="instructions">
+            <h3>Imagenes</h3>
+            <p class="p--description">
+                Puedes sustituir imagenes o eliminarlas.
+            </p>
+        </div>
+        <div class="fields">
+            <div class="item item-file-upload">
+                {{--*
+                    * IMAGE 1 
+                --}}
+                <div class="file-upload">
+                    {{-- Posición de imagen --}}
+                    <span>1</span>
+                    {{-- Botón para cancelar imagen seleccionada --}}
+                    <button type="button" class="button--neutral-ow sq outl--blue-ow btn-upload-cancel" id="btn-upload-cancel-1"><i class='bx bx-x'></i></button>
+                    {{-- PopUp de confirmación para eliminar imagen existente --}}
+                    <div class="popup-confirm"><p>¿Eliminar imagen 1?</p>
+                        {{-- Botón eliminar imagen existente--}}
+                        <button type="button" class="button--negative-ow sq" id="btn-replace-1"><i class='bx bxs-trash'></i></button>
+                        {{-- Botón cerrar popup --}}
+                        <button type="button" class="button--neutral-ow">Cancelar</button>
+                    </div>
+                    {{-- Contenedor de imagen seleccionada o existente --}}
+                    <div class="file" id="file-1">
+                        {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
+                        @if ($specLaptop->product->file->image_1)
+                            <img src="{{ asset($specLaptop->product->file->image_1) }}">
+                            @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_1) @endphp
+                        @else
+                            @php $imageName = 'Seleccionar imagen' @endphp
+                        @endif
+                    </div>
+                    {{-- Campo para mostrar nombre de imagen--}}
+                    <input type="text" class="file-name" id="file-name-1" value="{{ $imageName }}" tabindex="-1" readonly>
+                    {{-- Si existe una imagen mostramos el boton de eliminar imagen existente --}}
+                    @if ($specLaptop->product->file->image_1)
+                        {{-- Botón recortado para seleccionar imagen --}}
+                        <label class="btn-upload button--alternative-ow short" id="btn-upload-1" tabindex="1">
+                            <input type="file" accept="image/*" id="image_1" name="image_1">Cargar
+                        </label>
+                        {{-- Botón para abrir popup --}}
+                        <button type="button" class="button--negative-ow sq btn-popup-confirm" id="btn-popup-confirm-1" tabindex="1"><i class='bx bxs-trash'></i></button>
+                    @else
+                        {{-- Botón para seleccionar imagen --}}
+                        <label class="btn-upload button--alternative-ow" id="btn-upload-1" tabindex="1">
+                            <input type="file" accept="image/*" id="image_1" name="image_1">Cargar
+                        </label> 
+                    @endif
+                </div>
+                {{--*
+                    * IMAGE 2 
+                --}}
+                <div class="file-upload">
+                    {{-- Posición de imagen --}}
+                    <span>2</span>
+                    {{-- Botón para cancelar imagen seleccionada --}}
+                    <button type="button" class="button--neutral-ow sq outl--blue-ow btn-upload-cancel" id="btn-upload-cancel-2"><i class='bx bx-x'></i></button>
+                    {{-- PopUp de confirmación para eliminar imagen existente --}}
+                    <div class="popup-confirm"><p>¿Eliminar imagen 2?</p>
+                        {{-- Botón eliminar imagen existente--}}
+                        <button type="button" class="button--negative-ow sq" id="btn-replace-2"><i class='bx bxs-trash'></i></button>
+                        {{-- Botón cerrar popup --}}
+                        <button type="button" class="button--neutral-ow">Cancelar</button>
+                    </div>
+                    {{-- Contenedor de imagen seleccionada o existente --}}
+                    <div class="file" id="file-2">
+                        {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
+                        @if ($specLaptop->product->file->image_2)
+                            <img src="{{ asset($specLaptop->product->file->image_2) }}">
+                            @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_2) @endphp
+                        @else
+                            @php $imageName = 'Seleccionar imagen' @endphp
+                        @endif
+                    </div>
+                    {{-- Campo para mostrar nombre de imagen--}}
+                    <input type="text" class="file-name" id="file-name-2" value="{{ $imageName }}" tabindex="-1" readonly>
+                    {{-- Si existe una imagen mostramos el boton de eliminar imagen existente --}}
+                    @if ($specLaptop->product->file->image_2)
+                        {{-- Botón recortado para seleccionar imagen --}}
+                        <label class="btn-upload button--alternative-ow short" id="btn-upload-2" tabindex="1">
+                            <input type="file" accept="image/*" id="image_2" name="image_2">Cargar
+                        </label>
+                        {{-- Botón para abrir popup --}}
+                        <button type="button" class="button--negative-ow sq btn-popup-confirm" id="btn-popup-confirm-2" tabindex="1"><i class='bx bxs-trash'></i></button>
+                    @else
+                        {{-- Botón para seleccionar imagen --}}
+                        <label class="btn-upload button--alternative-ow" id="btn-upload-2" tabindex="1">
+                            <input type="file" accept="image/*" id="image_2" name="image_2">Cargar
+                        </label> 
+                    @endif
+                </div>
+                {{--*
+                    * IMAGE 3 
+                --}}
+                <div class="file-upload">
+                    {{-- Posición de imagen --}}
+                    <span>3</span>
+                    {{-- Botón para cancelar imagen seleccionada --}}
+                    <button type="button" class="button--neutral-ow sq outl--blue-ow btn-upload-cancel" id="btn-upload-cancel-3"><i class='bx bx-x'></i></button>
+                    {{-- PopUp de confirmación para eliminar imagen existente --}}
+                    <div class="popup-confirm"><p>¿Eliminar imagen 3?</p>
+                        {{-- Botón eliminar imagen existente--}}
+                        <button type="button" class="button--negative-ow sq" id="btn-replace-3"><i class='bx bxs-trash'></i></button>
+                        {{-- Botón cerrar popup --}}
+                        <button type="button" class="button--neutral-ow">Cancelar</button>
+                    </div>
+                    {{-- Contenedor de imagen seleccionada o existente --}}
+                    <div class="file" id="file-3">
+                        {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
+                        @if ($specLaptop->product->file->image_3)
+                            <img src="{{ asset($specLaptop->product->file->image_3) }}">
+                            @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_3) @endphp
+                        @else
+                            @php $imageName = 'Seleccionar imagen' @endphp
+                        @endif
+                    </div>
+                    {{-- Campo para mostrar nombre de imagen--}}
+                    <input type="text" class="file-name" id="file-name-3" value="{{ $imageName }}" tabindex="-1" readonly>
+                    {{-- Si existe una imagen mostramos el boton de eliminar imagen existente --}}
+                    @if ($specLaptop->product->file->image_3)
+                        {{-- Botón recortado para seleccionar imagen --}}
+                        <label class="btn-upload button--alternative-ow short" id="btn-upload-3" tabindex="1">
+                            <input type="file" accept="image/*" id="image_3" name="image_3">Cargar
+                        </label>
+                        {{-- Botón para abrir popup --}}
+                        <button type="button" class="button--negative-ow sq btn-popup-confirm" id="btn-popup-confirm-3" tabindex="1"><i class='bx bxs-trash'></i></button>
+                    @else
+                        {{-- Botón para seleccionar imagen --}}
+                        <label class="btn-upload button--alternative-ow" id="btn-upload-3" tabindex="1">
+                            <input type="file" accept="image/*" id="image_3" name="image_3">Cargar
+                        </label> 
+                    @endif
+                </div>
+                {{--*
+                    * IMAGE 4 
+                --}}
+                <div class="file-upload">
+                    {{-- Posición de imagen --}}
+                    <span>4</span>
+                    {{-- Botón para cancelar imagen seleccionada --}}
+                    <button type="button" class="button--neutral-ow sq outl--blue-ow btn-upload-cancel" id="btn-upload-cancel-4"><i class='bx bx-x'></i></button>
+                    {{-- PopUp de confirmación para eliminar imagen existente --}}
+                    <div class="popup-confirm"><p>¿Eliminar imagen 4?</p>
+                        {{-- Botón eliminar imagen existente--}}
+                        <button type="button" class="button--negative-ow sq" id="btn-replace-4"><i class='bx bxs-trash'></i></button>
+                        {{-- Botón cerrar popup --}}
+                        <button type="button" class="button--neutral-ow">Cancelar</button>
+                    </div>
+                    {{-- Contenedor de imagen seleccionada o existente --}}
+                    <div class="file" id="file-4">
+                        {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
+                        @if ($specLaptop->product->file->image_4)
+                            <img src="{{ asset($specLaptop->product->file->image_4) }}">
+                            @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_4) @endphp
+                        @else
+                            @php $imageName = 'Seleccionar imagen' @endphp
+                        @endif
+                    </div>
+                    {{-- Campo para mostrar nombre de imagen--}}
+                    <input type="text" class="file-name" id="file-name-4" value="{{ $imageName }}" tabindex="-1" readonly>
+                    {{-- Si existe una imagen mostramos el boton de eliminar imagen existente --}}
+                    @if ($specLaptop->product->file->image_4)
+                        {{-- Botón recortado para seleccionar imagen --}}
+                        <label class="btn-upload button--alternative-ow short" id="btn-upload-4" tabindex="1">
+                            <input type="file" accept="image/*" id="image_4" name="image_4">Cargar
+                        </label>
+                        {{-- Botón para abrir popup --}}
+                        <button type="button" class="button--negative-ow sq btn-popup-confirm" id="btn-popup-confirm-4" tabindex="1"><i class='bx bxs-trash'></i></button>
+                    @else
+                        {{-- Botón para seleccionar imagen --}}
+                        <label class="btn-upload button--alternative-ow" id="btn-upload-4" tabindex="1">
+                            <input type="file" accept="image/*" id="image_4" name="image_4">Cargar
+                        </label> 
+                    @endif
+                </div>
+                {{--*
+                    * IMAGE 5 
+                --}}
+                <div class="file-upload">
+                    {{-- Posición de imagen --}}
+                    <span>5</span>
+                    {{-- Botón para cancelar imagen seleccionada --}}
+                    <button type="button" class="button--neutral-ow sq outl--blue-ow btn-upload-cancel" id="btn-upload-cancel-5"><i class='bx bx-x'></i></button>
+                    {{-- PopUp de confirmación para eliminar imagen existente --}}
+                    <div class="popup-confirm"><p>¿Eliminar imagen 5?</p>
+                        {{-- Botón eliminar imagen existente--}}
+                        <button type="button" class="button--negative-ow sq" id="btn-replace-5"><i class='bx bxs-trash'></i></button>
+                        {{-- Botón cerrar popup --}}
+                        <button type="button" class="button--neutral-ow">Cancelar</button>
+                    </div>
+                    {{-- Contenedor de imagen seleccionada o existente --}}
+                    <div class="file" id="file-5">
+                        {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
+                        @if ($specLaptop->product->file->image_5)
+                            <img src="{{ asset($specLaptop->product->file->image_5) }}">
+                            @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_5) @endphp
+                        @else
+                            @php $imageName = 'Seleccionar imagen' @endphp
+                        @endif
+                    </div>
+                    {{-- Campo para mostrar nombre de imagen--}}
+                    <input type="text" class="file-name" id="file-name-5" value="{{ $imageName }}" tabindex="-1" readonly>
+                    {{-- Si existe una imagen mostramos el boton de eliminar imagen existente --}}
+                    @if ($specLaptop->product->file->image_5)
+                        {{-- Botón recortado para seleccionar imagen --}}
+                        <label class="btn-upload button--alternative-ow short" id="btn-upload-5" tabindex="1">
+                            <input type="file" accept="image/*" id="image_5" name="image_5">Cargar
+                        </label>
+                        {{-- Botón para abrir popup --}}
+                        <button type="button" class="button--negative-ow sq btn-popup-confirm" id="btn-popup-confirm-5" tabindex="1"><i class='bx bxs-trash'></i></button>
+                    @else
+                        {{-- Botón para seleccionar imagen --}}
+                        <label class="btn-upload button--alternative-ow" id="btn-upload-5" tabindex="1">
+                            <input type="file" accept="image/*" id="image_5" name="image_5">Cargar
+                        </label> 
+                    @endif
+                </div>
+                {{--*
+                    * IMAGE 6 
+                --}}
+                <div class="file-upload">
+                    {{-- Posición de imagen --}}
+                    <span>6</span>
+                    {{-- Botón para cancelar imagen seleccionada --}}
+                    <button type="button" class="button--neutral-ow sq outl--blue-ow btn-upload-cancel" id="btn-upload-cancel-6"><i class='bx bx-x'></i></button>
+                    {{-- PopUp de confirmación para eliminar imagen existente --}}
+                    <div class="popup-confirm"><p>¿Eliminar imagen 6?</p>
+                        {{-- Botón eliminar imagen existente--}}
+                        <button type="button" class="button--negative-ow sq" id="btn-replace-6"><i class='bx bxs-trash'></i></button>
+                        {{-- Botón cerrar popup --}}
+                        <button type="button" class="button--neutral-ow">Cancelar</button>
+                    </div>
+                    {{-- Contenedor de imagen seleccionada o existente --}}
+                    <div class="file" id="file-6">
+                        {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
+                        @if ($specLaptop->product->file->image_6)
+                            <img src="{{ asset($specLaptop->product->file->image_6) }}">
+                            @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_6) @endphp
+                        @else
+                            @php $imageName = 'Seleccionar imagen' @endphp
+                        @endif
+                    </div>
+                    {{-- Campo para mostrar nombre de imagen--}}
+                    <input type="text" class="file-name" id="file-name-6" value="{{ $imageName }}" tabindex="-1" readonly>
+                    {{-- Si existe una imagen mostramos el boton de eliminar imagen existente --}}
+                    @if ($specLaptop->product->file->image_6)
+                        {{-- Botón recortado para seleccionar imagen --}}
+                        <label class="btn-upload button--alternative-ow short" id="btn-upload-6" tabindex="1">
+                            <input type="file" accept="image/*" id="image_6" name="image_6">Cargar
+                        </label>
+                        {{-- Botón para abrir popup --}}
+                        <button type="button" class="button--negative-ow sq btn-popup-confirm" id="btn-popup-confirm-6" tabindex="1"><i class='bx bxs-trash'></i></button>
+                    @else
+                        {{-- Botón para seleccionar imagen --}}
+                        <label class="btn-upload button--alternative-ow" id="btn-upload-6" tabindex="1">
+                            <input type="file" accept="image/*" id="image_6" name="image_6">Cargar
+                        </label> 
+                    @endif
+                </div>
+                {{--*
+                    * IMAGE 7 
+                --}}
+                <div class="file-upload">
+                    {{-- Posición de imagen --}}
+                    <span>7</span>
+                    {{-- Botón para cancelar imagen seleccionada --}}
+                    <button type="button" class="button--neutral-ow sq outl--blue-ow btn-upload-cancel" id="btn-upload-cancel-7"><i class='bx bx-x'></i></button>
+                    {{-- PopUp de confirmación para eliminar imagen existente --}}
+                    <div class="popup-confirm"><p>¿Eliminar imagen 7?</p>
+                        {{-- Botón eliminar imagen existente--}}
+                        <button type="button" class="button--negative-ow sq" id="btn-replace-7"><i class='bx bxs-trash'></i></button>
+                        {{-- Botón cerrar popup --}}
+                        <button type="button" class="button--neutral-ow">Cancelar</button>
+                    </div>
+                    {{-- Contenedor de imagen seleccionada o existente --}}
+                    <div class="file" id="file-7">
+                        {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
+                        @if ($specLaptop->product->file->image_7)
+                            <img src="{{ asset($specLaptop->product->file->image_7) }}">
+                            @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_7) @endphp
+                        @else
+                            @php $imageName = 'Seleccionar imagen' @endphp
+                        @endif
+                    </div>
+                    {{-- Campo para mostrar nombre de imagen--}}
+                    <input type="text" class="file-name" id="file-name-7" value="{{ $imageName }}" tabindex="-1" readonly>
+                    {{-- Si existe una imagen mostramos el boton de eliminar imagen existente --}}
+                    @if ($specLaptop->product->file->image_7)
+                        {{-- Botón recortado para seleccionar imagen --}}
+                        <label class="btn-upload button--alternative-ow short" id="btn-upload-7" tabindex="1">
+                            <input type="file" accept="image/*" id="image_7" name="image_7">Cargar
+                        </label>
+                        {{-- Botón para abrir popup --}}
+                        <button type="button" class="button--negative-ow sq btn-popup-confirm" id="btn-popup-confirm-7" tabindex="1"><i class='bx bxs-trash'></i></button>
+                    @else
+                        {{-- Botón para seleccionar imagen --}}
+                        <label class="btn-upload button--alternative-ow" id="btn-upload-7" tabindex="1">
+                            <input type="file" accept="image/*" id="image_7" name="image_7">Cargar
+                        </label> 
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+    {{--*
+        * GRUPO SPECIFICATIONS *
+        * Contiene todas las especificaciones del producto.
+    --}}
+    <div class="group group--specs">
+        <div class="instructions">
+            <h3>Características especificas</h3>
+            <p class="p--description">Por último, indica todas las especificaciones de tu laptop.</p>
+        </div>
+        <div class="fields">
+            {{--*
+                * SUBGRUPO ALMACENAMIENTO *
+            --}}
+            <div class="group subgroup subgroup--almacenamiento">
+                <div class="instructions">
+                    <h3>Almacenamiento</h3>
+                    <p class="p--description"></p>
+                </div>
+                <div class="fields">
+                    <div class="item">
+                        <div class="name">
+                            <p>RAM</p>
+                        </div>
+                        <div class="input input-min input-min--label-right">
+                            <label for="ram_gb">GB</label>
+                            <input type="text" name="ram_gb" id="ram_gb" class="input--ow outl--blue-ow" required placeholder="Cantidad de memoria RAM" tabindex="1"
+                            value="{{ $specLaptop->ram_gb }}">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>Tipo de RAM</p>
+                        </div>
+                        <div class="input input-min">
+                            <input type="text" name="ram_tipo" id="ram_tipo" class="input--ow outl--blue-ow" required placeholder="Tipo de memoria RAM" tabindex="1"
+                            value="{{ $specLaptop->ram_tipo }}">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>Disco duro</p>
+                        </div>
+                        <div class="input input-min discod">
+                            @php
+                                $discod = rtrim($specLaptop->discod_gb, " GBT");
+                            @endphp
+                            <input type="text" name="discod_amount" id="discod_amount" class="input--ow outl--blue-ow" required placeholder="Cantidad de almacenamiento" tabindex="1"
+                            value="@php echo $discod @endphp">
+                            <select name="discod_storage" id="discod_storage" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="GB">GB</option>
+                                <option value="TB">TB</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>Tipo de disco duro</p>
+                        </div>
+                        <div class="input input-min">
+                            <input type="text" name="discod_tipo" id="discod_tipo" class="input--ow outl--blue-ow" required placeholder="Tipo de disco duro" tabindex="1"
+                            value="{{ $specLaptop->discod_tipo }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{--*
+                * SUBGRUPO PROCESADOR *
+            --}}
+            <div class="group subgroup subgroup--procesador">
+                <div class="instructions">
+                    <h3>Procesador</h3>
+                    <p class="p--description"></p>
+                </div>
+                <div class="fields">
+                    <div class="item">
+                        <div class="name">
+                            <p>Marca</p>
+                        </div>
+                        <div class="input input-min">
+                            <input type="text" name="procesador_marca" id="procesador_marca" class="input--ow outl--blue-ow" required placeholder="Marca de procesador" tabindex="1"
+                            value="{{ $specLaptop->procesador_marca }}">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>Modelo</p>
+                        </div>
+                        <div class="input input-min">
+                            <input type="text" name="procesador_modelo" id="procesador_modelo" class="input--ow outl--blue-ow" required placeholder="Modelo de procesador" tabindex="1"
+                            value="{{ $specLaptop->procesador_modelo }}">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>Generación</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="procesador_gen" id="procesador_gen" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="0">No aplica</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>Velocidad</p>
+                        </div>
+                        <div class="input input-min input-min--label-right">
+                            <label for="procesador_ghz">GHz</label>
+                            <input type="text"  name="procesador_ghz" id="procesador_ghz" class="input--ow outl--blue-ow" required placeholder="Velocidad de procesador" tabindex="1"
+                            value="{{ $specLaptop->procesador_ghz }}">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>Cantidad de nucleos</p>
+                        </div>
+                        <div class="input input-min">
+                            <input type="text" name="procesador_nucleos" id="procesador_nucleos" class="input--ow outl--blue-ow" required placeholder="Cantidad de nucleos del procesador" tabindex="1"
+                            value="{{ $specLaptop->procesador_nucleos }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{--*
+                * SUBGRUPO TARJETA GRÁFICA *
+            --}}
+            <div class="group subgroup subgroup--tarjetag">
+                <div class="instructions">
+                    <h3>Tarjeta gráfica</h3>
+                    <p class="p--description"></p>
+                </div>
+                <div class="fields">
+                    <div class="item">
+                        <div class="name">
+                            <p>¿Cuenta con tarjeta gráfica?</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="tarjetag" id="tarjetag" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>Marca</p>
+                        </div>
+                        <div class="input input-min">
+                            <input type="text" name="tarjetag_marca" id="tarjetag_marca" class="input--ow outl--blue-ow" placeholder="Marca de tarjeta gráfica" tabindex="1"
+                            value="{{ $specLaptop->tarjetag_marca }}">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>Modelo</p>
+                        </div>
+                        <div class="input input-min">
+                            <input type="text" name="tarjetag_modelo" id="tarjetag_modelo" class="input--ow outl--blue-ow" placeholder="Modelo de tarjeta gráfica" tabindex="1"
+                            value="{{ $specLaptop->tarjetag_modelo }}">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>Tipo de memoria</p>
+                        </div>
+                        <div class="input input-min">
+                            <input type="text" name="tarjetag_tipomemoria" id="tarjetag_tipomemoria" class="input--ow outl--blue-ow" placeholder="Tipo de memoria de la tarjeta gráfica" tabindex="1"
+                            value="{{ $specLaptop->tarjetag_tipomemoria }}">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>Cantidad de memoria</p>
+                        </div>
+                        <div class="input input-min">
+                            <input type="text" name="tarjetag_gb" id="tarjetag_gb" class="input--ow outl--blue-ow" placeholder="Cantidad de memoria" tabindex="1"
+                            value="{{ $specLaptop->tarjetag_gb }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{--*
+                * SUBGRUPO PANTALLA *
+            --}}
+            <div class="group subgroup subgroup--pantalla">
+                <div class="instructions">
+                    <h3>Pantalla</h3>
+                    <p class="p--description"></p>
+                </div>
+                <div class="fields">
+                    <div class="item">
+                        <div class="name">
+                            <p>Tipo</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="pantalla_tipo" id="pantalla_tipo" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="LED">LED</option>
+                                <option value="LCD">LCD</option>
+                                <option value="TFT">TFT</option>
+                                <option value="IPS">IPS</option>
+                                <option value="OLED">OLED</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>Tamaño</p>
+                        </div>
+                        <div class="input input-min input-min--label-right">
+                            <label for="pantalla_tamano">"</label>
+                            <input type="text" name="pantalla_tamano" id="pantalla_tamano" class="input--ow outl--blue-ow" required placeholder="Tamaño de pantalla en pulgadas" tabindex="1"
+                            value="{{ $specLaptop->pantalla_tamano }}">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>¿Es táctil?</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="pantalla_tactil" id="pantalla_tactil" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>Resolución X</p>
+                        </div>
+                        <div class="input input-min input-min--label-right">
+                            @php $pantalla_res_x = substr($specLaptop->pantalla_resolucion, 0, 4); @endphp
+                            <label for="pantalla_resolucion">x</label>
+                            <input type="text" name="pantalla_resolucion" id="pantalla_resolucion" class="input--ow outl--blue-ow" required placeholder="Res X" tabindex="1"
+                            value="@php echo $pantalla_res_x @endphp">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>Resolución Y</p>
+                        </div>
+                        <div class="input input-min input-min--label-right">
+                            @php $pantalla_res_y = substr($specLaptop->pantalla_resolucion, 7, 12); @endphp
+                            <label for="pantalla_resolucion_y">px</label>
+                            <input type="text" name="pantalla_resolucion_y" id="pantalla_resolucion_y" class="input--ow outl--blue-ow" required placeholder="Res Y" tabindex="1"
+                            value="@php echo $pantalla_res_y @endphp">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{--*
+                * SUBGRUPO TECLADO *
+            --}}
+            <div class="group subgroup subgroup--teclado">
+                <div class="instructions">
+                    <h3>Teclado</h3>
+                    <p class="p--description"></p>
+                </div>
+                <div class="fields">
+                    <div class="item">
+                        <div class="name">
+                            <p>Idioma</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="teclado_idioma" id="teclado_idioma" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="Español">Español</option>
+                                <option value="Inglés">Inglés</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>¿Es retroiluminado?</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="teclado_retroi" id="teclado_retroi" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>¿Tiene teclado númerico?</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="teclado_num" id="teclado_num" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{--*
+                * SUBGRUPO CONECTIVIDAD *
+            --}}
+            <div class="group subgroup subgroup--conectv">
+                <div class="instructions">
+                    <h3>Conectividad</h3>
+                    <p class="p--description"></p>
+                </div>
+                <div class="fields">
+                    <div class="item">
+                        <div class="name">
+                            <p>USB 2.0</p>
+                        </div>
+                        <div class="input input-min">
+                            <input type="text" name="conectv_usb2" id="conectv_usb2" class="input--ow outl--blue-ow" required placeholder="Cantidad de puertos USB 2.0" tabindex="1"
+                            value="{{ $specLaptop->conectv_usb2 }}">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>USB 3.0</p>
+                        </div>
+                        <div class="input input-min">
+                            <input type="text" name="conectv_usb3" id="conectv_usb3" class="input--ow outl--blue-ow" required placeholder="Cantidad de puertos USB 3.0" tabindex="1"
+                            value="{{ $specLaptop->conectv_usb3 }}">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>USB C</p>
+                        </div>
+                        <div class="input input-min">
+                            <input type="text" name="conectv_usbc" id="conectv_usbc" class="input--ow outl--blue-ow" required placeholder="Cantidad de puertos USB C" tabindex="1"
+                            value="{{ $specLaptop->conectv_usbc }}">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>¿Cuenta con WiFi?</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="conectv_wifi" id="conectv_wifi" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>¿Cuenta con Bluetooth?</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="conectv_bluetooth" id="conectv_bluetooth" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>¿Cuenta con puerto jack?</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="conectv_jack" id="conectv_jack" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>¿Cuenta con puerto HDMI?</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="conectv_hdmi" id="conectv_hdmi" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>¿Cuenta con puerto VGA?</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="conectv_vga" id="conectv_vga" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>¿Cuenta con Display Port?</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="conectv_displayp" id="conectv_displayp" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>¿Cuenta con puerto Ethernet?</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="conectv_ethernet" id="conectv_ethernet" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>¿Cuenta con puerto SerialCOM?</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="conectv_serialcom" id="conectv_serialcom" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>¿Cuenta con puerto IEEE1394?</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="conectv_ieee1394" id="conectv_ieee1394" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{--*
+                * SUBGRUPO SOFTWARE *
+            --}}
+            <div class="group subgroup subgroup--software">
+                <div class="instructions">
+                    <h3>Software</h3>
+                    <p class="p--description"></p>
+                </div>
+                <div class="fields">
+                    <div class="item">
+                        <div class="name">
+                            <p>Sistema operativo</p>
+                        </div>
+                        <div class="input input-min">
+                            <input type="text" name="so" id="" class="input--ow outl--blue-ow" value="Windows 10 Pro" required placeholder="Nombre y versión de SO instalado" tabindex="1"
+                            value="{{ $specLaptop->so }}">
+                        </div>
+                    </div>
+                    <div class="item textarea">
+                        <div class="name">
+                            <p>Software adicional</p>
+                        </div>
+                        <div class="input input-min">
+                            <textarea name="software_ad" id="software_ad" class="input--ow outl--blue-ow" required placeholder="Lista de software adicional instalado separada por comas" tabindex="1">{{ $specLaptop->software_ad }}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{--*
+                * SUBGRUPO AUDIO Y VIDEO *
+            --}}
+            <div class="group subgroup subgroup--audiov">
+                <div class="instructions">
+                    <h3>Audio y video</h3>
+                    <p class="p--description"></p>
+                </div>
+                <div class="fields">
+                    <div class="item">
+                        <div class="name">
+                            <p>¿Cuenta con cámara?</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="audiov_camara" id="audiov_camara" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>¿Cuenta con micrófono?</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="audiov_microfono" id="audiov_microfono" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{--*
+                * SUBGRUPO LECTURA *
+            --}}
+            <div class="group subgroup subgroup--lectura">
+                <div class="instructions">
+                    <h3>Lectura</h3>
+                    <p class="p--description"></p>
+                </div>
+                <div class="fields">
+                    <div class="item">
+                        <div class="name">
+                            <p>¿Cuenta con unidad de lectura óptica?</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="lectura_unidadoptica" id="lectura_unidadoptica" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>¿Cuenta con unidad de lectura SD?</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="lectura_sd" id="lectura_sd" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{--*
+                * SUBGRUPO BATERÍA *
+            --}}
+            <div class="group subgroup subgroup--bateria">
+                <div class="instructions">
+                    <h3>Batería</h3>
+                    <p class="p--description"></p>
+                </div>
+                <div class="fields">
+                    <div class="item">
+                        <div class="name">
+                            <p>¿Con qué tipo de batería cuenta?</p>
+                        </div>
+                        <div class="input input-min">
+                            <select name="bateria_tipo" id="bateria_tipo" class="input--ow outl--blue-ow" required tabindex="1">
+                                <option value="Ion-Litio">Ion-Litio</option>
+                                <option value="Polimero-Litio">Polimero-Litio</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>Celdas</p>
+                        </div>
+                        <div class="input input-min">
+                            <input type="text" name="bateria_celdas" id="" class="input--ow outl--blue-ow" required placeholder="Cantidad de celdas de la batería" tabindex="1"
+                            value="{{ $specLaptop->bateria_celdas }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 <script>
-    // Contador de caracteres
-    function countChars(obj){
-        document.getElementById('charNum').innerHTML = obj.value.length+' caracteres';
-    }
+popupConfirm();
+selectsEdit();
+$('#tarjetag').ready(function(){ tarjetagYN(); });
+$('#tarjetag').change(function(){ tarjetagYN(); });
+replaceGet('#btn-replace-1', "{{ route('replace.index', ['specLaptop' => $specLaptop, 'col' => 1]) }}", '#image_1', 'div#file-1', '#file-name-1', '#btn-upload-cancel-1', '.popup-confirm', '#btn-upload-1', '#btn-popup-confirm-1');
+replaceGet('#btn-replace-2', "{{ route('replace.index', ['specLaptop' => $specLaptop, 'col' => 2]) }}", '#image_2', 'div#file-2', '#file-name-2', '#btn-upload-cancel-2', '.popup-confirm', '#btn-upload-2', '#btn-popup-confirm-2');
+replaceGet('#btn-replace-3', "{{ route('replace.index', ['specLaptop' => $specLaptop, 'col' => 3]) }}", '#image_3', 'div#file-3', '#file-name-3', '#btn-upload-cancel-3', '.popup-confirm', '#btn-upload-3', '#btn-popup-confirm-3');
+replaceGet('#btn-replace-4', "{{ route('replace.index', ['specLaptop' => $specLaptop, 'col' => 4]) }}", '#image_4', 'div#file-4', '#file-name-4', '#btn-upload-cancel-4', '.popup-confirm', '#btn-upload-4', '#btn-popup-confirm-4');
+replaceGet('#btn-replace-5', "{{ route('replace.index', ['specLaptop' => $specLaptop, 'col' => 5]) }}", '#image_5', 'div#file-5', '#file-name-5', '#btn-upload-cancel-5', '.popup-confirm', '#btn-upload-5', '#btn-popup-confirm-5');
+replaceGet('#btn-replace-6', "{{ route('replace.index', ['specLaptop' => $specLaptop, 'col' => 6]) }}", '#image_6', 'div#file-6', '#file-name-6', '#btn-upload-cancel-6', '.popup-confirm', '#btn-upload-6', '#btn-popup-confirm-6');
+replaceGet('#btn-replace-7', "{{ route('replace.index', ['specLaptop' => $specLaptop, 'col' => 7]) }}", '#image_7', 'div#file-7', '#file-name-7', '#btn-upload-cancel-7', '.popup-confirm', '#btn-upload-7', '#btn-popup-confirm-7');
+/**
+ * AJAX GET
+ * Eliminar imagen existente
+ */
+ function replaceGet(btnReplace, route, imageInput, imageContainer, imageName, btnCancel, popup, btnUpload, btnPopUp){
+    $(btnReplace).click(function(){
+        $.ajax({
+            url: route 
+        }).done(function(){
+            // Reseteamos campos de upload
+            $(imageInput).val('');
+            $(imageContainer).empty();
+            $(imageName).val('Seleccione una imagen');
+            $(btnCancel).css('display', 'none');
+            // Escondemos popup
+            $(popup).css('transform','translate(-5px, -5px)');
+            $(popup).css('opacity', '0');
+            // Ocutamos boton de eliminar y quitamos clase short de boton upload
+            $(btnUpload).removeClass('short');
+            $(btnPopUp).css('display', 'none');
+            // Devolvemos mensaje
+            alert('Se ha eliminado correctamente. Ahora puede elegir una nueva imagen o dejar el campo en blanco.');
+        });
+    });
+}
+/**
+ * * MULTIPLE PREVIEW IMAGES
+ * Muestra una vista previa de las imagenes que cargaremos
+ */
+$(function(){
+    var ImgPreview = function(input, imgPreviewPlaceholder, fileName, btnCancel){
+        // Vaciamos el contenedor
+        $(imgPreviewPlaceholder).empty();
+        
+        // Comprobamos que el input no este vacío en cada cambio
+        if($(input).val()){
+            // Extraemos la imagen
+            var reader = new FileReader();
+            reader.onload = function(e){
+                $($.parseHTML('<img>')).attr('src', e.target.result).appendTo(imgPreviewPlaceholder);
+                // Mostramos botón para cancelar selección de imagen
+                $(btnCancel).css('display', 'flex');
+            }
+            reader.readAsDataURL(input.files[0]);
+            $(fileName).val(input.files[0].name);
+            // Asignamos acciones al botón btnCancel
+            $(btnCancel).click(function(){
+                $(input).val('');
+                $(imgPreviewPlaceholder).empty();
+                $(fileName).val('Seleccione una imagen');
+                $(btnCancel).css('display', 'none');
+            });
+        } else {
+            $(input).val('');
+            $(imgPreviewPlaceholder).empty();
+            $(fileName).val('Seleccione una imagen');
+            $(btnCancel).css('display', 'none');
+        };
+    };
+    $('#image_1').on('change', function(){
+        ImgPreview(this, 'div#file-1', '#file-name-1', '#btn-upload-cancel-1');
+    });
+    $('#image_2').on('change', function(){
+        ImgPreview(this, 'div#file-2', '#file-name-2', '#btn-upload-cancel-2');
+    });
+    $('#image_3').on('change', function(){
+        ImgPreview(this, 'div#file-3', '#file-name-3', '#btn-upload-cancel-3');
+    });
+    $('#image_4').on('change', function(){
+        ImgPreview(this, 'div#file-4', '#file-name-4', '#btn-upload-cancel-4');
+    });
+    $('#image_5').on('change', function(){
+        ImgPreview(this, 'div#file-5', '#file-name-5', '#btn-upload-cancel-5');
+    });
+    $('#image_6').on('change', function(){
+        ImgPreview(this, 'div#file-6', '#file-name-6', '#btn-upload-cancel-6');
+    });
+    $('#image_7').on('change', function(){
+        ImgPreview(this, 'div#file-7', '#file-name-7', '#btn-upload-cancel-7');
+    });
+});
+/**
+ * * KEYS INPUT IMAGE
+ * Permite que al presionar space o enter se ejecute un click
+ */
+$('#btn-upload-1').keydown(function(e){
+if(e.keyCode == 32 || e.keyCode == 13){
+    e.preventDefault();
+    $('#image_1').click();
+}
+});
+$('#btn-upload-2').keydown(function(e){
+if(e.keyCode == 32 || e.keyCode == 13){
+    e.preventDefault();
+    $('#image_2').click();
+}
+});
+$('#btn-upload-3').keydown(function(e){
+if(e.keyCode == 32 || e.keyCode == 13){
+    e.preventDefault();
+    $('#image_3').click();
+}
+});
+$('#btn-upload-4').keydown(function(e){
+if(e.keyCode == 32 || e.keyCode == 13){
+    e.preventDefault();
+    $('#image_4').click();
+}
+});
+$('#btn-upload-5').keydown(function(e){
+if(e.keyCode == 32 || e.keyCode == 13){
+    e.preventDefault();
+    $('#image_5').click();
+}
+});
+$('#btn-upload-6').keydown(function(e){
+if(e.keyCode == 32 || e.keyCode == 13){
+    e.preventDefault();
+    $('#image_6').click();
+}
+});
+$('#btn-upload-7').keydown(function(e){
+if(e.keyCode == 32 || e.keyCode == 13){
+    e.preventDefault();
+    $('#image_7').click();
+}
+});
+// Recuperación de campos select
+function selectsEdit() {
+    // Limpiamos el campo discod_storage para filtrar la magnitud de almacenamiento (GB o TB)
+    const discod_storage_val_raw = '{{ $specLaptop->discod_gb }}';
+    const discod_storage_val = discod_storage_val_raw.replace(/[0-9]+/g, '').trim();
 
-    // Recuperación de índices
-    function selectsEdit() {
-
-        // Creamos la colección (selectID: consulta)
-        let selectSpec = {'status_usage' :   '{{ $specLaptop->product->status_usage }}',
-                          'procesador_gen' : '{{ $specLaptop->procesador_gen }}',
-                          'pantalla_tipo' :  '{{ $specLaptop->pantalla_tipo }}',
-                          'teclado_idioma' : '{{ $specLaptop->teclado_idioma }}',
-                          'bateria_tipo' :   '{{ $specLaptop->bateria_tipo }}'}
-
-        // Asignamos claves y valores
-        for(const spec in selectSpec){
-
-            // Obtenemos la colección de options desde la id del select
-            let selectOptions = document.getElementById(spec).getElementsByTagName('option');
-
-            // Recorremos el objeto
-            for(i = 0; i < selectOptions.length; i++){
-                
-                // Comparamos si el texto de la option en la posición i es el mismo
-                // que el de la base de datos, si es así, asignamos el atributo selected
-                // y el valor true, si no, continuamos con la siguiente posición
-                if(selectOptions[i].text == selectSpec[spec]){
-                    selectOptions[i].setAttribute('selected', true);
-                }
+    // Creamos la colección (selectID: consulta)
+    let selectSpec = {'status_usage'         : '{{ $specLaptop->product->status_usage }}',
+                      'status_aesthetic'     : '{{ $specLaptop->product->status_aesthetic }}',
+                      'discod_storage'       : discod_storage_val,     
+                      'procesador_gen'       : '{{ $specLaptop->procesador_gen }}',                 
+                      'tarjetag'             : '{{ $specLaptop->tarjetag }}', 
+                      'pantalla_tipo'        : '{{ $specLaptop->pantalla_tipo }}', 
+                      'pantalla_tactil'      : '{{ $specLaptop->pantalla_tactil }}', 
+                      'teclado_idioma'       : '{{ $specLaptop->teclado_idioma }}', 
+                      'teclado_retroi'       : '{{ $specLaptop->teclado_retroi }}', 
+                      'teclado_num'          : '{{ $specLaptop->teclado_num }}', 
+                      'conectv_wifi'         : '{{ $specLaptop->conectv_wifi }}', 
+                      'conectv_bluetooth'    : '{{ $specLaptop->conectv_bluetooth }}', 
+                      'conectv_jack'         : '{{ $specLaptop->conectv_jack }}', 
+                      'conectv_hdmi'         : '{{ $specLaptop->conectv_hdmi }}', 
+                      'conectv_vga'          : '{{ $specLaptop->conectv_vga }}', 
+                      'conectv_displayp'     : '{{ $specLaptop->conectv_displayp }}', 
+                      'conectv_ethernet'     : '{{ $specLaptop->conectv_ethernet }}', 
+                      'conectv_serialcom'    : '{{ $specLaptop->conectv_serialcom }}', 
+                      'conectv_ieee1394'     : '{{ $specLaptop->conectv_ieee1394 }}', 
+                      'audiov_camara'        : '{{ $specLaptop->audiov_camara }}', 
+                      'audiov_microfono'     : '{{ $specLaptop->audiov_microfono }}', 
+                      'lectura_unidadoptica' : '{{ $specLaptop->lectura_unidadoptica }}', 
+                      'lectura_sd'           : '{{ $specLaptop->lectura_sd }}', 
+                      'bateria_tipo'         : '{{ $specLaptop->bateria_tipo }}'
+                    };
+    // Asignamos claves y valores
+    for(const spec in selectSpec){
+        // Obtenemos la colección de options desde la id del select
+        let selectOptions = document.getElementById(spec).getElementsByTagName('option');
+    
+        // Recorremos el objeto
+        for(i = 0; i < selectOptions.length; i++){
+            
+            // Comparamos si el texto de la option en la posición i es el mismo
+            // que el de la base de datos, si es así, asignamos el atributo selected
+            // y el valor true, si no, continuamos con la siguiente posición
+            if(selectOptions[i].value == selectSpec[spec]){
+                selectOptions[i].setAttribute('selected', true);
             }
         }
     }
-    selectsEdit();
+};
+/**
+ * POPUP CONFIRM
+ * Muestra el popup de confirmación para eliminar una imagen existente
+ * a traves del modal de edit
+ */ 
+function popupConfirm(){
+    const btnsCancel = document.querySelectorAll('.btn-popup-confirm');
+    
+    btnsCancel.forEach(btnCancel => {
+        btnCancel.addEventListener('click', () => {
+            // Indentificamos elemento popup de cada elemento
+            let popup = btnCancel.parentElement.querySelector('.popup-confirm');
 
-    // Nos desplaza hacia la altura máxima de nuestra página
-    document.getElementById('scroll-top').addEventListener('click', () => window.scrollTo(0, 0));
-    // Nos desplaza hacia la altura mínima de nuestra página
-    document.getElementById('scroll-bot').addEventListener('click', () => window.scrollTo(0, 1170));
+            // Modificamos su posición hacerlo visible
+            popup.style.transform = 'translate(-5px, -91px)';
+            popup.style.opacity = '1';
+
+            //Botón para cancelar
+            popup.querySelector('.button--neutral-ow').addEventListener('click', () => {
+                popup.style.transform = 'translate(-5px, -5px)';
+                popup.style.opacity = '0';
+            });
+        })
+    });
+};
+/**
+  * * TARJETAG Y/N
+  * Verifica el campo booleano tarjetag para deshabilitar campos adyacentes
+  * en caso de indicar un 0 (No) en #tarjetag
+  */
+  function tarjetagYN(){
+    if($('#tarjetag option:selected').val() == 0){
+        $('#tarjetag_marca').prop('disabled', true);
+        $('#tarjetag_modelo').prop('disabled', true);
+        $('#tarjetag_tipomemoria').prop('disabled', true);
+        $('#tarjetag_gb').prop('disabled', true);
+    } else if($('#tarjetag option:selected').val() == 1){
+        $('#tarjetag_marca').prop('disabled', false);
+        $('#tarjetag_modelo').prop('disabled', false);
+        $('#tarjetag_tipomemoria').prop('disabled', false);
+        $('#tarjetag_gb').prop('disabled', false);
+    }; 
+};
+/**
+ * * FORM VALIDATION
+ */
+$('.form-create').validate({
+    rules : {
+        stock                : { required: true, digits: true },
+
+        // image_1              : { },
+        // image_2              : { },
+        // image_3              : { },
+        // image_4              : { },
+        // image_5              : { },
+        // image_6              : { },
+        // image_7              : { },
+
+        sku                  : { required: true },
+        price                : { required: true, number: true },
+        price_discount       : { number: true },
+        status_usage         : { required: true },
+        status_aesthetic     : { required: true, number: true },
+        warranty_days        : { required: true, digits: true },
+        support              : { required: true },
+        delivery             : { required: true },
+
+        equipo_marca         : { required: true },
+        equipo_linea         : { required: true },
+        equipo_modelo        : { required: true },
+        ram_gb               : { required: true, number: true },
+        ram_tipo             : { required: true },
+        discod_amount        : { required: true, number: true },
+        discod_storage       : { required: true },
+        discod_tipo          : { required: true },
+        procesador_marca     : { required: true },
+        procesador_modelo    : { required: true },
+        procesador_gen       : { required: true, digits: true },
+        procesador_ghz       : { required: true, number: true },
+        procesador_nucleos   : { required: true, digits: true },
+        tarjetag             : { required: true, range: [0, 1] },
+        // tarjetag_marca       : { },
+        // tarjetag_modelo      : { },
+        // tarjetag_tipomemoria : { },
+        tarjetag_gb          : { digits: true },
+        pantalla_tipo        : { required: true },
+        pantalla_tamano      : { required: true, number: true },
+        pantalla_tactil      : { required: true, range: [0, 1] },
+        pantalla_resolucion  : { required: true, digits: true, minlength: 4, maxlength: 4 },
+        pantalla_resolucion_y  : { required: true, digits: true, minlength: 4, maxlength: 4 },
+        teclado_idioma       : { required: true },
+        teclado_retroi       : { required: true, range: [0, 1] },
+        teclado_num          : { required: true, range: [0, 1] },
+        conectv_usb2         : { required: true, digits: true },
+        conectv_usb3         : { required: true, digits: true },
+        conectv_usbc         : { required: true, digits: true },
+        conectv_wifi         : { required: true, range: [0, 1] },
+        conectv_bluetooth    : { required: true, range: [0, 1] },
+        conectv_jack         : { required: true, range: [0, 1] },
+        conectv_hdmi         : { required: true, range: [0, 1] },
+        conectv_vga          : { required: true, range: [0, 1] },
+        conectv_displayp     : { required: true, range: [0, 1] },
+        conectv_ethernet     : { required: true, range: [0, 1] },
+        conectv_serialcom    : { required: true, range: [0, 1] },
+        conectv_ieee1394     : { required: true, range: [0, 1] },
+        so                   : { required: true },
+        software_ad          : { required: true, maxlength: 155 },
+        audiov_camara        : { required: true, range: [0, 1] },
+        audiov_microfono     : { required: true, range: [0, 1] },
+        lectura_unidadoptica : { required: true, range: [0, 1] },
+        lectura_sd           : { required: true, range: [0, 1] },
+        bateria_tipo         : { required: true },
+        bateria_celdas       : { required: true, digits: true }
+    }
+});
+/**
+ * KEY CLOSE MODAL
+ * Permite que al presionar escape se cierre el modal
+ */
+ $(document).ready(function(){
+    // Cuando se pierde el focus en el body, volvemos a el con escape
+    $(document).bind('keydown', function(e) { 
+        if (e.which == 27) {
+            $('.modal-shadow--panel').css('display', 'none')
+            $('.content').empty();
+            $('.content').append('<div class="loading"><i class="bx bx-loader-alt"></i></div>');
+        }
+    });
+    // Al terminar de cargar, el focus se coloca en el primer input
+    $('#equipo_marca').focus(); 
+});
+/**
+ * * CLOSE MODAL
+ */
+$('.btn-close').click(function(){
+    $('.modal-shadow--panel').css('display', 'none');
+    $('.modal-container').css('display', 'none');
+    $('.content').empty();
+    $('.content').append('<div class="loading"><i class="bx bx-loader-alt"></i></div>');
+    $('body').css('overflow', 'visible');
+});
 </script>
-@endsection

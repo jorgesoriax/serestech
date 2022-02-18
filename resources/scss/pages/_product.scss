@@ -24,6 +24,7 @@
     flex-direction: row;
     gap: $gap--max;
     position: relative;
+    margin-top: 50px;
 }
 #container--imgs{
     display: flex;
@@ -99,36 +100,29 @@
     h1{
         margin: 0;
     }
-
-    h3{
-        margin: 0;
+    h2{
+        margin: $container--padd-micro 0;
     }
-
     #info--sku{
-        margin-top: 5px;
+        margin-top: 0px;
     }
-
     .label{
         margin-bottom: $gap--max;
         margin-right: $gap--min;
     }
-
     #info--disc-price{
         margin-bottom: 0;
         text-decoration: line-through;
     }
-
     #info--iva{
         margin-top: 0;
     }
-
     #info--units{
         color: setcolor(blue);
         margin-top: $gap--max;
         position: absolute;
         bottom: 43px;
     }
- 
     #info--buy{
         width: 100%;
         position: absolute;
@@ -175,7 +169,7 @@
                 tr{
                     // Primer td de cada tr
                     td:nth-child(1){
-                        width: 60%;
+                        width: 50%;
                     }
                     // Segundo td de cada tr
                     td:nth-child(2){

@@ -1,17 +1,12 @@
 @extends('layouts.template')
-
 @section('title')
     {{ $specsLaptop->equipo_marca  }}
     {{ $specsLaptop->equipo_linea  }}
-    {{ $specsLaptop->equipo_modelo }}
+    {{ $specsLaptop->equipo_modelo }} | Envío inmediato
 @endsection
-
-@section('scripts')
-    <script src="{{ asset('storage/js/product.js') }}"></script>
-    <script src="{{ asset('storage/js/touchSlider.js') }}"></script>
-    <script src="{{ asset('storage/js/menu.js') }}"></script>
+@section('hscripts')
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 @endsection
-
 @section('content')
 <div id="universal--container">
     {{--*
@@ -21,14 +16,20 @@
     {{--*
         * FACEBOOK PLUGIN
     --}}
+    {{-- <!-- Messenger Chat Plugin Code -->
     <div id="fb-root"></div>
+
+    <!-- Your Chat Plugin code -->
     <div id="fb-customer-chat" class="fb-customerchat">
     </div>
+
     <script>
       var chatbox = document.getElementById('fb-customer-chat');
       chatbox.setAttribute("page_id", "280004990468494");
       chatbox.setAttribute("attribution", "biz_inbox");
     </script>
+
+    <!-- Your SDK code -->
     <script>
       window.fbAsyncInit = function() {
         FB.init({
@@ -36,6 +37,7 @@
           version          : 'v12.0'
         });
       };
+
       (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
@@ -43,27 +45,23 @@
         js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
-    </script>
+    </script> --}}
     {{--*
-        * MENU LIGHTBOX
+        * MENU
     --}}
-    <div id="menu--container" class="menu--container">
-        <div id="content">
-            Siguenos en nuestras redes
-            <div id="content--social-media">
-                <a class="a--icon outl--blue-ow" target="_blank" rel="noopener noreferrer" 
-                href="https://www.facebook.com/SeresTech21/">
-                    <img src="{{ asset('storage/images/social-media/fb-rounded-style.svg') }}" 
-                    title="Encuentranos en Facebook">
+    <div class="menu--container">
+        <div class="content">
+            Síguenos en nuestras redes
+            <div class="content--social-media">
+                <a class="a--icon outl--blue-ow" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/SeresTech21/" title="Encuéntranos en Facebook SeresTech21">
+                    <img src="{{ asset('storage/images/social-media/fb-rounded-style.svg') }}" alt="Encuéntranos en Facebook">
                 </a>
             
-                <a class="a--icon outl--blue-ow input--ow" target="_blank" rel="noopener noreferrer" 
-                href="https://www.instagram.com/serestech21/">
-                    <img src="{{ asset('storage/images/social-media/ig-rounded-style-a.svg') }}" 
-                    title="Siguenos en Instagram">
+                <a class="a--icon outl--blue-ow input--ow" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/serestech21/" title="Síguenos en Instagram serestech21">
+                    <img src="{{ asset('storage/images/social-media/ig-rounded-style-a.svg') }}" alt="Síguenos en Instragram">
                 </a>
             </div>
-
+            
             <div class="static-message">
                 <p>
                     El envio de nuestros productos se acuerda al momento
@@ -71,48 +69,44 @@
                     pasar a recogerlo a nuestras oficinas o acordar un punto de encuentro.
                 </p>
             </div>
-            <div id="content--whatsapp">
-                <a href="https://wa.me/528110649320" target="_blank" rel="noopener noreferrer">
+            <div class="content--whatsapp">
+                <a href="https://wa.me/528110649320" target="_blank" rel="noopener noreferrer" title="Contáctanos a través de Whatsapp">
                     <button class="button--whatsapp-ow">
-                        Contactanos
-                        <img src="{{ asset('storage/images/social-media/whatsapp-w.svg') }}">
+                        Contáctanos
+                        <img src="{{ asset('storage/images/social-media/whatsapp-w.svg') }}" alt="Contáctanos a través de Whatsapp">
                     </button>
                 </a>
             </div>
-
+            
         </div>
     </div>
-    <div id="shadow"></div>
+    <div class="modal-shadow"></div>
     {{--*
         * HEADER
     --}}
     <header class="header">
         <div class="header--container">
             <div id="header--logo">
-                <a href="{{ route('home.index') }}">
-                    <img src="{{ asset('storage/images/logo-large-w.svg') }}" id="logo-large">
-                    <img src="{{ asset('storage/images/logo-w.svg') }}"       id="logo-tiny">
+                <a href="{{ route('home.index') }}" title="Volver a serestech.com.mx">
+                    <img src="{{ asset('storage/images/original-w.svg') }}" id="logo-large" alt="Logo SeresTech">
+                    <img src="{{ asset('storage/images/logo-w.svg') }}" id="logo-tiny" alt="Logo SeresTech">
                 </a>
-        </div>
-    
-        <div id="header--search" class="input">
-            <label for="text-search"><i class="bx bx-search"></i></label>
-            <input id="text-search" type="text" 
-            placeholder="Buscar marca y más..." 
-            class="input--ob outl--white-ob">    
-        </div>
-    
-        <div id="header--nav--buttons" class="nav--buttons">
-                <a class="a--icon outl--white-ob" target="_blank" rel="noopener noreferrer"
-                href="https://www.facebook.com/SeresTech21/" >
-                    <img src="{{ asset('storage/images/social-media/fb-rounded-style-a.svg')}}" 
-                    title="Encuentranos en Facebook">
+            </div>
+        
+            <form action="{{ route('home.search') }}" method="GET">
+                <div id="header--search" class="input">
+                    <label for="text-search"><i class="bx bx-search"></i></label>
+                    <input type="text" name="text-search" class="input--ob outl--white-ob" id="text-search" placeholder="Buscar por marca, línea o modelo...">    
+                </div>
+            </form>
+            
+            <div id="header--nav--buttons" class="nav--buttons">
+                <a class="a--icon outl--white-ob" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/SeresTech21/" title="Encuéntranos en Facebook SeresTech21">
+                    <img src="{{ asset('storage/images/social-media/fb-rounded-style-a.svg')}}" alt="Encuéntranos en Facebook">
                 </a>
             
-                <a class="a--icon outl--white-ob" target="_blank" rel="noopener noreferrer"
-                href="https://www.instagram.com/serestech21/">
-                    <img src="{{ asset('storage/images/social-media/ig-rounded-style-a.svg')}}" 
-                    title="Siguenos en Instagram">
+                <a class="a--icon outl--white-ob" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/serestech21/" title="Síguenos en Instagram serestech21">
+                    <img src="{{ asset('storage/images/social-media/ig-rounded-style-a.svg')}}" alt="Síguenos en Instragram">
                 </a>
             
                 <button class="button--neutral-ob popup-message popup-message-top"> Envios 
@@ -123,24 +117,24 @@
                     </p>
                 </button>
             
-                <a href="https://wa.me/528110649320" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/528110649320" target="_blank" rel="noopener noreferrer" title="Contáctanos a través de Whatsapp">
                     <button class="button--whatsapp-ob">
-                        Contactanos
-                        <img src="{{ asset('storage/images/social-media/whatsapp-w.svg') }}" alt="">
+                        Contáctanos
+                        <img src="{{ asset('storage/images/social-media/whatsapp-w.svg') }}" alt="Contáctanos a través de Whatsapp">
                     </button>
                 </a>
             
                 <button class="menu sq outl--white-ob">
                     <i class='bx bx-menu'></i>
                 </button>
-        </div>
+            </div>
         </div>
     </header>
     {{--*
         * SCROLL TO TOP
     --}}
     <div class="scrollTop outl--blue-ow">
-        <i class='bx bx-chevron-up'></i>
+        <i class='bx bx-arrow-to-top' ></i>
     </div>
     {{--*
         * TOUCH SLIDER
@@ -150,37 +144,37 @@
         <div class="slider-container">
             @if ($specsLaptop->product->file->image_1)
                 <div class="slide">
-                    <img src="{{ asset($specsLaptop->product->file->image_1) }}">
+                    <img src="{{ asset($specsLaptop->product->file->image_1) }}" alt="Primera imágen de Laptop {{ $specsLaptop->equipo_marca }}{{ $specsLaptop->equipo_linea }}{{ $specsLaptop->equipo_modelo }}, {{ $specsLaptop->procesador_marca }} {{ $specsLaptop->procesador_modelo }} {{ $specsLaptop->procesador_gen }}a gen, {{ $specsLaptop->procesador_ghz }} GHz, {{ $specsLaptop->procesador_nucleos }} núcleos, RAM {{ $specsLaptop->ram_gb }} GB {{ $specsLaptop->ram_tipo }}, Disco duro {{ $specsLaptop->discod_gb }} {{ $specsLaptop->discod_tipo }}">
                 </div>
             @endif
             @if ($specsLaptop->product->file->image_2)
                 <div class="slide">
-                    <img src="{{ asset($specsLaptop->product->file->image_2) }}">
+                    <img src="{{ asset($specsLaptop->product->file->image_2) }}" alt="Segunda imágen de Laptop {{ $specsLaptop->equipo_marca }}{{ $specsLaptop->equipo_linea }}{{ $specsLaptop->equipo_modelo }}, {{ $specsLaptop->procesador_marca }} {{ $specsLaptop->procesador_modelo }} {{ $specsLaptop->procesador_gen }}a gen, {{ $specsLaptop->procesador_ghz }} GHz, {{ $specsLaptop->procesador_nucleos }} núcleos, RAM {{ $specsLaptop->ram_gb }} GB {{ $specsLaptop->ram_tipo }}, Disco duro {{ $specsLaptop->discod_gb }} {{ $specsLaptop->discod_tipo }}">
                 </div>
             @endif
             @if ($specsLaptop->product->file->image_3)
                 <div class="slide">
-                    <img src="{{ asset($specsLaptop->product->file->image_3) }}">
+                    <img src="{{ asset($specsLaptop->product->file->image_3) }}" alt="Tercera imágen de Laptop {{ $specsLaptop->equipo_marca }}{{ $specsLaptop->equipo_linea }}{{ $specsLaptop->equipo_modelo }}, {{ $specsLaptop->procesador_marca }} {{ $specsLaptop->procesador_modelo }} {{ $specsLaptop->procesador_gen }}a gen, {{ $specsLaptop->procesador_ghz }} GHz, {{ $specsLaptop->procesador_nucleos }} núcleos, RAM {{ $specsLaptop->ram_gb }} GB {{ $specsLaptop->ram_tipo }}, Disco duro {{ $specsLaptop->discod_gb }} {{ $specsLaptop->discod_tipo }}">
                 </div>
             @endif
             @if ($specsLaptop->product->file->image_4)
                 <div class="slide">
-                    <img src="{{ asset($specsLaptop->product->file->image_4) }}">
+                    <img src="{{ asset($specsLaptop->product->file->image_4) }}" alt="Cuarta imágen de Laptop {{ $specsLaptop->equipo_marca }}{{ $specsLaptop->equipo_linea }}{{ $specsLaptop->equipo_modelo }}, {{ $specsLaptop->procesador_marca }} {{ $specsLaptop->procesador_modelo }} {{ $specsLaptop->procesador_gen }}a gen, {{ $specsLaptop->procesador_ghz }} GHz, {{ $specsLaptop->procesador_nucleos }} núcleos, RAM {{ $specsLaptop->ram_gb }} GB {{ $specsLaptop->ram_tipo }}, Disco duro {{ $specsLaptop->discod_gb }} {{ $specsLaptop->discod_tipo }}">
                 </div>
             @endif
             @if ($specsLaptop->product->file->image_5)
                 <div class="slide">
-                    <img src="{{ asset($specsLaptop->product->file->image_5) }}">
+                    <img src="{{ asset($specsLaptop->product->file->image_5) }}" alt="Quinta imágen de Laptop {{ $specsLaptop->equipo_marca }}{{ $specsLaptop->equipo_linea }}{{ $specsLaptop->equipo_modelo }}, {{ $specsLaptop->procesador_marca }} {{ $specsLaptop->procesador_modelo }} {{ $specsLaptop->procesador_gen }}a gen, {{ $specsLaptop->procesador_ghz }} GHz, {{ $specsLaptop->procesador_nucleos }} núcleos, RAM {{ $specsLaptop->ram_gb }} GB {{ $specsLaptop->ram_tipo }}, Disco duro {{ $specsLaptop->discod_gb }} {{ $specsLaptop->discod_tipo }}">
                 </div>
             @endif
             @if ($specsLaptop->product->file->image_6)
                 <div class="slide">
-                    <img src="{{ asset($specsLaptop->product->file->image_6) }}">
+                    <img src="{{ asset($specsLaptop->product->file->image_6) }}" alt="Sexta imágen de Laptop {{ $specsLaptop->equipo_marca }}{{ $specsLaptop->equipo_linea }}{{ $specsLaptop->equipo_modelo }}, {{ $specsLaptop->procesador_marca }} {{ $specsLaptop->procesador_modelo }} {{ $specsLaptop->procesador_gen }}a gen, {{ $specsLaptop->procesador_ghz }} GHz, {{ $specsLaptop->procesador_nucleos }} núcleos, RAM {{ $specsLaptop->ram_gb }} GB {{ $specsLaptop->ram_tipo }}, Disco duro {{ $specsLaptop->discod_gb }} {{ $specsLaptop->discod_tipo }}">
                 </div>
             @endif
             @if ($specsLaptop->product->file->image_7)
                 <div class="slide">
-                    <img src="{{ asset($specsLaptop->product->file->image_7) }}">
+                    <img src="{{ asset($specsLaptop->product->file->image_7) }}" alt="Séptima imágen de Laptop {{ $specsLaptop->equipo_marca }}{{ $specsLaptop->equipo_linea }}{{ $specsLaptop->equipo_modelo }}, {{ $specsLaptop->procesador_marca }} {{ $specsLaptop->procesador_modelo }} {{ $specsLaptop->procesador_gen }}a gen, {{ $specsLaptop->procesador_ghz }} GHz, {{ $specsLaptop->procesador_nucleos }} núcleos, RAM {{ $specsLaptop->ram_gb }} GB {{ $specsLaptop->ram_tipo }}, Disco duro {{ $specsLaptop->discod_gb }} {{ $specsLaptop->discod_tipo }}">
                 </div>
             @endif
         </div>
@@ -199,43 +193,43 @@
                 <div id="img--prod-items">
                     @if ($specsLaptop->product->file->image_1)
                     <div class="img--miniature outl--blue-ow" id="img--prod-1">
-                        <img src="{{ asset($specsLaptop->product->file->image_1) }}">
+                        <img src="{{ asset($specsLaptop->product->file->image_1) }}" alt="Primera imágen de Laptop {{ $specsLaptop->equipo_marca }}{{ $specsLaptop->equipo_linea }}{{ $specsLaptop->equipo_modelo }}, {{ $specsLaptop->procesador_marca }} {{ $specsLaptop->procesador_modelo }} {{ $specsLaptop->procesador_gen }}a gen, {{ $specsLaptop->procesador_ghz }} GHz, {{ $specsLaptop->procesador_nucleos }} núcleos, RAM {{ $specsLaptop->ram_gb }} GB {{ $specsLaptop->ram_tipo }}, Disco duro {{ $specsLaptop->discod_gb }} {{ $specsLaptop->discod_tipo }}">
                     </div>
                     @endif
                     @if ($specsLaptop->product->file->image_2)
                         <div class="img--miniature outl--blue-ow" id="img--prod-2">
 
-                            <img src="{{ asset($specsLaptop->product->file->image_2) }}">
+                            <img src="{{ asset($specsLaptop->product->file->image_2) }}" alt="Segunda imágen de Laptop {{ $specsLaptop->equipo_marca }}{{ $specsLaptop->equipo_linea }}{{ $specsLaptop->equipo_modelo }}, {{ $specsLaptop->procesador_marca }} {{ $specsLaptop->procesador_modelo }} {{ $specsLaptop->procesador_gen }}a gen, {{ $specsLaptop->procesador_ghz }} GHz, {{ $specsLaptop->procesador_nucleos }} núcleos, RAM {{ $specsLaptop->ram_gb }} GB {{ $specsLaptop->ram_tipo }}, Disco duro {{ $specsLaptop->discod_gb }} {{ $specsLaptop->discod_tipo }}">
                         </div>
                     @endif
                     @if ($specsLaptop->product->file->image_3)
                         <div class="img--miniature outl--blue-ow" id="img--prod-3">
 
-                            <img src="{{ asset($specsLaptop->product->file->image_3) }}">
+                            <img src="{{ asset($specsLaptop->product->file->image_3) }}" alt="Tercera imágen de Laptop {{ $specsLaptop->equipo_marca }}{{ $specsLaptop->equipo_linea }}{{ $specsLaptop->equipo_modelo }}, {{ $specsLaptop->procesador_marca }} {{ $specsLaptop->procesador_modelo }} {{ $specsLaptop->procesador_gen }}a gen, {{ $specsLaptop->procesador_ghz }} GHz, {{ $specsLaptop->procesador_nucleos }} núcleos, RAM {{ $specsLaptop->ram_gb }} GB {{ $specsLaptop->ram_tipo }}, Disco duro {{ $specsLaptop->discod_gb }} {{ $specsLaptop->discod_tipo }}">
                         </div>
                     @endif
                     @if ($specsLaptop->product->file->image_4)
                         <div class="img--miniature outl--blue-ow" id="img--prod-4">
 
-                            <img src="{{ asset($specsLaptop->product->file->image_4) }}">
+                            <img src="{{ asset($specsLaptop->product->file->image_4) }}" alt="Cuarta imágen de Laptop {{ $specsLaptop->equipo_marca }}{{ $specsLaptop->equipo_linea }}{{ $specsLaptop->equipo_modelo }}, {{ $specsLaptop->procesador_marca }} {{ $specsLaptop->procesador_modelo }} {{ $specsLaptop->procesador_gen }}a gen, {{ $specsLaptop->procesador_ghz }} GHz, {{ $specsLaptop->procesador_nucleos }} núcleos, RAM {{ $specsLaptop->ram_gb }} GB {{ $specsLaptop->ram_tipo }}, Disco duro {{ $specsLaptop->discod_gb }} {{ $specsLaptop->discod_tipo }}">
                         </div>
                     @endif
                     @if ($specsLaptop->product->file->image_5)
                         <div class="img--miniature outl--blue-ow" id="img--prod-5">
 
-                            <img src="{{ asset($specsLaptop->product->file->image_5) }}">
+                            <img src="{{ asset($specsLaptop->product->file->image_5) }}" alt="Quinta imágen de Laptop {{ $specsLaptop->equipo_marca }}{{ $specsLaptop->equipo_linea }}{{ $specsLaptop->equipo_modelo }}, {{ $specsLaptop->procesador_marca }} {{ $specsLaptop->procesador_modelo }} {{ $specsLaptop->procesador_gen }}a gen, {{ $specsLaptop->procesador_ghz }} GHz, {{ $specsLaptop->procesador_nucleos }} núcleos, RAM {{ $specsLaptop->ram_gb }} GB {{ $specsLaptop->ram_tipo }}, Disco duro {{ $specsLaptop->discod_gb }} {{ $specsLaptop->discod_tipo }}">
                         </div>
                     @endif
                     @if ($specsLaptop->product->file->image_6)
                         <div class="img--miniature outl--blue-ow" id="img--prod-6">
 
-                            <img src="{{ asset($specsLaptop->product->file->image_6) }}">
+                            <img src="{{ asset($specsLaptop->product->file->image_6) }}" alt="Sexta imágen de Laptop {{ $specsLaptop->equipo_marca }}{{ $specsLaptop->equipo_linea }}{{ $specsLaptop->equipo_modelo }}, {{ $specsLaptop->procesador_marca }} {{ $specsLaptop->procesador_modelo }} {{ $specsLaptop->procesador_gen }}a gen, {{ $specsLaptop->procesador_ghz }} GHz, {{ $specsLaptop->procesador_nucleos }} núcleos, RAM {{ $specsLaptop->ram_gb }} GB {{ $specsLaptop->ram_tipo }}, Disco duro {{ $specsLaptop->discod_gb }} {{ $specsLaptop->discod_tipo }}">
                         </div>
                     @endif
                     @if ($specsLaptop->product->file->image_7)
                         <div class="img--miniature outl--blue-ow" id="img--prod-7">
 
-                            <img src="{{ asset($specsLaptop->product->file->image_7) }}">
+                            <img src="{{ asset($specsLaptop->product->file->image_7) }}" alt="Séptima imágen de Laptop {{ $specsLaptop->equipo_marca }}{{ $specsLaptop->equipo_linea }}{{ $specsLaptop->equipo_modelo }}, {{ $specsLaptop->procesador_marca }} {{ $specsLaptop->procesador_modelo }} {{ $specsLaptop->procesador_gen }}a gen, {{ $specsLaptop->procesador_ghz }} GHz, {{ $specsLaptop->procesador_nucleos }} núcleos, RAM {{ $specsLaptop->ram_gb }} GB {{ $specsLaptop->ram_tipo }}, Disco duro {{ $specsLaptop->discod_gb }} {{ $specsLaptop->discod_tipo }}">
                         </div>
                     @endif
                 </div>
@@ -243,22 +237,22 @@
             </div>
 
             <div id="container--dets">
-                <h1> 
+                <h1> Laptop 
                     {{ $specsLaptop->equipo_marca }}
                     {{ $specsLaptop->equipo_linea }}
                     {{ $specsLaptop->equipo_modelo }}
                 </h1>
-                <h3>
+                <h2>
                     {{ $specsLaptop->procesador_marca }}
                     {{ $specsLaptop->procesador_modelo }}
                     {{ $specsLaptop->procesador_gen }}a gen, 
                     {{ $specsLaptop->procesador_ghz }} GHz,
-                    {{ $specsLaptop->procesador_nucleos }} Núcleos,
-                    {{ $specsLaptop->ram_gb }} GB
+                    {{ $specsLaptop->procesador_nucleos }} núcleos,
+                    RAM {{ $specsLaptop->ram_gb }} GB
                     {{ $specsLaptop->ram_tipo }},
-                    {{ $specsLaptop->discod_gb }} GB
+                    Disco duro {{ $specsLaptop->discod_gb }}
                     {{ $specsLaptop->discod_tipo }}
-                </h3>
+                </h2>
 
                 <p id="info--sku" class="p--description">
                     SKU {{ $specsLaptop->product->sku }}
@@ -292,10 +286,10 @@
                     @endif
                 </p>
 
-                <a href="https://wa.me/528110649320?text=Me%20interesa%20{{ $specsLaptop->equipo_marca }}%20{{ $specsLaptop->equipo_linea }}%20{{ $specsLaptop->equipo_modelo }}%20SKU%20{{ $specsLaptop->product->sku }}%20(Prueba)" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/528110649320?text=Hola,%20me%20interesa%20{{ $specsLaptop->equipo_marca }}%20{{ $specsLaptop->equipo_linea }}%20{{ $specsLaptop->equipo_modelo }}%20SKU%20{{ $specsLaptop->product->sku }}%20(Prueba)" target="_blank" rel="noopener noreferrer" title="Comprar ahora a través de Whatsapp">
                     <button id="info--buy" class="button--whatsapp-ow">
                         Comprar ahora
-                        <img src="{{ asset('storage/images/social-media/whatsapp-w.svg') }}">
+                        <img src="{{ asset('storage/images/social-media/whatsapp-w.svg') }}" alt="Comprar ahora a través de Whatsapp">
                     </button>
                 </a>
 
@@ -308,6 +302,43 @@
             <div id="product--specs-items">
                 <h1>Especificaciones</h1>
                 <section>
+                    {{-- PROCESADOR --}}
+                    <table class="box--ow-max">
+                        <caption><h3>Procesador</h3></caption>
+                        <tr>
+                            <td>Marca</td>
+                            <td>
+                                {{ $specsLaptop->procesador_marca}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Modelo</td>
+                            <td>
+                                {{ $specsLaptop->procesador_modelo}}
+                            </td>
+                        </tr>
+                        @if ($specsLaptop->procesador_gen > 0)
+                            <tr>
+                                <td>Generación</td>
+                                <td>
+                                    {{ $specsLaptop->procesador_gen }}a
+                                </td>
+                            </tr>    
+                        @endif
+                        <tr>
+                            <td>Velocidad</td>
+                            <td>
+                                {{ $specsLaptop->procesador_ghz}} GHz
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Núcleos</td>
+                            <td>
+                                {{ $specsLaptop->procesador_nucleos}}
+                            </td>
+                        </tr>
+                    </table>
+                    {{-- EQUIPO --}}
                     <table class="box--ow-max">
                         <caption><h3>Equipo</h3></caption>
                         <tr>
@@ -329,7 +360,7 @@
                             </td>
                         </tr>
                     </table>
-
+                    {{-- RAM --}}
                     <table class="box--ow-max">
                         <caption><h3>Memoria RAM</h3></caption>
                         <tr>
@@ -345,7 +376,7 @@
                             </td>
                         </tr>
                     </table>
-
+                    {{-- DISCO DURO --}}
                     <table class="box--ow-max">
                         <caption><h3>Disco duro</h3></caption>
                         <tr>
@@ -361,41 +392,7 @@
                             </td>
                         </tr>
                     </table>
-
-                    <table class="box--ow-max">
-                        <caption><h3>Procesador</h3></caption>
-                        <tr>
-                            <td>Marca</td>
-                            <td>
-                                {{ $specsLaptop->procesador_marca}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Modelo</td>
-                            <td>
-                                {{ $specsLaptop->procesador_modelo}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Generación</td>
-                            <td>
-                                {{ $specsLaptop->procesador_gen}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Velocidad</td>
-                            <td>
-                                {{ $specsLaptop->procesador_ghz}} GHz
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Núcleos</td>
-                            <td>
-                                {{ $specsLaptop->procesador_nucleos}}
-                            </td>
-                        </tr>
-                    </table>
-
+                    {{-- TARJETA GRÁFICA --}}
                     @if ($specsLaptop->tarjetag)
                         <table class="box--ow-max">
                             <caption><h3>Tarjeta gráfica</h3></caption>
@@ -425,7 +422,7 @@
                             </tr>
                         </table>
                     @endif
-                    
+                    {{-- PANTALLA --}}
                     <table class="box--ow-max">
                         <caption><h3>Pantalla</h3></caption>
                         <tr>
@@ -437,13 +434,13 @@
                         <tr>
                             <td>Tamaño</td>
                             <td>
-                                {{ $specsLaptop->pantalla_tamano}}"
+                                {{ $specsLaptop->pantalla_tamano}} pulgadas
                             </td>
                         </tr>
                         <tr>
                             <td>Resolución</td>
                             <td>
-                                {{ $specsLaptop->pantalla_resolucion}}
+                                {{ $specsLaptop->pantalla_resolucion}} px
                             </td>
                         </tr>
                         <tr>
@@ -457,7 +454,7 @@
                             </td>
                         </tr>
                     </table>
-
+                    {{-- TECLADO --}}
                     <table class="box--ow-max">
                         <caption><h3>Teclado</h3></caption>
                         <tr>
@@ -487,7 +484,7 @@
                             </td>
                         </tr>
                     </table>
-
+                    {{-- CONECTIVIDAD --}}
                     <table class="box--ow-max">
                         <caption><h3>Conectividad</h3></caption>
                         <tr>
@@ -601,7 +598,7 @@
                         </tr>
 
                     </table>
-
+                    {{-- SISTEMA OPERATIVO --}}
                     <table class="box--ow-max">
                         <caption><h3>Sistema Operativo</h3></caption>
                         <tr>
@@ -611,7 +608,7 @@
                             </td>
                         </tr>
                     </table>
-
+                    {{-- SOFTWARE --}}
                     <table class="box--ow-max">
                         <caption><h3>Software adicional</h3></caption>
                         <tr>
@@ -621,11 +618,11 @@
                             </td>
                         </tr>
                     </table>
-
+                    {{-- AUDIO Y VIDEO --}}
                     <table class="box--ow-max">
                         <caption><h3>Audio y video</h3></caption>
                         <tr>
-                            <td>Idioma</td>
+                            <td>Cámara</td>
                             <td>
                                 @if ($specsLaptop->audiov_camara)
                                     Si
@@ -635,7 +632,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Retroiluminado</td>
+                            <td>Micrófono</td>
                             <td>
                                 @if ($specsLaptop->audiov_microfono)
                                     Si
@@ -645,7 +642,7 @@
                             </td>
                         </tr>
                     </table>
-
+                    {{-- BATERÍA --}}
                     <table class="box--ow-max">
                         <caption><h3>Batería</h3></caption>
                         <tr>
@@ -661,7 +658,7 @@
                             </td>
                         </tr>
                     </table>
-
+                    {{-- ESTADO --}}
                     <table class="box--ow-max table-end">
                         <caption><h3>Estado</h3></caption>
                         <tr>
@@ -710,31 +707,29 @@
     {{--*
         * FOOTER
     --}}
+    {{--*
+        * FOOTER
+    --}}
     <footer class="footer">
-
         <div id="footer--logo">
-            <img src="{{ asset('storage/images/logo-large-b.svg') }}" alt="">
+            <img src="{{ asset('storage/images/logo-large-b.svg') }}" alt="Logo SeresTech">
         </div>
-
+    
         <div id="footer--number">
             <p><i class='bx bxs-phone'></i>
-                Llamanos al +52 81 1064 9320
+                Llama ahora al +52 81 1064 9320
             </p>
         </div>
-
+    
             <div id="footer--buttons" class="nav--buttons">
-                <a class="a--icon outl--blue-ow" target="_blank" rel="noopener noreferrer" 
-                href="https://www.facebook.com/SeresTech21/">
-                    <img src="{{ asset('storage/images/social-media/fb-rounded-style.svg') }}" 
-                    title="Encuentranos en Facebook">
+                <a class="a--icon outl--blue-ow" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/SeresTech21/" title="Encuéntranos en Facebook SeresTech21" >
+                    <img src="{{ asset('storage/images/social-media/fb-rounded-style.svg') }}" alt="Encuéntranos en Facebook">
                 </a>
             
-                <a class="a--icon outl--blue-ow input--ow" target="_blank" rel="noopener noreferrer" 
-                href="https://www.instagram.com/serestech21/">
-                    <img src="{{ asset('storage/images/social-media/ig-rounded-style-a.svg') }}" 
-                    title="Siguenos en Instagram">
+                <a class="a--icon outl--blue-ow input--ow" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/serestech21/" title="Síguenos en Instagram serestech21">
+                    <img src="{{ asset('storage/images/social-media/ig-rounded-style-a.svg') }}" alt="Síguenos en Instagram">
                 </a>
-
+            
                 <button class="button--neutral-ow popup-message popup-message-bot">
                     Envios
                     <p>
@@ -743,19 +738,19 @@
                         pasar a recogerlo a nuestras oficinas o acordar un punto de encuentro.
                     </p>
                 </button> 
-
-                <a href="https://wa.me/528110649320" target="_blank" rel="noopener noreferrer">
+            
+                <a href="https://wa.me/528110649320" target="_blank" rel="noopener noreferrer" title="Contáctanos a través de Whatsapp">
                     <button class="button--whatsapp-ow">
-                        Contactanos
-                        <img src="{{ asset('storage/images/social-media/whatsapp-w.svg') }}">
+                        Contáctanos
+                        <img src="{{ asset('storage/images/social-media/whatsapp-w.svg') }}" alt="Contáctanos a través de Whatsapp">
                     </button>
                 </a>
             </div>
-
+        
         <div id="footer--adress">
             <p>Mazapil 112, col, Mitras Centro, 64460 Monterrey, N.L.</p>
         </div>
-
+    
         <div class="static-message">
             <p>
                 El envio de nuestros productos se acuerda al momento
@@ -763,19 +758,24 @@
                 pasar a recogerlo a nuestras oficinas o acordar un punto de encuentro.
             </p>
         </div>
-
+           
         <div id="footer--currencies">
-            <img src="{{ asset('storage/images/currencies/mastercard.svg') }}">
-            <img src="{{ asset('storage/images/currencies/visa.svg') }}" >
-            <img src="{{ asset('storage/images/currencies/paypal.svg') }}">
-            <img src="{{ asset('storage/images/currencies/711.svg') }}">
-            <img src="{{ asset('storage/images/currencies/oxxo.svg') }}">
-
+            <img src="{{ asset('storage/images/currencies/mastercard.svg') }}" alt="Contamos con medios de pago como tarjetas de débito y crédito Mastercard">
+            <img src="{{ asset('storage/images/currencies/visa.svg') }}" alt="Contamos con medios de pago como tarjetas de débito y crédito Visa">
+            <img src="{{ asset('storage/images/currencies/paypal.svg') }}" alt="Contamos con medios de pago como transferencia por Paypal">
+            <img src="{{ asset('storage/images/currencies/711.svg') }}" alt="Contamos con medios de pago como depósito y transferencia bancaria por 7Eleven">
+            <img src="{{ asset('storage/images/currencies/oxxo.svg') }}" alt="Contamos con medios de pago como depósito y transferencia bancaria por Oxxos">
+        
             <div id="cryptocurrencies" class="box--ow-max">
-                <img src="{{ asset('storage/images/currencies/shib.svg')}}">
-                <img src="{{ asset('storage/images/currencies/bitcoin.svg')}}">
+                <img src="{{ asset('storage/images/currencies/shib.svg')}}" alt="Contamos con medios de pago">
+                <img src="{{ asset('storage/images/currencies/bitcoin.svg')}}" alt="Contamos con medios de pago">
             </div>
         </div>
     </footer>
 </div>
+@section('scripts')
+    <script src="{{ asset('storage/js/product.js') }}"></script>
+    <script src="{{ asset('storage/js/touchSlider.js') }}"></script>
+    <script src="{{ asset('storage/js/menu.js') }}"></script>
+@endsection
 @endsection

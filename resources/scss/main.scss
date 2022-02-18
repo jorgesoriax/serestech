@@ -3,17 +3,36 @@
   * * BASE
   * Estilos de aplicación general
   */
+@font-face {
+    font-family: 'Pacifico';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Pacifico Regular'), local('Pacifico-Regular'), url(https://fonts.gstatic.com/s/pacifico/v12/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2) format('woff2');
+    font-display: swap;
+}
 body{
-    background: setcolor(white, light);
     margin: 0;
     padding: 0;
     border: 0;
     @include font-family($font--title, 400);
     color: setcolor(black);
+
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent; 
+        // border: $border--px solid setcolor(gray, light);
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: setcolor(gray);
+    }
 }
 #universal--container{
     background: setcolor(white);
     margin: 0 auto;
+    position: relative;
 }
 *{
     box-sizing: border-box;
@@ -46,7 +65,8 @@ footer{
     grid-template-columns: 50% 50%;
     grid-template-rows: auto auto auto;
 }
-button, input[type=submit]{
+button, input[type=submit], .btn-upload{
+    height: 43px;
     border-radius: $border--rad-mid;
     padding: $button-text--padd;
     font-size: $button--font-size;
@@ -54,13 +74,16 @@ button, input[type=submit]{
     @include font-family($font--head);
     @include flex;
     gap: $gap--min;
-    height: 43px;
     white-space: nowrap;
     position: relative;
 
     img{
         height: 21px;
     }
+}
+select{
+    border-radius: $border--rad-min;
+    padding: 4.5px;
 }
 
 a{
@@ -84,4 +107,8 @@ i{
 }
 span{
     font-size: $paragraph--font-size;
+}
+i{
+    font-size: $i--font-size-min;
+    color: setcolor(black);
 }

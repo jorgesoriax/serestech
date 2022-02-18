@@ -1,7 +1,7 @@
 @use "../abstracts" as *;
 @use "../tools/mixins" as *;
 
-#menu--container{
+.menu--container{
     width: 100%;
     height: 100vh;
     position: fixed;
@@ -10,7 +10,7 @@
     transition: $animation-duration--mid;
     transform: translateX(100%);
 
-    #content{
+    .content{
         background: setcolor(white);
         width: 75%;
         height: 100vh;
@@ -20,12 +20,12 @@
         right: 0;
     }
 }
-#shadow{
-    background: setcolor(black);
+.modal-shadow{
+    background: setcolor(black, shadow);
     width: 100%;
+    min-width: 1200px;
     height: 100vh;
     position: fixed;
     z-index: 9;
-    opacity: .5;
     display: none;
 }

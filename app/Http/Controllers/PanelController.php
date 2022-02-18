@@ -7,6 +7,7 @@ use App\Models\Inventory;
 use App\Models\Product;
 use App\Models\SpecificationsLaptop;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Str;
@@ -15,90 +16,103 @@ class PanelController extends Controller
 {
     public function index(){
         $specsLaptop = SpecificationsLaptop::paginate(15);
+        $msgResultEmpty = 'Estoy en blanco. Comencemos a trabajar.';
 
-        return view('panel', compact('specsLaptop'));
+        return view('panel', compact('specsLaptop', 'msgResultEmpty'));
     }
+    public function search(Request $request){
+        $textClear = trim($request->get('text-search'));
+        $specsLaptop = SpecificationsLaptop::where('equipo_marca', $textClear)
+                                           ->orWhere('equipo_linea', $textClear)
+                                           ->orWhere('equipo_modelo', $textClear)
+                                           ->paginate(15);
 
+        $msgResultEmpty = 'No se encontraron coincidencias.';
+
+        return view('panel', compact('specsLaptop', 'msgResultEmpty'));
+    }
     public function create(){
         return view('create');
     }
-
     public function show(SpecificationsLaptop $specLaptop){
         return view('show', compact('specLaptop'));
     }
-    
     public function edit(SpecificationsLaptop $specLaptop){
         return view('edit', compact('specLaptop'));
     }
-
+    public function delete(SpecificationsLaptop $specLaptop){
+        return view('delete', compact('specLaptop'));
+    }
     public function store(Request $request){
-        $request->validate([
-            'stock'                => 'required|numeric',
+        // $request->validate([
+        //     'stock'                => 'required|numeric',
 
-            'image_1'              => 'nullable|image',
-            'image_2'              => 'nullable|image',
-            'image_3'              => 'nullable|image',
-            'image_4'              => 'nullable|image',
-            'image_5'              => 'nullable|image',
-            'image_6'              => 'nullable|image',
-            'image_7'              => 'nullable|image',
+        //     'image_1'              => 'nullable|image',
+        //     'image_2'              => 'nullable|image',
+        //     'image_3'              => 'nullable|image',
+        //     'image_4'              => 'nullable|image',
+        //     'image_5'              => 'nullable|image',
+        //     'image_6'              => 'nullable|image',
+        //     'image_7'              => 'nullable|image',
 
-            'sku'                  => 'required|alpha_num',
-            'price'                => 'required|numeric', 
-            'price_discount'       => 'nullable|numeric',
-            'status_usage'         => 'required|string',
-            'status_aesthetic'     => 'required|numeric',
-            'warranty_days'        => 'required|numeric',
-            'support'              => 'required|string',
-            'delivery'             => 'required|string',
+        //     'sku'                  => 'required|alpha_num',
+        //     'price'                => 'required|numeric', 
+        //     'price_discount'       => 'nullable|numeric',
+        //     'status_usage'         => 'required|string',
+        //     'status_aesthetic'     => 'required|numeric',
+        //     'warranty_days'        => 'required|numeric',
+        //     'support'              => 'required|string',
+        //     'delivery'             => 'required|string',
 
-            'equipo_marca'         => 'required|string',
-            'equipo_linea'         => 'required|string',
-            'equipo_modelo'        => 'required|string',
-            'ram_gb'               => 'required|numeric',
-            'ram_tipo'             => 'required|string',
-            'discod_gb'            => 'required|string',
-            'discod_tipo'          => 'required|string',
-            'procesador_marca'     => 'required|string',
-            'procesador_modelo'    => 'required|string',
-            'procesador_gen'       => 'required|numeric',
-            'procesador_ghz'       => 'required|numeric',
-            'procesador_nucleos'   => 'required|numeric',
-            'tarjetag'             => 'required|boolean',
+        //     'equipo_marca'         => 'required|string',
+        //     'equipo_linea'         => 'required|string',
+        //     'equipo_modelo'        => 'required|string',
+        //     'ram_gb'               => 'required|numeric',
+        //     'ram_tipo'             => 'required|string',
+        //     'discod_amount'        => 'required|numeric',
+        //     'discod_storage'       => 'required|string',
+        //     'discod_tipo'          => 'required|string',
+        //     'procesador_marca'     => 'required|string',
+        //     'procesador_modelo'    => 'required|string',
+        //     'procesador_gen'       => 'required|numeric',
+        //     'procesador_ghz'       => 'required|numeric',
+        //     'procesador_nucleos'   => 'required|numeric',
+            
+        //     'tarjetag'             => 'required|boolean',
+        //     'tarjetag_marca'       => 'nullable|string',
+        //     'tarjetag_modelo'      => 'nullable|string',
+        //     'tarjetag_tipomemoria' => 'nullable|string',
+        //     'tarjetag_gb'          => 'nullable|numeric',
 
-            'tarjetag_marca'       => 'nullable|string',
-            'tarjetag_modelo'      => 'nullable|string',
-            'tarjetag_tipomemoria' => 'nullable|string',
-            'tarjetag_gb'          => 'nullable|numeric',
-
-            'pantalla_tipo'        => 'required|string',
-            'pantalla_tamano'      => 'required|numeric',
-            'pantalla_tactil'      => 'required|boolean',
-            'pantalla_resolucion'  => 'required|string',
-            'teclado_idioma'       => 'required|string',
-            'teclado_retroi'       => 'required|boolean',
-            'teclado_num'          => 'required|boolean',
-            'conectv_usb2'         => 'required|numeric',
-            'conectv_usb3'         => 'required|numeric',
-            'conectv_usbc'         => 'required|numeric',
-            'conectv_wifi'         => 'required|boolean',
-            'conectv_bluetooth'    => 'required|boolean',
-            'conectv_jack'         => 'required|boolean',
-            'conectv_hdmi'         => 'required|boolean',
-            'conectv_vga'          => 'required|boolean',
-            'conectv_displayp'     => 'required|boolean',
-            'conectv_ethernet'     => 'required|boolean',
-            'conectv_serialcom'    => 'required|boolean',
-            'conectv_ieee1394'     => 'required|boolean',
-            'so'                   => 'required|string',
-            'software_ad'          => 'required|string',
-            'audiov_camara'        => 'required|boolean',
-            'audiov_microfono'     => 'required|boolean',
-            'lectura_unidadoptica' => 'required|boolean',
-            'lectura_sd'           => 'required|boolean',
-            'bateria_tipo'         => 'required|string',
-            'bateria_celdas'       => 'required|numeric'
-        ]);
+        //     'pantalla_tipo'        => 'required|string',
+        //     'pantalla_tamano'      => 'required|numeric',
+        //     'pantalla_tactil'      => 'required|boolean',
+        //     'pantalla_resolucion'  => 'required|numeric',
+        //     'pantalla_resolucion_y'=> 'required|numeric',
+        //     'teclado_idioma'       => 'required|string',
+        //     'teclado_retroi'       => 'required|boolean',
+        //     'teclado_num'          => 'required|boolean',
+        //     'conectv_usb2'         => 'required|numeric',
+        //     'conectv_usb3'         => 'required|numeric',
+        //     'conectv_usbc'         => 'required|numeric',
+        //     'conectv_wifi'         => 'required|boolean',
+        //     'conectv_bluetooth'    => 'required|boolean',
+        //     'conectv_jack'         => 'required|boolean',
+        //     'conectv_hdmi'         => 'required|boolean',
+        //     'conectv_vga'          => 'required|boolean',
+        //     'conectv_displayp'     => 'required|boolean',
+        //     'conectv_ethernet'     => 'required|boolean',
+        //     'conectv_serialcom'    => 'required|boolean',
+        //     'conectv_ieee1394'     => 'required|boolean',
+        //     'so'                   => 'required|string',
+        //     'software_ad'          => 'required|string',
+        //     'audiov_camara'        => 'required|boolean',
+        //     'audiov_microfono'     => 'required|boolean',
+        //     'lectura_unidadoptica' => 'required|boolean',
+        //     'lectura_sd'           => 'required|boolean',
+        //     'bateria_tipo'         => 'required|string',
+        //     'bateria_celdas'       => 'required|numeric'
+        // ]);
         
         // * Inventory
         $inventory = new Inventory();
@@ -116,7 +130,7 @@ class PanelController extends Controller
             $url_1 = public_path() . '/storage/images/upload/' . $name_1;
 
             Image::make($request->file('image_1'))
-                 ->fit(600)
+                 ->fit(410)
                  ->save($url_1);
 
                  
@@ -128,7 +142,7 @@ class PanelController extends Controller
             $url_2 = public_path() . '/storage/images/upload/' . $name_2;
 
             Image::make($request->file('image_2'))
-                 ->fit(600)
+                 ->fit(410)
                  ->save($url_2);
 
                  
@@ -139,7 +153,7 @@ class PanelController extends Controller
             $url_3 = public_path() . '/storage/images/upload/' . $name_3;
 
             Image::make($request->file('image_3'))
-                 ->fit(600)
+                 ->fit(410)
                  ->save($url_3);
 
                  
@@ -150,7 +164,7 @@ class PanelController extends Controller
             $url_4 = public_path() . '/storage/images/upload/' . $name_4;
 
             Image::make($request->file('image_4'))
-                 ->fit(600)
+                 ->fit(410)
                  ->save($url_4);
 
                  
@@ -161,7 +175,7 @@ class PanelController extends Controller
             $url_5 = public_path() . '/storage/images/upload/' . $name_5;
 
             Image::make($request->file('image_5'))
-                 ->fit(600)
+                 ->fit(410)
                  ->save($url_5);
 
                  
@@ -172,7 +186,7 @@ class PanelController extends Controller
             $url_6 = public_path() . '/storage/images/upload/' . $name_6;
 
             Image::make($request->file('image_6'))
-                 ->fit(600)
+                 ->fit(410)
                  ->save($url_6);
 
                  
@@ -183,7 +197,7 @@ class PanelController extends Controller
             $url_7 = public_path() . '/storage/images/upload/' . $name_7;
 
             Image::make($request->file('image_7'))
-                 ->fit(600)
+                 ->fit(410)
                  ->save($url_7);
 
                  
@@ -215,7 +229,7 @@ class PanelController extends Controller
         $spec->equipo_modelo = $request->equipo_modelo;
         $spec->ram_gb = $request->ram_gb;
         $spec->ram_tipo = $request->ram_tipo;
-        $spec->discod_gb = $request->discod_gb;
+        $spec->discod_gb = $request->discod_amount . ' ' . $request->discod_storage;
         $spec->discod_tipo = $request->discod_tipo;
         $spec->procesador_marca = $request->procesador_marca;
         $spec->procesador_modelo = $request->procesador_modelo;
@@ -230,7 +244,7 @@ class PanelController extends Controller
         $spec->pantalla_tipo = $request->pantalla_tipo;
         $spec->pantalla_tamano = $request->pantalla_tamano;
         $spec->pantalla_tactil = $request->pantalla_tactil;
-        $spec->pantalla_resolucion = $request->pantalla_resolucion;
+        $spec->pantalla_resolucion = $request->pantalla_resolucion . ' x ' . $request->pantalla_resolucion_y;
         $spec->teclado_idioma = $request->teclado_idioma;
         $spec->teclado_retroi = $request->teclado_retroi;
         $spec->teclado_num = $request->teclado_num;
@@ -257,79 +271,78 @@ class PanelController extends Controller
         $spec->product_id = $id->id;
         $spec->save();
 
-        return redirect()->route('panel.index');
+        return redirect()->back();
     }
-
-
     public function update(Request $request, SpecificationsLaptop $specLaptop){
+        // $request->validate([
+        //     'stock'                => 'required|numeric',
 
-        $request->validate([
-            'stock'                => 'required|numeric',
+        //     'image_1'              => 'nullable|image',
+        //     'image_2'              => 'nullable|image',
+        //     'image_3'              => 'nullable|image',
+        //     'image_4'              => 'nullable|image',
+        //     'image_5'              => 'nullable|image',
+        //     'image_6'              => 'nullable|image',
+        //     'image_7'              => 'nullable|image',
 
-            'image_1'              => 'nullable|image',
-            'image_2'              => 'nullable|image',
-            'image_3'              => 'nullable|image',
-            'image_4'              => 'nullable|image',
-            'image_5'              => 'nullable|image',
-            'image_6'              => 'nullable|image',
-            'image_7'              => 'nullable|image',
+        //     'sku'                  => 'required|alpha_num',
+        //     'price'                => 'required|numeric', 
+        //     'price_discount'       => 'nullable|numeric',
+        //     'status_usage'         => 'required|string',
+        //     'status_aesthetic'     => 'required|numeric',
+        //     'warranty_days'        => 'required|numeric',
+        //     'support'              => 'required|string',
+        //     'delivery'             => 'required|string',
 
-            'sku'                  => 'required|alpha_num',
-            'price'                => 'required|numeric', 
-            'price_discount'       => 'nullable|numeric',
-            'status_usage'         => 'required|string',
-            'status_aesthetic'     => 'required|numeric',
-            'warranty_days'        => 'required|numeric',
-            'support'              => 'required|string',
-            'delivery'             => 'required|string',
+        //     'equipo_marca'         => 'required|string',
+        //     'equipo_linea'         => 'required|string',
+        //     'equipo_modelo'        => 'required|string',
+        //     'ram_gb'               => 'required|numeric',
+        //     'ram_tipo'             => 'required|string',
+        //     'discod_amount'        => 'required|numeric',
+        //     'discod_storage'       => 'required|string',
+        //     'discod_tipo'          => 'required|string',
+        //     'procesador_marca'     => 'required|string',
+        //     'procesador_modelo'    => 'required|string',
+        //     'procesador_gen'       => 'required|numeric',
+        //     'procesador_ghz'       => 'required|numeric',
+        //     'procesador_nucleos'   => 'required|numeric',
+        //     'tarjetag'             => 'required|boolean',
 
-            'equipo_marca'         => 'required|string',
-            'equipo_linea'         => 'required|string',
-            'equipo_modelo'        => 'required|string',
-            'ram_gb'               => 'required|numeric',
-            'ram_tipo'             => 'required|string',
-            'discod_gb'            => 'required|string',
-            'discod_tipo'          => 'required|string',
-            'procesador_marca'     => 'required|string',
-            'procesador_modelo'    => 'required|string',
-            'procesador_gen'       => 'required|numeric',
-            'procesador_ghz'       => 'required|numeric',
-            'procesador_nucleos'   => 'required|numeric',
-            'tarjetag'             => 'required|boolean',
+        //     'tarjetag_marca'       => 'nullable|string',
+        //     'tarjetag_modelo'      => 'nullable|string',
+        //     'tarjetag_tipomemoria' => 'nullable|string',
+        //     'tarjetag_gb'          => 'nullable|numeric',
 
-            'tarjetag_marca'       => 'nullable|string',
-            'tarjetag_modelo'      => 'nullable|string',
-            'tarjetag_tipomemoria' => 'nullable|string',
-            'tarjetag_gb'          => 'nullable|numeric',
-
-            'pantalla_tipo'        => 'required|string',
-            'pantalla_tamano'      => 'required|numeric',
-            'pantalla_tactil'      => 'required|boolean',
-            'pantalla_resolucion'  => 'required|string',
-            'teclado_idioma'       => 'required|string',
-            'teclado_retroi'       => 'required|boolean',
-            'teclado_num'          => 'required|boolean',
-            'conectv_usb2'         => 'required|numeric',
-            'conectv_usb3'         => 'required|numeric',
-            'conectv_usbc'         => 'required|numeric',
-            'conectv_wifi'         => 'required|boolean',
-            'conectv_bluetooth'    => 'required|boolean',
-            'conectv_jack'         => 'required|boolean',
-            'conectv_hdmi'         => 'required|boolean',
-            'conectv_vga'          => 'required|boolean',
-            'conectv_displayp'     => 'required|boolean',
-            'conectv_ethernet'     => 'required|boolean',
-            'conectv_serialcom'    => 'required|boolean',
-            'conectv_ieee1394'     => 'required|boolean',
-            'so'                   => 'required|string',
-            'software_ad'          => 'required|string',
-            'audiov_camara'        => 'required|boolean',
-            'audiov_microfono'     => 'required|boolean',
-            'lectura_unidadoptica' => 'required|boolean',
-            'lectura_sd'           => 'required|boolean',
-            'bateria_tipo'         => 'required|string',
-            'bateria_celdas'       => 'required|numeric'
-        ]);
+        //     'pantalla_tipo'        => 'required|string',
+        //     'pantalla_tamano'      => 'required|numeric',
+        //     'pantalla_tactil'      => 'required|boolean',
+        //     'pantalla_resolucion'  => 'required|numeric',
+        //     'pantalla_resolucion_y'=> 'required|numeric',
+        //     'teclado_idioma'       => 'required|string',
+        //     'teclado_retroi'       => 'required|boolean',
+        //     'teclado_num'          => 'required|boolean',
+        //     'conectv_usb2'         => 'required|numeric',
+        //     'conectv_usb3'         => 'required|numeric',
+        //     'conectv_usbc'         => 'required|numeric',
+        //     'conectv_wifi'         => 'required|boolean',
+        //     'conectv_bluetooth'    => 'required|boolean',
+        //     'conectv_jack'         => 'required|boolean',
+        //     'conectv_hdmi'         => 'required|boolean',
+        //     'conectv_vga'          => 'required|boolean',
+        //     'conectv_displayp'     => 'required|boolean',
+        //     'conectv_ethernet'     => 'required|boolean',
+        //     'conectv_serialcom'    => 'required|boolean',
+        //     'conectv_ieee1394'     => 'required|boolean',
+        //     'so'                   => 'required|string',
+        //     'software_ad'          => 'required|string',
+        //     'audiov_camara'        => 'required|boolean',
+        //     'audiov_microfono'     => 'required|boolean',
+        //     'lectura_unidadoptica' => 'required|boolean',
+        //     'lectura_sd'           => 'required|boolean',
+        //     'bateria_tipo'         => 'required|string',
+        //     'bateria_celdas'       => 'required|numeric'
+        // ]);
 
         // * Inventory
         $specLaptop->product->inventory->stock = $request->stock;
@@ -350,25 +363,25 @@ class PanelController extends Controller
         if($request->file('image_1')){
             $name = Str::random(40) . '.webp';
             $url = public_path() . '/storage/images/upload/' . $name;
-
             Image::make($request->file('image_1'))
-                 ->fit(600)
-                 ->save($url);
+             ->fit(410)
+             ->save($url);
 
-                // Eliminar imagen anterior
-                $imageOld = $specLaptop->product->file->image_1;
-                $urlOld = str_replace('storage', 'public' , $imageOld);
-                Storage::delete($urlOld);
+            // Eliminar imagen anterior
+            $imageOld = $specLaptop->product->file->image_1;
+            $urlOld = str_replace('storage', 'public' , $imageOld);
+            Storage::delete($urlOld);
 
-                // Subir nueva imagen
-                $specLaptop->product->file->image_1 = '/storage/images/upload/' . $name;
+            // Subir nueva imagen
+            $specLaptop->product->file->image_1 = '/storage/images/upload/' . $name;
+            
         }
         if($request->file('image_2')){
             $name = Str::random(40) . '.webp';
             $url = public_path() . '/storage/images/upload/' . $name;
 
             Image::make($request->file('image_2'))
-                 ->fit(600)
+                 ->fit(410)
                  ->save($url);
 
             // Eliminar imagen anterior
@@ -384,7 +397,7 @@ class PanelController extends Controller
             $url = public_path() . '/storage/images/upload/' . $name;
 
             Image::make($request->file('image_3'))
-                 ->fit(600)
+                 ->fit(410)
                  ->save($url);
 
                 // Eliminar imagen anterior
@@ -400,7 +413,7 @@ class PanelController extends Controller
             $url = public_path() . '/storage/images/upload/' . $name;
 
             Image::make($request->file('image_4'))
-                 ->fit(600)
+                 ->fit(410)
                  ->save($url);
 
                 // Eliminar imagen anterior
@@ -416,7 +429,7 @@ class PanelController extends Controller
             $url = public_path() . '/storage/images/upload/' . $name;
 
             Image::make($request->file('image_5'))
-                 ->fit(600)
+                 ->fit(410)
                  ->save($url);
 
                 // Eliminar imagen anterior
@@ -432,7 +445,7 @@ class PanelController extends Controller
             $url = public_path() . '/storage/images/upload/' . $name;
 
             Image::make($request->file('image_6'))
-                 ->fit(600)
+                 ->fit(410)
                  ->save($url);
 
                 // Eliminar imagen anterior
@@ -448,7 +461,7 @@ class PanelController extends Controller
             $url = public_path() . '/storage/images/upload/' . $name;
 
             Image::make($request->file('image_7'))
-                 ->fit(600)
+                 ->fit(410)
                  ->save($url);
 
                 // Eliminar imagen anterior
@@ -468,7 +481,7 @@ class PanelController extends Controller
         $specLaptop->equipo_modelo = $request->equipo_modelo;
         $specLaptop->ram_gb = $request->ram_gb;
         $specLaptop->ram_tipo = $request->ram_tipo;
-        $specLaptop->discod_gb = $request->discod_gb;
+        $specLaptop->discod_gb = $request->discod_amount . ' ' . $request->discod_storage;
         $specLaptop->discod_tipo = $request->discod_tipo;
         $specLaptop->procesador_marca = $request->procesador_marca;
         $specLaptop->procesador_modelo = $request->procesador_modelo;
@@ -483,7 +496,7 @@ class PanelController extends Controller
         $specLaptop->pantalla_tipo = $request->pantalla_tipo;
         $specLaptop->pantalla_tamano = $request->pantalla_tamano;
         $specLaptop->pantalla_tactil = $request->pantalla_tactil;
-        $specLaptop->pantalla_resolucion = $request->pantalla_resolucion;
+        $specLaptop->pantalla_resolucion = $request->pantalla_resolucion . ' x ' . $request->pantalla_resolucion_y;
         $specLaptop->teclado_idioma = $request->teclado_idioma;
         $specLaptop->teclado_retroi = $request->teclado_retroi;
         $specLaptop->teclado_num = $request->teclado_num;
@@ -510,9 +523,8 @@ class PanelController extends Controller
         $specLaptop->product_id = $specLaptop->id;
         $specLaptop->save();
         
-        return redirect()->route('panel.index');       
+        return redirect()->back();  
     }
-
     public function destroy(SpecificationsLaptop $specLaptop){
         $specLaptop->product->inventory->delete();
 
@@ -530,6 +542,76 @@ class PanelController extends Controller
         $specLaptop->product->delete();
         $specLaptop->delete();
 
-        return redirect()->route('panel.index');  
+        return redirect()->back();  
+    }
+
+    public function replace(SpecificationsLaptop $specLaptop, $col){
+        /**
+         * EDIT DELETE IMAGE
+         * En la primera línea borramos imagen anterior de storage
+         * En la segunda línea vacíamos el registro de la url en la tabla files
+         */
+
+        switch ($col) {
+            case 1:
+                $imageOld = $specLaptop->product->file->image_1;
+                $urlOld = str_replace('storage', 'public' , $imageOld);
+                Storage::delete($urlOld);
+
+                $specLaptop->product->file->image_1 = null;
+                $specLaptop->product->file->save();
+                
+                break;
+            case 2:
+                $imageOld = $specLaptop->product->file->image_2;
+                $urlOld = str_replace('storage', 'public' , $imageOld);
+                Storage::delete($urlOld);
+
+                $specLaptop->product->file->image_2 = null;
+                $specLaptop->product->file->save();
+                break;
+            case 3:
+                $imageOld = $specLaptop->product->file->image_3;
+                $urlOld = str_replace('storage', 'public' , $imageOld);
+                Storage::delete($urlOld);
+
+                $specLaptop->product->file->image_3 = null;
+                $specLaptop->product->file->save();
+                break;
+            case 4:
+                $imageOld = $specLaptop->product->file->image_4;
+                $urlOld = str_replace('storage', 'public' , $imageOld);
+                Storage::delete($urlOld);
+
+                $specLaptop->product->file->image_4 = null;
+                $specLaptop->product->file->save();
+                break;
+            case 5:
+                $imageOld = $specLaptop->product->file->image_5;
+                $urlOld = str_replace('storage', 'public' , $imageOld);
+                Storage::delete($urlOld);
+
+                $specLaptop->product->file->image_5 = null;
+                $specLaptop->product->file->save();
+                break;
+            case 6:
+                $imageOld = $specLaptop->product->file->image_6;
+                $urlOld = str_replace('storage', 'public' , $imageOld);
+                Storage::delete($urlOld);
+
+                $specLaptop->product->file->image_6 = null;
+                $specLaptop->product->file->save();
+                break;
+            case 7:
+                $imageOld = $specLaptop->product->file->image_7;
+                $urlOld = str_replace('storage', 'public' , $imageOld);
+                Storage::delete($urlOld);
+
+                $specLaptop->product->file->image_7 = null;
+                $specLaptop->product->file->save();
+                break;
+        }
+
+        return redirect()->back();
     }
 }

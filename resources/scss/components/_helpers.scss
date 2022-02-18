@@ -72,3 +72,12 @@
     width: 200px;
     height: 200px;
 }
+/**
+  * * NO DISABLE
+  */
+.nodisabled{
+    &:disabled{
+        opacity: 1;
+        color: setcolor(black);
+    }
+}
