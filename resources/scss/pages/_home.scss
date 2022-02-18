@@ -11,13 +11,20 @@ header{
             img{
                 height: $logo--height-max;
             }
+            #logo-large{
+                height: 53px;
+            }
         }
-        #header--search{
+        form{
             width: 100%;
-            justify-content: left;
-
-            #text-search{
-                max-width: 600px;
+            
+            #header--search{
+                width: 100%;
+                justify-content: left;
+    
+                #text-search{
+                    max-width: 600px;
+                }
             }
         }
     }
@@ -96,6 +103,7 @@ header{
     gap: $gap--max;
     align-content: flex-start;
     flex-flow: row wrap;
+    margin-bottom: $container--padd-max;
 }
 .product--card{
     min-width: 300px;

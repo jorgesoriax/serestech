@@ -1,14 +1,16 @@
 @extends('layouts.template')
-@section('title', 'Bienvenido a SeresTech')
-
-@section('css')
-    <link rel="stylesheet" href="{{ asset('vendor/jquery-ui/jquery-ui.min.css') }}">
+@section('title', 'SeresTech Monterrey | Laptops seminuevas a precios económicos con envío inmediato')
+@section('meta')
+    <meta name="description" content="Venta de laptops seminuevas en excelentes condiciones a precios económicos. Visita nuestro negocio establecido en Monterrey y conoce nuestro stock."> 
+    <meta name="keywords" content="SeresTech, laptops buenas y baratas, laptops económicas, venta de laptops seminuevas, laptops usadas, entrega inmediata, envío inmediato, ph, dell, acer, lenovo"> 
 @endsection
-
+@section('hscripts')
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+@endsection
 @section('content')
 <div id="universal--container">
     {{--*
-    * RESPONSIVE INDICATOR
+        * RESPONSIVE INDICATOR
     --}}
     {{-- <div id="responsive-indicator"></div> --}}
     {{--*
@@ -49,18 +51,14 @@
     --}}
     <div class="menu--container">
         <div class="content">
-            Siguenos en nuestras redes
+            Síguenos en nuestras redes
             <div class="content--social-media">
-                <a class="a--icon outl--blue-ow" target="_blank" rel="noopener noreferrer" 
-                href="https://www.facebook.com/SeresTech21/">
-                    <img src="{{ asset('storage/images/social-media/fb-rounded-style.svg') }}" 
-                    title="Encuentranos en Facebook">
+                <a class="a--icon outl--blue-ow" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/SeresTech21/" title="Encuéntranos en Facebook SeresTech21">
+                    <img src="{{ asset('storage/images/social-media/fb-rounded-style.svg') }}" alt="Encuéntranos en Facebook">
                 </a>
             
-                <a class="a--icon outl--blue-ow input--ow" target="_blank" rel="noopener noreferrer" 
-                href="https://www.instagram.com/serestech21/">
-                    <img src="{{ asset('storage/images/social-media/ig-rounded-style-a.svg') }}" 
-                    title="Siguenos en Instagram">
+                <a class="a--icon outl--blue-ow input--ow" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/serestech21/" title="Síguenos en Instagram serestech21">
+                    <img src="{{ asset('storage/images/social-media/ig-rounded-style-a.svg') }}" alt="Síguenos en Instragram">
                 </a>
             </div>
             
@@ -72,10 +70,10 @@
                 </p>
             </div>
             <div class="content--whatsapp">
-                <a href="https://wa.me/528110649320" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/528110649320" target="_blank" rel="noopener noreferrer" title="Contáctanos a través de Whatsapp">
                     <button class="button--whatsapp-ow">
-                        Contactanos
-                        <img src="{{ asset('storage/images/social-media/whatsapp-w.svg') }}">
+                        Contáctanos
+                        <img src="{{ asset('storage/images/social-media/whatsapp-w.svg') }}" alt="Contáctanos a través de Whatsapp">
                     </button>
                 </a>
             </div>
@@ -89,30 +87,26 @@
     <header class="header">
         <div class="header--container">
             <div id="header--logo">
-                <a href="{{ route('home.index') }}">
-                    <img src="{{ asset('storage/images/logo-large-w.svg') }}" id="logo-large">
-                    <img src="{{ asset('storage/images/logo-w.svg') }}"       id="logo-tiny">
+                <a href="{{ route('home.index') }}" title="Volver a serestech.com.mx">
+                    <img src="{{ asset('storage/images/original-w.svg') }}" id="logo-large" alt="Logo SeresTech">
+                    <img src="{{ asset('storage/images/logo-w.svg') }}" id="logo-tiny" alt="Logo SeresTech">
                 </a>
             </div>
         
-            <div id="header--search" class="input">
-                <label for="text-search"><i class="bx bx-search"></i></label>
-                <input id="text-search" type="text" 
-                placeholder="Buscar marca y más..." 
-                class="input--ob outl--white-ob">    
-            </div>
+            <form action="{{ route('home.search') }}" method="GET">
+                <div id="header--search" class="input">
+                    <label for="text-search"><i class="bx bx-search"></i></label>
+                    <input type="text" name="text-search" class="input--ob outl--white-ob" id="text-search" placeholder="Buscar por marca, línea o modelo...">    
+                </div>
+            </form>
             
             <div id="header--nav--buttons" class="nav--buttons">
-                <a class="a--icon outl--white-ob" target="_blank" rel="noopener noreferrer"
-                href="https://www.facebook.com/SeresTech21/" >
-                    <img src="{{ asset('storage/images/social-media/fb-rounded-style-a.svg')}}" 
-                    title="Encuentranos en Facebook">
+                <a class="a--icon outl--white-ob" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/SeresTech21/" title="Encuéntranos en Facebook SeresTech21">
+                    <img src="{{ asset('storage/images/social-media/fb-rounded-style-a.svg')}}" alt="Encuéntranos en Facebook">
                 </a>
             
-                <a class="a--icon outl--white-ob" target="_blank" rel="noopener noreferrer"
-                href="https://www.instagram.com/serestech21/">
-                    <img src="{{ asset('storage/images/social-media/ig-rounded-style-a.svg')}}" 
-                    title="Siguenos en Instagram">
+                <a class="a--icon outl--white-ob" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/serestech21/" title="Síguenos en Instagram serestech21">
+                    <img src="{{ asset('storage/images/social-media/ig-rounded-style-a.svg')}}" alt="Síguenos en Instragram">
                 </a>
             
                 <button class="button--neutral-ob popup-message popup-message-top"> Envios 
@@ -123,10 +117,10 @@
                     </p>
                 </button>
             
-                <a href="https://wa.me/528110649320" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/528110649320" target="_blank" rel="noopener noreferrer" title="Contáctanos a través de Whatsapp">
                     <button class="button--whatsapp-ob">
-                        Contactanos
-                        <img src="{{ asset('storage/images/social-media/whatsapp-w.svg') }}" alt="">
+                        Contáctanos
+                        <img src="{{ asset('storage/images/social-media/whatsapp-w.svg') }}" alt="Contáctanos a través de Whatsapp">
                     </button>
                 </a>
             
@@ -167,16 +161,18 @@
     --}}
     <main id="main--products">
         <div id="container--catalog">
-            <h2>Conoce nuestro stock</h2>
+            @if ($specsLaptop->isNotEmpty())
+                <h1>Conoce nuestro stock</h1>
+            @endif
             <div id="catalog">
-            
                 {{-- Comprueba si la colección no esta vacía --}}
-                @if ($specsLaptop->isNotEmpty() )
+                @if ( $specsLaptop->isNotEmpty() )
                     @foreach ($specsLaptop as $specLaptop)
+            
             
                         {{-- Comprueba si el producto cuenta con por lo menos 1 existencia--}}
                         @if ($specLaptop->product->inventory->stock > 0)
-                        <a href="{{ $specLaptop->id }}" >
+                        <a href="{{ $specLaptop->id }}" title="Ver laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }}a gen, {{ $specLaptop->procesador_ghz }} GHz, {{ $specLaptop->procesador_nucleos }} núcleos, RAM {{ $specLaptop->ram_gb }} GB {{ $specLaptop->ram_tipo }}, Disco duro {{ $specLaptop->discod_gb }} {{ $specLaptop->discod_tipo }}">
                             <div class="box--ow-max product--card">
                                 <div class="product--image">
                                     <label class="label">
@@ -185,18 +181,18 @@
                                 
                                     @if ($specLaptop->product->file->image_1)
                                         @if ($specLaptop->product->file->image_2)
-                                            <img src="{{ asset($specLaptop->product->file->image_2) }}">
+                                            <img src="{{ asset($specLaptop->product->file->image_2) }}" alt="Segunda imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }}a gen, {{ $specLaptop->procesador_ghz }} GHz, {{ $specLaptop->procesador_nucleos }} núcleos, RAM {{ $specLaptop->ram_gb }} GB {{ $specLaptop->ram_tipo }}, Disco duro {{ $specLaptop->discod_gb }} {{ $specLaptop->discod_tipo }}">
                                         @else
-                                            <img src="{{ asset('storage/images/icons/noimage_75.png') }}" class="product--image-cover noimage-75">
+                                            <img src="{{ asset('storage/images/icons/noimage_75.png') }}" class="product--image-cover noimage-75" alt="Primera imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }}a gen, {{ $specLaptop->procesador_ghz }} GHz, {{ $specLaptop->procesador_nucleos }} núcleos, RAM {{ $specLaptop->ram_gb }} GB {{ $specLaptop->ram_tipo }}, Disco duro {{ $specLaptop->discod_gb }} {{ $specLaptop->discod_tipo }}">
                                         @endif 
                                 
-                                        <img src="{{ asset($specLaptop->product->file->image_1) }}" class="product--image-cover">
+                                        <img src="{{ asset($specLaptop->product->file->image_1) }}" class="product--image-cover" alt="Primera imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }}a gen, {{ $specLaptop->procesador_ghz }} GHz, {{ $specLaptop->procesador_nucleos }} núcleos, RAM {{ $specLaptop->ram_gb }} GB {{ $specLaptop->ram_tipo }}, Disco duro {{ $specLaptop->discod_gb }} {{ $specLaptop->discod_tipo }}">
                                     @else
-                                        <img src="{{ asset('storage/images/icons/noimage_75.png') }}" class="noimage-75">
+                                        <img src="{{ asset('storage/images/icons/noimage_75.png') }}" class="noimage-75" alt="Imagen no disponible">
                                     @endif
                                 </div>
                                 <div class="product--info">
-                                    <h3 id="product--title">
+                                    <h3 id="product--title"> Laptop 
                                         {{ $specLaptop->equipo_marca }} 
                                         {{ $specLaptop->equipo_linea }} 
                                         {{ $specLaptop->equipo_modelo }}
@@ -207,9 +203,9 @@
                                         {{ $specLaptop->procesador_gen }}a gen, 
                                         {{ $specLaptop->procesador_ghz }} GHz,
                                         {{ $specLaptop->procesador_nucleos }} Núcleos,
-                                        {{ $specLaptop->ram_gb }} GB
+                                        RAM {{ $specLaptop->ram_gb }} GB
                                         {{ $specLaptop->ram_tipo }},
-                                        {{ $specLaptop->discod_gb }} GB
+                                        Disco duro {{ $specLaptop->discod_gb }} GB
                                         {{ $specLaptop->discod_tipo }}
                                     </p>
                                 
@@ -241,7 +237,11 @@
                         @endif
                     @endforeach
                 @else
-                    <h1>Lo sentimos, por el momento no contamos con stock :(</h1>
+                    @if ($msgResultEmpty == 'Lo sentimos por el momento no contamos con stock.')
+                        <h1>{{ $msgResultEmpty }}</h1>
+                    @else
+                        <a href="{{ route('home.index') }}" title="Volver a serestech.com.mx"><h1>{{ $msgResultEmpty }} Clic aquí volver a inicio</h1></a>
+                    @endif
                 @endif
                     
             </div>
@@ -252,28 +252,23 @@
         * FOOTER
     --}}
     <footer class="footer">
-    
         <div id="footer--logo">
-            <img src="{{ asset('storage/images/logo-large-b.svg') }}" alt="">
+            <img src="{{ asset('storage/images/logo-large-b.svg') }}" alt="Logo SeresTech">
         </div>
     
         <div id="footer--number">
             <p><i class='bx bxs-phone'></i>
-                Llamanos al +52 81 1064 9320
+                Llama ahora al +52 81 1064 9320
             </p>
         </div>
     
             <div id="footer--buttons" class="nav--buttons">
-                <a class="a--icon outl--blue-ow" target="_blank" rel="noopener noreferrer" 
-                href="https://www.facebook.com/SeresTech21/">
-                    <img src="{{ asset('storage/images/social-media/fb-rounded-style.svg') }}" 
-                    title="Encuentranos en Facebook">
+                <a class="a--icon outl--blue-ow" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/SeresTech21/" title="Encuéntranos en Facebook SeresTech21" >
+                    <img src="{{ asset('storage/images/social-media/fb-rounded-style.svg') }}" alt="Encuéntranos en Facebook">
                 </a>
             
-                <a class="a--icon outl--blue-ow input--ow" target="_blank" rel="noopener noreferrer" 
-                href="https://www.instagram.com/serestech21/">
-                    <img src="{{ asset('storage/images/social-media/ig-rounded-style-a.svg') }}" 
-                    title="Siguenos en Instagram">
+                <a class="a--icon outl--blue-ow input--ow" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/serestech21/" title="Síguenos en Instagram serestech21">
+                    <img src="{{ asset('storage/images/social-media/ig-rounded-style-a.svg') }}" alt="Síguenos en Instagram">
                 </a>
             
                 <button class="button--neutral-ow popup-message popup-message-bot">
@@ -285,10 +280,10 @@
                     </p>
                 </button> 
             
-                <a href="https://wa.me/528110649320" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/528110649320" target="_blank" rel="noopener noreferrer" title="Contáctanos a través de Whatsapp">
                     <button class="button--whatsapp-ow">
-                        Contactanos
-                        <img src="{{ asset('storage/images/social-media/whatsapp-w.svg') }}">
+                        Contáctanos
+                        <img src="{{ asset('storage/images/social-media/whatsapp-w.svg') }}" alt="Contáctanos a través de Whatsapp">
                     </button>
                 </a>
             </div>
@@ -306,15 +301,15 @@
         </div>
            
         <div id="footer--currencies">
-            <img src="{{ asset('storage/images/currencies/mastercard.svg') }}">
-            <img src="{{ asset('storage/images/currencies/visa.svg') }}" >
-            <img src="{{ asset('storage/images/currencies/paypal.svg') }}">
-            <img src="{{ asset('storage/images/currencies/711.svg') }}">
-            <img src="{{ asset('storage/images/currencies/oxxo.svg') }}">
+            <img src="{{ asset('storage/images/currencies/mastercard.svg') }}" alt="Contamos con medios de pago como tarjetas de débito y crédito Mastercard">
+            <img src="{{ asset('storage/images/currencies/visa.svg') }}" alt="Contamos con medios de pago como tarjetas de débito y crédito Visa">
+            <img src="{{ asset('storage/images/currencies/paypal.svg') }}" alt="Contamos con medios de pago como transferencia por Paypal">
+            <img src="{{ asset('storage/images/currencies/711.svg') }}" alt="Contamos con medios de pago como depósito y transferencia bancaria por 7Eleven">
+            <img src="{{ asset('storage/images/currencies/oxxo.svg') }}" alt="Contamos con medios de pago como depósito y transferencia bancaria por Oxxos">
         
             <div id="cryptocurrencies" class="box--ow-max">
-                <img src="{{ asset('storage/images/currencies/shib.svg')}}">
-                <img src="{{ asset('storage/images/currencies/bitcoin.svg')}}">
+                <img src="{{ asset('storage/images/currencies/shib.svg')}}" alt="Contamos con medios de pago">
+                <img src="{{ asset('storage/images/currencies/bitcoin.svg')}}" alt="Contamos con medios de pago">
             </div>
         </div>
     </footer>
@@ -323,8 +318,6 @@
 @section('scripts')
     <script src="{{ asset('storage/js/home.js') }}"></script>
     <script src="{{ asset('storage/js/menu.js') }}"></script>
-    <script src="{{ asset('vendor/jquery/jquery-3.6.0.min.js') }}"></script>
-    <script src="{{ asset('vendor/jquery-ui/jquery-ui.min.js') }}"></script>
 @endsection
 
 @endsection

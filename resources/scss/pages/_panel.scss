@@ -44,7 +44,7 @@
     background: setcolor(white);
     display: grid;
     grid-template-columns: 90px auto;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: 85px auto auto;
 
     header, main, #paginate{
         // width: calc(100% - 90px);
@@ -139,12 +139,14 @@
         position: initial;
         gap: $gap--max;
 
-        .input{
+        form{
             width: 100%;
-            justify-content: left;
-        }
-        .button--neutral-ow{
-            margin-right: 25px;
+
+            .input{
+                width: 100%;
+                max-width: 500px;
+                justify-content: left;
+            }
         }
         .button--positive-ow{
             padding-left: 19px;
@@ -321,71 +323,204 @@
         }
     }
     /**
-      * * PAGINATE
-      */
+     * * PAGINATE
+     */
       #paginate{
         margin: 13px;
     }
 }
 /**
-* * MODAL
-*/
+ * * MODAL
+ */
 .modal-shadow--panel{
     z-index: 11;
-    display: block;
+    // display: block;
+    top: 0;
+    position: fixed;
+}
+.modal-container{
+    width: 100%;
+    height: 100vh;
+    z-index: 12;
+    position: absolute;
+    display: none;
+}
+.modal{
+    background: setcolor(white);
+    width: 1051px;
+    max-width: 1051px;
+    height: calc(100% - 50px);
+    border-radius: $border--rad-max;
+    padding: $container--padd-max;
+    animation: slideUpModal $animation-duration--mid linear;
+    margin: 0 auto;
+    margin-top: 25px;
 
-    .modal{
-        background: setcolor(white);
-        width: calc(100% - 200px);
-        height: calc(100% - 50px);
-        margin: $container--padd-mix;
-        border: $border--px solid setcolor(gray, light);
-        border-radius: $border--rad-max;
-        padding: $container--padd-max;
-        animation: slideUpModal $animation-duration--mid;
+    .content{
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: $gap--mid;
+        }
+        .header{
+            background: setcolor(white);
+            border-bottom: $border--px solid setcolor(gray, light);
+            position: sticky;
+            top: 0;
+            margin: 0 $container--padd-max 0     0;
+            z-index: 10;
+            padding: 3px;
+            padding-bottom: $container--padd-min;
+            display: grid;
+            grid-template-columns: 43px auto 127px;
 
-        .content{
-            width: 100%;
-            height: 100%;
-            overflow-y: scroll;
-
-            .header{
-                background: setcolor(white);
-                border-bottom: $border--px solid setcolor(gray, light);
+            h2{
+                margin: 0;
                 display: flex;
-                align-items: center;
-                flex-direction: row;
-                position: sticky;
-                top: 0;
-                margin-bottom: $container--padd-max;
-    
-                h2{
-                    margin-top: 5px;
+                align-self: center;
+                padding-left: $container--padd-min;
+            }
+            .btn-close{
+                display: flex;
+                align-self: center;
+            }
+        }
+        .group{
+            background: setcolor(white, light);
+            width: calc(100% - 25px);
+            border: $border--px solid setcolor(gray, light);
+            padding: $container--padd-min;
+            border-radius: $border--rad-mid;
+
+            .instructions{
+                margin-bottom: $container--padd-micro;
+                position: relative;
+                h2, h3{
+                    margin: 0;
+                }
+                p{
+                    margin-top: 0;
+                }
+                h3{
+                    margin-bottom: 3px;
                 }
             }
+            .fields{
+                display: flex;
+                justify-content: left;
+                flex-flow: row wrap;
+                gap: $gap--mid;
 
-            .group{
-                width: 100%;
-                border: $border--px solid setcolor(gray, light);
-                padding: $container--padd-min;
-                border-radius: $border--rad-mid;
-
-                .instructions{
-                    margin-bottom: $container--padd-micro;
-                    p, h2, h3{
-                        margin: 0;
+                .item{
+                    .name{
+                       p{
+                        margin: $container--padd-micro 0;
+                       }
+                    } 
+                    .input{
+                        // Cuando se intentar hacer submit al form se ejecuta
+                        // jquery validate e inyecta los siguiente estilos
+                        input.error, textarea.error{
+                            border: $border--px solid setcolor(red);
+                            outline: $outline--px solid setcolor(red, outl);
+                        }
+                        label.error{
+                            background: transparent;
+                            border: 0;
+                            width: 100%;
+                            color: setcolor(red);
+                            white-space: nowrap;
+                            font-size: $paragraph--font-size;
+                            pointer-events: none;
+                            display: block;
+                            text-align: right;
+                            transform: translateY(-23px);
+                        }
+                    }
+                    .discod{
+                        select{
+                            width: 60px;
+                            margin-left: $container--padd-micro;
+                        }
+                    }
+                    textarea{
+                        width: 593px;
+                        height: 35px;
+                        min-height: 35px;
+                        border-radius: $border--rad-min;
+                        padding: $container--padd-micro;
                     }
                 }
-                .fields{
-                    width: 100%;
+                .item-file-upload{
                     display: flex;
-                    justify-content: left;
-                    gap: $gap--max;
-
-                    .item{
-                    }
+                    flex-flow: row wrap;
+                    gap: $gap--mid;
                 }
             }
+        }
+        .subgroup{
+            width: 100%;
+
+            .fields{
+                display: grid;
+                grid-template-columns: auto auto auto;
+
+                .item{
+                    width: 289px; 
+                    
+                    .input{
+                        min-width: initial;
+                    }
+                }
+                .textarea{
+                    width: initial;
+                    max-width: 593px;
+                }
+            }
+        }
+        .loading{
+            width: 50px;
+            height: 100%;
+            margin: 0 auto;
+            @include flex;
+            
+            i{
+                font-size: $i--font-size-mega;
+                color: setcolor(gray, light);
+                animation: loading 1s infinite linear;
+            }
+        }
+    }
+}
+.modal-mid{
+    width: 600px;
+    min-height: 163px;
+    margin: calc(50vh - 41px) auto;
+
+    .content{
+        overflow: auto;
+    }
+    .header{
+        width: 100%;
+    }
+    h2{
+        grid-column: 1 / 4;
+    }
+}
+#form-delete{
+    width: 100%;
+
+    .buttons{
+        display: flex;
+        flex-direction: row;
+        gap: $gap--mid;
+
+        button{
+            width: 50%;
+            margin: 3px;
         }
     }
 }

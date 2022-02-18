@@ -9,7 +9,7 @@ $font--margin: 16px;                      // Margen top-bottom de elementos fuen
 /**
   * * BUTTONS
   */
-$button--font-size: 15px;                 // Parráfos
+$button--font-size: 15px;                 // Texto en button
 $border--px: 1px;                         // Bordes en general
 $border--rad-min: 6px;                    // Elementos pequeños
 $border--rad-mid: 8px;                    // Elementos medianos
@@ -37,7 +37,8 @@ $i--font-size-mega: 50px;                 // Icono extragrande
 /**
   * * GAPS
   */
-$gap--min: 10px;                          // Gap pequeño
+$gap--min: 10px;    // Gap pequeño
+$gap--mid: 15px;                        // Gap pequeño
 $gap--max: 25px;                          // Gap grande
 /**
   * * WIDTHS

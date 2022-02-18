@@ -1,29 +1,16 @@
 @extends('layouts.template')
 @section('title', 'Bievenido al panel')
-
-@section('scripts')
-    <script src="{{ asset('storage/js/panel.js') }}"></script>
-    <script>
-        $('.btn-create').on('click', function(){
-            $('.content').load("{{ route('panel.create') }}");
-        });
-        $('.btn-close').click(function(){
-            $('.content').empty();
-            // $('.content').append('<div class="loading"><i class="bx bx-loader-alt"></i></div>');
-        });
-    </script>
+@section('hscripts')
+    <script src="{{ asset('vendor/jquery-3.6.0/jquery.min.js') }}"></script>
 @endsection
-
 @section('content')
-<script src="{{ asset('vendor/jquery-3.6.0/jquery.min.js') }}"></script>
-
 <div id="universal--container">
-    <div class="modal-shadow modal-shadow--panel">
-        <div class="modal">
-    <div class="content">
-        @include('create')
-        {{-- <div class="loading"><i class='bx bx-loader-alt'></i></div> --}}
-    </div>
+    <div class="modal-shadow modal-shadow--panel"></div>
+    <div class="modal-container">
+        <div class="box--ow-max modal">
+            <div class="content">
+                <div class="loading"><i class='bx bx-loader-alt'></i></div>
+            </div>
         </div>
     </div>
     <div id="panel">
@@ -38,7 +25,7 @@
                 </div>
             </a>
 
-            <h2>Stock</h2>
+            <a href="{{ route('panel.index') }}"><h2>Stock</h2></a>
 
             <div class="outl--blue-ow input--ow" id="stock" tabindex="0">
                 <i class='bx bx-laptop' ></i>
@@ -63,18 +50,21 @@
             * HEADER
         --}}
         <header>
-            <h2>Stock</h2>
-            <div class="input">
-                <label for="text-search"><i class="bx bx-search"></i></label>
-                <input id="text-search" type="text" placeholder="Buscar producto" class="input--ow outl--blue-ow">
-            </div>
+            <a href="{{ route('panel.index') }}"><h2>Stock</h2></a>
+            
+            <form action="{{ route('panel.search') }}" method="GET">
+                <div class="input">
+                    <label for="text-search"><i class="bx bx-search"></i></label>
+                    <input type="text" name="text-search" class="input--ow outl--blue-ow" id="text-search" placeholder="Buscar producto por marca, línea o modelo...">
+                </div>
+            </form>
 
             <button class="button--positive-ow btn-create" id="btn-create">
-                <i class='bx bxs-add-to-queue'></i>
-                Agregar nuevo
+                <i class='bx bxs-file-plus'></i>
+                Nuevo
             </button>
 
-            <a href="{{ route('manual.index') }}">
+            <a href="https://www.notion.so/Manual-551d6511868642e78ecae9fccb43695d" target="_blank" rel="noopener noreferrer">
                 <button class="button--neutral-ow sq manual" title="Ver manual">
                     <i class='bx bxs-book'></i>
                 </button>
@@ -90,6 +80,12 @@
                 <div id="emoji"></div>
             </div>
         </header>
+        {{--*
+            * SCROLL TO TOP
+        --}}
+        <div class="scrollTop outl--blue-ow">
+            <i class='bx bx-arrow-to-top'></i>
+        </div>
         {{--*
             * MAIN
         --}}
@@ -174,7 +170,11 @@
                                 <td>
                                     <button class="button--alternative-ow sq btn-edit" id="btn-edit-{{ $specLaptop->id }}"><i class='bx bxs-edit-alt'></i></button>
                                     <script>
-                                        $('#btn-edit-{{$specLaptop->id}}').on('click', function(){
+                                        /**
+                                         * LOAD EDIT
+                                         * Permite cargar el template edit en el modal
+                                         */
+                                        $('#btn-edit-{{ $specLaptop->id }}').on('click', function(){
                                             $('.content').load("{{ route('panel.edit', $specLaptop->id) }}");
                                         });
                                     </script>
@@ -185,8 +185,14 @@
                                         <i class='bx bxs-trash'></i>
                                     </button>
                                     <script>
+                                        /**
+                                         * LOAD DELETE
+                                         * Permite cargar el template create en el modal
+                                         */
                                         $('#btn-delete-{{$specLaptop->id}}').on('click', function(){
                                             $('.content').load("{{ route('panel.delete', $specLaptop) }}");
+                                            $('.modal-shadow--panel').css('background', 'rgba(42, 42, 42, 0.25)');
+                                            $('.modal').addClass('modal-mid');
                                         });
                                     </script>
                                 </td>
@@ -195,7 +201,11 @@
                     @else
                         <tr class="tr--empty">
                             <td colspan="11">
-                                <p class="p--description">Estoy en blanco. Comencemos a trabajar</p>
+                                @if ($msgResultEmpty == 'Estoy en blanco. Comencemos a trabajar.')
+                                    <p class="p--description">{{ $msgResultEmpty }}</p>
+                                @else
+                                   <a href="{{ route('panel.index') }}"><p class="p--description">{{ $msgResultEmpty }} Clic aquí para ver todos los registros.</p></a> 
+                                @endif
                             </td>
                         </tr>
                     @endif
@@ -205,4 +215,17 @@
         {{ $specsLaptop->links() }}
     </div>
 </div>
+
+@section('scripts')
+    <script src="{{ asset('storage/js/panel.js') }}"></script>
+    <script>
+        /**
+         * LOAD CREATE
+         * Permite cargar el template create en el modal
+         */
+        $('.btn-create').on('click', function(){
+            $('.content').load("{{ route('panel.create') }}");
+        });
+    </script>
+@endsection
 @endsection
