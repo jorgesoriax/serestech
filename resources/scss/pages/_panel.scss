@@ -298,9 +298,9 @@
             overflow: hidden;
             @include flex;
             margin: $container--padd-micro;
+            cursor: pointer;
 
             img{
-                cursor: pointer;
                 width: 100%;
                 height: 100%;
             }
@@ -419,7 +419,7 @@
                        p{
                         margin: $container--padd-micro 0;
                        }
-                    } 
+                    }
                     .input{
                         // Cuando se intentar hacer submit al form se ejecuta
                         // jquery validate e inyecta los siguiente estilos
@@ -469,8 +469,8 @@
                 grid-template-columns: auto auto auto;
 
                 .item{
-                    width: 289px; 
-                    
+                    width: 289px;
+
                     .input{
                         min-width: initial;
                     }
@@ -486,7 +486,7 @@
             height: 100%;
             margin: 0 auto;
             @include flex;
-            
+
             i{
                 font-size: $i--font-size-mega;
                 color: setcolor(gray, light);
@@ -498,7 +498,6 @@
 .modal-mid{
     width: 600px;
     height: 163px;
-    min-height: 163px;
     margin: calc(50vh - 41px) auto;
 
     .content{

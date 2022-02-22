@@ -153,7 +153,7 @@
         <div class="instructions">
             <h3>Imagenes</h3>
             <p class="p--description">
-                Las imágenes son redimensionadas a 410 x 410 pixeles, se recomienda centrar el contenido importante con un margen considerable. <br>
+                Las imágenes son redimensionadas a 600 x 600 pixeles, se recomienda centrar el contenido importante con un margen considerable. <br>
             </p>
         </div>
         <div class="fields">
@@ -976,8 +976,8 @@ $('.form-create').validate({
         pantalla_tipo        : { required: true },
         pantalla_tamano      : { required: true, number: true },
         pantalla_tactil      : { required: true, range: [0, 1] },
-        pantalla_resolucion  : { required: true, digits: true, minlength: 4, maxlength: 4 },
-        pantalla_resolucion_y  : { required: true, digits: true, minlength: 4, maxlength: 4 },
+        pantalla_resolucion  : { required: true, digits: true, minlength: 3, maxlength: 4 },
+        pantalla_resolucion_y  : { required: true, digits: true, minlength: 3, maxlength: 4 },
         teclado_idioma       : { required: true },
         teclado_retroi       : { required: true, range: [0, 1] },
         teclado_num          : { required: true, range: [0, 1] },

@@ -32,16 +32,19 @@ class PanelController extends Controller
         return view('panel', compact('specsLaptop', 'msgResultEmpty'));
     }
     public function create(){
-        return view('create');
+        return view('components/create');
     }
     public function show(SpecificationsLaptop $specLaptop){
-        return view('show', compact('specLaptop'));
+        return view('components/show', compact('specLaptop'));
     }
     public function edit(SpecificationsLaptop $specLaptop){
-        return view('edit', compact('specLaptop'));
+        return view('components/edit', compact('specLaptop'));
     }
     public function delete(SpecificationsLaptop $specLaptop){
-        return view('delete', compact('specLaptop'));
+        return view('components/delete', compact('specLaptop'));
+    }
+    public function slider(){
+        return view('components/slider');
     }
     public function store(Request $request){
         // $request->validate([
@@ -130,7 +133,7 @@ class PanelController extends Controller
             $url_1 = public_path() . '/storage/images/upload/' . $name_1;
 
             Image::make($request->file('image_1'))
-                 ->fit(410)
+                 ->fit(600)
                  ->save($url_1);
 
                  
@@ -142,7 +145,7 @@ class PanelController extends Controller
             $url_2 = public_path() . '/storage/images/upload/' . $name_2;
 
             Image::make($request->file('image_2'))
-                 ->fit(410)
+                 ->fit(600)
                  ->save($url_2);
 
                  
@@ -153,7 +156,7 @@ class PanelController extends Controller
             $url_3 = public_path() . '/storage/images/upload/' . $name_3;
 
             Image::make($request->file('image_3'))
-                 ->fit(410)
+                 ->fit(600)
                  ->save($url_3);
 
                  
@@ -164,7 +167,7 @@ class PanelController extends Controller
             $url_4 = public_path() . '/storage/images/upload/' . $name_4;
 
             Image::make($request->file('image_4'))
-                 ->fit(410)
+                 ->fit(600)
                  ->save($url_4);
 
                  
@@ -175,7 +178,7 @@ class PanelController extends Controller
             $url_5 = public_path() . '/storage/images/upload/' . $name_5;
 
             Image::make($request->file('image_5'))
-                 ->fit(410)
+                 ->fit(600)
                  ->save($url_5);
 
                  
@@ -186,7 +189,7 @@ class PanelController extends Controller
             $url_6 = public_path() . '/storage/images/upload/' . $name_6;
 
             Image::make($request->file('image_6'))
-                 ->fit(410)
+                 ->fit(600)
                  ->save($url_6);
 
                  
@@ -197,7 +200,7 @@ class PanelController extends Controller
             $url_7 = public_path() . '/storage/images/upload/' . $name_7;
 
             Image::make($request->file('image_7'))
-                 ->fit(410)
+                 ->fit(600)
                  ->save($url_7);
 
                  
@@ -364,7 +367,7 @@ class PanelController extends Controller
             $name = Str::random(40) . '.webp';
             $url = public_path() . '/storage/images/upload/' . $name;
             Image::make($request->file('image_1'))
-             ->fit(410)
+             ->fit(600)
              ->save($url);
 
             // Eliminar imagen anterior
@@ -381,7 +384,7 @@ class PanelController extends Controller
             $url = public_path() . '/storage/images/upload/' . $name;
 
             Image::make($request->file('image_2'))
-                 ->fit(410)
+                 ->fit(600)
                  ->save($url);
 
             // Eliminar imagen anterior
@@ -397,7 +400,7 @@ class PanelController extends Controller
             $url = public_path() . '/storage/images/upload/' . $name;
 
             Image::make($request->file('image_3'))
-                 ->fit(410)
+                 ->fit(600)
                  ->save($url);
 
                 // Eliminar imagen anterior
@@ -413,7 +416,7 @@ class PanelController extends Controller
             $url = public_path() . '/storage/images/upload/' . $name;
 
             Image::make($request->file('image_4'))
-                 ->fit(410)
+                 ->fit(600)
                  ->save($url);
 
                 // Eliminar imagen anterior
@@ -429,7 +432,7 @@ class PanelController extends Controller
             $url = public_path() . '/storage/images/upload/' . $name;
 
             Image::make($request->file('image_5'))
-                 ->fit(410)
+                 ->fit(600)
                  ->save($url);
 
                 // Eliminar imagen anterior
@@ -445,7 +448,7 @@ class PanelController extends Controller
             $url = public_path() . '/storage/images/upload/' . $name;
 
             Image::make($request->file('image_6'))
-                 ->fit(410)
+                 ->fit(600)
                  ->save($url);
 
                 // Eliminar imagen anterior
@@ -461,7 +464,7 @@ class PanelController extends Controller
             $url = public_path() . '/storage/images/upload/' . $name;
 
             Image::make($request->file('image_7'))
-                 ->fit(410)
+                 ->fit(600)
                  ->save($url);
 
                 // Eliminar imagen anterior
@@ -544,7 +547,6 @@ class PanelController extends Controller
 
         return redirect()->back();  
     }
-
     public function replace(SpecificationsLaptop $specLaptop, $col){
         /**
          * EDIT DELETE IMAGE
@@ -613,5 +615,34 @@ class PanelController extends Controller
         }
 
         return redirect()->back();
+    }
+    public function sliderStore(Request $request){
+        if($request->file('image_1')){
+            $name_1 = 'slider_1' . '.webp';
+            $url_1 = public_path() . '/storage/images/slider/' . $name_1;
+
+            Image::make($request->file('image_1'))
+                 ->fit(1400, 400)
+                 ->save($url_1);
+        }
+        if($request->file('image_2')){
+            $name_2 = 'slider_2' . '.webp';
+            $url_2 = public_path() . '/storage/images/slider/' . $name_2;
+
+            Image::make($request->file('image_2'))
+                 ->fit(1400, 400)
+                 ->save($url_2);
+        }
+        if($request->file('image_3')){
+            $name_3 = 'slider_3' . '.webp';
+            $url_3 = public_path() . '/storage/images/slider/' . $name_3;
+
+            Image::make($request->file('image_3'))
+                 ->fit(1400, 400)
+                 ->save($url_3);
+        }
+        return redirect()->back();
+
+        // return dd($request);
     }
 }

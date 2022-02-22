@@ -37,6 +37,11 @@
                 <span>Gestionar usuarios</span>
             </div> --}}
 
+            <div class="outl--blue-ow input--ow" id="slider" tabindex="0">
+                <i class='bx bx-image' ></i>
+                <span>Slider</span>
+            </div>
+
             {{-- Botón para cerrar sesión --}}
             <form action="logout" method="POST">
                 @csrf
@@ -114,15 +119,18 @@
                                 </td>
                                 {{-- IMAGEN --}}
                                 <td>
-                                    <a href="{{ route('panel.show', $specLaptop->id) }}">
-                                        <div class="img-container">
-                                            @if ($specLaptop->product->file->image_1)
-                                                <img src="{{ asset($specLaptop->product->file->image_1) }}">
-                                            @else
-                                                <img src="{{ asset('storage/images/icons/noimage_50.png') }}" class="noimage-50">
-                                            @endif
-                                        </div>
-                                    </a>
+                                    <div class="img-container" id="image-prev-{{ $specLaptop->id }}">
+                                        @if ($specLaptop->product->file->image_1)
+                                            <img src="{{ asset($specLaptop->product->file->image_1) }}">
+                                        @else
+                                            <img src="{{ asset('storage/images/icons/noimage_50.png') }}" class="noimage-50">
+                                        @endif
+                                    </div>
+                                    <script>
+                                        $('#image-prev-{{$specLaptop->id}}').on('click', function(){
+                                            $('.content').load("{{ route('panel.show', $specLaptop->id) }}");
+                                        });
+                                    </script>
                                 </td>
                                 {{-- MARCA --}}
                                 <td class="td--marca">
@@ -147,9 +155,15 @@
                                     @endif
                                 </td>
                                 {{-- STOCK --}}
-                                <td class="td--stock">
-                                    {{ $specLaptop->product->inventory->stock}} uds
-                                </td>
+                                @if ($specLaptop->product->inventory->stock == 1)
+                                    <td class="td--stock">
+                                        {{ $specLaptop->product->inventory->stock}} ud
+                                    </td>
+                                @else
+                                    <td class="td--stock">
+                                        {{ $specLaptop->product->inventory->stock}} uds
+                                    </td>
+                                @endif
                                 {{-- ETIQUETAS --}}
                                 <td class="td--label">
                                     <label class="label">{{ $specLaptop->product->status_usage }}</label><br>
@@ -218,6 +232,13 @@
 @section('scripts')
     <script src="{{ asset('storage/js/panel.js') }}"></script>
     <script>
+        /**
+         * LOAD SLIDER
+         * Permite cargar el template slider en el modal
+         */
+        $('#slider').on('click', function(){
+            $('.content').load("{{ route('panel.slider') }}");
+        });
         /**
          * LOAD CREATE
          * Permite cargar el template create en el modal

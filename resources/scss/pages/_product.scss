@@ -4,7 +4,7 @@
 /**
   * * BASE
   */
-#product--info, #product--specs, #product--wty{
+#product--info, #product--specs, #product--wty, #product--index{
     width: 935px;
     min-width: 935px;
     margin: 0 auto;
@@ -18,13 +18,25 @@
     }
 }
 /**
+  * * INDEX
+  */
+#product--index{
+    margin-top: 50px;
+    margin-bottom: 16px;
+    justify-content: left;
+
+    a:hover{
+        color: setcolor(blue);
+    }
+}
+/**
   * * INFO
   */
 #product--info{
     flex-direction: row;
     gap: $gap--max;
     position: relative;
-    margin-top: 50px;
+    margin-top: 0;
 }
 #container--imgs{
     display: flex;
@@ -43,11 +55,6 @@
     border-radius: $border--rad-mid;
     @include flex;
     overflow: hidden;
-    // * Pattern
-    background-color: #ffffff;
-    background-image:  linear-gradient(setcolor(gray, patt) 1.1px, transparent 1.1px), linear-gradient(to right, setcolor(gray, patt) 1.1px, #ffffff 1.1px);
-    background-size: 20px 20px;
-    background-position: 0;
 
     img{
         overflow: hidden;

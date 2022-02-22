@@ -252,6 +252,9 @@ $screen--xg-max: 1600px;
             h1{
                 font-size: $title--font-size;
             }
+            h2{
+                font-size: 18.72px;
+            }
 
 
             #info--orig-price{
@@ -430,9 +433,6 @@ $screen--xg-max: 1600px;
                 }
             }
         }
-    }
-    .modal-shadow--panel{
-        background: setcolor(white);
     }
     .modal{
         border: 1px solid red;

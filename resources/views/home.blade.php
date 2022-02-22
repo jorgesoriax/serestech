@@ -136,15 +136,15 @@
     <section class="container--slider">
         <div class="slider" id="slider">
             <div class="slider--section">
-            <img src="{{ asset('storage/images/slider/img1.webp') }}" alt="">
+            <img src="{{ asset('storage/images/slider/slider_1.webp') }}" alt="">
             </div>
         
             <div class="slider--section">
-            <img src="{{ asset('storage/images/slider/img2.webp') }}" alt="">
+            <img src="{{ asset('storage/images/slider/slider_2.webp') }}" alt="">
             </div>
         
             <div class="slider--section">
-            <img src="{{ asset('storage/images/slider/img3.webp') }}" alt="">
+            <img src="{{ asset('storage/images/slider/slider_3.webp') }}" alt="">
             </div>
         </div>
     

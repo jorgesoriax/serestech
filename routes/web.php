@@ -43,12 +43,20 @@ Route::get('panel/create', [PanelController::class, 'create'])
     ->name('panel.create')
     ->middleware('auth');
 
+Route::get('panel/slider', [PanelController::class, 'slider'])
+    ->name('panel.slider')
+    ->middleware('auth');
+Route::post('panel/slider/store', [PanelController::class, 'sliderStore'])
+    ->name('slider.store')
+    ->middleware('auth');
+
 Route::get('panel/{specLaptop}', [PanelController::class, 'show'])
     ->name('panel.show')
     ->middleware('auth');
 Route::post('panel', [PanelController::class, 'store'])
     ->name('panel.store')
     ->middleware('auth');
+    
 
 Route::get('panel/{specLaptop}/edit', [PanelController::class, 'edit'])
     ->name('panel.edit')

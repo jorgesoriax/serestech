@@ -181,8 +181,12 @@
     </div>
     {{--*
         * PRINCIPAL INFORMATION
-    --}}
-    <section id="product--info">
+        --}}
+        {{-- INDEX --}}
+        <div id="product--index">
+            <a href="{{ route('home.index') }}">Inicio</a> <i class='bx bx-chevron-right'></i> {{ $specsLaptop->equipo_marca }} {{ $specsLaptop->equipo_linea }} {{ $specsLaptop->equipo_modelo }}
+        </div>
+        <section id="product--info">
             <div  id="container--imgs">
                 <div id="img--prod-preview" >
                     <img id="img-original" src="">
@@ -245,13 +249,15 @@
                 <h2>
                     {{ $specsLaptop->procesador_marca }}
                     {{ $specsLaptop->procesador_modelo }}
-                    {{ $specsLaptop->procesador_gen }}a gen, 
-                    {{ $specsLaptop->procesador_ghz }} GHz,
+                    @if ($specsLaptop->procesador_gen > 0)
+                        {{ $specsLaptop->procesador_gen }}a gen
+                    @endif 
+                    {{ $specsLaptop->procesador_ghz }} GHz
                     {{ $specsLaptop->procesador_nucleos }} núcleos,
-                    RAM {{ $specsLaptop->ram_gb }} GB
-                    {{ $specsLaptop->ram_tipo }},
-                    Disco duro {{ $specsLaptop->discod_gb }}
-                    {{ $specsLaptop->discod_tipo }}
+                    RAM {{ $specsLaptop->ram_tipo }}
+                    {{ $specsLaptop->ram_gb }} GB,
+                    Disco duro {{ $specsLaptop->discod_tipo }}
+                    {{ $specsLaptop->discod_gb }}
                 </h2>
 
                 <p id="info--sku" class="p--description">
@@ -302,6 +308,28 @@
             <div id="product--specs-items">
                 <h1>Especificaciones</h1>
                 <section>
+                    {{-- EQUIPO --}}
+                    <table class="box--ow-max">
+                        <caption><h3>Equipo</h3></caption>
+                        <tr>
+                            <td>Marca</td>
+                            <td>
+                                {{ $specsLaptop->equipo_marca}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Línea</td>
+                            <td>
+                                {{ $specsLaptop->equipo_linea}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Modelo</td>
+                            <td>
+                                {{ $specsLaptop->equipo_modelo}}
+                            </td>
+                        </tr>
+                    </table>
                     {{-- PROCESADOR --}}
                     <table class="box--ow-max">
                         <caption><h3>Procesador</h3></caption>
@@ -335,28 +363,6 @@
                             <td>Núcleos</td>
                             <td>
                                 {{ $specsLaptop->procesador_nucleos}}
-                            </td>
-                        </tr>
-                    </table>
-                    {{-- EQUIPO --}}
-                    <table class="box--ow-max">
-                        <caption><h3>Equipo</h3></caption>
-                        <tr>
-                            <td>Marca</td>
-                            <td>
-                                {{ $specsLaptop->equipo_marca}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Línea</td>
-                            <td>
-                                {{ $specsLaptop->equipo_linea}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Modelo</td>
-                            <td>
-                                {{ $specsLaptop->equipo_modelo}}
                             </td>
                         </tr>
                     </table>
