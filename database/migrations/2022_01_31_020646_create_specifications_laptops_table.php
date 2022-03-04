@@ -36,7 +36,7 @@ class CreateSpecificationsLaptopsTable extends Migration
             $table->string('pantalla_tipo', 45);
             $table->float('pantalla_tamano');
             $table->boolean('pantalla_tactil');
-            $table->string('pantalla_resolucion');
+            $table->string('pantalla_resolucion', 45);
             $table->string('teclado_idioma', 45);
             $table->boolean('teclado_retroi', 45);
             $table->boolean('teclado_num', 45);

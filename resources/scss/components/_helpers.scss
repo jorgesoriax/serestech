@@ -81,3 +81,45 @@
         color: setcolor(black);
     }
 }
+/**
+  * * MENU
+  * Menu colapsable
+  */
+  .menu--container{
+    .content{
+        display: flex;
+        flex-direction: column;
+        gap: $gap--max;
+        text-align: center;
+
+        .content--social-media{
+            @include flex;
+            flex-direction: row;
+            gap: $gap--max;
+        }
+        .content--whatsapp{
+            @include flex;
+            flex-direction: row;
+        }
+        .static-message{
+            width: 100%;
+        }
+    }
+}
+/**
+ * * PERMALINK
+ */
+.permalink{
+    position: relative;
+    color: setcolor(black);
+
+    &:active{
+        color: setcolor(black);
+    }
+    &:hover::before{
+        content: '#';
+        color: setcolor(blue);
+        margin-left: $container--padd-max * -1;
+        position: absolute;
+    }
+}

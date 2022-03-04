@@ -1,20 +1,16 @@
 <script src="{{ asset('vendor/jquery-3.6.0/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vendor/jquery-validation-1.19.3/dist/jquery.validate.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/jquery-validation-1.19.3/dist/additional-methods.min.js') }}"></script>
 <script src="{{ asset('storage/js/panelEdit.js') }}"></script>
 
-<form action="{{ route('panel.update', $specLaptop) }}" method="POST" enctype="multipart/form-data" class="">
+<form action="{{ route('panel.update', $specLaptop) }}" method="POST" enctype="multipart/form-data" class="form-edit">
     {{--*
         * HEADER *
         * Encabezado para título de acción y botones.
     --}}
     <div class="header">
         <button class="button--neutral-ow sq btn-close" type="button"><i class='bx bx-arrow-back'></i></button>
-        <h2>
-            Editar Laptop
-            {{ $specLaptop->equipo_marca}}
-            {{ $specLaptop->equipo_linea}} 
-            {{ $specLaptop->equipo_modelo}}
-            con ID {{ $specLaptop->id}}
+        <h2>Editar Laptop {{ $specLaptop->equipo_marca}} {{ $specLaptop->equipo_linea}} {{ $specLaptop->equipo_modelo}} con ID {{ $specLaptop->id}}
         </h2>
         <button class="button--positive-ow btn-submit" type="submit" tabindex="2">Estoy listo</button>
     </div>
@@ -191,31 +187,32 @@
                         {{-- Botón cerrar popup --}}
                         <button type="button" class="button--neutral-ow">Cancelar</button>
                     </div>
-                    {{-- Contenedor de imagen seleccionada o existente --}}
-                    <div class="file" id="file-1">
-                        {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
-                        @if ($specLaptop->product->file->image_1)
-                            <img src="{{ asset($specLaptop->product->file->image_1) }}">
-                            @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_1) @endphp
-                        @else
-                            @php $imageName = 'Seleccionar imagen' @endphp
-                        @endif
+                    {{-- Input file--}}
+                    <input type="file" accept="image/*" id="image_1" name="image_1">
+                    {{-- Contenedor de conjunto file y file-name --}}
+                    <div class="container-file">
+                        {{-- Contenedor de imagen seleccionada o existente --}}
+                        <div class="file" id="file-1">
+                            {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
+                            @if ($specLaptop->product->file->image_1)
+                                <img src="{{ asset($specLaptop->product->file->image_1) }}">
+                                @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_1) @endphp
+                            @else
+                                @php $imageName = 'Seleccionar imagen' @endphp
+                            @endif
+                        </div>
+                        {{-- Campo para mostrar nombre de imagen--}}
+                        <input type="text" class="file-name" id="file-name-1" value="{{ $imageName }}" tabindex="-1" readonly>
                     </div>
-                    {{-- Campo para mostrar nombre de imagen--}}
-                    <input type="text" class="file-name" id="file-name-1" value="{{ $imageName }}" tabindex="-1" readonly>
                     {{-- Si existe una imagen mostramos el boton de eliminar imagen existente --}}
                     @if ($specLaptop->product->file->image_1)
                         {{-- Botón recortado para seleccionar imagen --}}
-                        <label class="btn-upload button--alternative-ow short" id="btn-upload-1" tabindex="1">
-                            <input type="file" accept="image/*" id="image_1" name="image_1">Cargar
-                        </label>
+                        <label for="image_1" class="btn-upload button--alternative-ow short" id="btn-upload-1" tabindex="1">Cargar</label>
                         {{-- Botón para abrir popup --}}
                         <button type="button" class="button--negative-ow sq btn-popup-confirm" id="btn-popup-confirm-1" tabindex="1"><i class='bx bxs-trash'></i></button>
                     @else
                         {{-- Botón para seleccionar imagen --}}
-                        <label class="btn-upload button--alternative-ow" id="btn-upload-1" tabindex="1">
-                            <input type="file" accept="image/*" id="image_1" name="image_1">Cargar
-                        </label> 
+                        <label for="image_1" class="btn-upload button--alternative-ow" id="btn-upload-1" tabindex="1">Cargar</label> 
                     @endif
                 </div>
                 {{--*
@@ -233,31 +230,32 @@
                         {{-- Botón cerrar popup --}}
                         <button type="button" class="button--neutral-ow">Cancelar</button>
                     </div>
-                    {{-- Contenedor de imagen seleccionada o existente --}}
-                    <div class="file" id="file-2">
-                        {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
-                        @if ($specLaptop->product->file->image_2)
-                            <img src="{{ asset($specLaptop->product->file->image_2) }}">
-                            @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_2) @endphp
-                        @else
-                            @php $imageName = 'Seleccionar imagen' @endphp
-                        @endif
+                    {{-- Input file--}}
+                    <input type="file" accept="image/*" id="image_2" name="image_2">
+                    {{-- Contenedor de conjunto file y file-name --}}
+                    <div class="container-file">
+                        {{-- Contenedor de imagen seleccionada o existente --}}
+                        <div class="file" id="file-2">
+                            {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
+                            @if ($specLaptop->product->file->image_2)
+                                <img src="{{ asset($specLaptop->product->file->image_2) }}">
+                                @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_2) @endphp
+                            @else
+                                @php $imageName = 'Seleccionar imagen' @endphp
+                            @endif
+                        </div>
+                        {{-- Campo para mostrar nombre de imagen--}}
+                        <input type="text" class="file-name" id="file-name-2" value="{{ $imageName }}" tabindex="-1" readonly>
                     </div>
-                    {{-- Campo para mostrar nombre de imagen--}}
-                    <input type="text" class="file-name" id="file-name-2" value="{{ $imageName }}" tabindex="-1" readonly>
                     {{-- Si existe una imagen mostramos el boton de eliminar imagen existente --}}
                     @if ($specLaptop->product->file->image_2)
                         {{-- Botón recortado para seleccionar imagen --}}
-                        <label class="btn-upload button--alternative-ow short" id="btn-upload-2" tabindex="1">
-                            <input type="file" accept="image/*" id="image_2" name="image_2">Cargar
-                        </label>
+                        <label for="image_2" class="btn-upload button--alternative-ow short" id="btn-upload-2" tabindex="1">Cargar</label>
                         {{-- Botón para abrir popup --}}
                         <button type="button" class="button--negative-ow sq btn-popup-confirm" id="btn-popup-confirm-2" tabindex="1"><i class='bx bxs-trash'></i></button>
                     @else
                         {{-- Botón para seleccionar imagen --}}
-                        <label class="btn-upload button--alternative-ow" id="btn-upload-2" tabindex="1">
-                            <input type="file" accept="image/*" id="image_2" name="image_2">Cargar
-                        </label> 
+                        <label for="image_2" class="btn-upload button--alternative-ow" id="btn-upload-2" tabindex="1">Cargar</label> 
                     @endif
                 </div>
                 {{--*
@@ -275,31 +273,32 @@
                         {{-- Botón cerrar popup --}}
                         <button type="button" class="button--neutral-ow">Cancelar</button>
                     </div>
-                    {{-- Contenedor de imagen seleccionada o existente --}}
-                    <div class="file" id="file-3">
-                        {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
-                        @if ($specLaptop->product->file->image_3)
-                            <img src="{{ asset($specLaptop->product->file->image_3) }}">
-                            @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_3) @endphp
-                        @else
-                            @php $imageName = 'Seleccionar imagen' @endphp
-                        @endif
+                    {{-- Input file--}}
+                    <input type="file" accept="image/*" id="image_3" name="image_3">
+                    {{-- Contenedor de conjunto file y file-name --}}
+                    <div class="container-file">
+                        {{-- Contenedor de imagen seleccionada o existente --}}
+                        <div class="file" id="file-3">
+                            {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
+                            @if ($specLaptop->product->file->image_3)
+                                <img src="{{ asset($specLaptop->product->file->image_3) }}">
+                                @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_3) @endphp
+                            @else
+                                @php $imageName = 'Seleccionar imagen' @endphp
+                            @endif
+                        </div>
+                        {{-- Campo para mostrar nombre de imagen--}}
+                        <input type="text" class="file-name" id="file-name-3" value="{{ $imageName }}" tabindex="-1" readonly>
                     </div>
-                    {{-- Campo para mostrar nombre de imagen--}}
-                    <input type="text" class="file-name" id="file-name-3" value="{{ $imageName }}" tabindex="-1" readonly>
                     {{-- Si existe una imagen mostramos el boton de eliminar imagen existente --}}
                     @if ($specLaptop->product->file->image_3)
                         {{-- Botón recortado para seleccionar imagen --}}
-                        <label class="btn-upload button--alternative-ow short" id="btn-upload-3" tabindex="1">
-                            <input type="file" accept="image/*" id="image_3" name="image_3">Cargar
-                        </label>
+                        <label for="image_3" class="btn-upload button--alternative-ow short" id="btn-upload-3" tabindex="1">Cargar</label>
                         {{-- Botón para abrir popup --}}
                         <button type="button" class="button--negative-ow sq btn-popup-confirm" id="btn-popup-confirm-3" tabindex="1"><i class='bx bxs-trash'></i></button>
                     @else
                         {{-- Botón para seleccionar imagen --}}
-                        <label class="btn-upload button--alternative-ow" id="btn-upload-3" tabindex="1">
-                            <input type="file" accept="image/*" id="image_3" name="image_3">Cargar
-                        </label> 
+                        <label for="image_3" class="btn-upload button--alternative-ow" id="btn-upload-3" tabindex="1">Cargar</label> 
                     @endif
                 </div>
                 {{--*
@@ -317,31 +316,32 @@
                         {{-- Botón cerrar popup --}}
                         <button type="button" class="button--neutral-ow">Cancelar</button>
                     </div>
-                    {{-- Contenedor de imagen seleccionada o existente --}}
-                    <div class="file" id="file-4">
-                        {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
-                        @if ($specLaptop->product->file->image_4)
-                            <img src="{{ asset($specLaptop->product->file->image_4) }}">
-                            @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_4) @endphp
-                        @else
-                            @php $imageName = 'Seleccionar imagen' @endphp
-                        @endif
+                    {{-- Input file--}}
+                    <input type="file" accept="image/*" id="image_4" name="image_4">
+                    {{-- Contenedor de conjunto file y file-name --}}
+                    <div class="container-file">
+                        {{-- Contenedor de imagen seleccionada o existente --}}
+                        <div class="file" id="file-4">
+                            {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
+                            @if ($specLaptop->product->file->image_4)
+                                <img src="{{ asset($specLaptop->product->file->image_4) }}">
+                                @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_4) @endphp
+                            @else
+                                @php $imageName = 'Seleccionar imagen' @endphp
+                            @endif
+                        </div>
+                        {{-- Campo para mostrar nombre de imagen--}}
+                        <input type="text" class="file-name" id="file-name-4" value="{{ $imageName }}" tabindex="-1" readonly>
                     </div>
-                    {{-- Campo para mostrar nombre de imagen--}}
-                    <input type="text" class="file-name" id="file-name-4" value="{{ $imageName }}" tabindex="-1" readonly>
                     {{-- Si existe una imagen mostramos el boton de eliminar imagen existente --}}
                     @if ($specLaptop->product->file->image_4)
                         {{-- Botón recortado para seleccionar imagen --}}
-                        <label class="btn-upload button--alternative-ow short" id="btn-upload-4" tabindex="1">
-                            <input type="file" accept="image/*" id="image_4" name="image_4">Cargar
-                        </label>
+                        <label for="image_4" class="btn-upload button--alternative-ow short" id="btn-upload-4" tabindex="1">Cargar</label>
                         {{-- Botón para abrir popup --}}
                         <button type="button" class="button--negative-ow sq btn-popup-confirm" id="btn-popup-confirm-4" tabindex="1"><i class='bx bxs-trash'></i></button>
                     @else
                         {{-- Botón para seleccionar imagen --}}
-                        <label class="btn-upload button--alternative-ow" id="btn-upload-4" tabindex="1">
-                            <input type="file" accept="image/*" id="image_4" name="image_4">Cargar
-                        </label> 
+                        <label for="image_4" class="btn-upload button--alternative-ow" id="btn-upload-4" tabindex="1">Cargar</label> 
                     @endif
                 </div>
                 {{--*
@@ -359,31 +359,32 @@
                         {{-- Botón cerrar popup --}}
                         <button type="button" class="button--neutral-ow">Cancelar</button>
                     </div>
-                    {{-- Contenedor de imagen seleccionada o existente --}}
-                    <div class="file" id="file-5">
-                        {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
-                        @if ($specLaptop->product->file->image_5)
-                            <img src="{{ asset($specLaptop->product->file->image_5) }}">
-                            @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_5) @endphp
-                        @else
-                            @php $imageName = 'Seleccionar imagen' @endphp
-                        @endif
+                    {{-- Input file --}}
+                    <input type="file" accept="image/*" id="image_5" name="image_5">
+                    {{-- Contenedor de conjunto file y file-name --}}
+                    <div class="container-file">
+                        {{-- Contenedor de imagen seleccionada o existente --}}
+                        <div class="file" id="file-5">
+                            {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
+                            @if ($specLaptop->product->file->image_5)
+                                <img src="{{ asset($specLaptop->product->file->image_5) }}">
+                                @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_5) @endphp
+                            @else
+                                @php $imageName = 'Seleccionar imagen' @endphp
+                            @endif
+                        </div>
+                        {{-- Campo para mostrar nombre de imagen--}}
+                        <input type="text" class="file-name" id="file-name-5" value="{{ $imageName }}" tabindex="-1" readonly>
                     </div>
-                    {{-- Campo para mostrar nombre de imagen--}}
-                    <input type="text" class="file-name" id="file-name-5" value="{{ $imageName }}" tabindex="-1" readonly>
                     {{-- Si existe una imagen mostramos el boton de eliminar imagen existente --}}
                     @if ($specLaptop->product->file->image_5)
                         {{-- Botón recortado para seleccionar imagen --}}
-                        <label class="btn-upload button--alternative-ow short" id="btn-upload-5" tabindex="1">
-                            <input type="file" accept="image/*" id="image_5" name="image_5">Cargar
-                        </label>
+                        <label for="image_5" class="btn-upload button--alternative-ow short" id="btn-upload-5" tabindex="1">Cargar</label>
                         {{-- Botón para abrir popup --}}
                         <button type="button" class="button--negative-ow sq btn-popup-confirm" id="btn-popup-confirm-5" tabindex="1"><i class='bx bxs-trash'></i></button>
                     @else
                         {{-- Botón para seleccionar imagen --}}
-                        <label class="btn-upload button--alternative-ow" id="btn-upload-5" tabindex="1">
-                            <input type="file" accept="image/*" id="image_5" name="image_5">Cargar
-                        </label> 
+                        <label for="image_5" class="btn-upload button--alternative-ow" id="btn-upload-5" tabindex="1">Cargar</label> 
                     @endif
                 </div>
                 {{--*
@@ -401,31 +402,32 @@
                         {{-- Botón cerrar popup --}}
                         <button type="button" class="button--neutral-ow">Cancelar</button>
                     </div>
-                    {{-- Contenedor de imagen seleccionada o existente --}}
-                    <div class="file" id="file-6">
-                        {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
-                        @if ($specLaptop->product->file->image_6)
-                            <img src="{{ asset($specLaptop->product->file->image_6) }}">
-                            @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_6) @endphp
-                        @else
-                            @php $imageName = 'Seleccionar imagen' @endphp
-                        @endif
+                    {{-- Input file --}}
+                    <input type="file" accept="image/*" id="image_6" name="image_6">
+                    {{-- Contenedor de conjunto file y file-name --}}
+                    <div class="container-file">
+                        {{-- Contenedor de imagen seleccionada o existente --}}
+                        <div class="file" id="file-6">
+                            {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
+                            @if ($specLaptop->product->file->image_6)
+                                <img src="{{ asset($specLaptop->product->file->image_6) }}">
+                                @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_6) @endphp
+                            @else
+                                @php $imageName = 'Seleccionar imagen' @endphp
+                            @endif
+                        </div>
+                        {{-- Campo para mostrar nombre de imagen--}}
+                        <input type="text" class="file-name" id="file-name-6" value="{{ $imageName }}" tabindex="-1" readonly>
                     </div>
-                    {{-- Campo para mostrar nombre de imagen--}}
-                    <input type="text" class="file-name" id="file-name-6" value="{{ $imageName }}" tabindex="-1" readonly>
                     {{-- Si existe una imagen mostramos el boton de eliminar imagen existente --}}
                     @if ($specLaptop->product->file->image_6)
                         {{-- Botón recortado para seleccionar imagen --}}
-                        <label class="btn-upload button--alternative-ow short" id="btn-upload-6" tabindex="1">
-                            <input type="file" accept="image/*" id="image_6" name="image_6">Cargar
-                        </label>
+                        <label for="image_6" class="btn-upload button--alternative-ow short" id="btn-upload-6" tabindex="1">Cargar</label>
                         {{-- Botón para abrir popup --}}
                         <button type="button" class="button--negative-ow sq btn-popup-confirm" id="btn-popup-confirm-6" tabindex="1"><i class='bx bxs-trash'></i></button>
                     @else
                         {{-- Botón para seleccionar imagen --}}
-                        <label class="btn-upload button--alternative-ow" id="btn-upload-6" tabindex="1">
-                            <input type="file" accept="image/*" id="image_6" name="image_6">Cargar
-                        </label> 
+                        <label for="image_6" class="btn-upload button--alternative-ow" id="btn-upload-6" tabindex="1">Cargar</label> 
                     @endif
                 </div>
                 {{--*
@@ -443,35 +445,39 @@
                         {{-- Botón cerrar popup --}}
                         <button type="button" class="button--neutral-ow">Cancelar</button>
                     </div>
-                    {{-- Contenedor de imagen seleccionada o existente --}}
-                    <div class="file" id="file-7">
-                        {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
-                        @if ($specLaptop->product->file->image_7)
-                            <img src="{{ asset($specLaptop->product->file->image_7) }}">
-                            @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_7) @endphp
-                        @else
-                            @php $imageName = 'Seleccionar imagen' @endphp
-                        @endif
+                    {{-- Input file --}}
+                    <input type="file" accept="image/*" id="image_7" name="image_7">
+                    {{-- Contenedor de conjunto file y file-name --}}
+                    <div class="container-file">
+                        {{-- Contenedor de imagen seleccionada o existente --}}
+                        <div class="file" id="file-7">
+                            {{-- Si existe una imagen la agregamos y recuperamos su nombre --}}
+                            @if ($specLaptop->product->file->image_7)
+                                <img src="{{ asset($specLaptop->product->file->image_7) }}">
+                                @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_7) @endphp
+                            @else
+                                @php $imageName = 'Seleccionar imagen' @endphp
+                            @endif
+                        </div>
+                        {{-- Campo para mostrar nombre de imagen--}}
+                        <input type="text" class="file-name" id="file-name-7" value="{{ $imageName }}" tabindex="-1" readonly>
                     </div>
-                    {{-- Campo para mostrar nombre de imagen--}}
-                    <input type="text" class="file-name" id="file-name-7" value="{{ $imageName }}" tabindex="-1" readonly>
                     {{-- Si existe una imagen mostramos el boton de eliminar imagen existente --}}
                     @if ($specLaptop->product->file->image_7)
                         {{-- Botón recortado para seleccionar imagen --}}
-                        <label class="btn-upload button--alternative-ow short" id="btn-upload-7" tabindex="1">
-                            <input type="file" accept="image/*" id="image_7" name="image_7">Cargar
-                        </label>
+                        <label for="image_7" class="btn-upload button--alternative-ow short" id="btn-upload-7" tabindex="1">Cargar</label>
                         {{-- Botón para abrir popup --}}
                         <button type="button" class="button--negative-ow sq btn-popup-confirm" id="btn-popup-confirm-7" tabindex="1"><i class='bx bxs-trash'></i></button>
                     @else
                         {{-- Botón para seleccionar imagen --}}
-                        <label class="btn-upload button--alternative-ow" id="btn-upload-7" tabindex="1">
-                            <input type="file" accept="image/*" id="image_7" name="image_7">Cargar
-                        </label> 
+                        <label for="image_7" class="btn-upload button--alternative-ow" id="btn-upload-7" tabindex="1">Cargar</label> 
                     @endif
                 </div>
             </div>
         </div>
+        {{-- <label for="image_x">
+            <input type="file" name="image_x" id="image_x">here
+        </label> --}}
     </div>
     {{--*
         * GRUPO SPECIFICATIONS *
@@ -1277,56 +1283,56 @@ function popupConfirm(){
 /**
  * * FORM VALIDATION
  */
-$('.form-create').validate({
+$('.form-edit').validate({
     rules : {
-        stock                : { required: true, digits: true },
+        stock                : { required: true, digits: true, maxlength: 11 },
 
-        // image_1              : { },
-        // image_2              : { },
-        // image_3              : { },
-        // image_4              : { },
-        // image_5              : { },
-        // image_6              : { },
-        // image_7              : { },
+        image_1              : { accept: 'image/*' },
+        image_2              : { accept: 'image/*' },
+        image_3              : { accept: 'image/*' },
+        image_4              : { accept: 'image/*' },
+        image_5              : { accept: 'image/*' },
+        image_6              : { accept: 'image/*' },
+        image_7              : { accept: 'image/*' },
 
-        sku                  : { required: true },
-        price                : { required: true, number: true },
-        price_discount       : { number: true },
-        status_usage         : { required: true },
-        status_aesthetic     : { required: true, number: true },
-        warranty_days        : { required: true, digits: true },
-        support              : { required: true },
-        delivery             : { required: true },
+        sku                  : { required: true, maxlength: 45 },
+        price                : { required: true, number: true, max: 999999.99 },
+        price_discount       : { number: true, max: 999999.99 },
+        status_usage         : { required: true, maxlength: 45 },
+        status_aesthetic     : { required: true, number: true, max: 10 },
+        warranty_days        : { required: true, digits: true, maxlength: 11 },
+        support              : { required: true, maxlength: 45 },
+        delivery             : { required: true, maxlength: 45 },
 
-        equipo_marca         : { required: true },
-        equipo_linea         : { required: true },
-        equipo_modelo        : { required: true },
-        ram_gb               : { required: true, number: true },
-        ram_tipo             : { required: true },
-        discod_amount        : { required: true, number: true },
-        discod_storage       : { required: true },
-        discod_tipo          : { required: true },
-        procesador_marca     : { required: true },
-        procesador_modelo    : { required: true },
-        procesador_gen       : { required: true, digits: true },
-        procesador_ghz       : { required: true, number: true },
-        procesador_nucleos   : { required: true, digits: true },
+        equipo_marca         : { required: true, maxlength: 45 },
+        equipo_linea         : { required: true, maxlength: 45 },
+        equipo_modelo        : { required: true, maxlength: 45 },
+        ram_gb               : { required: true, number: true, maxlength: 11 },
+        ram_tipo             : { required: true, maxlength: 45 },
+        discod_amount        : { required: true, number: true, maxlength: 43 },
+        discod_storage       : { required: true, maxlength: 2 },
+        discod_tipo          : { required: true, maxlength: 45 },
+        procesador_marca     : { required: true, maxlength: 45 },
+        procesador_modelo    : { required: true, maxlength: 45 },
+        procesador_gen       : { required: true, digits: true, maxlength: 11 },
+        procesador_ghz       : { required: true, number: true, max: 99.99 },
+        procesador_nucleos   : { required: true, digits: true, maxlength: 11 },
         tarjetag             : { required: true, range: [0, 1] },
-        // tarjetag_marca       : { },
-        // tarjetag_modelo      : { },
-        // tarjetag_tipomemoria : { },
-        tarjetag_gb          : { digits: true },
-        pantalla_tipo        : { required: true },
-        pantalla_tamano      : { required: true, number: true },
+        tarjetag_marca       : { maxlength: 45 },
+        tarjetag_modelo      : { maxlength: 45 },
+        tarjetag_tipomemoria : { maxlength: 45 },
+        tarjetag_gb          : { digits: true, maxlength: 11 },
+        pantalla_tipo        : { required: true, maxlength: 45 },
+        pantalla_tamano      : { required: true, number: true, max: 999.99 },
         pantalla_tactil      : { required: true, range: [0, 1] },
         pantalla_resolucion  : { required: true, digits: true, minlength: 3, maxlength: 4 },
         pantalla_resolucion_y  : { required: true, digits: true, minlength: 3, maxlength: 4 },
-        teclado_idioma       : { required: true },
+        teclado_idioma       : { required: true, maxlength: 45 },
         teclado_retroi       : { required: true, range: [0, 1] },
         teclado_num          : { required: true, range: [0, 1] },
-        conectv_usb2         : { required: true, digits: true },
-        conectv_usb3         : { required: true, digits: true },
-        conectv_usbc         : { required: true, digits: true },
+        conectv_usb2         : { required: true, digits: true, maxlength: 11 },
+        conectv_usb3         : { required: true, digits: true, maxlength: 11 },
+        conectv_usbc         : { required: true, digits: true, maxlength: 11 },
         conectv_wifi         : { required: true, range: [0, 1] },
         conectv_bluetooth    : { required: true, range: [0, 1] },
         conectv_jack         : { required: true, range: [0, 1] },
@@ -1336,14 +1342,14 @@ $('.form-create').validate({
         conectv_ethernet     : { required: true, range: [0, 1] },
         conectv_serialcom    : { required: true, range: [0, 1] },
         conectv_ieee1394     : { required: true, range: [0, 1] },
-        so                   : { required: true },
+        so                   : { required: true, maxlength: 45 },
         software_ad          : { required: true, maxlength: 155 },
         audiov_camara        : { required: true, range: [0, 1] },
         audiov_microfono     : { required: true, range: [0, 1] },
         lectura_unidadoptica : { required: true, range: [0, 1] },
         lectura_sd           : { required: true, range: [0, 1] },
-        bateria_tipo         : { required: true },
-        bateria_celdas       : { required: true, digits: true }
+        bateria_tipo         : { required: true, maxlength: 45 },
+        bateria_celdas       : { required: true, digits: true, maxlength: 11 }
     }
 });
 /**

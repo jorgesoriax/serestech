@@ -1,5 +1,6 @@
 
 <script type="text/javascript" src="{{ asset('vendor/jquery-validation-1.19.3/dist/jquery.validate.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/jquery-validation-1.19.3/dist/additional-methods.min.js') }}"></script>
 
 <form action="{{ route('panel.store') }}" method="POST" enctype="multipart/form-data" class="form-create">
     {{--*
@@ -124,7 +125,7 @@
                     <p>Soporte</p>
                 </div>
                 <div class="input input-min">
-                    <input type="text" name="support" value="1 mes de soporte remoto y físico sin costo" id="support" class="input--ow outl--blue-ow" required placeholder="Duración y tipo de soporte" tabindex="1">
+                    <input type="text" name="support" value="1 mes de soporte remoto y presencial sin costo" id="support" class="input--ow outl--blue-ow" required placeholder="Duración y tipo de soporte" tabindex="1">
                 </div>
             </div>
             <div class="item">
@@ -132,7 +133,7 @@
                     <p>Envio</p>
                 </div>
                 <div class="input input-min">
-                    <input type="text" name="delivery" value="Entrega de inmediato" id="delivery" class="input--ow outl--blue-ow" required placeholder="Tipo de entrega" tabindex="1">
+                    <input type="text" name="delivery" value="Entrega inmediata" id="delivery" class="input--ow outl--blue-ow" required placeholder="Tipo de entrega" tabindex="1">
                 </div>
             </div>
             <div class="item">
@@ -161,72 +162,72 @@
                 <div class="file-upload">
                     <span>1</span>
                     <button type="button" class="button--neutral-ow sq outl--blue-ow btn-upload-cancel" id="btn-upload-cancel-1"><i class='bx bx-x'></i></button>
-                    <div class="file" id="file-1"></div>
-                    <input type="text" class="file-name" id="file-name-1" value="Seleccione una imagen" tabindex="-1" readonly>
-                    <label class="btn-upload button--alternative-ow" id="btn-upload-1" tabindex="1">
-                        <input type="file" accept="image/*" id="image_1" name="image_1">
-                        Elegir imagen
-                    </label>
+                    <input type="file" accept="image/*" id="image_1" name="image_1">
+                    <div class="container-file">
+                        <div class="file" id="file-1"></div>
+                        <input type="text" class="file-name" id="file-name-1" value="Seleccione una imagen" tabindex="-1" readonly>
+                    </div>
+                    <label for="image_1" class="btn-upload button--alternative-ow" id="btn-upload-1" tabindex="1">Elegir imagen</label>
                 </div>
                 <div class="file-upload">
                     <span>2</span>
                     <button type="button" class="button--neutral-ow sq outl--blue-ow btn-upload-cancel" id="btn-upload-cancel-2"><i class='bx bx-x'></i></button>
-                    <div class="file" id="file-2"></div>
-                    <input type="text" class="file-name" id="file-name-2" value="Seleccione una imagen" tabindex="-1">
-                    <label class="btn-upload button--alternative-ow" id="btn-upload-2" tabindex="1">
-                        <input type="file" accept="image/*" id="image_2" name="image_2">
-                        Elegir imagen
-                    </label>
+                    <input type="file" accept="image/*" id="image_2" name="image_2">
+                    <div class="container-file">
+                        <div class="file" id="file-2"></div>
+                        <input type="text" class="file-name" id="file-name-2" value="Seleccione una imagen" tabindex="-1">
+                    </div>
+                    <label for="image_2" class="btn-upload button--alternative-ow" id="btn-upload-2" tabindex="1">Elegir imagen</label>
                 </div>
                 <div class="file-upload">
                     <span>3</span>
                     <button type="button" class="button--neutral-ow sq outl--blue-ow btn-upload-cancel" id="btn-upload-cancel-3"><i class='bx bx-x'></i></button>
-                    <div class="file" id="file-3"></div>
-                    <input type="text" class="file-name" id="file-name-3" value="Seleccione una imagen" tabindex="-1">
-                    <label class="btn-upload button--alternative-ow" id="btn-upload-3" tabindex="1">
-                        <input type="file" accept="image/*" id="image_3" name="image_3">
-                        Elegir imagen
-                    </label>
+                    <input type="file" accept="image/*" id="image_3" name="image_3">
+                    <div class="container-file">
+                        <div class="file" id="file-3"></div>
+                        <input type="text" class="file-name" id="file-name-3" value="Seleccione una imagen" tabindex="-1">
+                    </div>
+                    <label for="image_3" class="btn-upload button--alternative-ow" id="btn-upload-3" tabindex="1">Elegir imagen</label>
                 </div>
                 <div class="file-upload">
                     <span>4</span>
                     <button type="button" class="button--neutral-ow sq outl--blue-ow btn-upload-cancel" id="btn-upload-cancel-4"><i class='bx bx-x'></i></button>
-                    <div class="file" id="file-4"></div>
-                    <input type="text" class="file-name" id="file-name-4" value="Seleccione una imagen" tabindex="-1">
-                    <label class="btn-upload button--alternative-ow" id="btn-upload-4" tabindex="1">
-                        <input type="file" accept="image/*" id="image_4" name="image_4">
-                        Elegir imagen
-                    </label>
+                    <input type="file" accept="image/*" id="image_4" name="image_4">
+                    <div class="container-file">
+                        <div class="file" id="file-4"></div>
+                        <input type="text" class="file-name" id="file-name-4" value="Seleccione una imagen" tabindex="-1">
+                    </div>
+                    <label for="image_4" class="btn-upload button--alternative-ow" id="btn-upload-4" tabindex="1">Elegir imagen</label>
                 </div>
                 <div class="file-upload">
                     <span>5</span>
                     <button type="button" class="button--neutral-ow sq outl--blue-ow btn-upload-cancel" id="btn-upload-cancel-5"><i class='bx bx-x'></i></button>
-                    <div class="file" id="file-5"></div>
-                    <input type="text" class="file-name" id="file-name-5" value="Seleccione una imagen" tabindex="-1">
-                    <label class="btn-upload button--alternative-ow" id="btn-upload-5" tabindex="1">
-                        <input type="file" accept="image/*" id="image_5" name="image_5">
-                        Elegir imagen
-                    </label>
+                    <input type="file" accept="image/*" id="image_5" name="image_5">
+                    <div class="container-file">
+                        <div class="file" id="file-5"></div>
+                        <input type="text" class="file-name" id="file-name-5" value="Seleccione una imagen" tabindex="-1">
+                    </div>
+                    <label for="image_5" class="btn-upload button--alternative-ow" id="btn-upload-5" tabindex="1">Elegir imagen</label>
                 </div>
                 <div class="file-upload">
                     <span>6</span>
                     <button type="button" class="button--neutral-ow sq outl--blue-ow btn-upload-cancel" id="btn-upload-cancel-6"><i class='bx bx-x'></i></button>
-                    <div class="file" id="file-6"></div>
-                    <input type="text" class="file-name" id="file-name-6" value="Seleccione una imagen" tabindex="-1">
-                    <label class="btn-upload button--alternative-ow" id="btn-upload-6" tabindex="1">
-                        <input type="file" accept="image/*" id="image_6" name="image_6">
-                        Elegir imagen
-                    </label>
+                    <input type="file" accept="image/*" id="image_6" name="image_6">
+                    <div class="container-file">
+                        <div class="file" id="file-6"></div>
+                        <input type="text" class="file-name" id="file-name-6" value="Seleccione una imagen" tabindex="-1">
+                    </div>
+                    <label for="image_6" class="btn-upload button--alternative-ow" id="btn-upload-6" tabindex="1">Elegir imagen</label>
                 </div>
                 <div class="file-upload">
                     <span>7</span>
                     <button type="button" class="button--neutral-ow sq outl--blue-ow btn-upload-cancel" id="btn-upload-cancel-7"><i class='bx bx-x'></i></button>
-                    <div class="file" id="file-7"></div>
-                    <input type="text" class="file-name" id="file-name-7" value="Seleccione una imagen" tabindex="-1">
-                    <label class="btn-upload button--alternative-ow" id="btn-upload-7" tabindex="1">
-                        <input type="file" accept="image/*" id="image_7" name="image_7">
-                        Elegir imagen
-                    </label>
+                    <input type="file" accept="image/*" id="image_7" name="image_7">
+                    <div class="container-file">
+                        <div class="file" id="file-7"></div>
+                        <input type="text" class="file-name" id="file-name-7" value="Seleccione una imagen" tabindex="-1">
+                    </div>
+                    <label for="image_7" class="btn-upload button--alternative-ow" id="btn-upload-7" tabindex="1">Elegir imagen</label>
                 </div>
             </div>
         </div>
@@ -936,54 +937,54 @@ function tarjetagYN(){
  */
 $('.form-create').validate({
     rules : {
-        stock                : { required: true, digits: true },
+        stock                : { required: true, digits: true, maxlength: 11 },
 
-        // image_1              : { },
-        // image_2              : { },
-        // image_3              : { },
-        // image_4              : { },
-        // image_5              : { },
-        // image_6              : { },
-        // image_7              : { },
+        image_1              : { accept: 'image/*' },
+        image_2              : { accept: 'image/*' },
+        image_3              : { accept: 'image/*' },
+        image_4              : { accept: 'image/*' },
+        image_5              : { accept: 'image/*' },
+        image_6              : { accept: 'image/*' },
+        image_7              : { accept: 'image/*' },
 
-        sku                  : { required: true },
-        price                : { required: true, number: true },
-        price_discount       : { number: true },
-        status_usage         : { required: true },
-        status_aesthetic     : { required: true, number: true },
-        warranty_days        : { required: true, digits: true },
-        support              : { required: true },
-        delivery             : { required: true },
+        sku                  : { required: true, maxlength: 45 },
+        price                : { required: true, number: true, max: 999999.99 },
+        price_discount       : { number: true, max: 999999.99 },
+        status_usage         : { required: true, maxlength: 45 },
+        status_aesthetic     : { required: true, number: true, max: 10 },
+        warranty_days        : { required: true, digits: true, maxlength: 11 },
+        support              : { required: true, maxlength: 45 },
+        delivery             : { required: true, maxlength: 45 },
 
-        equipo_marca         : { required: true },
-        equipo_linea         : { required: true },
-        equipo_modelo        : { required: true },
-        ram_gb               : { required: true, number: true },
-        ram_tipo             : { required: true },
-        discod_amount        : { required: true, number: true },
-        discod_storage       : { required: true },
-        discod_tipo          : { required: true },
-        procesador_marca     : { required: true },
-        procesador_modelo    : { required: true },
-        procesador_gen       : { required: true, digits: true },
-        procesador_ghz       : { required: true, number: true },
-        procesador_nucleos   : { required: true, digits: true },
+        equipo_marca         : { required: true, maxlength: 45 },
+        equipo_linea         : { required: true, maxlength: 45 },
+        equipo_modelo        : { required: true, maxlength: 45 },
+        ram_gb               : { required: true, number: true, maxlength: 11 },
+        ram_tipo             : { required: true, maxlength: 45 },
+        discod_amount        : { required: true, number: true, maxlength: 43 },
+        discod_storage       : { required: true, maxlength: 2 },
+        discod_tipo          : { required: true, maxlength: 45 },
+        procesador_marca     : { required: true, maxlength: 45 },
+        procesador_modelo    : { required: true, maxlength: 45 },
+        procesador_gen       : { required: true, digits: true, maxlength: 11 },
+        procesador_ghz       : { required: true, number: true, max: 99.99 },
+        procesador_nucleos   : { required: true, digits: true, maxlength: 11 },
         tarjetag             : { required: true, range: [0, 1] },
-        // tarjetag_marca       : { },
-        // tarjetag_modelo      : { },
-        // tarjetag_tipomemoria : { },
-        tarjetag_gb          : { digits: true },
-        pantalla_tipo        : { required: true },
-        pantalla_tamano      : { required: true, number: true },
+        tarjetag_marca       : { maxlength: 45 },
+        tarjetag_modelo      : { maxlength: 45 },
+        tarjetag_tipomemoria : { maxlength: 45 },
+        tarjetag_gb          : { digits: true, maxlength: 11 },
+        pantalla_tipo        : { required: true, maxlength: 45 },
+        pantalla_tamano      : { required: true, number: true, max: 999.99 },
         pantalla_tactil      : { required: true, range: [0, 1] },
         pantalla_resolucion  : { required: true, digits: true, minlength: 3, maxlength: 4 },
         pantalla_resolucion_y  : { required: true, digits: true, minlength: 3, maxlength: 4 },
-        teclado_idioma       : { required: true },
+        teclado_idioma       : { required: true, maxlength: 45 },
         teclado_retroi       : { required: true, range: [0, 1] },
         teclado_num          : { required: true, range: [0, 1] },
-        conectv_usb2         : { required: true, digits: true },
-        conectv_usb3         : { required: true, digits: true },
-        conectv_usbc         : { required: true, digits: true },
+        conectv_usb2         : { required: true, digits: true, maxlength: 11 },
+        conectv_usb3         : { required: true, digits: true, maxlength: 11 },
+        conectv_usbc         : { required: true, digits: true, maxlength: 11 },
         conectv_wifi         : { required: true, range: [0, 1] },
         conectv_bluetooth    : { required: true, range: [0, 1] },
         conectv_jack         : { required: true, range: [0, 1] },
@@ -993,14 +994,14 @@ $('.form-create').validate({
         conectv_ethernet     : { required: true, range: [0, 1] },
         conectv_serialcom    : { required: true, range: [0, 1] },
         conectv_ieee1394     : { required: true, range: [0, 1] },
-        so                   : { required: true },
+        so                   : { required: true, maxlength: 45 },
         software_ad          : { required: true, maxlength: 155 },
         audiov_camara        : { required: true, range: [0, 1] },
         audiov_microfono     : { required: true, range: [0, 1] },
         lectura_unidadoptica : { required: true, range: [0, 1] },
         lectura_sd           : { required: true, range: [0, 1] },
-        bateria_tipo         : { required: true },
-        bateria_celdas       : { required: true, digits: true }
+        bateria_tipo         : { required: true, maxlength: 45 },
+        bateria_celdas       : { required: true, digits: true, maxlength: 11 }
     }
 });
 /**

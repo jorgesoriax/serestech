@@ -1,12 +1,6 @@
 <form action="{{ route('panel.destroy', $specLaptop) }}" method="POST" id="form-delete">
     <div class="header">
-        <h2>
-            Eliminar Laptop
-            {{ $specLaptop->equipo_marca}}
-            {{ $specLaptop->equipo_linea}} 
-            {{ $specLaptop->equipo_modelo}}
-            con ID {{ $specLaptop->id}}
-        </h2>
+        <h2>Eliminar Laptop {{ $specLaptop->equipo_marca}} {{ $specLaptop->equipo_linea}} {{ $specLaptop->equipo_modelo}} con ID {{ $specLaptop->id}}</h2>
     </div>
     @csrf
     @method('delete')

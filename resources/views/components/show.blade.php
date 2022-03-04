@@ -5,13 +5,7 @@
     --}}
     <div class="header">
         <button class="button--neutral-ow sq btn-close" type="button"><i class='bx bx-arrow-back'></i></button>
-        <h2>
-            Ver Laptop
-            {{ $specLaptop->equipo_marca}}
-            {{ $specLaptop->equipo_linea}} 
-            {{ $specLaptop->equipo_modelo}}
-            con ID {{ $specLaptop->id}}
-        </h2>
+        <h2>Ver Laptop {{ $specLaptop->equipo_marca}} {{ $specLaptop->equipo_linea}} {{ $specLaptop->equipo_modelo}} con ID {{ $specLaptop->id}}</h2>
     </div>
     @csrf
     {{--*
@@ -884,8 +878,6 @@ $('#tarjetag').ready(function(){
             $('.content').append('<div class="loading"><i class="bx bx-loader-alt"></i></div>');
         }
     });
-    // Al terminar de cargar, el focus se coloca en el primer input
-    $('#equipo_marca').focus(); 
 });
 /**
  * * BTN CLOSE MODAL

@@ -3,12 +3,12 @@
 /**
   * * LOGIN
   */
-#login-panel{
+.container-login{
     @include flex;
     flex-direction: column;
     height: 100vh;
 }
-#panel--logo{
+.panel--logo{
     position: absolute;
     top: $container--padd-max * 2;
 
@@ -16,7 +16,7 @@
         height: 35px;
     }
 }
-#panel--login{
+.panel--login{
     width: 336px;
 
     .message{
@@ -46,9 +46,10 @@
     grid-template-columns: 90px auto;
     grid-template-rows: 85px auto auto;
 
+    h2{
+        color: setcolor(black);
+    }
     header, main, #paginate{
-        // width: calc(100% - 90px);
-        // margin-left: 90px;
         width: 100%;
     }
     /**
@@ -68,7 +69,6 @@
         display: flex;
         flex-direction: column;
         gap: $gap--max;
-        grid-row: 1 / 4;
 
         div{
             cursor: pointer;
@@ -169,7 +169,7 @@
         }
         .manual{
             i{
-                transition: $animation-duration--min;
+                color: setcolor(black);
             }
             &:hover{
                 i{
@@ -181,152 +181,103 @@
     /**
     * * PANEL CRUD
     */
-    .panel-crud{
-        width: 100%;
-        overflow: visible;
-        border-spacing: 0;
-        background: setcolor(white, light);
-        border-radius: $border--rad-max;
+    .main-panel-table{
+        grid-column: 2 / 3;
 
-        thead{
-            tr{
-                position: sticky;
-                z-index: 1;
-                top: -6px;
-
-                th{
-                    border-bottom: 0;
-                    background: setcolor(white, light);
-
-                    // Agregamos un elemento after para que simule border bottom
-                    // al desplazar th sticky
-                    &::after{
-                        content: '';
-                        width: 100%;
-                        height: 1px;
-                        position: absolute;
-                        bottom: 0;
-                        left: 0;
-                        background: setcolor(gray, light);
-                    }
-                    &:first-child{
-                        border-top-left-radius: $border--rad-max;
-                    }
-                    &:last-child{
-                        border-top-right-radius: $border--rad-max;
+        .table-container{
+            margin-bottom: 0;
+            
+            .table-panel{
+                thead{
+                    tr{
+                        .th--id{
+                            width: 4%;
+                        }
+                        .th--image{
+                            width: 8%;
+                        }
+                        .th--name{
+                            width: 13%;
+                        }
+                        .th--sku, .th--price, .th--price-disc, .th--stock{
+                            width: 10%;
+                        }
+                        .th--label{
+                            width: 15%;
+                        }
+                        .th--crud{
+                            width: 20%;
+                        }
                     }
                 }
-                // Las medidas no son respetadas, pero son usadas
-                // como min-width
-                .th--id{
-                    width: 4%;
-                }
-                .th--image{
-                    width: 8%;
-                }
-                .th--name{
-                    width: 13%;
-                }
-                .th--sku, .th--price, .th--price-disc, .th--stock{
-                    width: 10%;
-                }
-                .th--label{
-                    width: 15%;
-                }
-                .th--crud{
-                    width: 20%;
-                }
-            }
-        }
-        tbody{
-            border-radius: 100px;
-            .tr--empty:hover{
-                background: setcolor(white);
-            }
-            tr{
-                td{
-                    text-align: center;
-                    // border: 0;
-                    border-bottom: $border--px solid setcolor(gray, light);
-                    padding: $container--padd-micro;
-
-                    &:first-child{
-                        border-left: 0;
+                tbody{
+                    .tr--empty:hover{
+                        background: setcolor(white);
+                    }
+                    tr{
+                        td{
+                            padding: $container--padd-micro;
+                            text-align: center;
+        
+                            // &:first-child{
+                            //     border-left: 0;
+                            // }
+                        }
+                        .td--label{
+                            text-align: left;
+                        }
+                        .td--marca{
+                            text-align: left;
+                            font-weight: 600;
+                        }
+                        .td--price{
+                            white-space: nowrap;
+                        }
+                        .td--stock{
+                            white-space: nowrap;
+                        }
                     }
                 }
-                &:nth-child(odd){
+                .img-container{
+                    width: 75px;
+                    height: 75px;
                     background: setcolor(white);
-                }
-                &:hover{
-                    background: setcolor(gray, patt);
-                }
-                &:last-child{
-                    td{
-                        border-bottom: 0;
+                    border: $border--px solid setcolor(gray, light);
+                    border-radius: $border--rad-mid;
+                    overflow: hidden;
+                    @include flex;
+                    cursor: pointer;
+        
+                    img{
+                        width: 100%;
+                        height: 100%;
                     }
-                    td:first-child{
-                        border-bottom-left-radius: $border--rad-max;
-                    }
-                    td:last-child{
-                        border-bottom-right-radius: $border--rad-max;
+                    .noimage-50{
+                        width: initial;
+                        height: initial;
                     }
                 }
-                &:first-child{
-                    border-top: 0;
+                .button--alternative-ow, .button--negative-ow{
+                    margin: 0 auto;
+                    i{
+                        color: white;
+                    }
                 }
-                .td--label{
-                    text-align: left;
+                .button--neutral-ow{
+                    margin: 0 auto;
                 }
-                .td--marca{
-                    text-align: left;
-                    font-weight: 600;
-                }
-                .td--price{
-                    white-space: nowrap;
-                }
-                .td--stock{
-                    white-space: nowrap;
+                .label--b{
+                    margin-top: $container--padd-micro;
                 }
             }
-        }
-        .img-container{
-            width: 75px;
-            height: 75px;
-            background: setcolor(white);
-            border: $border--px solid setcolor(gray, light);
-            border-radius: $border--rad-mid;
-            overflow: hidden;
-            @include flex;
-            margin: $container--padd-micro;
-            cursor: pointer;
-
-            img{
-                width: 100%;
-                height: 100%;
-            }
-            .noimage-50{
-                width: initial;
-                height: initial;
-            }
-        }
-        .button--alternative-ow, .button--negative-ow{
-            margin: 0 auto;
-            i{
-                color: white;
-            }
-        }
-        .button--neutral-ow{
-            margin: 0 auto;
-        }
-        .label--b{
-            margin-top: $container--padd-micro;
         }
     }
     /**
      * * PAGINATE
      */
       #paginate{
-        margin: 13px;
+        margin: $container--padd-max 0 0 0;
+        grid-column: 2 / 3;
     }
 }
 /**
@@ -334,7 +285,7 @@
  */
 .modal-shadow--panel{
     z-index: 11;
-    // display: block;
+    display: none;
     top: 0;
     position: fixed;
 }
@@ -342,8 +293,8 @@
     width: 100%;
     height: 100vh;
     z-index: 12;
-    position: absolute;
     display: none;
+    position: absolute;
 }
 .modal{
     background: setcolor(white);
@@ -360,6 +311,7 @@
         width: 100%;
         height: 100%;
         overflow-y: scroll;
+        
         form{
             display: flex;
             flex-direction: column;
@@ -497,8 +449,8 @@
 }
 .modal-mid{
     width: 600px;
-    height: 163px;
-    margin: calc(50vh - 41px) auto;
+    height: fit-content;
+    margin-top: 15%;
 
     .content{
         overflow: auto;
@@ -512,6 +464,7 @@
 }
 #form-delete{
     width: 100%;
+    height: 100%;
 
     .buttons{
         display: flex;

@@ -51,6 +51,13 @@
     }
 }
 /**
+ * SEARCH INPUT
+ */
+.input-search{
+    max-width: 600px;
+    justify-content: left;
+}
+/**
  * FORM INPUTS
  */
 .input-min{
@@ -169,11 +176,49 @@
         display: none;
 
     }
+    input[type='file']{
+        width: 100%;
+        overflow: hidden;
+        position: absolute;
+        opacity: 0;
+    }
+    label.error{
+        width: calc(100% - 2px);
+        background: setcolor(white);
+        position: absolute;
+        color: setcolor(red);
+        white-space: normal;
+        z-index: 3;
+        padding: $container--padd-micro;
+        bottom: 85px;
+        text-align: center;
+        margin: 0 1px;
+    }
+    input[type='file'].error ~ .container-file{
+        border: $border--px solid setcolor(red);
+        outline: $outline--px solid setcolor(red, outl);
+        border-radius: $border--rad-min $border--rad-min;
+
+        & .file{
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+        }
+        & .file-name{
+            border: 0;
+        }
+    }
     // Contenedor de imagen
+    .container-file{
+        width: 174px;
+        margin-bottom: $gap--mid;
+        border: $border--px solid transparent;
+    }
+    // Imagen
     .file{
         background: setcolor(white);
         border: $border--px solid setcolor(gray, light);
-        width: 174px;
+        width: 100%;
         height: 174px;
         border-radius: $border--rad-min $border--rad-min 0 0;
         overflow: hidden;
@@ -197,7 +242,6 @@
         border: $border--px solid setcolor(gray, light);
         border-top: 0;
         border-radius: 0 0 $border--rad-min $border--rad-min;
-        margin-bottom: $gap--mid;
         text-align: center;
         color: setcolor(gray);
         font-size: $paragraph--font-size;
@@ -208,12 +252,7 @@
             outline: none;
         }
     }
-    // Botón para seleccionar imagen
-    .btn-upload{
-        input[type='file']{
-            display: none;
-        }
-    }
+    // Recorta la label del botón para subir imagenes
     .short{
         float: left;
         width: calc(100% - 58px);  

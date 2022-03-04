@@ -1,7 +1,9 @@
-@use "../components/outlines";
-@use "../components/buttons";
-@use "../components/menu";
-@use "../components/inputs";
-@use "../components/helpers";
-@use "../components/boxes";
-@use "../components/messages";
+@use "outlines";
+@use "buttons";
+@use "menu";
+@use "inputs";
+@use "helpers";
+@use "boxes";
+@use "messages";
+@use "docs";
+@use "breadcrumb";

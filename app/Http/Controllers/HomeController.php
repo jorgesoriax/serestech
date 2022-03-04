@@ -21,7 +21,7 @@ class HomeController extends Controller
                                            ->orWhere('equipo_modelo', $textClear)
                                            ->paginate(9);
 
-        $msgResultEmpty = 'No se encontraron coincidencias.';
-        return view('home', compact('specsLaptop', 'msgResultEmpty'));
+        $msgResultEmpty = 'Sin coincidencias para '.$textClear.'.';
+        return view('home', compact('specsLaptop', 'msgResultEmpty', 'textClear'));
     }
 }

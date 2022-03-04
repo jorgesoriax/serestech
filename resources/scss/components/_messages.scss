@@ -1,7 +1,11 @@
 @use "../abstracts" as *;
 @use "../tools/crossbrowsing" as *;
+@use "../tools/mixins" as *;
 
-// * Mensaje con respuesta positiva
+/**
+ * * POSITIVE MESSAGE
+ * Mensaje con respuesta positiva
+ */
 .message{
     display: inline-grid;
     grid-template-columns: auto auto;
@@ -34,8 +38,10 @@
         @include noselect;
     }
 }
-
-// * Mensaje con respuesta negativa
+/**
+ * * NEGATIVE MESSAGE
+ * Mensaje con respuesta negativa
+ */
 .message--error{
     h3{
         color: setcolor(red);
@@ -54,8 +60,10 @@
         grid-column: 2;
     }
 }
-// * POPUP MESSAGE
-// Añade un elemento flotante con una descripción
+/**
+ * * POPUP MESSAGE
+ * Añade un elemento flotante con una descripción
+ */
 .static-message{
     width: 350px;
     background: setcolor(black);
@@ -102,4 +110,20 @@
     &:hover p{
         bottom: 100%;
     }
+}
+/**
+ * * COOKIE CONCENT
+ */
+.cookie-consent{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: $container--padd-min;
+    z-index: 4;
 }

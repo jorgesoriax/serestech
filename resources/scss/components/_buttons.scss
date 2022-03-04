@@ -2,14 +2,15 @@
 @use "../tools/mixins" as *;
 @use "../tools/crossbrowsing" as *;
 
-// * Property list
-// 1 background-color
-// 2 background-color:active
-// 3 border
-// 4 border:active
-// 5 outline:hover
-// 6 color
-
+/**
+ * PROPERTY LIST
+ * 1 background-color
+ * 2 background-color:active
+ * 3 border
+ * 4 border:active
+ * 5 outline:hover
+ * 6 color
+ */
 // * MAP Button states over white background
 $buttons--overwhite: (
     positive-ow: (
@@ -141,7 +142,9 @@ $buttons--overblue: (
     }
 }
 
-// * MENU
+/**
+ * MENU
+ */
 .menu{
     border: 0;
     background: transparent;
@@ -151,15 +154,16 @@ $buttons--overblue: (
         color: setcolor(white);
     }
 }
-
-// * PAGINATE
+/**
+ * PAGINATION
+ */
 #paginate{
     width: 100%;
     @include flex;
     flex-direction: column;
     margin: 0 auto;
-    margin-top: $container--padd-max;
-    padding: $container--padd-min - 3px;
+    // margin-top: $container--padd-max;
+    // padding: $container--padd-min - 3px;
 
     .button--neutral-ow{
         border-radius: $border--rad-mid;
@@ -201,5 +205,30 @@ $buttons--overblue: (
         p{
             margin-top: 6px;
         }
+    }
+}
+/**
+ * KEYS
+ * Botones utilizados para indicar shortcuts
+ */
+.shortcut-keys{
+    height: 100%;
+    position: absolute;
+    right: 9px;
+    @include flex;
+    flex-direction: row;
+    gap: $gap--min / 2;
+    pointer-events: none;
+
+    .shortcut-key{
+        height: fit-content;
+        background: setcolor(white, light);
+        border: $border--px solid setcolor(gray, light);
+        border-radius: $border--rad-min;
+        position: relative;
+        font-size: $paragraph--font-size-micro;
+        padding: $container--padd-micro;
+        z-index: 1;
+        box-shadow: 0 2px setcolor(gray, light);
     }
 }

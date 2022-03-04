@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\DocController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ManualController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
@@ -78,9 +78,10 @@ Route::get('panel/{specLaptop}/replace/{col}', [PanelController::class, 'replace
     ->middleware('auth');
 
 /**
- * * MANUAL
+ * * DOCS
  */
-Route::get('manual', [ManualController::class, 'index'])    ->name('manual.index')  ->middleware('auth');
+// Route::get('', [DocController::class, 'manual'])->name('doc.manual')->middleware('auth');
+Route::get('cookies-policy', [DocController::class, 'cookies'])->name('docs.cookies');
 /**
  * * HOME
  */
@@ -88,7 +89,7 @@ Route::get('/', [HomeController::class, 'index'])
     ->name('home.index');
 Route::get('search', [HomeController::class, 'search'])
     ->name('home.search');
-Route::get('{id}', [ProductController::class, 'show']);
+Route::get('product/{id}', [ProductController::class, 'show'])->name('product.index');
 
 /**
  * CMD

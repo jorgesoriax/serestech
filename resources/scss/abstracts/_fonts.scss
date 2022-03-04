@@ -15,18 +15,27 @@ $font--title: 'Open Sans', sans-serif;
 h1, h2, h3, p{
     margin: $font--margin 0;
 }
-h1{
+h1, h1 > a{
     @include font-family($font--head);
     font-size: $head--font-size;
 }
-h2{
+h2, h2 > a{
     @include font-family($font--head);
     font-size: $title--font-size;
 }
-h3{
+h3, h3 > a{
     @include font-family($font--title);
+    font-size: $subtitle--font-size;
 }
 p{
+    @include font-family($font--title,400);
+    font-size: $paragraph--font-size;
+}
+ul{
+    @include font-family($font--title,400);
+    font-size: $paragraph--font-size;
+}
+table, th{
     @include font-family($font--title,400);
     font-size: $paragraph--font-size;
 }

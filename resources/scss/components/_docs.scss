@@ -1,0 +1,73 @@
+@use "../abstracts" as *;
+@use "../tools/mixins" as *;
+
+.aside{
+    width: 250px;
+    height: 100vh;
+    position: absolute;
+    padding: $container--padd-max;
+    border-radius: 0;
+    border-top: 0;
+    border-bottom: 0;
+    border-left: 0;
+    background: none;
+}
+.aside-r{
+    right: 0;
+    border-right: 0;
+    border-left: $border--px solid setcolor(gray, light);
+}
+.docs-container{
+    width: 100%;
+    min-height: 100vh;
+    padding: $container--padd-min;
+    
+    p, ul, span{
+        font-size: $paragraph--font-size--docs;
+    }
+
+    > div{
+        max-width: 650px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .header{
+        padding-top: $container--padd-max;
+        @include flex(center, center);
+        flex-direction: column;
+        display: sticky;
+        top: 0px;
+
+        img{
+            height: $logo--height-min;
+        }
+        p{
+            margin: 8px 0;
+            text-align: center;
+        }
+    }
+    .body{
+        i{
+            font-size: 16px;
+        }
+        ul{
+            li{
+                margin-bottom: 8px;
+
+                span{
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+.table-cookies{
+    thead{
+        tr{
+            th:last-child{
+                width: 300px;
+            }
+        }
+    }
+}

@@ -7,13 +7,11 @@
 @endsection
 
 @section('content')
-
-<body id="login-panel">
-    <div id="panel--logo">
+<div class="container-login">
+    <div class="panel--logo">
         <img src="{{ asset('storage/images/panel-logo-large-b.svg') }}" alt="">
     </div>
-    <div id="panel--login">
-        
+    <div class="panel--login">
         @if($errors->any())
             <div class="message message--error">
                 <h3>
@@ -34,38 +32,31 @@
                 <p class="p--description">
                     Para comenzar ingrese sus credenciales.
                 </p>
-                <div>🥑</div>
+                <div>⚙️</div>
             </div>
         @endif
 
         <form method="POST">
             @csrf
-
             <div class="input">
                 <label for="text-a"><i class='bx bx-meh-blank'></i></label>
-                <input name="email" id="text-a" type="email" 
-                required autofocus value="{{ old('email') }}"
-                placeholder="Email" class="input--ow outl--blue-ow">
+                <input name="email" id="text-a" type="email" required autofocus value="{{ old('email') }}" placeholder="Email" class="input--ow outl--blue-ow">
             </div>
     
             <div class="input">
                 <label for="input--pass"><i class="bx bxs-lock-alt"></i></label>
-                <input name="password" 
-                id="input--pass" type="password" required
-                placeholder="Contraseña" class="input--ow outl--blue-ow">
+                <input name="password" id="input--pass" type="password" required placeholder="Contraseña" class="input--ow outl--blue-ow">
                 <i class="bx bxs-hide" id="icon--pass"></i>
             </div>
     
             <label class="checkbox">
                 <input name="remember" type="checkbox">
-                <div class="checkmark outl--blue-ow input--ow" tabindex="0"><i class='bx bx-check'></i></div>
-                Mantener la sesión iniciada
+                <div class="checkmark outl--blue-ow input--ow" tabindex="0"><i class='bx bx-check'></i></div>Mantener la sesión iniciada<br>
             </label>
     
             <input class="button--positive-ow" type="submit" value="Entrar">
-
         </form>
         
     </div>
-
+</div>
 @endsection

@@ -1,35 +1,6 @@
 @use "../abstracts" as *;
 @use "../tools/mixins" as *;
 /**
-  * * HEADER
-  */
-header{
-    .header--container{
-        #header--logo{
-            @include flex(center, left);
-    
-            img{
-                height: $logo--height-max;
-            }
-            #logo-large{
-                height: 53px;
-            }
-        }
-        form{
-            width: 100%;
-            
-            #header--search{
-                width: 100%;
-                justify-content: left;
-    
-                #text-search{
-                    max-width: 600px;
-                }
-            }
-        }
-    }
-}
-/**
   * * SLIDER
   */
 .container--slider{
@@ -91,11 +62,17 @@ header{
 /**
   * * CATALOG
   */
-#container--catalog{
+#container--catalog, .container-breadcrumb-home{
     width: $cont--p-card--min-width;
     max-width: $cont--p-card--min-width;
-    margin: 0 auto;
-    margin-top: $container--padd-max;
+    margin: $container--padd-max auto;
+    // margin-top: $container--padd-max;
+}
+.container-breadcrumb-home{
+    margin: 0;
+}
+.container-breadcrumb-home + h2{
+    text-align: center;
 }
 #catalog{
     display: flex;
@@ -103,13 +80,14 @@ header{
     gap: $gap--max;
     align-content: flex-start;
     flex-flow: row wrap;
-    margin-bottom: $container--padd-max;
+    // margin-bottom: $container--padd-max;
 }
 .product--card{
     min-width: 300px;
     max-width: 300px;
     cursor: pointer;
     transition: $animation-duration--min;
+    color: setcolor(black);
 
     &:hover{
         transform: translateY(-5px);
@@ -158,7 +136,7 @@ header{
 }
 .product--info{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 65% 35%;
     transition: $animation-duration--min;
     padding: $container--padd-max;
 
@@ -166,117 +144,50 @@ header{
         margin-top: 0;
         margin-bottom: 8px;
         grid-column: 1 / 3;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
     #product--description{
         margin-top: 0;
+        margin-bottom: 8px;
+        height: 48px;
         grid-column: 1 / 3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+                line-clamp: 3; 
+        -webkit-box-orient: vertical;
+        white-space:wrap;
     }
     #product--price{
+        // border: 1px solid blue;
+        min-height: 36px;
         margin: 0;
         grid-row: 3 / 5;
-        line-height: 45px;
-        height: 36px;
+        @include flex(flex-end, left);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
     #product--orig-price{
+        // border: 1px solid red;
         margin: 0;
         text-decoration: line-through;
         opacity: 0;
         transition: $animation-duration--min;
         grid-column: 2 / 3;
-        text-align: right;
-        transform: translateY(16px);
+        transform: translateY(20px);
+        @include flex(flex-end, right);
     }
     #product--discount{
-        text-align: right;
+        // border: 1px solid lime;
+        @include flex(flex-end, right);
         margin: 0;
         color: setcolor(green);
         font-weight: 600;
     }
-}
-/**
-  * * FOOTER
-  */
-footer{
-    div{
-        padding: $container--padd-min 0;
-
-        > img{
-            height: $i--font-size-mid;
-        }
-
-        p{
-            margin: $font--margin 0;
-            width: 100%;
-        }
-    }
-    .static-message{
-        width: 100%;
-        grid-column: 1 / 3;
-    }
-}
-/**
-  * * FOOTER GRID
-  */
-#footer--logo{
-    grid-column: 1 / 3;
-    padding: 0;
-    margin: 0 0 $container--padd-min 0;
-    @include flex(center, left);
-
-    img{
-        height: $logo--height-min;
-    }
-}
-#footer--buttons{
-    border-bottom: $border--px solid setcolor(gray, light);
-    justify-content: right;
-    padding-top: 0;
-
-    .outl--blue-ow{
-        &:hover{
-            border: $border--px solid transparent;
-        }
-    }
-
-    .input--ow{
-        &:hover{
-            border: $border--px solid setcolor(blue);
-        }
-    }
-}
-#footer--number{
-    @include flex(center, left);
-    gap: $gap--min;
-    border-bottom: $border--px solid setcolor(gray, light);
-    position: relative;
-    padding-top: 0;
-
-    p{
-        @include flex(center,left);
-        gap: $gap--min;
-        position: absolute;
-        bottom: 0;
-    }
-}
-#footer--adress{
-    position: relative;
-    padding-bottom: 0;
-
-    p{
-        position: absolute;
-        top: 0;
-    }
-}
-#footer--currencies{
-    @include flex(center,right);
-    gap: $gap--max;
-    padding-bottom: 0;
-}
-#cryptocurrencies{
-    min-width: 107px;
-    @include flex;
-    gap: $gap--max;
-    padding: $gap--min;
 }
 /**
   * * FIXS
@@ -293,29 +204,4 @@ footer{
     @include flex;
     gap: $gap--min;
     padding-top: $container--padd-max * 5;
-}
-/**
-  * * MENU
-  * Menu colapsable
-  */
-.menu--container{
-    .content{
-        display: flex;
-        flex-direction: column;
-        gap: $gap--max;
-        text-align: center;
-
-        .content--social-media{
-            @include flex;
-            flex-direction: row;
-            gap: $gap--max;
-        }
-        .content--whatsapp{
-            @include flex;
-            flex-direction: row;
-        }
-        .static-message{
-            width: 100%;
-        }
-    }
 }

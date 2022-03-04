@@ -4,7 +4,7 @@
 /**
   * * BASE
   */
-#product--info, #product--specs, #product--wty, #product--index{
+#product--info, #product--specs, #product--wty, .container-breadcrumb-product{
     width: 935px;
     min-width: 935px;
     margin: 0 auto;
@@ -12,21 +12,13 @@
     justify-content: center;
     margin-top: 25px;
 }
+.container-breadcrumb-product{
+    justify-content: left;
+    padding: 0 15px;
+}
 #product--specs, #product--wty{
     > div{
         width: 905px;
-    }
-}
-/**
-  * * INDEX
-  */
-#product--index{
-    margin-top: 50px;
-    margin-bottom: 16px;
-    justify-content: left;
-
-    a:hover{
-        color: setcolor(blue);
     }
 }
 /**
@@ -161,51 +153,31 @@
             flex-direction: column;
             column-gap: $gap--max;
 
-            table{
-                border-spacing: 0;
-                font-size: $paragraph--font-size;
-                overflow: visible;
-
-                caption{
-                    h3{
-                        margin-top: 0;
-                        text-align: left;
-                    }
-                }
-                // Tr's totales
-                tr{
-                    // Primer td de cada tr
-                    td:nth-child(1){
-                        width: 50%;
-                    }
-                    // Segundo td de cada tr
-                    td:nth-child(2){
-                        font-weight: 600;
-                    }
-                }
-                // Tr's pares
-                tr:nth-child(even){
+            .table-container{
+                margin-bottom: 0;
+                table{
                     background: setcolor(white);
-                    // Td's totales de tr's pares 
-                    td{
-                        border-top: $border--px solid setcolor(gray, light);
-                        border-bottom: $border--px solid setcolor(gray, light);
+                    // Tr's totales
+                    tr{
+                        &:nth-child(odd){
+                            background: setcolor(white, light);
+                        }
+                        td:nth-child(1){
+                            width: 50%;
+                        }
+                        td:nth-child(2){
+                            font-weight: 600;
+                        }
+                    }
+                    tr:first-child{
+                        td:nth-child(1){
+                            border-top-left-radius: $border--rad-mid;
+                        }
+                        td:nth-child(2){
+                            border-top-right-radius: $border--rad-mid;
+                        }
                     }
                 }
-                // Último tr de la table
-                tr:last-child{
-                    // Primer td de último tr
-                    td:nth-child(1){
-                        border-bottom-left-radius: $border--rad-mid;
-                        border-bottom: 0;
-                    }
-                    // Segundo td de último tr
-                    td:nth-child(2){
-                        border-bottom-right-radius: $border--rad-mid;
-                        border-bottom: 0;
-                    }
-                }
-                
             }
         }
     }
