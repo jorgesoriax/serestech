@@ -49,6 +49,9 @@ $screen--xg-max: 1600px;
   * * MEDIA
   */
 @include small{
+    .shortcut-keys{
+        display: none;
+    }
     #responsive-indicator::before{
         content: "Small";
     }

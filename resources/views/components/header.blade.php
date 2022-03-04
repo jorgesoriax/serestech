@@ -2,21 +2,13 @@
     <div class="header--container">
         <div id="header--logo">
             <a href="{{ route('home.index') }}" title="Volver a serestech.com.mx">
-                <img src="{{ asset('storage/images/original-w.svg') }}" id="logo-large" alt="Logo SeresTech">
+                <img src="{{ asset('storage/images/logo-large-w.svg') }}" id="logo-large" alt="Logo SeresTech">
                 <img src="{{ asset('storage/images/logo-w.svg') }}" id="logo-tiny" alt="Logo SeresTech">
             </a>
         </div>
     
-        <form action="{{ route('home.search') }}" method="GET">
-            <div id="header--search" class="input input-search">
-                <label for="text-search"><i class="bx bx-search"></i></label>
-                <input type="text" name="text-search" class="input--ob outl--white-ob" id="text-search" placeholder="Buscar por marca, línea o modelo...">    
-                
-                <div class="shortcut-keys">
-                    <div class="shortcut-key">Ctrl</div>
-                    <div class="shortcut-key">Space</div>
-                </div>
-            </div>
+        <form action="{{ route('home.search') }}" method="GET" class="form-search-home">
+            @include('components/search', ['style' => "input--ob outl--white-ob"])
         </form>
         
         <div id="header--nav--buttons" class="nav--buttons">

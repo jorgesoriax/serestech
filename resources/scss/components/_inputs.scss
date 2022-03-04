@@ -31,10 +31,10 @@
         cursor: text;
     }
     input{ 
-        background: setcolor(white);
-        outline: none;
         height: 100%;
         width: 100%;
+        background: setcolor(white);
+        outline: none;
         font-size: $paragraph--font-size;
         @include font-family($font--title,400);
         cursor: text;
@@ -54,8 +54,29 @@
  * SEARCH INPUT
  */
 .input-search{
-    max-width: 600px;
+    max-width: 450px;
     justify-content: left;
+
+    label{
+        background: setcolor(white, light);
+        width: 48px;
+        height: 48px;
+        left: 0;
+        position: absolute;
+        @include flex;
+        cursor: pointer;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border: 0;
+        border-right: $border--px solid setcolor(gray, light);
+        margin: 1px;
+        border-top-left-radius: $border--rad-mid;
+        border-bottom-left-radius: $border--rad-mid;
+    }
+    input{
+        padding-left: 59px;
+        padding-right: 108px;
+    }
 }
 /**
  * FORM INPUTS

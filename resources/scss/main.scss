@@ -53,16 +53,17 @@ header{
         @include flex(center, space-between);
         flex-direction: row;
         gap: $gap--max;
-
+        
         #header--logo{
+            height: 100%;
             @include flex(center, left);
     
-            img{
-                height: $logo--height-max;
+            img, a{
+                height: $logo--height-min;
             }
-            #logo-large{
-                height: 53px;
-            }
+            // #logo-large{
+            //     height: 53px;
+            // }
         }
         form{
             width: 100%;

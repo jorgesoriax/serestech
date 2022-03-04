@@ -107,8 +107,15 @@
     <script src="{{ asset('storage/js/slider.js') }}"></script>
     <script src="{{ asset('storage/js/menu.js') }}"></script>
     <script src="{{ asset('vendor/jquery-3.6.0/jquery.min.js') }}"></script>
-    <script src="{{ asset('storage/js/index.js') }}"></script>
     <script src="{{ asset('vendor/shortcut/shortcut.js') }}"></script>
+    <script src="{{ asset('storage/js/index.js') }}"></script>
+    <script>
+        $('.input-search label').on('click', function(){
+            if($('#text-search').val() != ''){
+                $('.form-search-home').submit();
+            }
+        })
+    </script>
 @endsection
 @endsection
 

@@ -1,6 +1,7 @@
 @use "../abstracts" as *;
 @use "../tools/mixins" as *;
 @use "../tools/crossbrowsing" as *;
+@use "sass:math";
 
 /**
  * PROPERTY LIST
@@ -217,7 +218,7 @@ $buttons--overblue: (
     right: 9px;
     @include flex;
     flex-direction: row;
-    gap: $gap--min / 2;
+    gap: math.div($gap--min, 2);
     pointer-events: none;
 
     .shortcut-key{

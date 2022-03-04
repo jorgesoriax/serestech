@@ -52,11 +52,8 @@
         <header>
             <a href="{{ route('panel.index') }}"><h2>Stock</h2></a>
             
-            <form action="{{ route('panel.search') }}" method="GET">
-                <div class="input input-search">
-                    <label for="text-search"><i class="bx bx-search"></i></label>
-                    <input type="text" name="text-search" class="input--ow outl--blue-ow" id="text-search" placeholder="Buscar producto por marca, línea o modelo...">
-                </div>
+            <form action="{{ route('panel.search') }}" method="GET" class="form-search-panel">
+                @include('components/search', ['style' => "input--ow outl--blue-ow"])
             </form>
 
             <button class="button--positive-ow btn-create" id="btn-create"><i class='bx bxs-file-plus'></i>Nuevo</button>
@@ -199,6 +196,8 @@
 
 @section('scripts')
     <script src="{{ asset('storage/js/panel.js') }}"></script>
+    <script src="{{ asset('vendor/shortcut/shortcut.js') }}"></script>
+    <script src="{{ asset('storage/js/index.js') }}"></script>
     <script>
         /**
          * LOAD SLIDER
@@ -213,6 +212,15 @@
          */
         $('.btn-create').on('click', function(){
             $('.content').load("{{ route('panel.create') }}");
+        });
+        /**
+         * SEARCH VALIDATE
+         * Si el input search no esta vacío envia el form
+         */
+        $('.input-search label').on('click', function(){
+            if($('#text-search').val() != ''){
+                $('.form-search-panel').submit();
+            }
         });
     </script>
 @endsection
