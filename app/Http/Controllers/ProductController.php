@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function show($id){
-        $specsLaptop = SpecificationsLaptop::find($id);
-        return view('product', compact('specsLaptop'));
+    public function show(SpecificationsLaptop $specLaptop){
+        return view('product', compact('specLaptop'));
     }
 }

@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('status_usage', 45);
             $table->float('status_aesthetic');
             $table->integer('warranty_days');
-            $table->string('support', 45);
+            $table->string('support', 90);
             $table->string('delivery', 45);
 
             // Images FK

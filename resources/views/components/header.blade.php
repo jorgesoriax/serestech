@@ -7,7 +7,7 @@
             </a>
         </div>
     
-        <form action="{{ route('home.search') }}" method="GET" class="form-search-home">
+        <form action="{{ route('search.home') }}" method="GET" class="form-search-home">
             @include('components/search', ['style' => "input--ob outl--white-ob"])
         </form>
         

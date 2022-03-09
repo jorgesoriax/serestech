@@ -279,7 +279,7 @@
         width: calc(100% - 58px);  
     }
     // Botón para abrir popup de confirmación
-    .btn-popup-confirm{
+    .btn-show-popup-replace{
         margin-left: $gap--mid;
         float: left;
         i{
@@ -287,7 +287,7 @@
         }
     }
     // Popup de confirmación de eliminación
-    .popup-confirm{
+    .popup-replace{
         background: setcolor(white);
         border: $border--px solid setcolor(gray, light);
         position: absolute;

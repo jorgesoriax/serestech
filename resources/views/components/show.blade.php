@@ -4,7 +4,12 @@
         * Encabezado para título de acción y botones.
     --}}
     <div class="header">
-        <button class="button--neutral-ow sq btn-close" type="button"><i class='bx bx-arrow-back'></i></button>
+        <button class="button--neutral-ow sq btn-close" type="button">
+            <i class='bx bx-arrow-back'></i>
+            <div class="shortcut-keys">
+                <div class="shortcut-key">Esc</div>
+            </div>
+        </button>
         <h2>Ver Laptop {{ $specLaptop->equipo_marca}} {{ $specLaptop->equipo_linea}} {{ $specLaptop->equipo_modelo}} con ID {{ $specLaptop->id}}</h2>
     </div>
     @csrf
@@ -23,7 +28,7 @@
                     <p>Marca</p>
                 </div>
                 <div class="input input-min">
-                    <input type="text" name="equipo_marca" id="equipo_marca" class="input--ow outl--blue-ow" required tabindex="1"
+                    <input type="text" name="equipo_marca" id="equipo_marca" class="input--ow outl--blue-ow" tabindex="1"
                     readonly value="{{ $specLaptop->equipo_marca }}">
                 </div>
             </div>
@@ -32,7 +37,7 @@
                     <p>Línea</p>
                 </div>
                 <div class="input input-min">
-                    <input type="text"  name="equipo_linea" id="equipo_linea" class="input--ow outl--blue-ow" required tabindex="1"
+                    <input type="text"  name="equipo_linea" id="equipo_linea" class="input--ow outl--blue-ow" tabindex="1"
                     readonly value="{{ $specLaptop->equipo_linea }}">
                 </div>
             </div>
@@ -41,7 +46,7 @@
                     <p>Modelo</p>
                 </div>
                 <div class="input input-min">
-                    <input type="text" name="equipo_modelo" id="equipo_modelo" class="input--ow outl--blue-ow" required tabindex="1"
+                    <input type="text" name="equipo_modelo" id="equipo_modelo" class="input--ow outl--blue-ow" tabindex="1"
                     readonly value="{{ $specLaptop->equipo_modelo }}">
                 </div>
             </div>
@@ -62,7 +67,7 @@
                     <p>SKU</p>
                 </div>
                 <div class="input input-min">
-                    <input type="text" name="sku" id="sku" class="input--ow outl--blue-ow" required tabindex="1"
+                    <input type="text" name="sku" id="sku" class="input--ow outl--blue-ow" tabindex="1"
                     readonly value="{{ $specLaptop->product->sku }}">
                 </div>
             </div>
@@ -71,7 +76,7 @@
                     <p>Precio</p>
                 </div>
                 <div class="input input-min">
-                    <input type="text" name="price" id="price" class="input--ow outl--blue-ow" required tabindex="1"
+                    <input type="text" name="price" id="price" class="input--ow outl--blue-ow" tabindex="1"
                     readonly value="@convert($specLaptop->product->price)">
                 </div>
             </div>
@@ -107,7 +112,7 @@
                     <p>Garantía</p>
                 </div>
                 <div class="input input-min">
-                    <input type="text" name="warranty_days" id="warranty_days" class="input--ow outl--blue-ow" required tabindex="1"
+                    <input type="text" name="warranty_days" id="warranty_days" class="input--ow outl--blue-ow" tabindex="1"
                     readonly value="{{ $specLaptop->product->warranty_days }}">
                 </div>
             </div>
@@ -116,7 +121,7 @@
                     <p>Soporte</p>
                 </div>
                 <div class="input input-min">
-                    <input type="text" name="support" id="support" class="input--ow outl--blue-ow" required tabindex="1"
+                    <input type="text" name="support" id="support" class="input--ow outl--blue-ow" tabindex="1"
                     readonly value="{{ $specLaptop->product->support }}">
                 </div>
             </div>
@@ -125,7 +130,7 @@
                     <p>Envio</p>
                 </div>
                 <div class="input input-min">
-                    <input type="text" name="delivery" id="delivery" class="input--ow outl--blue-ow" required tabindex="1"
+                    <input type="text" name="delivery" id="delivery" class="input--ow outl--blue-ow" tabindex="1"
                     readonly value="{{ $specLaptop->product->delivery }}">
                 </div>
             </div>
@@ -134,7 +139,7 @@
                     <p>Stock</p>
                 </div>
                 <div class="input input-min">
-                    <input type="text" name="stock" id="stock" class="input--ow outl--blue-ow" required tabindex="1"
+                    <input type="text" name="stock" id="stock" class="input--ow outl--blue-ow" tabindex="1"
                     readonly value="{{ $specLaptop->product->inventory->stock }}">
                 </div>
             </div>
@@ -278,8 +283,8 @@
                             <p>RAM</p>
                         </div>
                         <div class="input input-min">
-                            <input type="text" name="ram_gb" id="ram_gb" class="input--ow outl--blue-ow" required tabindex="1"
-                            readonly value="{{ $specLaptop->ram_gb }} GB">
+                            <input type="text" name="ram_gb" id="ram_gb" class="input--ow outl--blue-ow" tabindex="1"
+                            readonly value="{{ $specLaptop->ram_gb }}">
                         </div>
                     </div>
                     <div class="item">
@@ -287,7 +292,7 @@
                             <p>Tipo de RAM</p>
                         </div>
                         <div class="input input-min">
-                            <input type="text" name="ram_tipo" id="ram_tipo" class="input--ow outl--blue-ow" required tabindex="1"
+                            <input type="text" name="ram_tipo" id="ram_tipo" class="input--ow outl--blue-ow" tabindex="1"
                             readonly value="{{ $specLaptop->ram_tipo }}">
                         </div>
                     </div>
@@ -296,7 +301,7 @@
                             <p>Disco duro</p>
                         </div>
                         <div class="input input-min discod">
-                            <input type="text" name="discod_amount" id="discod_amount" class="input--ow outl--blue-ow" required tabindex="1"
+                            <input type="text" name="discod_amount" id="discod_amount" class="input--ow outl--blue-ow" tabindex="1"
                             readonly value="{{ $specLaptop->discod_gb }}">
                         </div>
                     </div>
@@ -305,7 +310,7 @@
                             <p>Tipo de disco duro</p>
                         </div>
                         <div class="input input-min">
-                            <input type="text" name="discod_tipo" id="discod_tipo" class="input--ow outl--blue-ow" required tabindex="1"
+                            <input type="text" name="discod_tipo" id="discod_tipo" class="input--ow outl--blue-ow" tabindex="1"
                             readonly value="{{ $specLaptop->discod_tipo }}">
                         </div>
                     </div>
@@ -325,8 +330,17 @@
                             <p>Marca</p>
                         </div>
                         <div class="input input-min">
-                            <input type="text" name="procesador_marca" id="procesador_marca" class="input--ow outl--blue-ow" required tabindex="1"
+                            <input type="text" name="procesador_marca" id="procesador_marca" class="input--ow outl--blue-ow" tabindex="1"
                             readonly value="{{ $specLaptop->procesador_marca }}">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <p>Línea</p>
+                        </div>
+                        <div class="input input-min">
+                            <input type="text" name="procesador_linea" id="procesador_linea" class="input--ow outl--blue-ow" placeholder="Línea de procesador" tabindex="1"
+                            readonly value="{{ $specLaptop->procesador_linea }}">
                         </div>
                     </div>
                     <div class="item">
@@ -334,7 +348,7 @@
                             <p>Modelo</p>
                         </div>
                         <div class="input input-min">
-                            <input type="text" name="procesador_modelo" id="procesador_modelo" class="input--ow outl--blue-ow" required tabindex="1"
+                            <input type="text" name="procesador_modelo" id="procesador_modelo" class="input--ow outl--blue-ow" tabindex="1"
                             readonly value="{{ $specLaptop->procesador_modelo }}">
                         </div>
                     </div>
@@ -347,7 +361,7 @@
                                 if($specLaptop->procesador_gen == 0){ 
                                     $gen = 'No aplica';
                                 } else {
-                                    $gen = $specLaptop->procesador_gen.'a';
+                                    $gen = $specLaptop->procesador_gen;
                                 }
                             @endphp
                             <input type="text" name="procesador_gen" id="procesador_gen" class="input--ow outl--blue-ow" tabindex="1"
@@ -359,8 +373,8 @@
                             <p>Velocidad</p>
                         </div>
                         <div class="input input-min input-min--label-right">
-                            <input type="text"  name="procesador_ghz" id="procesador_ghz" class="input--ow outl--blue-ow" required tabindex="1"
-                            readonly value="{{ $specLaptop->procesador_ghz }} GHz">
+                            <input type="text"  name="procesador_ghz" id="procesador_ghz" class="input--ow outl--blue-ow" tabindex="1"
+                            readonly value="{{ $specLaptop->procesador_ghz }}">
                         </div>
                     </div>
                     <div class="item">
@@ -368,7 +382,7 @@
                             <p>Cantidad de nucleos</p>
                         </div>
                         <div class="input input-min">
-                            <input type="text" name="procesador_nucleos" id="procesador_nucleos" class="input--ow outl--blue-ow" required tabindex="1"
+                            <input type="text" name="procesador_nucleos" id="procesador_nucleos" class="input--ow outl--blue-ow" tabindex="1"
                             readonly value="{{ $specLaptop->procesador_nucleos }}">
                         </div>
                     </div>
@@ -429,17 +443,8 @@
                             <p>Cantidad de memoria</p>
                         </div>
                         <div class="input input-min">
-                            @if ($specLaptop->tarjetag_gb)
-                                @php
-                                    $tarjetagGB = $specLaptop->tarjetag_gb.' GB';
-                                @endphp
-                            @else
-                                @php
-                                    $tarjetagGB = '';
-                                @endphp
-                            @endif
                             <input type="text" name="tarjetag_gb" id="tarjetag_gb" class="input--ow outl--blue-ow" tabindex="1"
-                            readonly value="{{ $tarjetagGB }}">
+                            readonly value="{{ $specLaptop->tarjetag_gb }}">
                         </div>
                     </div>
                 </div>
@@ -467,8 +472,8 @@
                             <p>Tamaño</p>
                         </div>
                         <div class="input input-min input-min--label-right">
-                            <input type="text" name="pantalla_tamano" id="pantalla_tamano" class="input--ow outl--blue-ow" required tabindex="1"
-                            readonly value="{{ $specLaptop->pantalla_tamano }} pulgadas">
+                            <input type="text" name="pantalla_tamano" id="pantalla_tamano" class="input--ow outl--blue-ow" tabindex="1"
+                            readonly value="{{ $specLaptop->pantalla_tamano }}">
                         </div>
                     </div>
                     <div class="item">
@@ -490,8 +495,8 @@
                             <p>Resolución</p>
                         </div>
                         <div class="input input-min input-min--label-right">
-                            <input type="text" name="pantalla_resolucion" id="pantalla_resolucion" class="input--ow outl--blue-ow" required tabindex="1"
-                            readonly value="{{ $specLaptop->pantalla_resolucion }} px">
+                            <input type="text" name="pantalla_resolucion" id="pantalla_resolucion" class="input--ow outl--blue-ow" tabindex="1"
+                            readonly value="{{ $specLaptop->pantalla_resolucion }}">
                         </div>
                     </div>
                 </div>
@@ -510,7 +515,7 @@
                             <p>Idioma</p>
                         </div>
                         <div class="input input-min">
-                            <input type="text" name="teclado_idioma" id="teclado_idioma" class="input--ow outl--blue-ow" required tabindex="1"
+                            <input type="text" name="teclado_idioma" id="teclado_idioma" class="input--ow outl--blue-ow" tabindex="1"
                             readonly value="{{ $specLaptop->teclado_idioma }}">
                         </div>
                     </div>
@@ -558,7 +563,7 @@
                             <p>USB 2.0</p>
                         </div>
                         <div class="input input-min">
-                            <input type="text" name="conectv_usb2" id="conectv_usb2" class="input--ow outl--blue-ow" required tabindex="1"
+                            <input type="text" name="conectv_usb2" id="conectv_usb2" class="input--ow outl--blue-ow" tabindex="1"
                             readonly value="{{ $specLaptop->conectv_usb2 }}">
                         </div>
                     </div>
@@ -567,7 +572,7 @@
                             <p>USB 3.0</p>
                         </div>
                         <div class="input input-min">
-                            <input type="text" name="conectv_usb3" id="conectv_usb3" class="input--ow outl--blue-ow" required tabindex="1"
+                            <input type="text" name="conectv_usb3" id="conectv_usb3" class="input--ow outl--blue-ow" tabindex="1"
                             readonly value="{{ $specLaptop->conectv_usb3 }}">
                         </div>
                     </div>
@@ -576,7 +581,7 @@
                             <p>USB C</p>
                         </div>
                         <div class="input input-min">
-                            <input type="text" name="conectv_usbc" id="conectv_usbc" class="input--ow outl--blue-ow" required tabindex="1"
+                            <input type="text" name="conectv_usbc" id="conectv_usbc" class="input--ow outl--blue-ow" tabindex="1"
                             readonly value="{{ $specLaptop->conectv_usbc }}">
                         </div>
                     </div>
@@ -678,34 +683,6 @@
                             @endif
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="name">
-                            <p>¿Cuenta con puerto SerialCOM?</p>
-                        </div>
-                        <div class="input input-min">
-                            @if ($specLaptop->conectv_serialcom == 1)
-                                <input type="text" name="conectv_serialcom" id="conectv_serialcom" class="input--ow outl--blue-ow" tabindex="1"
-                                readonly value="Si">
-                            @else
-                                <input type="text" name="conectv_serialcom" id="conectv_serialcom" class="input--ow outl--blue-ow" tabindex="1"
-                                readonly value="No">
-                            @endif
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="name">
-                            <p>¿Cuenta con puerto IEEE1394?</p>
-                        </div>
-                        <div class="input input-min">
-                            @if ($specLaptop->conectv_ieee1394 == 1)
-                                <input type="text" name="conectv_ieee1394" id="conectv_ieee1394" class="input--ow outl--blue-ow" tabindex="1"
-                                readonly value="Si">
-                            @else
-                                <input type="text" name="conectv_ieee1394" id="conectv_ieee1394" class="input--ow outl--blue-ow" tabindex="1"
-                                readonly value="No">
-                            @endif
-                        </div>
-                    </div>
                 </div>
             </div>
             {{--*
@@ -722,7 +699,7 @@
                             <p>Sistema operativo</p>
                         </div>
                         <div class="input input-min">
-                            <input type="text" name="so" id="" class="input--ow outl--blue-ow" required tabindex="1"
+                            <input type="text" name="so" id="" class="input--ow outl--blue-ow" tabindex="1"
                             readonly value="{{ $specLaptop->so }}">
                         </div>
                     </div>
@@ -731,7 +708,7 @@
                             <p>Software adicional</p>
                         </div>
                         <div class="input input-min">
-                            <textarea name="software_ad" id="software_ad" class="input--ow outl--blue-ow" required tabindex="1" readonly>{{ $specLaptop->software_ad }}</textarea>
+                            <textarea name="software_ad" id="software_ad" class="input--ow outl--blue-ow" tabindex="1" readonly>{{ $specLaptop->software_ad }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -828,7 +805,7 @@
                             <p>¿Con qué tipo de batería cuenta?</p>
                         </div>
                         <div class="input input-min">
-                            <input type="text" name="bateria_celdas" id="" class="input--ow outl--blue-ow" required tabindex="1"
+                            <input type="text" name="bateria_celdas" id="" class="input--ow outl--blue-ow" tabindex="1"
                             readonly value="{{ $specLaptop->bateria_tipo }}">
                         </div>
                     </div>
@@ -837,7 +814,7 @@
                             <p>Celdas</p>
                         </div>
                         <div class="input input-min">
-                            <input type="text" name="bateria_celdas" id="" class="input--ow outl--blue-ow" required tabindex="1"
+                            <input type="text" name="bateria_celdas" id="" class="input--ow outl--blue-ow" tabindex="1"
                             readonly value="{{ $specLaptop->bateria_celdas }}">
                         </div>
                     </div>
@@ -847,46 +824,7 @@
     </div>
 </form>
 <script>
-/** 
-  * TARJETAG Y/N
-  * Verifica el campo booleano tarjetag para deshabilitar campos adyacentes
-  * en caso de indicar un 0 (No) en #tarjetag
-  */
-$('#tarjetag').ready(function(){
-    if($('#tarjetag').val() == 'No'){
-        $('#tarjetag_marca').prop('disabled', true);
-        $('#tarjetag_modelo').prop('disabled', true);
-        $('#tarjetag_tipomemoria').prop('disabled', true);
-        $('#tarjetag_gb').prop('disabled', true);
-    } else if($('#tarjetag').val() == 'Si'){
-        $('#tarjetag_marca').prop('disabled', false);
-        $('#tarjetag_modelo').prop('disabled', false);
-        $('#tarjetag_tipomemoria').prop('disabled', false);
-        $('#tarjetag_gb').prop('disabled', false);
-    };
-});
-/**
- * KEY CLOSE MODAL
- * Permite que al presionar escape se cierre el modal
- */
- $(document).ready(function(){
-    // Cuando se pierde el focus en el body, volvemos a el con escape
-    $(document).bind('keydown', function(e) { 
-        if (e.which == 27) {
-            $('.modal-shadow--panel').css('display', 'none')
-            $('.content').empty();
-            $('.content').append('<div class="loading"><i class="bx bx-loader-alt"></i></div>');
-        }
-    });
-});
-/**
- * * BTN CLOSE MODAL
- */
-$('.btn-close').click(function(){
-    $('.modal-shadow--panel').css('display', 'none');
-    $('.modal-container').css('display', 'none');
-    $('.content').empty();
-    $('.content').append('<div class="loading"><i class="bx bx-loader-alt"></i></div>');
-    $('body').css('overflow', 'visible');
-});
+$(document).ready(function(){
+    closeModal();
+});    
 </script>

@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SearchController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
@@ -19,7 +20,6 @@ use Illuminate\Support\Facades\Artisan;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 /**
  * * PANEL
  */
@@ -35,9 +35,8 @@ Route::post('logout', [LoginController::class, 'logout']);
 Route::get('panel', [PanelController::class, 'index'])
     ->name('panel.index')
     ->middleware('auth');
-Route::get('panel/search', [PanelController::class, 'search'])
-    ->name('panel.search')
-    ->middleware('auth');
+Route::get('panel/search', [SearchController::class, 'panel'])
+    ->name('search.panel');
 
 Route::get('panel/create', [PanelController::class, 'create'])
     ->name('panel.create')
@@ -53,19 +52,20 @@ Route::post('panel/slider/store', [PanelController::class, 'sliderStore'])
 Route::get('panel/{specLaptop}', [PanelController::class, 'show'])
     ->name('panel.show')
     ->middleware('auth');
+
 Route::post('panel', [PanelController::class, 'store'])
     ->name('panel.store')
     ->middleware('auth');
     
 
-Route::get('panel/{specLaptop}/edit', [PanelController::class, 'edit'])
+Route::get('panel/edit/{specLaptop}', [PanelController::class, 'edit'])
     ->name('panel.edit')
     ->middleware('auth');
 Route::put('panel/{specLaptop}', [PanelController::class, 'update'])
     ->name('panel.update')
     ->middleware('auth');
 
-Route::get('panel/{specLaptop}/delete', [PanelController::class, 'delete'])
+Route::get('panel/delete/{specLaptop}', [PanelController::class, 'delete'])
     ->name('panel.delete')
     ->middleware('auth');
 Route::delete('panel/{specLaptop}', [PanelController::class, 'destroy'])
@@ -76,7 +76,6 @@ Route::delete('panel/{specLaptop}', [PanelController::class, 'destroy'])
 Route::get('panel/{specLaptop}/replace/{col}', [PanelController::class, 'replace'])
     ->name('replace.index')
     ->middleware('auth');
-
 /**
  * * DOCS
  */
@@ -87,10 +86,11 @@ Route::get('cookies-policy', [DocController::class, 'cookies'])->name('docs.cook
  */
 Route::get('/', [HomeController::class, 'index'])   
     ->name('home.index');
-Route::get('search', [HomeController::class, 'search'])
-    ->name('home.search');
-Route::get('product/{id}', [ProductController::class, 'show'])->name('product.index');
+    Route::get('/search', [SearchController::class, 'index'])
+    ->name('search.home');
 
+Route::get('/{specLaptop}', [ProductController::class, 'show'])
+    ->name('product.index');
 /**
  * CMD
  * Permite ejecutar comandos Artisan desde la barra de búsquedade nuestro navegador

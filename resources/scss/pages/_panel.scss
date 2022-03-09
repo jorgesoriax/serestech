@@ -49,7 +49,7 @@
     h2{
         color: setcolor(black);
     }
-    header, main, #paginate{
+    header, main{
         width: 100%;
     }
     /**
@@ -209,6 +209,9 @@
                         background: setcolor(white);
                     }
                     tr{
+                        &:hover{
+                            background: setcolor(gray, patt);
+                        }
                         td{
                             padding: $container--padd-micro;
                             text-align: center;
@@ -236,7 +239,6 @@
                     width: 75px;
                     height: 75px;
                     background: setcolor(white);
-                    border: $border--px solid setcolor(gray, light);
                     border-radius: $border--rad-mid;
                     overflow: hidden;
                     @include flex;
@@ -321,7 +323,7 @@
             padding: 3px;
             padding-bottom: $container--padd-min;
             display: grid;
-            grid-template-columns: 43px auto 127px;
+            grid-template-columns: 81px auto 127px;
 
             h2{
                 margin: 0;
@@ -330,8 +332,14 @@
                 padding-left: $container--padd-min;
             }
             .btn-close{
+                width: 81px;
                 display: flex;
+                justify-content: left;
                 align-self: center;
+
+                .shortcut-keys{
+                    right: 5px;
+                }
             }
         }
         .group{
@@ -456,7 +464,7 @@
         grid-column: 1 / 4;
     }
 }
-#form-delete{
+.form-delete{
     width: 100%;
     height: 100%;
 
@@ -468,6 +476,9 @@
         button{
             width: 50%;
             margin: 3px;
+        }
+        .shortcut-keys{
+            right: 5px;
         }
     }
 }

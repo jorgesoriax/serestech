@@ -79,7 +79,6 @@
         }
     }
 }
-
 #zoom{
     width: 410px;
     height: 410px;
@@ -90,8 +89,9 @@
     background-repeat: no-repeat;
     background-size: 250%;
     transform: translateX(calc(100% + 25px));
+    border: $border--px solid setcolor(gray, light);
+    border-radius: $border--rad-mid;
 }
-
 #container--dets{
     width: 410px;
     position: relative;

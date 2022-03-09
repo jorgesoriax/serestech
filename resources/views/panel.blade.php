@@ -1,8 +1,5 @@
 @extends('layouts.template')
 @section('title', 'Bienvenido al panel')
-@section('hscripts')
-    <script src="{{ asset('vendor/jquery-3.6.0/jquery.min.js') }}"></script>
-@endsection
 @section('content')
     <div class="modal-shadow modal-shadow--panel"></div>
     <div class="modal-container modal-container--panel">
@@ -52,7 +49,7 @@
         <header>
             <a href="{{ route('panel.index') }}"><h2>Stock</h2></a>
             
-            <form action="{{ route('panel.search') }}" method="GET" class="form-search-panel">
+            <form action="{{ route('search.panel') }}" method="GET" class="form-search-panel">
                 @include('components/search', ['style' => "input--ow outl--blue-ow"])
             </form>
 
@@ -65,9 +62,7 @@
             </a>
 
             <div class="message message--panel-ow">
-                <h3 id="bienvenida">
-
-                </h3>
+                <h3 id="bienvenida"></h3>
                 <p class="p--description">
                     {{ auth()->user()->name }}
                 </p>
@@ -80,6 +75,12 @@
         </div>
         {{-- * MAIN --}}
         <main class="main-panel-table">
+            @if (isset($query))
+                <div class="container-breadcrumb container-breadcrumb-home">
+                    {{ Breadcrumbs::render('searchPanel', count($specsLaptop).' resultado(s) para '.$query) }}
+                </div>
+            @endif
+
             <div class="table-container">
                 <table class="table-panel">
                     <thead>
@@ -103,7 +104,7 @@
                                     <td>{{ $specLaptop->id }}</td>
                                     {{-- IMAGEN --}}
                                     <td>
-                                        <div class="img-container" id="image-prev-{{ $specLaptop->id }}">
+                                        <div class="img-container outl--blue-ow input--ow" id="image-prev-{{ $specLaptop->id }}">
                                             @if ($specLaptop->product->file->image_1)
                                                 <img src="{{ asset($specLaptop->product->file->image_1) }}">
                                             @else
@@ -112,12 +113,12 @@
                                         </div>
                                         <script>
                                             $('#image-prev-{{$specLaptop->id}}').on('click', function(){
-                                                $('.content').load("{{ route('panel.show', $specLaptop->id) }}");
+                                                $('.content').load("{{ route('panel.show', $specLaptop) }}");
                                             });
                                         </script>
                                     </td>
                                     {{-- MARCA --}}
-                                    <td class="td--marca">{{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}</td>
+                                    <td class="td--marca">{{ $specLaptop->equipo_marca }} {{ $specLaptop->equipo_linea }} {{ $specLaptop->equipo_modelo }}</td>
                                     {{-- SKU --}}
                                     <td>{{ $specLaptop->product->sku }}</td>
                                     {{-- PRECIO ORIGINAL --}}
@@ -126,9 +127,9 @@
                                     <td class="td--price">@if ($specLaptop->product->price_discount) @convert($specLaptop->product->price_discount) @else N/A @endif</td>
                                     {{-- STOCK --}}
                                     @if ($specLaptop->product->inventory->stock == 1)
-                                        <td class="td--stock">{{ $specLaptop->product->inventory->stock}} ud</td>
+                                        <td class="td--stock">{{ $specLaptop->product->inventory->stock }} ud</td>
                                     @else
-                                        <td class="td--stock">{{ $specLaptop->product->inventory->stock}} uds</td>
+                                        <td class="td--stock">{{ $specLaptop->product->inventory->stock }} uds</td>
                                     @endif
                                     {{-- ETIQUETAS --}}
                                     <td class="td--label">
@@ -140,7 +141,7 @@
                                         <button class="button--neutral-ow sq btn-show" id="btn-show-{{ $specLaptop->id }}"><i class='bx bxs-show'></i></button>
                                         <script>
                                             $('#btn-show-{{$specLaptop->id}}').on('click', function(){
-                                                $('.content').load("{{ route('panel.show', $specLaptop->id) }}");
+                                                $('.content').load("{{ route('panel.show', $specLaptop) }}");
                                             });
                                         </script>
                                     </td>
@@ -153,7 +154,7 @@
                                              * Permite cargar el template edit en el modal
                                              */
                                             $('#btn-edit-{{ $specLaptop->id }}').on('click', function(){
-                                                $('.content').load("{{ route('panel.edit', $specLaptop->id) }}");
+                                                $('.content').load("{{ route('panel.edit', $specLaptop) }}");
                                             });
                                         </script>
                                     </td>
@@ -178,10 +179,10 @@
                         @else
                             <tr class="tr--empty">
                                 <td colspan="11">
-                                    @if ($msgResultEmpty == 'Estoy en blanco. Comencemos a trabajar.')
-                                        <p class="p--description">{{ $msgResultEmpty }}</p>
+                                    @if (isset($query))
+                                        <p class="p--description">{{ $msgEmpty }}<a href="{{ route('panel.index') }}"> Mostrar todos los registros.</a></p> 
                                     @else
-                                       <p class="p--description">{{ $msgResultEmpty }}<a href="{{ route('panel.index') }}"> Mostrar todos los registros.</a></p> 
+                                        <p class="p--description">{{ $msgEmpty }}</p>
                                     @endif
                                 </td>
                             </tr>
@@ -192,20 +193,14 @@
         </main>
         {{ $specsLaptop->links() }}
     </div>
-
-
 @section('scripts')
     <script src="{{ asset('storage/js/panel.js') }}"></script>
-    <script src="{{ asset('vendor/shortcut/shortcut.js') }}"></script>
-    <script src="{{ asset('storage/js/index.js') }}"></script>
+    <script src="{{ asset('storage/js/crud/modal.js') }}"></script>
+    <script src="{{ asset('storage/js/crud/previewImage.js') }}"></script>
+    <script src="{{ asset('storage/js/crud/shortcuts.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/jquery-validation-1.19.3/dist/jquery.validate.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/jquery-validation-1.19.3/dist/additional-methods.min.js') }}"></script>
     <script>
-        /**
-         * LOAD SLIDER
-         * Permite cargar el template slider en el modal
-         */
-        $('#slider').on('click', function(){
-            $('.content').load("{{ route('panel.slider') }}");
-        });
         /**
          * LOAD CREATE
          * Permite cargar el template create en el modal
@@ -214,13 +209,11 @@
             $('.content').load("{{ route('panel.create') }}");
         });
         /**
-         * SEARCH VALIDATE
-         * Si el input search no esta vacío envia el form
+         * LOAD SLIDER
+         * Permite cargar el template slider en el modal
          */
-        $('.input-search label').on('click', function(){
-            if($('#text-search').val() != ''){
-                $('.form-search-panel').submit();
-            }
+         $('#slider').on('click', function(){
+            $('.content').load("{{ route('panel.slider') }}");
         });
     </script>
 @endsection

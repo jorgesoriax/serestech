@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Inventory extends Model
 {
     use HasFactory;
+    protected $fillable = ['stock'];
 
     // uno a uno
     public function product(){

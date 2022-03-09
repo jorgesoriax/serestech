@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+    protected $fillable = ['sku', 'price', 'price_discount', 'status_usage', 'status_aesthetic', 'warranty_days', 'support', 'delivery', 'file_id', 'category_id', 'inventory_id'];
 
     // Uno a uno
     public function specificationLaptop(){

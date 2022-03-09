@@ -9,19 +9,24 @@
     {{-- Styles --}}
     <link rel="stylesheet" href="{{ asset('storage/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/boxicons-2.1.1/css/boxicons.min.css') }}">
-    {{-- Styles --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    {{-- Aditional styles --}}
     @yield('css')
     {{-- Head scripts --}}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @yield('meta')
+    <script src="{{ asset('vendor/jquery-3.6.0/jquery.min.js') }}"></script>
     @yield('hscripts')
 </head>
 <body>
     <div id="universal--container">
         @yield('content')
     </div>
+    <script src="{{ asset('vendor/shortcut/shortcut.js') }}"></script>
     @yield('scripts')
 </body>
 </html>

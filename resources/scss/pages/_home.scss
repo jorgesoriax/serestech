@@ -68,11 +68,13 @@
     margin: $container--padd-max auto;
     // margin-top: $container--padd-max;
 }
+#container--catalog{
+    h2{
+        text-align: center;
+    }
+}
 .container-breadcrumb-home{
     margin: 0;
-}
-.container-breadcrumb-home + h2{
-    text-align: center;
 }
 #catalog{
     display: flex;
