@@ -27,6 +27,7 @@ class SpecificationsLaptop extends Model
             'equipo_marca'   => $this->equipo_marca,
             'equipo_linea'   => $this->equipo_linea,
             'equipo_modelo'  => $this->equipo_modelo,
+            'slug'           => $this->slug,
             'ram_gb'         => $this->ram_gb,
             'discod_gb'      => $this->discod_gb,
             'procesador_ghz' => $this->procesador_ghz,

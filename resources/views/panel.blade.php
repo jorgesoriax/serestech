@@ -212,8 +212,9 @@
          * LOAD SLIDER
          * Permite cargar el template slider en el modal
          */
-         $('#slider').on('click', function(){
+        $('#slider').on('click', function(){
             $('.content').load("{{ route('panel.slider') }}");
+            $(this).addClass('nav-load');
         });
     </script>
 @endsection

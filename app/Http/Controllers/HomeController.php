@@ -9,7 +9,6 @@ class HomeController extends Controller
 {
     public function index(){
         $specsLaptop = SpecificationsLaptop::paginate(9);
-        // $specsLaptop = SpecificationsLaptop::where('equipo_marca', 'A')->paginate(9);
         $msgEmpty = 'Lo sentimos por el momento no contamos con stock.';
 
         return view('home', compact('specsLaptop', 'msgEmpty'));

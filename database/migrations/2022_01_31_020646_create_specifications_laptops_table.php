@@ -19,7 +19,7 @@ class CreateSpecificationsLaptopsTable extends Migration
             $table->string('equipo_marca', 45);
             $table->string('equipo_linea', 45);
             $table->string('equipo_modelo', 45);
-            $table->string('slug', 45);
+            $table->string('slug', 255);
             $table->string('descripcion', 255);
             $table->string('ram_gb', 45);
             $table->string('ram_tipo', 45);

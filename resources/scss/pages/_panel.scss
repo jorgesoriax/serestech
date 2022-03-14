@@ -70,6 +70,11 @@
         flex-direction: column;
         gap: $gap--max;
 
+        .nav-load{
+            i{
+                color: setcolor(blue);
+            }
+        }
         div{
             cursor: pointer;
             width: 35px;
@@ -184,6 +189,9 @@
             .table-panel{
                 thead{
                     tr{
+                        th{
+                            text-align: center;
+                        }
                         .th--id{
                             width: 4%;
                         }

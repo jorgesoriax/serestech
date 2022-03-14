@@ -1,11 +1,11 @@
 <div id="header--search" class="input input-search">
     <label for="query"><i class="bx bx-search"></i></label>
-    <input type="text" name="query" class="{{ $style }}" id="query" placeholder="Buscar características...">    
+    <input type="search" name="query" class="{{ $style }}" id="query" placeholder="Buscar características...">
     
-    <div class="shortcut-keys">
+    {{-- <div class="shortcut-keys">
         <div class="shortcut-key">Ctrl</div>
         <div class="shortcut-key">Space</div>
-    </div>
+    </div> --}}
 </div>
 <script>
 $(document).ready(function(){

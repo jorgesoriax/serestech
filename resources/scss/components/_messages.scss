@@ -122,7 +122,7 @@
     border-left: 0;
     border-right: 0;
     @include flex(center, space-between);
-    padding: $container--padd-min;
+    padding: $container--padd-min 100px;
     z-index: 4;
 
     span{

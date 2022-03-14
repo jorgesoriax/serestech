@@ -15,6 +15,16 @@
     --}}
     <div class="touch-slider">
         <div class="count"><p>0 / 0</p></div>
+        <div class="prev-button">
+            <button class="button--neutral-ow sq" >
+                <i class='bx bx-chevron-left'></i>
+            </button>
+        </div>
+        <div class="next-button">
+            <button class="button--neutral-ow sq" >
+                <i class='bx bx-chevron-right'></i>
+            </button>
+        </div>
         <div class="slider-container">
             @if ($specLaptop->product->file->image_1)
                 <div class="slide">
@@ -66,9 +76,7 @@
             <div id="img--prod-preview" >
                 <img id="img-original">
             </div>
-
             <div id="zoom"></div>
-
             <div id="img--prod-items">
                 @if ($specLaptop->product->file->image_1)
                 <div class="img--miniature outl--blue-ow" id="img--prod-1">
@@ -110,7 +118,7 @@
 
         <div id="container--dets">
             <h1>{{ $specLaptop->equipo_marca }} {{ $specLaptop->equipo_linea }} {{ $specLaptop->equipo_modelo }}</h1>
-            <h2>{{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }}a gen @endif {{ $specLaptop->procesador_ghz }} GHz {{ $specLaptop->procesador_nucleos }} núcleos, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }} GB, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}</h2>
+            <h2>{{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}</h2>
 
             <p id="info--sku" class="p--description">SKU {{ $specLaptop->product->sku }}</p>
             @if ($specLaptop->product->status_usage )
@@ -123,7 +131,7 @@
             @endif
 
             <h1 id="info--orig-price">@convert($specLaptop->product->price)</h1>
-            <p id="info--iva" class="p--description">+ IVA en caso de requerir factura</p>
+            {{-- <p id="info--iva" class="p--description">+ IVA en caso de requerir factura</p> --}}
             <p id="info--units">@if ($specLaptop->product->inventory->stock > 1) {{ $specLaptop->product->inventory->stock }} unidades disponibles @else {{ $specLaptop->product->inventory->stock }} unidad disponible @endif</p>
 
             <a href="https://wa.me/528110649320?text=Hola,%20me%20interesa%20{{ $specLaptop->equipo_marca }}%20{{ $specLaptop->equipo_linea }}%20{{ $specLaptop->equipo_modelo }}%20SKU%20{{ $specLaptop->product->sku }}%20" target="_blank" rel="noopener noreferrer" title="Comprar ahora a través de Whatsapp">
@@ -337,14 +345,6 @@
                                 <td>Puerto Ethernet</td>
                                 <td>@if ($specLaptop->conectv_ethernet) Si @else No @endif</td>
                             </tr>
-                            <tr>
-                                <td>Puerto Serial COM</td>
-                                <td>@if ($specLaptop->conectv_serialcom) Si @else No @endif</td>
-                            </tr>
-                            <tr>
-                                <td>Puerto IEEE 1394</td>
-                                <td>@if ($specLaptop->conectv_ieee1394) Si @else No @endif</td>
-                            </tr>
                         </table>
                     </div>
                 </div>
@@ -442,7 +442,6 @@
             </div>
         </div> 
     </section>
-</div>
 @section('scripts')
     <script src="{{ asset('storage/js/product.js') }}"></script>
     <script src="{{ asset('storage/js/components/touchSlider.js') }}"></script>

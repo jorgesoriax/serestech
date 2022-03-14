@@ -706,6 +706,42 @@
 </form>
 <script>
 $(document).ready(function(){
+    let createFields = {
+        '#equipo_marca'          : 'A',
+        '#equipo_linea'          : 'B',
+        '#equipo_modelo'         : 'C',
+        '#sku'                   : 'A1',
+        '#price'                 : 12000,
+        '#warranty_days'         : 120,
+        '#stock'                 : 300,
+        '#ram_gb'                : 4,
+        '#ram_tipo'              : 'DDR4',
+        '#discod_amount'         : '5',
+        '#discod_tipo'           : 'SSD',
+        '#procesador_marca'      : 'A',
+        '#procesador_linea'      : 'B',
+        '#procesador_modelo'     : 'C',
+        '#procesador_ghz'        : 5.6,
+        '#procesador_nucleos'    : 8,
+        '#tarjetag_marca'        : 'A',
+        '#tarjetag_modelo'       : 'B',
+        '#tarjetag_tipomemoria'  : 'C',
+        '#tarjetag_gb'           : 2,
+        '#pantalla_tamano'       : 16.9,
+        '#pantalla_resolucion'   : 1920,
+        '#pantalla_resolucion_y' : 1080,
+        '#conectv_usb2'          : 1,
+        '#conectv_usb3'          : 2,
+        '#conectv_usbc'          : 3,
+        '#bateria_celdas'        : 40
+    }
+    for(const createField in createFields){
+        $(createField).val(createFields[createField]);
+    }
+})
+</script>
+<script>
+$(document).ready(function(){
     let createSelects = {
             'pantalla_tactil'      : 0, 
             'teclado_idioma'       : 'Inglés', 
@@ -714,33 +750,6 @@ $(document).ready(function(){
             'conectv_vga'          : 0, 
             'conectv_displayp'     : 0,  
             'lectura_unidadoptica' : 0,
-            '#equipo_marca'          : 'A',
-            // '#equipo_linea'          : 'B',
-            // '#equipo_modelo'         : 'C',
-            // '#sku'                   : 'A1',
-            // '#price'                 : 12000,
-            // '#warranty_days'         : 120,
-            // '#stock'                 : 300,
-            // '#ram_gb'                : 4,
-            // '#ram_tipo'              : 'DDR4',
-            // '#discod_amount'         : '5',
-            // '#discod_tipo'           : 'SSD',
-            // '#procesador_marca'      : 'A',
-            // '#procesador_linea'      : 'B',
-            // '#procesador_modelo'     : 'C',
-            // '#procesador_ghz'        : 5.6,
-            // '#procesador_nucleos'    : 8,
-            // '#tarjetag_marca'        : 'A',
-            // '#tarjetag_modelo'       : 'B',
-            // '#tarjetag_tipomemoria'  : 'C',
-            // '#tarjetag_gb'           : 2,
-            // '#pantalla_tamano'       : 16.9,
-            // '#pantalla_resolucion'   : 1920,
-            // '#pantalla_resolucion_y' : 1080,
-            // '#conectv_usb2'          : 1,
-            // '#conectv_usb3'          : 2,
-            // '#conectv_usbc'          : 3,
-            // '#bateria_celdas'        : 40
     };
     closeModal();
     fieldLoadFocus();

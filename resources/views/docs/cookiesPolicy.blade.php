@@ -2,9 +2,6 @@
 @section('title', 'Política de cookies')
 @section('content')
 
-{{-- <div class="aside box--ow-max menu"></div>
-<div class="aside aside-r box--ow-max"></div> --}}
-
 <div class="docs-container">
     <div class="header">
         <a href="{{ route('home.index') }}">
@@ -30,14 +27,14 @@
         </h2>
         
         <h3>Cookies propias</h3>
-        <p>Descripción de cookies</p>
+        <p>Cookies necesarias. Permiten que el sitio sea utilizable y seguro. Sin estas cookies el sitio no puede funcionar correctamente.</p>
         <div class="table-container table-container-100w">
             <table class="table-cookies">
                 <thead>
                     <tr>
                         <th class="th-name">Nombre</th>
                         <th>Tipo</th>
-                        <th>Caducidad</th>
+                        <th>Duración</th>
                         <th>Origen</th>
                         <th>Descripción</th>
                     </tr>
@@ -60,16 +57,55 @@
                     <tr>
                         <td>remember_web</td>
                         <td>Técnica</td>
-                        <td>_pendiente</td>
+                        <td>5 años</td>
                         <td>Propio</td>
-                        <td>_pendiente</td>
+                        <td>Permite recordar la sesión. Utilizada en herramientas administrativas del sitio.</td>
                     </tr>
                     <tr>
                         <td>laravel_cookie_consent</td>
                         <td>Técnica</td>
-                        <td>_pendiente</td>
+                        <td>20 años</td>
                         <td>Propio</td>
-                        <td>_pendiente</td>
+                        <td>Almacena el acuerdo por el usuario para permitir cookies.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div><br>
+
+        <h3>Cookies de terceros</h3>
+        <p>Cookies de marketing y analítica. Se utilizan para rastrear a los visitantes en los sitios web. La intención es obtener métricas con el objetivo de mejorar nuestro servicio.</p>
+        <div class="table-container table-container-100w">
+            <table class="table-cookies">
+                <thead>
+                    <tr>
+                        <th class="th-name">Nombre</th>
+                        <th>Tipo</th>
+                        <th>Duración</th>
+                        <th>Origen</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>__fb_chat_plugin</td>
+                        <td>Analítica</td>
+                        <td>Persistente</td>
+                        <td>Propio</td>
+                        <td>Rastrea la interacción del usuario con el widget de chat de Facebook en el sitio.</td>
+                    </tr>
+                    <tr>
+                        <td>common/<br>cavalry_endpoint.php</td>
+                        <td>Analítica</td>
+                        <td>Sesión</td>
+                        <td>facebook.com</td>
+                        <td>Recopila datos sobre el comportamiento de los visitantes, con el fin de presentar anuncios más relevantes.</td>
+                    </tr>
+                    <tr>
+                        <td>messaging_plugin</td>
+                        <td>Analítica</td>
+                        <td>Persistente</td>
+                        <td>facebook.com</td>
+                        <td>Auxiliar para widget de chat de Facebook en el sitio.</td>
                     </tr>
                 </tbody>
             </table>

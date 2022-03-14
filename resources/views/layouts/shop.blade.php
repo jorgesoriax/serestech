@@ -9,9 +9,10 @@
     {{-- Styles --}}
     <link rel="stylesheet" href="{{ asset('storage/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/boxicons-2.1.1/css/boxicons.min.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="{{ asset('storage/css/fonts.css') }}">
+    {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"> --}}
     {{-- Aditional styles --}}
     @yield('css')
     {{-- Head scripts --}}
@@ -24,7 +25,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 </head>
 <body>
-    <div id="universal--container">
+  <div id="universal--container">
         {{--*
         * RESPONSIVE INDICATOR
         --}}
@@ -74,9 +75,9 @@
 
         {{-- * COOKIES CONCENT --}}
         @include('cookieConsent::index')
-    </div>
-    <script src="{{ asset('storage/js/components/menu.js') }}"></script>
-    <script src="{{ asset('vendor/shortcut/shortcut.js') }}"></script>
-    @yield('scripts')
+  </div>
+  <script src="{{ asset('storage/js/components/menu.js') }}"></script>
+  <script src="{{ asset('vendor/shortcut/shortcut.js') }}"></script>
+  @yield('scripts')
 </body>
 </html>

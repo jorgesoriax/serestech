@@ -30,7 +30,6 @@ class PanelController extends Controller
         return view('components/edit', compact('specLaptop'));
     }
     public function delete(SpecificationsLaptop $specLaptop){
-        // $specLaptop = SpecificationsLaptop::find($id);
         return view('components/delete', compact('specLaptop'));
     }
     public function slider(){
@@ -52,7 +51,7 @@ class PanelController extends Controller
                 $name = Str::random(40) . '.webp';
                 $url = public_path() . '/storage/images/upload/' . $name;
     
-                Image::make($request->file('image_'.$i))->fit(900)->save($url);
+                Image::make($request->file('image_'.$i))->fit(800)->save($url);
     
                 switch($i){
                     case 1:
@@ -128,6 +127,7 @@ class PanelController extends Controller
             'pantalla_resolucion' => $request->pantalla_resolucion . ' x ' . $request->pantalla_resolucion_y.' px',
             'product_id' => $id->id
         ]));
+        
         return redirect()->back();
     }
     public function update(Request $request, SpecificationsLaptop $specLaptop){
@@ -147,7 +147,7 @@ class PanelController extends Controller
                 $name = Str::random(40) . '.webp';
                 $url = public_path() . '/storage/images/upload/' . $name;
 
-                Image::make($request->file('image_'.$i))->fit(900)->save($url);
+                Image::make($request->file('image_'.$i))->fit(800)->save($url);
     
                 switch($i){
                     case 1:
@@ -241,11 +241,17 @@ class PanelController extends Controller
             'pantalla_tamano' => $request->pantalla_tamano.' pulgadas',
             'pantalla_resolucion' => $request->pantalla_resolucion . ' x ' . $request->pantalla_resolucion_y.' px',
         ]));
+
         return redirect()->back();  
     }
     public function destroy(SpecificationsLaptop $specLaptop){
+        /**
+         * * Inventory
+         */
         $specLaptop->product->inventory->delete();
-
+        /**
+         * * Image
+         */
         $specLaptop->product->file->delete();
         $imagesUrl = [$specLaptop->product->file->image_1,
                       $specLaptop->product->file->image_2,
@@ -256,10 +262,14 @@ class PanelController extends Controller
                       $specLaptop->product->file->image_7];
         $url = str_replace('storage', 'public', $imagesUrl);
         Storage::delete($url);
-
+        /**
+         * * Product
+         */
         $specLaptop->product->delete();
+        /**
+         * * SpecificationsLaptop
+         */
         $specLaptop->delete();
-
         return redirect()->back();  
     }
     public function replace(SpecificationsLaptop $specLaptop, $col){

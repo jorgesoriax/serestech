@@ -8,7 +8,7 @@
         </div>
     
         <form action="{{ route('search.home') }}" method="GET" class="form-search-home">
-            @include('components/search', ['style' => "input--ob outl--white-ob"])
+            @include('components/search', ['style' => "input--ob outl--white-ob" ])
         </form>
         
         <div id="header--nav--buttons" class="nav--buttons">

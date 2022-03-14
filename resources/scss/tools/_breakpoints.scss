@@ -55,15 +55,16 @@ $screen--xg-max: 1600px;
     #responsive-indicator::before{
         content: "Small";
     }
-    #universal--container{
-        width: 100%;
-        border: 0;
-        background-color: red;
-    }
     .header{
         padding: 0 $container--padd-min;
         .header--container{
             gap: $gap--min;
+
+            .input-search{
+                input{
+                    padding-right: 0;
+                }
+            }
         }
         #header--search{
             min-width: 215px;
@@ -156,6 +157,7 @@ $screen--xg-max: 1600px;
     }
     .cookie-consent{
         flex-direction: column;
+        padding: $container--padd-min;
 
         span{
             margin-bottom: $container--padd-min
@@ -246,10 +248,19 @@ $screen--xg-max: 1600px;
     /**
       * * SMALL PRODUCT VIEW
       */
-    #product--info, #product--specs, #product--wty{
+    #product--info, #product--specs, #product--wty, .container-breadcrumb-product{
         width: calc(100% - 30px);
         min-width: 0;
         margin: $container--padd-min;
+    }
+    .container-breadcrumb-product{
+        padding: 0;
+        margin: 0;
+        margin-left: $container--padd-min;
+
+        .breadcrumb{
+            margin-bottom: 0;
+        }
     }
     #product--info{
         flex-direction: column;
@@ -292,25 +303,10 @@ $screen--xg-max: 1600px;
         section{
             column-gap: 0;
             row-gap: 0;
-            max-height: 3000px;
+            max-height: 4000px;
 
-            table{
-                width: 100%;
-                margin-bottom: $container--padd-min;
-
-                caption{
-                    h3{
-                        margin-bottom: $container--padd-micro;
-                    }
-                }
-                tr{
-                    td{
-                        padding: $container--padd-min;
-                    }
-                }
-            }
-            .table-end{
-                margin-bottom: 0;
+            .item{
+                margin-bottom: $container--padd-micro;
             }
         }
     }
@@ -556,7 +552,6 @@ $screen--xg-max: 1600px;
         content: "Large size";
     }   
     #universal--container{
-        width: 100%;
         min-width: 1200px;
         border: 0;
     }
@@ -618,6 +613,11 @@ $screen--xg-max: 1600px;
         section{
             width: 100%;
             max-height: 1510px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            column-gap: $gap--max;
+
             .item{
                 width: calc(50% - 12.5px);
             }
@@ -639,6 +639,10 @@ $screen--xg-max: 1600px;
                 justify-content: flex-end;
             }
         }
+    }
+    #footer--links{
+        display: flex;
+        align-items: left;
     }
     
 }

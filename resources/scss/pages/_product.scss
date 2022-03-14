@@ -148,33 +148,31 @@
         }
         section{
             min-height: 1000px;
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: column;
-            column-gap: $gap--max;
 
-            .table-container{
-                margin-bottom: 0;
-                table{
-                    background: setcolor(white);
-                    // Tr's totales
-                    tr{
-                        &:nth-child(odd){
-                            background: setcolor(white, light);
+            .item{
+                .table-container{
+                    margin-bottom: 0;
+                    table{
+                        background: setcolor(white);
+                        // Tr's totales
+                        tr{
+                            &:nth-child(odd){
+                                background: setcolor(white, light);
+                            }
+                            td:nth-child(1){
+                                width: 50%;
+                            }
+                            td:nth-child(2){
+                                font-weight: 600;
+                            }
                         }
-                        td:nth-child(1){
-                            width: 50%;
-                        }
-                        td:nth-child(2){
-                            font-weight: 600;
-                        }
-                    }
-                    tr:first-child{
-                        td:nth-child(1){
-                            border-top-left-radius: $border--rad-mid;
-                        }
-                        td:nth-child(2){
-                            border-top-right-radius: $border--rad-mid;
+                        tr:first-child{
+                            td:nth-child(1){
+                                border-top-left-radius: $border--rad-mid;
+                            }
+                            td:nth-child(2){
+                                border-top-right-radius: $border--rad-mid;
+                            }
                         }
                     }
                 }
@@ -220,6 +218,20 @@
     border-bottom: 1px solid setcolor(gray, light);
     position: relative;
 
+    .prev-button, .next-button{
+        margin: $container--padd-min;
+        position: absolute;
+        z-index: 1;
+        border-radius: 100%;
+        bottom: 0;
+
+        button{
+            border-radius: 100%;
+        }
+    }
+    .next-button{
+        right: 0;
+    }
     .count{
         position: absolute;
         background: setcolor(white, light);
@@ -259,6 +271,10 @@
             }
         }
     }
+    .slider-message{
+        position: absolute;
+        z-index: 99;
+    }
 }
 
 
@@ -282,7 +298,7 @@
     left: $container--padd-max;
     bottom: $container--padd-max; 
     border-radius: 100%;
-    z-index: 2;
+    z-index: 5;
     display: none;
     opacity: .75;
     cursor: pointer;

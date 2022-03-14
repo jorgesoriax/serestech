@@ -6,9 +6,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SearchController;
-use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Crypt;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,15 +24,15 @@ use Illuminate\Support\Facades\Artisan;
  * * PANEL
  */
 // La route en el middleware Authenticate se ha modificado
-Route::get('login', [LoginController::class, 'index'])
+Route::get('/YS9Onsuk', [LoginController::class, 'index'])
     ->name('login.index')
     ->middleware('guest');
 
-Route::post('login', [LoginController::class, 'login']);
+Route::post('YS9Onsuk', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout']);
 
 // Consultar Providers/RouteServiceProvider cada que se cambia ruta
-Route::get('panel', [PanelController::class, 'index'])
+Route::get('HJFs28sd', [PanelController::class, 'index'])
     ->name('panel.index')
     ->middleware('auth');
 Route::get('panel/search', [SearchController::class, 'panel'])

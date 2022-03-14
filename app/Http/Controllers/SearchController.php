@@ -17,10 +17,10 @@ class SearchController extends Controller
     public function panel(Request $request){
         $query = trim($request->get('query'));
 
-        // $specsLaptop = SpecificationsLaptop::search($query)->paginate(15);
-        // $msgEmpty = 'No se encontraron coincidencias.';
+        $specsLaptop = SpecificationsLaptop::search($query)->paginate(15);
+        $msgEmpty = 'No se encontraron coincidencias.';
         
-        // return view('panel', compact('specsLaptop', 'msgEmpty', 'query'));
+        return view('panel', compact('specsLaptop', 'msgEmpty', 'query'));
         return $query;
     }
 }

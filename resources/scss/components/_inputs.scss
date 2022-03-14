@@ -56,6 +56,7 @@
 .input-search{
     max-width: 450px;
     justify-content: left;
+    position: relative;
 
     label{
         background: setcolor(white, light);
@@ -74,8 +75,7 @@
         border-bottom-left-radius: $border--rad-mid;
     }
     input{
-        padding-left: 59px;
-        padding-right: 108px;
+        padding: 0 59px;
     }
 }
 /**

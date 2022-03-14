@@ -24,7 +24,7 @@ class LoginController extends Controller
         if(Auth::attempt($credentials, $remember)){
             $request->session()->regenerate();
     
-            return $redirect->intended('panel'); // Panel
+            return $redirect->intended(route('panel.index'));
         }
         
         throw ValidationException::withMessages([ 
@@ -38,6 +38,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return $redirect->to('login');
+        return $redirect->to(route('login.index'));
     }
 }
