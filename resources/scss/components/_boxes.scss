@@ -1,7 +1,9 @@
 @use "../abstracts" as *;
 
-// * Box
-// Estilos para un elemento box básico grande
+/**
+ * * Box
+ * Estos estilos se usan para establecer contenedor básico grande
+ */
 .box--ow-max{
     background: setcolor(white, light);
     border: $border--px solid setcolor(gray, light);

@@ -926,4 +926,84 @@ $(document).ready(function(){
     popupConfirm();
     stringClean();
 });
+/**
+ * AJAX GET EDIT
+ * Eliminar imagen existente en modal edit
+ */
+function replaceExistingImage(){
+    alert("replaceExistingImage se ejecuta")
+    const replaceFields = document.querySelectorAll('.file-upload');
+
+    for(i = 0; i < replaceFields.length; i++){
+        let rBtnReplace          = replaceFields[i].querySelector('.btn-replace'), 
+            rRouteReplace        = '',
+            rInputReplace        = replaceFields[i].querySelector('.input-file'),
+            rImgContainerReplace = replaceFields[i].querySelector('.file'),
+            rImgNameReplace      = replaceFields[i].querySelector('.file-name'),
+            rBtnCancelReplace    = replaceFields[i].querySelector('.btn-upload-cancel'),
+            rPopupReplace        = replaceFields[i].querySelector('.popup-replace'),
+            rBtnUploadReplace    = replaceFields[i].querySelector('.btn-upload'),
+            rBtnShowPopupReplace = replaceFields[i].querySelector('.btn-show-popup-replace');
+
+        switch(i){
+            case 0:
+                rRouteReplace = "{{ route('replace.index', ['specLaptop' => $specLaptop, 'col' => 1]) }}";
+                break;
+            case 1:
+                rRouteReplace = "{{ route('replace.index', ['specLaptop' => $specLaptop, 'col' => 2]) }}";
+                break;
+            case 2:
+                rRouteReplace = "{{ route('replace.index', ['specLaptop' => $specLaptop, 'col' => 3]) }}";
+                break;
+            case 3:
+                rRouteReplace = "{{ route('replace.index', ['specLaptop' => $specLaptop, 'col' => 4]) }}";
+                break;
+            case 4:
+                rRouteReplace = "{{ route('replace.index', ['specLaptop' => $specLaptop, 'col' => 5]) }}";
+                break;
+            case 5:
+                rRouteReplace = "{{ route('replace.index', ['specLaptop' => $specLaptop, 'col' => 6]) }}";
+                break;
+            case 6:
+                rRouteReplace = "{{ route('replace.index', ['specLaptop' => $specLaptop, 'col' => 7]) }}";
+                break;
+        };
+        replace(
+            rBtnReplace,
+            rRouteReplace,
+            rInputReplace,
+            rImgContainerReplace,
+            rImgNameReplace,
+            rBtnCancelReplace,
+            rPopupReplace,
+            rBtnUploadReplace,
+            rBtnShowPopupReplace
+        );
+
+    };
+    function replace(btnReplace, routeReplace, inputReplace, imgContainerReplace, imgNameReplace, btnCancelReplace, popupReplace, btnUploadReplace, btnShowPopUpReplace){
+        $(btnReplace).click(function(){
+            $.ajax({
+                url: routeReplace 
+            }).done(function(){
+                // Reseteamos campos de upload
+                $(inputReplace).val('');
+                $(imgContainerReplace).empty();
+                $(imgNameReplace).val('Seleccione una imagen');
+                $(btnCancelReplace).css('display', 'none');
+                // Escondemos popup
+                $(popupReplace).css('transform','translate(-5px, -5px)');
+                $(popupReplace).css('opacity', '0');
+                // Ocutamos boton de eliminar y quitamos clase short de boton upload
+                $(btnUploadReplace).removeClass('short');
+                $(btnShowPopUpReplace).css('display', 'none');
+                // Devolvemos mensaje
+                alert('Se ha eliminado correctamente. Ahora puede elegir una nueva imagen o dejar el campo en blanco.');
+            })
+            .fail(function() {
+                alert('Se ha encontrado un error.')
+            })
+        });
+    };
+};
 </script>

@@ -1,5 +1,11 @@
 @use "../abstracts" as *;
 @use "../tools/mixins" as *;
+
+/**
+ * * Home
+ * Estos estilos se usan para elementos de vista home
+ */
+
 /**
   * * SLIDER
   */
@@ -53,22 +59,29 @@
     left: $container--padd-max;
 }
 /**
-  * * BUTTONS CONTAINER HEADER & FOOTER
+  * * Contenedor de botones en header y footer
   */
 .nav--buttons{
     @include flex(center, right);
     gap: $gap--max;
 }
 /**
-  * * CATALOG
+  * * Catálogo
   */
 #container--catalog, .container-breadcrumb-home{
-    width: $cont--p-card--min-width;
     max-width: $cont--p-card--min-width;
     margin: $container--padd-max auto;
-    // margin-top: $container--padd-max;
 }
 #container--catalog{
+    .catalog-header{
+        display: flex;
+        justify-content: space-between;
+
+        .catalog-filter{
+            display: flex;
+            align-items: center;
+        }
+    }
     h2{
         text-align: center;
     }
@@ -89,17 +102,7 @@
     max-width: 300px;
     cursor: pointer;
     transition: $animation-duration--min;
-    color: setcolor(black);
-
-    &:hover{
-        transform: translateY(-5px);
-        box-shadow: 0px 0px 5px -1px rgb(0, 0, 0, .25);
-
-        #product--orig-price{
-            transform: translateY(0px);
-            opacity: 1;
-        }
-    }  
+    color: setcolor(black);  
     
     .product--image-cover{
         transition: $animation-duration--mid;
@@ -121,8 +124,8 @@
     
     .label{
         position: absolute;
-        top: $container--padd-min;
-        right: $container--padd-min;
+        top: $container--padd-mid;
+        right: $container--padd-mid;
         cursor: pointer;
         z-index: 1;
     }
@@ -164,7 +167,6 @@
         white-space:wrap;
     }
     #product--price{
-        // border: 1px solid blue;
         min-height: 36px;
         margin: 0;
         grid-row: 3 / 5;
@@ -174,7 +176,6 @@
         text-overflow: ellipsis;
     }
     #product--orig-price{
-        // border: 1px solid red;
         margin: 0;
         text-decoration: line-through;
         opacity: 0;
@@ -184,7 +185,6 @@
         @include flex(flex-end, right);
     }
     #product--discount{
-        // border: 1px solid lime;
         @include flex(flex-end, right);
         margin: 0;
         color: setcolor(green);
@@ -192,7 +192,7 @@
     }
 }
 /**
-  * * FIXS
+  * * Fixes
   */
 #i-footer--visa{
     height: 25px;

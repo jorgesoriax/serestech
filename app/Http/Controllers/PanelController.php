@@ -11,30 +11,66 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Str;
 
+/**
+ * Este controlador se encarga de manejar vistas y funcionamiento CRUD para el Panel
+ */
 class PanelController extends Controller
 {
+    /**
+     * Esta función muestra la vista panel y un mensaje para DB vacía
+     */
     public function index(){
-        // $specsLaptop = SpecificationsLaptop::where('equipo_marca', 'a')->paginate(15);
         $specsLaptop = SpecificationsLaptop::paginate(15);
         $msgEmpty = 'Estoy en blanco. Comencemos a trabajar.';
 
         return view('panel', compact('specsLaptop', 'msgEmpty'));
     }
+    /**
+     * Esta función muestra la vista Create, formulario empleado para
+     * insertar registros
+     */
     public function create(){
         return view('components/create');
     }
+    /**
+     * Esta función muestra la vista Show, formulario empleado para
+     * mostrar registros existentes
+     * 
+     * @param object $specLaptop — Establece registro a mostrar al compararlo con el campo id o slug en búsqueda de coincidencias
+     */
     public function show(SpecificationsLaptop $specLaptop){
         return view('components/show', compact('specLaptop'));
     }
+    /**
+     * Esta función muestra la vista Edit, formulario empleado para
+     * editar registros existentes
+     * 
+     * @param object $specLaptop — Establece registro a editar al compararlo con el campo id o slug en búsqueda de coincidencias
+     */
     public function edit(SpecificationsLaptop $specLaptop){
         return view('components/edit', compact('specLaptop'));
     }
+    /**
+     * Esta función muestra la vista Delete, formulario empleado para
+     * eliminar registros existentes
+     * 
+     * @param object $specLaptop — Establece registro a eliminar al compararlo con el campo id o slug en búsqueda de coincidencias
+     */
     public function delete(SpecificationsLaptop $specLaptop){
         return view('components/delete', compact('specLaptop'));
     }
+    /**
+     * Esta función muestra la vista Slider, formulario empleado para
+     * gestionar las imagenes del slider
+     */
     public function slider(){
         return view('components/slider');
     }
+    /**
+     * Esta función Create, inserta registros para Inventory, Image, Product y SpecificationsLaptop
+     * 
+     * @param object $request — Establece la información para insertar un nuevo registro
+     */
     public function store(Request $request){
         /**
          * * Inventory
@@ -51,7 +87,7 @@ class PanelController extends Controller
                 $name = Str::random(40) . '.webp';
                 $url = public_path() . '/storage/images/upload/' . $name;
     
-                Image::make($request->file('image_'.$i))->fit(800)->save($url);
+                Image::make($request->file('image_'.$i))->fit(600)->save($url);
     
                 switch($i){
                     case 1:
@@ -106,17 +142,17 @@ class PanelController extends Controller
                 $request->equipo_marca.' '.
                 $request->equipo_linea.' '.
                 $request->equipo_modelo.' '.
-                Str::random(10), '-'),
+                $id->id, '-'),
             'descripcion' => 'Procesador '.$request->procesador_marca.' '.
-                             $request->procesador_linea.' '.
-                             $request->procesador_modelo.' '.
-                             $procesador_gen.
-                             $request->procesador_ghz.'GHz '.
-                             $request->procesador_nucleos.' núcleos, '.
-                             'RAM '.$request->ram_tipo.' '.
-                             $request->ram_gb.'GB, '.
-                             'Disco duro '.$request->discod_tipo.' '.
-                             $request->discod_amount.$request->discod_storage,
+            $request->procesador_linea.' '.
+            $request->procesador_modelo.' '.
+            $procesador_gen.
+            $request->procesador_ghz.'GHz '.
+            $request->procesador_nucleos.' núcleos, '.
+            'RAM '.$request->ram_tipo.' '.
+            $request->ram_gb.'GB, '.
+            'Disco duro '.$request->discod_tipo.' '.
+            $request->discod_amount.$request->discod_storage,
             'ram_gb' => $request->ram_gb.' GB',
             'discod_gb' => $request->discod_amount.' '.$request->discod_storage,
             'procesador_gen' => $request->procesador_gen.'a gen',
@@ -130,6 +166,12 @@ class PanelController extends Controller
         
         return redirect()->back();
     }
+    /**
+     * Esta función Update, modifica registros para Inventory, Image, Product y SpecificationsLaptop
+     * 
+     * @param object $request    — Establece la información para modificar el registro existente
+     * @param object $specLaptop — Establece registro a modificar al compararlo con el campo id o slug en búsqueda de coincidencias
+     */
     public function update(Request $request, SpecificationsLaptop $specLaptop){
         /**
          * * Inventory
@@ -147,7 +189,7 @@ class PanelController extends Controller
                 $name = Str::random(40) . '.webp';
                 $url = public_path() . '/storage/images/upload/' . $name;
 
-                Image::make($request->file('image_'.$i))->fit(800)->save($url);
+                Image::make($request->file('image_'.$i))->fit(600)->save($url);
     
                 switch($i){
                     case 1:
@@ -221,17 +263,17 @@ class PanelController extends Controller
                 $request->equipo_marca.' '.
                 $request->equipo_linea.' '.
                 $request->equipo_modelo.' '.
-                Str::random(10), '-'),
-                'descripcion' => 'Procesador '.$request->procesador_marca.' '.
-                $request->procesador_linea.' '.
-                $request->procesador_modelo.' '.
-                $procesador_gen.
-                $request->procesador_ghz.'GHz '.
-                $request->procesador_nucleos.' núcleos, '.
-                'RAM '.$request->ram_tipo.' '.
-                $request->ram_gb.'GB, '.
-                'Disco duro '.$request->discod_tipo.' '.
-                $request->discod_amount.$request->discod_storage,
+                $specLaptop->id, '-'),
+            'descripcion' => 'Procesador '.$request->procesador_marca.' '.
+            $request->procesador_linea.' '.
+            $request->procesador_modelo.' '.
+            $procesador_gen.
+            $request->procesador_ghz.'GHz '.
+            $request->procesador_nucleos.' núcleos, '.
+            'RAM '.$request->ram_tipo.' '.
+            $request->ram_gb.'GB, '.
+            'Disco duro '.$request->discod_tipo.' '.
+            $request->discod_amount.$request->discod_storage,
             'ram_gb' => $request->ram_gb.' GB',
             'discod_gb' => $request->discod_amount.' '.$request->discod_storage,
             'procesador_gen' => $request->procesador_gen.'a gen',
@@ -244,6 +286,11 @@ class PanelController extends Controller
 
         return redirect()->back();  
     }
+    /**
+     * Esta function Delete, elimina registros para Inventory, Image, Product y SpecificationsLaptop
+     * 
+     * @param object $specLaptop — Establece registro a eliminar al compararlo con el campo id o slug en búsqueda de coincidencias
+     */
     public function destroy(SpecificationsLaptop $specLaptop){
         /**
          * * Inventory
@@ -272,18 +319,34 @@ class PanelController extends Controller
         $specLaptop->delete();
         return redirect()->back();  
     }
+    /**
+     * Esta función Delete, elimina imagenes existentes en formulario Update por medio de Ajax,
+     * debido a que la tabla files cuenta con 7 imágenes por cada registro,
+     * se usa $col para identificar la imagen que se desea eliminar al usarla en un switch case
+     * Funciona para eliminar imagenes existente y reemplazarlas
+     * 
+     * @param object $specLaptop — Establece registro a eliminar al compararlo con el campo id o slug en búsqueda de coincidencias
+     * @param integer $col       — Establece la posición de la imagen en la tabla files
+     */
     public function replace(SpecificationsLaptop $specLaptop, $col){
         /**
-         * EDIT DELETE IMAGE
-         * En la primera línea borramos imagen anterior de storage
-         * En la segunda línea vacíamos el registro de la url en la tabla files
+         * 1 Recupera la url de la imagen seleccionada para eliminarla por medio del facade Storage
+         * 2 Reemplaza el registro para esta imagen con null
+         * 
+         * $imageOld recupera la url de la imagen seleccionada
+         * @var string
+         * 
+         * $urlOld establece la url de la imagen seleccionada
+         * @var string
          */
         switch ($col) {
             case 1:
+                // 1
                 $imageOld = $specLaptop->product->file->image_1;
                 $urlOld = str_replace('storage', 'public' , $imageOld);
                 Storage::delete($urlOld);
 
+                // 2
                 $specLaptop->product->file->image_1 = null;
                 $specLaptop->product->file->save();
                 
@@ -340,6 +403,11 @@ class PanelController extends Controller
 
         return redirect()->back();
     }
+    /**
+     * Esta función Update, actualiza las imágenes del slider
+     * 
+     * @param object $request — Establece las imagenes a modificar
+     */
     public function sliderStore(Request $request){
         if($request->file('image_1')){
             $name_1 = 'slider_1' . '.webp';
@@ -366,7 +434,5 @@ class PanelController extends Controller
                  ->save($url_3);
         }
         return redirect()->back();
-
-        // return dd($request);
     }
 }

@@ -2,7 +2,12 @@
 @use "../tools/mixins" as *;
 
 /**
-  * * BASE
+ * * Product
+ * Estos estilos se usan para elementos de vistar product
+ */
+
+/**
+  * * Base
   */
 #product--info, #product--specs, #product--wty, .container-breadcrumb-product{
     width: 935px;
@@ -22,7 +27,8 @@
     }
 }
 /**
-  * * INFO
+  * * Info
+  * Estos estilos se usan para establecer la información principal
   */
 #product--info{
     flex-direction: row;
@@ -100,7 +106,7 @@
         margin: 0;
     }
     h2{
-        margin: $container--padd-micro 0;
+        margin: $container--padd-min 0;
     }
     #info--sku{
         margin-top: 0px;
@@ -134,7 +140,8 @@
     }
 }
 /**
-  * * SPECS
+  * * Specificaciones
+  * Estos estilos se usan para establecer tablas de especificaciones
   */
 #product--specs{
     display: flex;
@@ -181,7 +188,9 @@
     }
 }   
 /**
-  * * WTY
+  * * Warranty
+  * Estos estilos se usan para establecer las garantías al final
+  * de la tabla de especificaciones
   */
 #product--wty{
     margin-bottom: $container--padd-max;
@@ -209,7 +218,9 @@
     }
 }
 /**
-  * * TOUCH SLIDER
+  * * Touch slider
+  * Estos estilos se usan para establecer el touch slider
+  * que se muestra solo en dispositivos pequeños
   */
 .touch-slider{
     width: 100vw;
@@ -219,7 +230,7 @@
     position: relative;
 
     .prev-button, .next-button{
-        margin: $container--padd-min;
+        margin: $container--padd-mid;
         position: absolute;
         z-index: 1;
         border-radius: 100%;
@@ -237,8 +248,8 @@
         background: setcolor(white, light);
         border: $border--px solid setcolor(gray, light);
         z-index: 1;
-        padding: $container--padd-micro;
-        margin: $container--padd-min;
+        padding: $container--padd-min;
+        margin: $container--padd-mid;
         border-radius: $border--rad-min;
 
         p{
@@ -277,7 +288,6 @@
     }
 }
 
-
 .grabbing{
     cursor: grabbing;
 
@@ -288,7 +298,8 @@
     }
 }
 /**
-  * * SCROLL TO TOP
+  * * Scroll to top
+  * Estilos para botón que ejecuta la función scrollToTop()
   */
 .scrollTop{
     background: setcolor(blue);

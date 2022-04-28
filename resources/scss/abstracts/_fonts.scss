@@ -1,13 +1,19 @@
 @use "sizes" as *;
 
-$font--head:  'Inter', sans-serif;
-$font--title: 'Open Sans', sans-serif;
+/**
+ * * Fonts
+ * Este mixin establece el tipo y el peso de fuente para un elemento
+ */
+$font--head:  'Inter', sans-serif;     // Fuente para texto grande
+$font--title: 'Open Sans', sans-serif; // Fuente para texto en general
 
 @mixin font-family($type, $weight:500){
     font-family: $type;
     font-weight: $weight;
 }
-
+/**
+ * Estilos predefinidos
+ */
 h1, h2, h3, p{
     margin: $font--margin 0;
 }

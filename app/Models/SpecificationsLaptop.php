@@ -14,13 +14,25 @@ class SpecificationsLaptop extends Model
         'sku', 'price', 'price_discount', 'status_usage', 'status_aesthetic', 'warranty_days',
         'support', 'delivery', 'file_id', 'category_id', 'inventory_id', 'stock'
     ];
-    // Uno a uno inverso
+    /**
+     * Relación uno a uno inverso
+     */
     public function product(){
         return $this->belongsTo(Product::class);
     }
+    /**
+     * Función que reemplaza el id como nombre de ruta por el slug
+     * 
+     * @return string — Columna que contiene el slug
+     */
     public function getRouteKeyName(){
         return 'slug';
     }
+    /**
+     * Función que se encarga de indexar Columnas
+     * 
+     * @return array — Columnas indexados para comparar con query
+     */
     public function toSearchableArray(){
         $array = [
             'id'             => $this->id,
@@ -33,6 +45,7 @@ class SpecificationsLaptop extends Model
             'procesador_ghz' => $this->procesador_ghz,
             'descripcion'    => $this->descripcion
         ];
+        
         return $array;
     }
 }

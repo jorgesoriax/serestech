@@ -74,13 +74,13 @@ footer{
     background: setcolor(white);
     width: 100%;
     border-top: $border--px solid setcolor(gray, light);
-    padding: $container--padd-mix;
+    padding: $container--padd-mix-mid;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: auto auto auto;
 
     div{
-        padding: $container--padd-min 0;
+        padding: $container--padd-mid 0;
 
         > img{
             height: $i--font-size-mid;
@@ -98,7 +98,7 @@ footer{
     #footer--logo{
         grid-column: 1 / 3;
         padding: 0;
-        margin: 0 0 $container--padd-min 0;
+        margin: 0 0 $container--padd-mid 0;
         @include flex(center, left);
     
         img{
@@ -234,7 +234,7 @@ i{
         border-radius: $border--rad-mid;
 
         td, th{
-            padding: $container--padd-min;
+            padding: $container--padd-mid;
         }
         thead{
             tr{

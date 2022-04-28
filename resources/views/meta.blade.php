@@ -1,4 +1,0 @@
-{{--
-    TITLE
-    META DESCRIPTION    
---}}

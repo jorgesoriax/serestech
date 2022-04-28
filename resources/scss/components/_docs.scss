@@ -1,6 +1,10 @@
 @use "../abstracts" as *;
 @use "../tools/mixins" as *;
 
+/**
+ * * Documentación
+ * Estos estilos se usan en vistas de documentos
+ */
 .aside{
     width: 250px;
     height: 100vh;
@@ -20,7 +24,7 @@
 .docs-container{
     width: 100%;
     min-height: 100vh;
-    padding: $container--padd-min;
+    padding: $container--padd-mid;
     
     p, ul, span{
         font-size: $paragraph--font-size--docs;

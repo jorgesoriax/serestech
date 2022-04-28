@@ -1,5 +1,9 @@
 @use "../tools/mixins" as *;
 
+/**
+ * * Breadcrumbs
+ * Estos estilos se usan para establecer breadcrumbs
+ */
 .container-breadcrumb{
     .breadcrumb{
         list-style: none;
@@ -9,9 +13,9 @@
         flex-direction: row;
 
         // .breadcrumb-item{ }
+        // .active{ }
         .breadcrumb-separator{
             @include flex;
         }
-        // .active{ }
     }
 }

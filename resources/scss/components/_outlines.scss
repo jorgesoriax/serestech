@@ -1,20 +1,33 @@
 @use "../abstracts" as *;
- 
-// * MAP Outline states over white background
+
+/**
+ * * Outlines
+ * Esta función crea clases que definen outlines
+ * a partir de una lista de propiedades
+ */
+
+/**
+ * * Mapa de propiedades para outline overwhite
+ */
 $outline--overwhite: (
     blue-ow: (
         setcolor(blue),
         setcolor(blue, outl)
     )
 );
-// * MAP Outline states over blue background
+/**
+ * * Mapa de propiedades para outline overblue
+ */
 $outline-overblue: (
     white-ob: (
         setcolor(blue),
         setcolor(white, outl)
     )
 );
-// * EACH Button states over white background
+/**
+ * * Outline overwhite
+ * Esta función crea las clases para outline overwhite
+ */
 @each $name, $colors in $outline--overwhite{
     $border--color: nth($colors, 1);
     $outline--color: nth($colors, 2);
@@ -32,7 +45,10 @@ $outline-overblue: (
         }
     }
 };
-// * EACH Button states over blue background
+/**
+ * * Outline overwhite
+ * Esta función crea las clases para outline overblue
+ */
 @each $name, $colors in $outline-overblue{
     $border--color: nth($colors, 1);
     $outline--color: nth($colors, 2);

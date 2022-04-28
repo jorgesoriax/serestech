@@ -28,37 +28,37 @@
         <div class="slider-container">
             @if ($specLaptop->product->file->image_1)
                 <div class="slide">
-                    <img src="{{ asset($specLaptop->product->file->image_1) }}" alt="Primera imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }} {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM  {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
+                    <img src="{{ asset($specLaptop->product->file->image_1) }}" alt="Primera imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
                 </div>
             @endif
             @if ($specLaptop->product->file->image_2)
                 <div class="slide">
-                    <img src="{{ asset($specLaptop->product->file->image_2) }}" alt="Segunda imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }} {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM  {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
+                    <img src="{{ asset($specLaptop->product->file->image_2) }}" alt="Segunda imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
                 </div>
             @endif
             @if ($specLaptop->product->file->image_3)
                 <div class="slide">
-                    <img src="{{ asset($specLaptop->product->file->image_3) }}" alt="Tercera imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }} {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM  {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
+                    <img src="{{ asset($specLaptop->product->file->image_3) }}" alt="Tercera imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
                 </div>
             @endif
             @if ($specLaptop->product->file->image_4)
                 <div class="slide">
-                    <img src="{{ asset($specLaptop->product->file->image_4) }}" alt="Cuarta imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }} {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM  {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
+                    <img src="{{ asset($specLaptop->product->file->image_4) }}" alt="Cuarta imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
                 </div>
             @endif
             @if ($specLaptop->product->file->image_5)
                 <div class="slide">
-                    <img src="{{ asset($specLaptop->product->file->image_5) }}" alt="Quinta imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }} {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM  {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
+                    <img src="{{ asset($specLaptop->product->file->image_5) }}" alt="Quinta imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
                 </div>
             @endif
             @if ($specLaptop->product->file->image_6)
                 <div class="slide">
-                    <img src="{{ asset($specLaptop->product->file->image_6) }}" alt="Sexta imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }} {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM  {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
+                    <img src="{{ asset($specLaptop->product->file->image_6) }}" alt="Sexta imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
                 </div>
             @endif
             @if ($specLaptop->product->file->image_7)
                 <div class="slide">
-                    <img src="{{ asset($specLaptop->product->file->image_7) }}" alt="Séptima imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }} {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM  {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
+                    <img src="{{ asset($specLaptop->product->file->image_7) }}" alt="Séptima imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
                 </div>
             @endif
         </div>
@@ -80,37 +80,37 @@
             <div id="img--prod-items">
                 @if ($specLaptop->product->file->image_1)
                 <div class="img--miniature outl--blue-ow" id="img--prod-1">
-                    <img src="{{ asset($specLaptop->product->file->image_1) }}" alt="Primera imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }} {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM  {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
+                    <img src="{{ asset($specLaptop->product->file->image_1) }}" alt="Primera imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
                 </div>
                 @endif
                 @if ($specLaptop->product->file->image_2)
                     <div class="img--miniature outl--blue-ow" id="img--prod-2">
-                        <img src="{{ asset($specLaptop->product->file->image_2) }}" alt="Segunda imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }} {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM  {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
+                        <img src="{{ asset($specLaptop->product->file->image_2) }}" alt="Segunda imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
                     </div>
                 @endif
                 @if ($specLaptop->product->file->image_3)
                     <div class="img--miniature outl--blue-ow" id="img--prod-3">
-                        <img src="{{ asset($specLaptop->product->file->image_3) }}" alt="Tercera imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }} {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM  {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
+                        <img src="{{ asset($specLaptop->product->file->image_3) }}" alt="Tercera imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
                     </div>
                 @endif
                 @if ($specLaptop->product->file->image_4)
                     <div class="img--miniature outl--blue-ow" id="img--prod-4">
-                        <img src="{{ asset($specLaptop->product->file->image_4) }}" alt="Cuarta imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }} {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM  {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
+                        <img src="{{ asset($specLaptop->product->file->image_4) }}" alt="Cuarta imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
                     </div>
                 @endif
                 @if ($specLaptop->product->file->image_5)
                     <div class="img--miniature outl--blue-ow" id="img--prod-5">
-                        <img src="{{ asset($specLaptop->product->file->image_5) }}" alt="Quinta imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }} {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM  {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
+                        <img src="{{ asset($specLaptop->product->file->image_5) }}" alt="Quinta imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
                     </div>
                 @endif
                 @if ($specLaptop->product->file->image_6)
                     <div class="img--miniature outl--blue-ow" id="img--prod-6">
-                        <img src="{{ asset($specLaptop->product->file->image_6) }}" alt="Sexta imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }} {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM  {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
+                        <img src="{{ asset($specLaptop->product->file->image_6) }}" alt="Sexta imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
                     </div>
                 @endif
                 @if ($specLaptop->product->file->image_7)
                     <div class="img--miniature outl--blue-ow" id="img--prod-7">
-                        <img src="{{ asset($specLaptop->product->file->image_7) }}" alt="Séptima imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }} {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM  {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
+                        <img src="{{ asset($specLaptop->product->file->image_7) }}" alt="Séptima imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
                     </div>
                 @endif
             </div>
@@ -118,7 +118,7 @@
 
         <div id="container--dets">
             <h1>{{ $specLaptop->equipo_marca }} {{ $specLaptop->equipo_linea }} {{ $specLaptop->equipo_modelo }}</h1>
-            <h2>{{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}</h2>
+            <h2>{{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}</h2>
 
             <p id="info--sku" class="p--description">SKU {{ $specLaptop->product->sku }}</p>
             @if ($specLaptop->product->status_usage )
@@ -178,13 +178,17 @@
                                 <td>{{ $specLaptop->procesador_marca }}</td>
                             </tr>
                             <tr>
+                                <td>Línea</td>
+                                <td>{{ $specLaptop->procesador_linea }}</td>
+                            </tr>
+                            <tr>
                                 <td>Modelo</td>
                                 <td>{{ $specLaptop->procesador_modelo }}</td>
                             </tr>
                             @if ($specLaptop->procesador_gen > 0)
                                 <tr>
                                     <td>Generación</td>
-                                    <td>{{ $specLaptop->procesador_gen }}a</td>
+                                    <td>{{ $specLaptop->procesador_gen }}</td>
                                 </tr>    
                             @endif
                             <tr>

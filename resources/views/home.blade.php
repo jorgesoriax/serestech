@@ -34,11 +34,49 @@
         <div id="container--catalog">
             {{-- Si existe una query se imprime en breadcrumb --}}
             @if (isset($query))
-                <div class="container-breadcrumb container-breadcrumb-home">
-                    {{ Breadcrumbs::render('search', count($specsLaptop).' resultado(s) para '.$query) }}
+                <div class="catalog-header">
+                    <div class="container-breadcrumb container-breadcrumb-home">
+                        {{ Breadcrumbs::render('search', count($specsLaptop).' resultado(s) para '.$query) }}
+                    </div>
+
+                    {{-- <div class="catalog-filter">
+                        <form method="GET">
+                            Ordenar por:
+                            <select class="input--ow outl--blue-ow" name="direction" id="direction">
+                                <option value="all">Predeterminado</option>
+                                <option value="desc">Precio más alto</option>
+                                <option value="asc">Precio más bajo</option>
+                            </select>
+                        </form>
+                    </div> --}}
                 </div>
             @else
-                <h1>Conoce nuestro stock</h1>
+                <div class="catalog-header">
+                    <h1>Conoce nuestro stock</h1>
+
+                    <div class="catalog-filter">
+                        <form action="{{ route('home.sort') }}" method="GET">
+                            Ordenar por:
+                            <select class="input--ow outl--blue-ow" name="direction" id="direction" onchange="this.form.submit()">
+                                <option value="all">Predeterminado</option>
+                                <option value="desc">Precio más alto</option>
+                                <option value="asc">Precio más bajo</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+                @if (isset($direction))
+                    <script>
+                        const optionsSelectDirection = document.getElementById('direction').getElementsByTagName('option');
+
+                        for(i = 0; i < optionsSelectDirection.length; i++){
+                            // Comparamos valor
+                            if(optionsSelectDirection[i].value == '{{ $direction }}'){
+                                optionsSelectDirection[i].setAttribute('selected', true);
+                            }
+                        }
+                    </script>
+                @endif
             @endif
             {{-- Comprueba si la colección no esta vacía --}}
             @if ( $specsLaptop->isNotEmpty() )
@@ -46,7 +84,7 @@
                     @foreach ($specsLaptop as $specLaptop)
                         {{-- Comprueba si el producto cuenta con por lo menos 1 existencia--}}
                         @if ($specLaptop->product->inventory->stock > 0)
-                            <a href="{{ route('product.index', $specLaptop) }}" title="Ver laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }}, {{ $specLaptop->procesador_ghz }}, {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
+                            <a href="{{ route('product.index', $specLaptop) }}" title="Ver laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
                                 <div class="box--ow-max product--card">
                                 <div class="product--image">
                                     <label class="label">
@@ -55,10 +93,10 @@
                                 
                                     @if ($specLaptop->product->file->image_1)
                                         @if ($specLaptop->product->file->image_2)
-                                            <img src="{{ asset($specLaptop->product->file->image_2) }}" alt="Segunda imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }}a gen, {{ $specLaptop->procesador_ghz }} GHz, {{ $specLaptop->procesador_nucleos }} núcleos, RAM {{ $specLaptop->ram_gb }} GB {{ $specLaptop->ram_tipo }}, Disco duro {{ $specLaptop->discod_gb }} {{ $specLaptop->discod_tipo }}">
-                                            <img src="{{ asset($specLaptop->product->file->image_1) }}" class="product--image-cover" alt="Primera imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }}a gen, {{ $specLaptop->procesador_ghz }} GHz, {{ $specLaptop->procesador_nucleos }} núcleos, RAM {{ $specLaptop->ram_gb }} GB {{ $specLaptop->ram_tipo }}, Disco duro {{ $specLaptop->discod_gb }} {{ $specLaptop->discod_tipo }}">
+                                            <img src="{{ asset($specLaptop->product->file->image_2) }}" alt="Segunda imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
+                                            <img src="{{ asset($specLaptop->product->file->image_1) }}" class="product--image-cover" alt="Primera imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
                                         @else
-                                            <img src="{{ asset($specLaptop->product->file->image_1) }}" alt="Primera imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_modelo }} {{ $specLaptop->procesador_gen }}a gen, {{ $specLaptop->procesador_ghz }} GHz, {{ $specLaptop->procesador_nucleos }} núcleos, RAM {{ $specLaptop->ram_gb }} GB {{ $specLaptop->ram_tipo }}, Disco duro {{ $specLaptop->discod_gb }} {{ $specLaptop->discod_tipo }}">
+                                            <img src="{{ asset($specLaptop->product->file->image_1) }}" alt="Primera imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
                                         @endif 
                                     @else
                                         <img src="{{ asset('storage/images/icons/noimage_75.png') }}" class="noimage-75" alt="Imagen no disponible">

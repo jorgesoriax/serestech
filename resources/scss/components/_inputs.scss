@@ -3,8 +3,8 @@
 @use "../tools/mixins" as *;
 
 /**
- * INPUT
- * Estilos generales para inputs
+ * * Inputs
+ * Estos estilos se usan para establecer inputs
  */
 .input{
     height: 50px;
@@ -51,7 +51,7 @@
     }
 }
 /**
- * SEARCH INPUT
+ * * Search input
  */
 .input-search{
     max-width: 450px;
@@ -79,14 +79,15 @@
     }
 }
 /**
- * FORM INPUTS
+ * * Form inputs
+ * Estos estilos establecen inputs dentro de forms CRUD
  */
 .input-min{
     height: auto;
     position: relative;
 
     input{
-        padding: $container--padd-micro;
+        padding: $container--padd-min;
         border-radius: $border--rad-min;
     }
     label{
@@ -122,13 +123,17 @@
         border-radius: 0 $border--rad-min $border--rad-min 0;
     }
 }
-// Cursor del icono interactivo del input pass
+/** 
+ * Este estilo establece el cursor del icono interactivo
+ * del input pass en vista login
+ */
 #icon--pass{
     cursor: pointer;
 }
-@include placeholder--color;
 
-// * CHECKBOX
+/**
+ * * Checkbox input
+ */
 .checkbox{
     @include flex;
     flex-direction: row;
@@ -169,7 +174,9 @@
     }
 }
 /**
- * FILE
+ * * File
+ * Estos estilos establecen el componente para subir imagenes,
+ * este se encuentra en la vista panel
  */
 .file-upload{
     position: relative;
@@ -183,8 +190,8 @@
         position: absolute;
         @include flex;
         z-index: 2;
-        top: $container--padd-micro;
-        left: $container--padd-micro;
+        top: $container--padd-min;
+        left: $container--padd-min;
     }
     span{
         border: $border--px solid setcolor(gray, light);
@@ -192,7 +199,7 @@
     // Botón para deseleccionar imagen
     button.btn-upload-cancel{
         left: initial;
-        right: $container--padd-micro;
+        right: $container--padd-min;
         cursor: pointer;
         display: none;
 
@@ -210,7 +217,7 @@
         color: setcolor(red);
         white-space: normal;
         z-index: 3;
-        padding: $container--padd-micro;
+        padding: $container--padd-min;
         bottom: 85px;
         text-align: center;
         margin: 0 1px;
@@ -267,7 +274,7 @@
         color: setcolor(gray);
         font-size: $paragraph--font-size;
         text-overflow: ellipsis;
-        padding: $container--padd-micro;
+        padding: $container--padd-min;
 
         &:focus-visible{
             outline: none;
@@ -291,7 +298,7 @@
         background: setcolor(white);
         border: $border--px solid setcolor(gray, light);
         position: absolute;
-        padding: $container--padd-micro;
+        padding: $container--padd-min;
         border-radius: $border--rad-mid;
         display: grid;
         grid-template-columns: 43px auto;

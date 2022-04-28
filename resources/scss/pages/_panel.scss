@@ -1,7 +1,13 @@
 @use "../abstracts" as *;
 @use "../tools/mixins" as *;
+
 /**
-  * * LOGIN
+ * * Panel
+ * Estos estilos se usan para elementos de vista panel
+ */
+
+/**
+  * * Login
   */
 .container-login{
     @include flex;
@@ -36,7 +42,7 @@
     }
 }
 /**
-  * * PANEL
+  * * Panel
   */
 #panel{
     width: 100%;
@@ -53,7 +59,9 @@
         width: 100%;
     }
     /**
-      * * NAV
+      * * Nav
+      * Estos estilos se usan para establecer la barra de navegación
+      * de herramientas
       */
     nav:first-child{
         width: 65px;
@@ -61,7 +69,7 @@
         border: $border--px solid setcolor(gray, light);
         height: calc(100vh - 50px);
         border-radius: $border--rad-max $border--rad-max 30px 30px;
-        padding: $container--padd-min;
+        padding: $container--padd-mid;
         // position: fixed;
         position: sticky;
         top: 25px;
@@ -128,12 +136,12 @@
         }
         #logout{
             position: absolute;
-            bottom: $container--padd-min;
+            bottom: $container--padd-mid;
             border-radius: 100%;
         }
     }
     /**
-      * * HEADER
+      * * Header
       */
     header{
         background: transparent;
@@ -178,7 +186,7 @@
         }
     }
     /**
-    * * PANEL CRUD
+    * * Panel CRUD
     */
     .main-panel-table{
         grid-column: 2 / 3;
@@ -221,7 +229,7 @@
                             background: setcolor(gray, patt);
                         }
                         td{
-                            padding: $container--padd-micro;
+                            padding: $container--padd-min;
                             text-align: center;
         
                             // &:first-child{
@@ -271,13 +279,13 @@
                     margin: 0 auto;
                 }
                 .label--b{
-                    margin-top: $container--padd-micro;
+                    margin-top: $container--padd-min;
                 }
             }
         }
     }
     /**
-     * * PAGINATE
+     * * Paginate
      */
       #paginate{
         margin: $container--padd-max 0 0 0;
@@ -285,7 +293,9 @@
     }
 }
 /**
- * * MODAL
+ * * Modal
+ * Estos estilos se usan para establecer el modal donde se cargan
+ * los formularios CRUD
  */
 .modal-shadow--panel{
     z-index: 11;
@@ -329,7 +339,7 @@
             margin: 0 $container--padd-max 0     0;
             z-index: 10;
             padding: 3px;
-            padding-bottom: $container--padd-min;
+            padding-bottom: $container--padd-mid;
             display: grid;
             grid-template-columns: 81px auto 127px;
 
@@ -337,7 +347,7 @@
                 margin: 0;
                 display: flex;
                 align-self: center;
-                padding-left: $container--padd-min;
+                padding-left: $container--padd-mid;
             }
             .btn-close{
                 width: 81px;
@@ -354,11 +364,11 @@
             background: setcolor(white, light);
             width: calc(100% - 25px);
             border: $border--px solid setcolor(gray, light);
-            padding: $container--padd-min;
+            padding: $container--padd-mid;
             border-radius: $border--rad-mid;
 
             .instructions{
-                margin-bottom: $container--padd-micro;
+                margin-bottom: $container--padd-min;
                 position: relative;
                 h2, h3{
                     margin: 0;
@@ -379,7 +389,7 @@
                 .item{
                     .name{
                        p{
-                        margin: $container--padd-micro 0;
+                        margin: $container--padd-min 0;
                        }
                     }
                     .input{
@@ -405,7 +415,7 @@
                     .discod{
                         select{
                             width: 60px;
-                            margin-left: $container--padd-micro;
+                            margin-left: $container--padd-min;
                         }
                     }
                     textarea{
@@ -413,7 +423,7 @@
                         height: 35px;
                         min-height: 35px;
                         border-radius: $border--rad-min;
-                        padding: $container--padd-micro;
+                        padding: $container--padd-min;
                     }
                 }
                 .item-file-upload{

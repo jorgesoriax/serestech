@@ -4,7 +4,25 @@
 @use "sass:math";
 
 /**
- * PROPERTY LIST
+ * * Botones
+ * Esta función crea clases que definen un botón a partir
+ * una lista de propiedades
+ *
+ * * Variaciones
+ * Algunos botones tienen dos variaciones de colores; overblue y overwhite en
+ * función del color de background del contenedor
+ *
+ * overwhite — Elemento sobre fondo white : base
+ * overblue  — Elemento sobre fondo blue  : base
+ *
+ * * Tipos
+ * 1 Positivo      — Background de color verde
+ * 2 Negativo      — Background de color rojo
+ * 3 Neutral       — Background de color blanco
+ * 4 Alternativo   — Background de color azul (solo disponible overwhite)
+ * 5 Contacto WApp — Background degradado en dos tonos de verde
+ *
+ * * Propiedades
  * 1 background-color
  * 2 background-color:active
  * 3 border
@@ -12,7 +30,10 @@
  * 5 outline:hover
  * 6 color
  */
-// * MAP Button states over white background
+
+/**
+ * * Mapa de propiedades para botones overwhite
+ */
 $buttons--overwhite: (
     positive-ow: (
         setcolor(green),        
@@ -38,14 +59,6 @@ $buttons--overwhite: (
         setcolor(blue, outl),
         setcolor(black)
     ),
-    whatsapp-ow: (
-        setcolor(WApp),
-        setcolor(WApp, actv),
-        setcolor(WApp, dark),
-        setcolor(WApp, dark),
-        setcolor(green, outl),
-        setcolor(white)
-    ),
     alternative-ow: (
         setcolor(blue),
         setcolor(blue, light),
@@ -53,9 +66,19 @@ $buttons--overwhite: (
         setcolor(blue, dark),
         setcolor(blue, outl),
         setcolor(white)
+    ),
+    whatsapp-ow: (
+        setcolor(WApp),
+        setcolor(WApp, actv),
+        setcolor(WApp, dark),
+        setcolor(WApp, dark),
+        setcolor(green, outl),
+        setcolor(white)
     )
 );
-// * MAP Button states over blue background
+/**
+ * * Mapa de propiedades para botones overblue
+ */
 $buttons--overblue: (
     positive-ob: (
         setcolor(green),
@@ -90,7 +113,10 @@ $buttons--overblue: (
         setcolor(white)
     )
 );
-// * EACH Button states over white background
+/**
+ * * Botones overwhite
+ * Esta función crea las clases para botones overwhite
+ */
 @each $name, $colors in $buttons--overwhite{
     $bg--color: nth($colors, 1);
     $bg--color-active: nth($colors, 2);
@@ -116,7 +142,10 @@ $buttons--overblue: (
         }
     }
 }
-// * EACH Button states over blue background
+/**
+ * * Botones overblue
+ * Esta función crea las clases para botones overblue
+ */
 @each $name, $colors in $buttons--overblue{
     $bg--color: nth($colors, 1);
     $bg--color-active: nth($colors, 2);
@@ -144,7 +173,7 @@ $buttons--overblue: (
 }
 
 /**
- * MENU
+ * * Botón menu collapsable mostrado en dispositivos pequeños
  */
 .menu{
     border: 0;
@@ -156,15 +185,13 @@ $buttons--overblue: (
     }
 }
 /**
- * PAGINATION
+ * * Botones para paginación
  */
 #paginate{
     width: 100%;
     @include flex;
     flex-direction: column;
     margin: 0 auto;
-    // margin-top: $container--padd-max;
-    // padding: $container--padd-min - 3px;
 
     .button--neutral-ow{
         border-radius: $border--rad-mid;
@@ -209,7 +236,7 @@ $buttons--overblue: (
     }
 }
 /**
- * KEYS
+ * * KEYS
  * Botones utilizados para indicar shortcuts
  */
 .shortcut-keys{
@@ -228,7 +255,7 @@ $buttons--overblue: (
         border-radius: $border--rad-min;
         position: relative;
         font-size: $paragraph--font-size-micro;
-        padding: $container--padd-micro;
+        padding: $container--padd-min;
         z-index: 1;
         box-shadow: 0 2px setcolor(gray, light);
     }

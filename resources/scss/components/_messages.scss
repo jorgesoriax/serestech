@@ -3,6 +3,11 @@
 @use "../tools/mixins" as *;
 
 /**
+ * * Mensajes
+ * Estos estilos se usan para establecer mensajes
+ */
+
+/**
  * * POSITIVE MESSAGE
  * Mensaje con respuesta positiva
  */
@@ -70,7 +75,7 @@
     color: setcolor(white);
     white-space: normal;
     text-align: center;
-    padding: $container--padd-min;
+    padding: $container--padd-mid;
     border-radius: $border--rad-min;
 }
 .popup-message{
@@ -82,7 +87,7 @@
         background: setcolor(black);
         color: setcolor(white);
         white-space: normal;
-        padding: $container--padd-min;
+        padding: $container--padd-mid;
         border-radius: $border--rad-min;
         pointer-events: none;
         display: none;
@@ -122,7 +127,7 @@
     border-left: 0;
     border-right: 0;
     @include flex(center, space-between);
-    padding: $container--padd-min 100px;
+    padding: $container--padd-mid 100px;
     z-index: 4;
 
     span{

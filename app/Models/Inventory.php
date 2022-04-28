@@ -10,7 +10,9 @@ class Inventory extends Model
     use HasFactory;
     protected $fillable = ['stock'];
 
-    // uno a uno
+    /**
+     * Relación uno a uno
+     */
     public function product(){
         return $this->hasOne(Product::class);
     }

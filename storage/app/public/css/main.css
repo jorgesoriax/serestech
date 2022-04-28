@@ -1,0 +1,3430 @@
+@charset "UTF-8";
+/**
+ * * Color
+ * Esta función recupera un par de maps para elegir el esquema y tono de color
+ */
+/**
+ * * Esquema de color
+ *
+ * overwhite — Elemento sobre fondo white : base
+ * overblue  — Elemento sobre fondo blue  : base
+ *
+ * Si no se especifica la variación para un color, este se usa de forma general
+ * para ambos fondos
+ */
+/**
+ * * Sizes
+ * Estas variables establecen tamaños estandar para
+ * propiedades de elementos
+ */
+/**
+ * * Fuentes
+ *
+ * 1 Encabezados
+ * 2 Títulos
+ * 3 Subtítulos
+ * 4 Párrafos en documentación
+ * 5 Párrafos
+ * 6 Mínimo para párrafos
+ * 7 Descripciones
+ * 8 Texto en botones
+ * 9 Margen-y para fuentes
+ */
+/**
+ * * Generales
+ *
+ * 1 Bordes
+ * 2 Outline
+ * 3 Border-radius mínimo
+ * 4 Border-radius mediano
+ * 5 Border-radius máximo
+ */
+/**
+ * * Paddings y margins (modificar)
+ *
+ * 1 Mínimo para contenedor
+ * 2 Mediano para contenedor
+ * 3 Máximo para contenedor
+ * 4 Sección Home
+ * 5 Mix mínimo para contenedor
+ * 6 Mix para contenedor
+ * 7 Mix máximo para contenedor
+ * 8 Labels
+ * 9 Botones
+ */
+/**
+ * * Iconos
+ *
+ * 1 Pequeño
+ * 2 Mediano
+ * 3 Grande
+ * 4 Extragrande
+ */
+/**
+ * * Gaps
+ *
+ * 1 Mínimo
+ * 2 Mediano
+ * 3 Máximo
+ */
+/**
+ * * Ancho
+ *
+ * 1 Ancho mínimo para product card
+ */
+/**
+  * * Duración de transición
+  *
+  * 1 Mínimo
+  * 2 Mediano
+  * 3 Máximo
+  * 4 Logo
+  */
+/**
+  * * Logo
+  *
+  * 1 Altura mínima
+  * 2 Altura máxima
+  */
+/**
+ * * Fonts
+ * Este mixin establece el tipo y el peso de fuente para un elemento
+ */
+/**
+ * Estilos predefinidos
+ */
+h1, h2, h3, p {
+  margin: 16px 0;
+}
+
+h1, h1 > a {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+}
+
+h2, h2 > a {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+h3, h3 > a {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+ul {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+table, th {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+/**
+ * * Outlines
+ * Esta función crea clases que definen outlines
+ * a partir de una lista de propiedades
+ */
+/**
+ * * Mapa de propiedades para outline overwhite
+ */
+/**
+ * * Mapa de propiedades para outline overblue
+ */
+/**
+ * * Outline overwhite
+ * Esta función crea las clases para outline overwhite
+ */
+.outl--blue-ow {
+  border: 1px solid transparent;
+}
+.outl--blue-ow:hover {
+  border: 1px solid #3C90FC;
+  outline: 3px solid rgba(59, 143, 252, 0.4);
+}
+.outl--blue-ow:focus {
+  border: 1px solid #3C90FC;
+  outline: 3px solid rgba(59, 143, 252, 0.4);
+}
+
+/**
+ * * Outline overwhite
+ * Esta función crea las clases para outline overblue
+ */
+.outl--white-ob {
+  border: 1px solid transparent;
+}
+.outl--white-ob:hover {
+  border: 1px solid #3C90FC;
+  outline: 3px solid rgba(250, 250, 250, 0.4);
+}
+.outl--white-ob:focus {
+  border: 1px solid #3C90FC;
+  outline: 3px solid rgba(250, 250, 250, 0.4);
+}
+
+/**
+ * * Botones
+ * Esta función crea clases que definen un botón a partir
+ * una lista de propiedades
+ *
+ * * Variaciones
+ * Algunos botones tienen dos variaciones de colores; overblue y overwhite en
+ * función del color de background del contenedor
+ *
+ * overwhite — Elemento sobre fondo white : base
+ * overblue  — Elemento sobre fondo blue  : base
+ *
+ * * Tipos
+ * 1 Positivo      — Background de color verde
+ * 2 Negativo      — Background de color rojo
+ * 3 Neutral       — Background de color blanco
+ * 4 Alternativo   — Background de color azul (solo disponible overwhite)
+ * 5 Contacto WApp — Background degradado en dos tonos de verde
+ *
+ * * Propiedades
+ * 1 background-color
+ * 2 background-color:active
+ * 3 border
+ * 4 border:active
+ * 5 outline:hover
+ * 6 color
+ */
+/**
+ * * Mapa de propiedades para botones overwhite
+ */
+/**
+ * * Mapa de propiedades para botones overblue
+ */
+/**
+ * * Botones overwhite
+ * Esta función crea las clases para botones overwhite
+ */
+.button--positive-ow {
+  background: #41dd7d;
+  border: 1px solid #3EB76C;
+  color: #ffffff;
+}
+.button--positive-ow:active {
+  background: #43D27A;
+}
+.button--positive-ow:hover {
+  outline: 3px solid rgba(74, 223, 131, 0.6);
+  border: 1px solid #3EB76C;
+}
+.button--positive-ow:focus {
+  outline: 3px solid rgba(74, 223, 131, 0.6);
+  border: 1px solid #3EB76C;
+}
+
+.button--negative-ow {
+  background: #ED4025;
+  border: 1px solid #B43622;
+  color: #ffffff;
+}
+.button--negative-ow:active {
+  background: #DE3C23;
+}
+.button--negative-ow:hover {
+  outline: 3px solid rgba(237, 64, 37, 0.4);
+  border: 1px solid #B43622;
+}
+.button--negative-ow:focus {
+  outline: 3px solid rgba(237, 64, 37, 0.4);
+  border: 1px solid #B43622;
+}
+
+.button--neutral-ow {
+  background: #fafafa;
+  border: 1px solid #c5c5c5;
+  color: #2a2a2a;
+}
+.button--neutral-ow:active {
+  background: #EDF5FF;
+}
+.button--neutral-ow:hover {
+  outline: 3px solid rgba(59, 143, 252, 0.4);
+  border: 1px solid #3C90FC;
+}
+.button--neutral-ow:focus {
+  outline: 3px solid rgba(59, 143, 252, 0.4);
+  border: 1px solid #3C90FC;
+}
+
+.button--alternative-ow {
+  background: #3C90FC;
+  border: 1px solid #276FCC;
+  color: #ffffff;
+}
+.button--alternative-ow:active {
+  background: #3C8AFC;
+}
+.button--alternative-ow:hover {
+  outline: 3px solid rgba(59, 143, 252, 0.4);
+  border: 1px solid #276FCC;
+}
+.button--alternative-ow:focus {
+  outline: 3px solid rgba(59, 143, 252, 0.4);
+  border: 1px solid #276FCC;
+}
+
+.button--whatsapp-ow {
+  background: linear-gradient(180deg, #33d48e 0%, #18c799 100%);
+  border: 1px solid #00BCA2;
+  color: #ffffff;
+}
+.button--whatsapp-ow:active {
+  background: #33D48E;
+}
+.button--whatsapp-ow:hover {
+  outline: 3px solid rgba(74, 223, 131, 0.6);
+  border: 1px solid #00BCA2;
+}
+.button--whatsapp-ow:focus {
+  outline: 3px solid rgba(74, 223, 131, 0.6);
+  border: 1px solid #00BCA2;
+}
+
+/**
+ * * Botones overblue
+ * Esta función crea las clases para botones overblue
+ */
+.button--positive-ob {
+  background: #41dd7d;
+  border: 1px solid #53f190;
+  color: #ffffff;
+}
+.button--positive-ob:active {
+  background: #43D27A;
+}
+.button--positive-ob:hover {
+  outline: 3px solid rgba(74, 223, 131, 0.6);
+  border: 1px solid #53f190;
+}
+.button--positive-ob:focus {
+  outline: 3px solid rgba(74, 223, 131, 0.6);
+  border: 1px solid #53f190;
+}
+
+.button--negative-ob {
+  background: #ED4025;
+  border: 1px solid #B43622;
+  color: #ffffff;
+}
+.button--negative-ob:active {
+  background: #DE3C23;
+}
+.button--negative-ob:hover {
+  outline: 3px solid rgba(237, 64, 37, 0.4);
+  border: 1px solid #B43622;
+}
+.button--negative-ob:focus {
+  outline: 3px solid rgba(237, 64, 37, 0.4);
+  border: 1px solid #B43622;
+}
+
+.button--neutral-ob {
+  background: #fafafa;
+  border: 1px solid transparent;
+  color: #2a2a2a;
+}
+.button--neutral-ob:active {
+  background: #EDF5FF;
+}
+.button--neutral-ob:hover {
+  outline: 3px solid rgba(250, 250, 250, 0.4);
+  border: 1px solid #3C90FC;
+}
+.button--neutral-ob:focus {
+  outline: 3px solid rgba(250, 250, 250, 0.4);
+  border: 1px solid #3C90FC;
+}
+
+.button--whatsapp-ob {
+  background: linear-gradient(180deg, #33d48e 0%, #18c799 100%);
+  border: 1px solid #41dd7d;
+  color: #ffffff;
+}
+.button--whatsapp-ob:active {
+  background: #33D48E;
+}
+.button--whatsapp-ob:hover {
+  outline: 3px solid rgba(74, 223, 131, 0.4);
+  border: 1px solid #41dd7d;
+}
+.button--whatsapp-ob:focus {
+  outline: 3px solid rgba(74, 223, 131, 0.4);
+  border: 1px solid #41dd7d;
+}
+
+/**
+ * * Botón menu collapsable mostrado en dispositivos pequeños
+ */
+.menu {
+  border: 0;
+  background: transparent;
+}
+.menu i {
+  font-size: 35px;
+  color: #ffffff;
+}
+
+/**
+ * * Botones para paginación
+ */
+#paginate {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+}
+#paginate .button--neutral-ow {
+  border-radius: 8px;
+}
+#paginate #elements {
+  width: 100%;
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+}
+#paginate #elements #buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  padding: 3px;
+  padding-bottom: 10px;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+#paginate #elements #buttons .disabled {
+  opacity: 0.5;
+  outline: none;
+}
+#paginate #elements #buttons .selected {
+  border: 1px solid #3C90FC;
+  background: #EDF5FF;
+}
+#paginate #elements #buttons i {
+  font-size: 20px;
+}
+#paginate #description {
+  text-align: center;
+}
+#paginate #description p {
+  margin-top: 6px;
+}
+
+/**
+ * * KEYS
+ * Botones utilizados para indicar shortcuts
+ */
+.shortcut-keys {
+  height: 100%;
+  position: absolute;
+  right: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 5px;
+  pointer-events: none;
+}
+.shortcut-keys .shortcut-key {
+  height: fit-content;
+  background: #fafafa;
+  border: 1px solid #c5c5c5;
+  border-radius: 6px;
+  position: relative;
+  font-size: 12px;
+  padding: 7px;
+  z-index: 1;
+  box-shadow: 0 2px #c5c5c5;
+}
+
+/**
+  * * Menu colapsable
+  * Estos estilos se usan para establecer un menu colapsable que se
+  + muestra en  dispositivos pequeños
+  *
+  * Los estilos para el botón que alterna la visibilidad de este menu
+  * se encuentran en _buttons
+  */
+.menu--container {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  z-index: 10;
+  transition: 0.25s;
+  transform: translateX(100%);
+}
+.menu--container .content {
+  background: #ffffff;
+  width: 75%;
+  height: 100vh;
+  border: 1px solid #c5c5c5;
+  padding: 15px;
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  text-align: center;
+}
+.menu--container .content .content--social-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 25px;
+}
+.menu--container .content .content--whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.menu--container .content .static-message {
+  width: 100%;
+}
+
+.modal-shadow {
+  background: rgba(42, 42, 42, 0.25);
+  width: 100%;
+  min-width: 1200px;
+  height: 100vh;
+  position: fixed;
+  z-index: 9;
+  display: none;
+}
+
+/**
+ * * Inputs
+ * Estos estilos se usan para establecer inputs
+ */
+.input {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  position: relative;
+  min-width: 300px;
+}
+.input > i {
+  width: 40px;
+  height: 100%;
+  right: -8px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+.input label {
+  width: 40px;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: text;
+}
+.input input {
+  height: 100%;
+  width: 100%;
+  background: #ffffff;
+  outline: none;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  cursor: text;
+  border-radius: 8px;
+  padding: 0 40px;
+}
+.input input:disabled {
+  opacity: 0.75;
+  pointer-events: none;
+}
+.input select {
+  width: 100%;
+}
+
+/**
+ * * Search input
+ */
+.input-search {
+  max-width: 450px;
+  justify-content: left;
+  position: relative;
+}
+.input-search label {
+  background: #fafafa;
+  width: 48px;
+  height: 48px;
+  left: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 0;
+  border-right: 1px solid #c5c5c5;
+  margin: 1px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.input-search input {
+  padding: 0 59px;
+}
+
+/**
+ * * Form inputs
+ * Estos estilos establecen inputs dentro de forms CRUD
+ */
+.input-min {
+  height: auto;
+  position: relative;
+}
+.input-min input {
+  padding: 7px;
+  border-radius: 6px;
+}
+.input-min label {
+  width: 33px;
+  height: calc(100% - 2px);
+  background: #fafafa;
+}
+.input-min label h3 {
+  font-weight: 400;
+}
+
+.input-min--label-left input {
+  padding-left: 40px;
+}
+.input-min--label-left label {
+  margin-left: 1px;
+  border-right: 1px solid #c5c5c5;
+  border-radius: 6px 0 0 6px;
+}
+
+.input-min--label-right input {
+  padding-right: 47px;
+}
+.input-min--label-right label {
+  width: 40px;
+  left: initial;
+  right: 0;
+  margin-right: 1px;
+  border-left: 1px solid #c5c5c5;
+  border-radius: 0 6px 6px 0;
+}
+
+/** 
+ * Este estilo establece el cursor del icono interactivo
+ * del input pass en vista login
+ */
+#icon--pass {
+  cursor: pointer;
+}
+
+/**
+ * * Checkbox input
+ */
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+}
+.checkbox input {
+  position: absolute;
+  visibility: hidden;
+}
+.checkbox input:checked ~ .checkmark {
+  background-color: #3C90FC;
+  border: 1px solid #276FCC;
+}
+.checkbox input:checked ~ .checkmark > i {
+  display: block;
+}
+.checkbox .checkmark {
+  background: #fafafa;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  font-size: 20px;
+  line-height: 25px;
+  text-align: center;
+}
+.checkbox .checkmark i {
+  display: none;
+  color: #ffffff;
+}
+
+/**
+ * * File
+ * Estos estilos establecen el componente para subir imagenes,
+ * este se encuentra en la vista panel
+ */
+.file-upload {
+  position: relative;
+  width: 174px;
+}
+.file-upload span, .file-upload button.btn-upload-cancel {
+  background: #ffffff;
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  top: 7px;
+  left: 7px;
+}
+.file-upload span {
+  border: 1px solid #c5c5c5;
+}
+.file-upload button.btn-upload-cancel {
+  left: initial;
+  right: 7px;
+  cursor: pointer;
+  display: none;
+}
+.file-upload input[type=file] {
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  opacity: 0;
+}
+.file-upload label.error {
+  width: calc(100% - 2px);
+  background: #ffffff;
+  position: absolute;
+  color: #ED4025;
+  white-space: normal;
+  z-index: 3;
+  padding: 7px;
+  bottom: 85px;
+  text-align: center;
+  margin: 0 1px;
+}
+.file-upload input[type=file].error ~ .container-file {
+  border: 1px solid #ED4025;
+  outline: 3px solid rgba(237, 64, 37, 0.4);
+  border-radius: 6px 6px;
+}
+.file-upload input[type=file].error ~ .container-file .file {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
+.file-upload input[type=file].error ~ .container-file .file-name {
+  border: 0;
+}
+.file-upload .container-file {
+  width: 174px;
+  margin-bottom: 15px;
+  border: 1px solid transparent;
+}
+.file-upload .file {
+  background: #ffffff;
+  border: 1px solid #c5c5c5;
+  width: 100%;
+  height: 174px;
+  border-radius: 6px 6px 0 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.file-upload .file .noimage-50 {
+  width: initial;
+  display: block;
+}
+.file-upload .file img {
+  height: 100%;
+  position: absolute;
+}
+.file-upload .file-name {
+  background: #fafafa;
+  width: 100%;
+  height: 25px;
+  border: 1px solid #c5c5c5;
+  border-top: 0;
+  border-radius: 0 0 6px 6px;
+  text-align: center;
+  color: #929292;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  padding: 7px;
+}
+.file-upload .file-name:focus-visible {
+  outline: none;
+}
+.file-upload .short {
+  float: left;
+  width: calc(100% - 58px);
+}
+.file-upload .btn-show-popup-replace {
+  margin-left: 15px;
+  float: left;
+}
+.file-upload .btn-show-popup-replace i {
+  color: #ffffff;
+}
+.file-upload .popup-replace {
+  background: #ffffff;
+  border: 1px solid #c5c5c5;
+  position: absolute;
+  padding: 7px;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 43px auto;
+  grid-template-rows: auto;
+  gap: 10px;
+  transform: translate(-5px, -5px);
+  transition: 0.1s;
+  box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+}
+.file-upload .popup-replace p {
+  margin: 0;
+  grid-column: 1/3;
+  text-align: center;
+}
+.file-upload .popup-replace i {
+  color: #ffffff;
+}
+
+/**
+ * * Helpers
+ * Estilos sin categoria
+ */
+/**
+ * * Enlace con iconos
+ * Estos estilos se usan para establecer el comportamiento de
+ * un enlace con imagen
+ */
+.a--icon {
+  width: 35px;
+  height: 35px;
+  display: block;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.a--icon img {
+  height: 100%;
+}
+
+/**
+ * * Descripción
+ * Estos estilos se usan para indicar que el texto contenido 
+ * se trata de una descripción
+ */
+.p--description {
+  color: #929292;
+}
+
+/**
+ * * Botón cuadrado
+ * Estos estilos se usan para establecer un botón cuadrado
+ */
+.sq {
+  width: 43px;
+  padding: 10px 10px;
+}
+
+/**
+ * * Label
+ * Estos estilos se usan para establecer el elemento label
+ */
+.label {
+  background: #FFF982;
+  padding: 7px 15px;
+  border-radius: 6px;
+  border: 1px solid #ED7C25;
+  color: #ED7C25;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+  font-size: 14px;
+  cursor: default;
+  display: inline-block;
+}
+.label i {
+  color: #ED7C25;
+}
+
+.label--b {
+  border: 1px solid #3C90FC;
+  background: #EDF5FF;
+  color: #3C90FC;
+}
+
+/**
+  * * Border fix
+  * Estos estilos solucionan especificidad del hover en elementos
+  * que no aplican adecuadamente el outline
+  *
+  * Por ejemplo en footer para redes sociales
+  */
+.input--ow {
+  border: 1px solid #c5c5c5;
+}
+
+.input--ob {
+  border: 1px solid transparent;
+}
+
+.noimage-50 {
+  width: 50px;
+  height: 50px;
+}
+
+.noimage-75 {
+  border-radius: 0;
+  width: 75px;
+  height: 75px;
+}
+
+.noimage-200 {
+  border-radius: 0;
+  width: 200px;
+  height: 200px;
+}
+
+/**
+  * * NO DISABLE
+  */
+.nodisabled:disabled {
+  opacity: 1;
+  color: #2a2a2a;
+}
+
+/**
+ * * Box
+ * Estos estilos se usan para establecer contenedor básico grande
+ */
+.box--ow-max {
+  background: #fafafa;
+  border: 1px solid #c5c5c5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/**
+ * * Mensajes
+ * Estos estilos se usan para establecer mensajes
+ */
+/**
+ * * POSITIVE MESSAGE
+ * Mensaje con respuesta positiva
+ */
+.message {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  column-gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
+}
+.message h3, .message p {
+  margin: 0;
+}
+.message p {
+  height: 16px;
+}
+.message h3 {
+  font-weight: 500;
+}
+.message div {
+  grid-row: 1/3;
+  width: 42px;
+  height: 42px;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  background: #fafafa;
+  border-radius: 100%;
+  border: 1px solid #c5c5c5;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+/**
+ * * NEGATIVE MESSAGE
+ * Mensaje con respuesta negativa
+ */
+.message--error h3 {
+  color: #ED4025;
+}
+
+.message--panel-ow h3 {
+  font-size: 14px;
+  text-align: right;
+}
+.message--panel-ow div {
+  width: 37px;
+  height: 37px;
+  line-height: 39px;
+  grid-column: 2;
+}
+
+/**
+ * * POPUP MESSAGE
+ * Añade un elemento flotante con una descripción
+ */
+.static-message {
+  width: 350px;
+  background: #2a2a2a;
+  color: #ffffff;
+  white-space: normal;
+  text-align: center;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.popup-message {
+  cursor: help;
+}
+.popup-message p {
+  width: 350px;
+  position: absolute;
+  background: #2a2a2a;
+  color: #ffffff;
+  white-space: normal;
+  padding: 15px;
+  border-radius: 6px;
+  pointer-events: none;
+  display: none;
+}
+.popup-message:hover p {
+  display: block;
+  opacity: 1;
+}
+
+.popup-message-top p {
+  top: 75%;
+}
+.popup-message-top:hover p {
+  top: 100%;
+}
+
+.popup-message-bot p {
+  bottom: 75%;
+}
+.popup-message-bot:hover p {
+  bottom: 100%;
+}
+
+/**
+ * * COOKIE CONCENT
+ */
+.cookie-consent {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 100px;
+  z-index: 4;
+}
+.cookie-consent span {
+  height: fit-content;
+}
+
+/**
+ * * Documentación
+ * Estos estilos se usan en vistas de documentos
+ */
+.aside {
+  width: 250px;
+  height: 100vh;
+  position: absolute;
+  padding: 25px;
+  border-radius: 0;
+  border-top: 0;
+  border-bottom: 0;
+  border-left: 0;
+  background: none;
+}
+
+.aside-r {
+  right: 0;
+  border-right: 0;
+  border-left: 1px solid #c5c5c5;
+}
+
+.docs-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 15px;
+}
+.docs-container p, .docs-container ul, .docs-container span {
+  font-size: 16px;
+}
+.docs-container > div {
+  max-width: 650px;
+  width: 100%;
+  margin: 0 auto;
+}
+.docs-container .header {
+  padding-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: sticky;
+  top: 0px;
+}
+.docs-container .header img {
+  height: 30px;
+}
+.docs-container .header p {
+  margin: 8px 0;
+  text-align: center;
+}
+.docs-container .body i {
+  font-size: 16px;
+}
+.docs-container .body ul li {
+  margin-bottom: 8px;
+}
+.docs-container .body ul li span {
+  font-weight: 600;
+}
+
+.table-cookies thead tr th:last-child {
+  width: 300px;
+}
+
+/**
+ * * Breadcrumbs
+ * Estos estilos se usan para establecer breadcrumbs
+ */
+.container-breadcrumb .breadcrumb {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.container-breadcrumb .breadcrumb .breadcrumb-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/**
+ * * Home
+ * Estos estilos se usan para elementos de vista home
+ */
+/**
+  * * SLIDER
+  */
+.container--slider {
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider {
+  display: flex;
+  width: 300%;
+  max-height: 400px;
+  margin-left: -100%;
+}
+
+.slider--section {
+  width: 100%;
+}
+.slider--section img {
+  display: block;
+  width: 100%;
+}
+
+.slider--button {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  top: calc(50% - 25px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  opacity: 0.25;
+  transition: 0.1s;
+}
+.slider--button:hover {
+  opacity: 1;
+}
+.slider--button i {
+  font-size: 35px;
+}
+
+.slider--button-r {
+  right: 25px;
+}
+
+.slider--button-l {
+  left: 25px;
+}
+
+/**
+  * * Contenedor de botones en header y footer
+  */
+.nav--buttons {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 25px;
+}
+
+/**
+  * * Catálogo
+  */
+#container--catalog, .container-breadcrumb-home {
+  max-width: 950px;
+  margin: 25px auto;
+}
+
+#container--catalog .catalog-header {
+  display: flex;
+  justify-content: space-between;
+}
+#container--catalog .catalog-header .catalog-filter {
+  display: flex;
+  align-items: center;
+}
+#container--catalog h2 {
+  text-align: center;
+}
+
+.container-breadcrumb-home {
+  margin: 0;
+}
+
+#catalog {
+  display: flex;
+  justify-content: left;
+  gap: 25px;
+  align-content: flex-start;
+  flex-flow: row wrap;
+}
+
+.product--card {
+  min-width: 300px;
+  max-width: 300px;
+  cursor: pointer;
+  transition: 0.1s;
+  color: #2a2a2a;
+}
+.product--card .product--image-cover {
+  transition: 0.25s;
+}
+.product--card:hover .product--image-cover {
+  opacity: 0;
+}
+
+.product--image {
+  width: 100%;
+  height: calc(300px - 2px);
+  border-bottom: 1px solid #c5c5c5;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+.product--image .label {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  z-index: 1;
+}
+.product--image img {
+  width: 100%;
+  position: absolute;
+}
+.product--image .noimage-75 {
+  width: initial;
+}
+
+.product--info {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  transition: 0.1s;
+  padding: 25px;
+}
+.product--info #product--title {
+  margin-top: 0;
+  margin-bottom: 8px;
+  grid-column: 1/3;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.product--info #product--description {
+  margin-top: 0;
+  margin-bottom: 8px;
+  height: 48px;
+  grid-column: 1/3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: wrap;
+}
+.product--info #product--price {
+  min-height: 36px;
+  margin: 0;
+  grid-row: 3/5;
+  display: flex;
+  align-items: flex-end;
+  justify-content: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.product--info #product--orig-price {
+  margin: 0;
+  text-decoration: line-through;
+  opacity: 0;
+  transition: 0.1s;
+  grid-column: 2/3;
+  transform: translateY(20px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: right;
+}
+.product--info #product--discount {
+  display: flex;
+  align-items: flex-end;
+  justify-content: right;
+  margin: 0;
+  color: #41dd7d;
+  font-weight: 600;
+}
+
+/**
+  * * Fixes
+  */
+#i-footer--visa {
+  height: 25px;
+}
+
+/**
+  * * PAGINATE
+  * Modificación específica para home de botones
+  * para paginación
+  */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 125px;
+}
+
+/**
+ * * Panel
+ * Estos estilos se usan para elementos de vista panel
+ */
+/**
+  * * Login
+  */
+.container-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.panel--logo {
+  position: absolute;
+  top: 50px;
+}
+.panel--logo img {
+  height: 35px;
+}
+
+.panel--login {
+  width: 336px;
+}
+.panel--login .message {
+  margin-bottom: 50px;
+}
+.panel--login form > div, .panel--login form > label {
+  margin-bottom: 25px;
+}
+.panel--login form label {
+  float: left;
+}
+.panel--login form input[type=submit] {
+  width: 100%;
+  margin-top: 100px;
+}
+
+/**
+  * * Panel
+  */
+#panel {
+  width: 100%;
+  padding: 25px;
+  background: #ffffff;
+  display: grid;
+  grid-template-columns: 90px auto;
+  grid-template-rows: 85px auto auto;
+  /**
+    * * Nav
+    * Estos estilos se usan para establecer la barra de navegación
+    * de herramientas
+    */
+  /**
+    * * Header
+    */
+  /**
+  * * Panel CRUD
+  */
+  /**
+   * * Paginate
+   */
+}
+#panel h2 {
+  color: #2a2a2a;
+}
+#panel header, #panel main {
+  width: 100%;
+}
+#panel nav:first-child {
+  width: 65px;
+  background: #ffffff;
+  border: 1px solid #c5c5c5;
+  height: calc(100vh - 50px);
+  border-radius: 15px 15px 30px 30px;
+  padding: 15px;
+  position: sticky;
+  top: 25px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+#panel nav:first-child .nav-load i {
+  color: #3C90FC;
+}
+#panel nav:first-child div {
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  border-radius: 6px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+#panel nav:first-child div i {
+  color: #929292;
+  font-size: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#panel nav:first-child div:hover {
+  background: #fafafa;
+}
+#panel nav:first-child div:hover i {
+  color: #3C90FC;
+}
+#panel nav:first-child div:hover span {
+  left: 40px;
+  opacity: 1;
+}
+#panel nav:first-child div span {
+  background: #ffffff;
+  border: 1px solid #c5c5c5;
+  white-space: nowrap;
+  position: absolute;
+  left: 30px;
+  padding: 5px 15px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: 0.1s;
+  pointer-events: none;
+  z-index: 1;
+}
+#panel nav:first-child #logo img {
+  width: 100%;
+}
+#panel nav:first-child #stock i {
+  color: #3C90FC;
+}
+#panel nav:first-child #logout {
+  position: absolute;
+  bottom: 15px;
+  border-radius: 100%;
+}
+#panel header {
+  background: transparent;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  z-index: initial;
+  position: initial;
+  gap: 25px;
+}
+#panel header form {
+  width: 100%;
+}
+#panel header .button--positive-ow {
+  padding-left: 19px;
+}
+#panel header .button--positive-ow i {
+  color: #ffffff;
+}
+#panel header .message h3 {
+  white-space: nowrap;
+}
+#panel header .message p {
+  text-align: right;
+  white-space: nowrap;
+}
+#panel header .message div {
+  line-height: 35px;
+}
+#panel header .manual i {
+  color: #2a2a2a;
+}
+#panel header .manual:hover i {
+  color: #3C90FC;
+}
+#panel .main-panel-table {
+  grid-column: 2/3;
+}
+#panel .main-panel-table .table-container {
+  margin-bottom: 0;
+}
+#panel .main-panel-table .table-container .table-panel thead tr th {
+  text-align: center;
+}
+#panel .main-panel-table .table-container .table-panel thead tr .th--id {
+  width: 4%;
+}
+#panel .main-panel-table .table-container .table-panel thead tr .th--image {
+  width: 8%;
+}
+#panel .main-panel-table .table-container .table-panel thead tr .th--name {
+  width: 13%;
+}
+#panel .main-panel-table .table-container .table-panel thead tr .th--sku, #panel .main-panel-table .table-container .table-panel thead tr .th--price, #panel .main-panel-table .table-container .table-panel thead tr .th--price-disc, #panel .main-panel-table .table-container .table-panel thead tr .th--stock {
+  width: 10%;
+}
+#panel .main-panel-table .table-container .table-panel thead tr .th--label {
+  width: 15%;
+}
+#panel .main-panel-table .table-container .table-panel thead tr .th--crud {
+  width: 20%;
+}
+#panel .main-panel-table .table-container .table-panel tbody .tr--empty:hover {
+  background: #ffffff;
+}
+#panel .main-panel-table .table-container .table-panel tbody tr:hover {
+  background: rgba(197, 197, 197, 0.4);
+}
+#panel .main-panel-table .table-container .table-panel tbody tr td {
+  padding: 7px;
+  text-align: center;
+}
+#panel .main-panel-table .table-container .table-panel tbody tr .td--label {
+  text-align: left;
+}
+#panel .main-panel-table .table-container .table-panel tbody tr .td--marca {
+  text-align: left;
+  font-weight: 600;
+}
+#panel .main-panel-table .table-container .table-panel tbody tr .td--price {
+  white-space: nowrap;
+}
+#panel .main-panel-table .table-container .table-panel tbody tr .td--stock {
+  white-space: nowrap;
+}
+#panel .main-panel-table .table-container .table-panel .img-container {
+  width: 75px;
+  height: 75px;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+#panel .main-panel-table .table-container .table-panel .img-container img {
+  width: 100%;
+  height: 100%;
+}
+#panel .main-panel-table .table-container .table-panel .img-container .noimage-50 {
+  width: initial;
+  height: initial;
+}
+#panel .main-panel-table .table-container .table-panel .button--alternative-ow, #panel .main-panel-table .table-container .table-panel .button--negative-ow {
+  margin: 0 auto;
+}
+#panel .main-panel-table .table-container .table-panel .button--alternative-ow i, #panel .main-panel-table .table-container .table-panel .button--negative-ow i {
+  color: white;
+}
+#panel .main-panel-table .table-container .table-panel .button--neutral-ow {
+  margin: 0 auto;
+}
+#panel .main-panel-table .table-container .table-panel .label--b {
+  margin-top: 7px;
+}
+#panel #paginate {
+  margin: 25px 0 0 0;
+  grid-column: 2/3;
+}
+
+/**
+ * * Modal
+ * Estos estilos se usan para establecer el modal donde se cargan
+ * los formularios CRUD
+ */
+.modal-shadow--panel {
+  z-index: 11;
+  display: none;
+  top: 0;
+  position: fixed;
+}
+
+.modal-container {
+  width: 100%;
+  height: 100vh;
+  z-index: 12;
+  display: none;
+  position: absolute;
+}
+
+.modal {
+  background: #ffffff;
+  width: 1051px;
+  max-width: 1051px;
+  height: calc(100% - 50px);
+  border-radius: 15px;
+  padding: 25px;
+  animation: slideUpModal 0.25s linear;
+  margin: 0 auto;
+  margin-top: 25px;
+}
+.modal .content {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+.modal .content form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.modal .content .header {
+  background: #ffffff;
+  border-bottom: 1px solid #c5c5c5;
+  position: sticky;
+  top: 0;
+  margin: 0 25px 0 0;
+  z-index: 10;
+  padding: 3px;
+  padding-bottom: 15px;
+  display: grid;
+  grid-template-columns: 81px auto 127px;
+}
+.modal .content .header h2 {
+  margin: 0;
+  display: flex;
+  align-self: center;
+  padding-left: 15px;
+}
+.modal .content .header .btn-close {
+  width: 81px;
+  display: flex;
+  justify-content: left;
+  align-self: center;
+}
+.modal .content .header .btn-close .shortcut-keys {
+  right: 5px;
+}
+.modal .content .group {
+  background: #fafafa;
+  width: calc(100% - 25px);
+  border: 1px solid #c5c5c5;
+  padding: 15px;
+  border-radius: 8px;
+}
+.modal .content .group .instructions {
+  margin-bottom: 7px;
+  position: relative;
+}
+.modal .content .group .instructions h2, .modal .content .group .instructions h3 {
+  margin: 0;
+}
+.modal .content .group .instructions p {
+  margin-top: 0;
+}
+.modal .content .group .instructions h3 {
+  margin-bottom: 3px;
+}
+.modal .content .group .fields {
+  display: flex;
+  justify-content: left;
+  flex-flow: row wrap;
+  gap: 15px;
+}
+.modal .content .group .fields .item .name p {
+  margin: 7px 0;
+}
+.modal .content .group .fields .item .input input.error, .modal .content .group .fields .item .input textarea.error {
+  border: 1px solid #ED4025;
+  outline: 3px solid rgba(237, 64, 37, 0.4);
+}
+.modal .content .group .fields .item .input label.error {
+  background: transparent;
+  border: 0;
+  width: 100%;
+  color: #ED4025;
+  white-space: nowrap;
+  font-size: 14px;
+  pointer-events: none;
+  display: block;
+  text-align: right;
+  transform: translateY(-23px);
+}
+.modal .content .group .fields .item .discod select {
+  width: 60px;
+  margin-left: 7px;
+}
+.modal .content .group .fields .item textarea {
+  width: 593px;
+  height: 35px;
+  min-height: 35px;
+  border-radius: 6px;
+  padding: 7px;
+}
+.modal .content .group .fields .item-file-upload {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 15px;
+}
+.modal .content .subgroup {
+  width: 100%;
+}
+.modal .content .subgroup .fields {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.modal .content .subgroup .fields .item {
+  width: 289px;
+}
+.modal .content .subgroup .fields .item .input {
+  min-width: initial;
+}
+.modal .content .subgroup .fields .textarea {
+  width: initial;
+  max-width: 593px;
+}
+.modal .content .loading {
+  width: 50px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal .content .loading i {
+  font-size: 50px;
+  color: #c5c5c5;
+  animation: loading 1s infinite linear;
+}
+
+.modal-mid {
+  width: 600px;
+  height: fit-content;
+  margin-top: 15%;
+}
+.modal-mid .content {
+  overflow: auto;
+}
+.modal-mid .header {
+  width: 100%;
+}
+.modal-mid h2 {
+  grid-column: 1/4;
+}
+
+.form-delete {
+  width: 100%;
+  height: 100%;
+}
+.form-delete .buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+.form-delete .buttons button {
+  width: 50%;
+  margin: 3px;
+}
+.form-delete .buttons .shortcut-keys {
+  right: 5px;
+}
+
+/**
+ * * Product
+ * Estos estilos se usan para elementos de vistar product
+ */
+/**
+  * * Base
+  */
+#product--info, #product--specs, #product--wty, .container-breadcrumb-product {
+  width: 935px;
+  min-width: 935px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.container-breadcrumb-product {
+  justify-content: left;
+  padding: 0 15px;
+}
+
+#product--specs > div, #product--wty > div {
+  width: 905px;
+}
+
+/**
+  * * Info
+  * Estos estilos se usan para establecer la información principal
+  */
+#product--info {
+  flex-direction: row;
+  gap: 25px;
+  position: relative;
+  margin-top: 0;
+}
+
+#container--imgs {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+}
+#container--imgs .noimage-75 {
+  width: initial;
+}
+
+#img--prod-preview {
+  height: 410px;
+  width: 410px;
+  border: 1px solid #c5c5c5;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+#img--prod-preview img {
+  overflow: hidden;
+  width: 100%;
+  cursor: zoom-in;
+}
+
+#img--prod-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#img--prod-items .img--miniature {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #c5c5c5;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#img--prod-items .img--miniature:hover {
+  border: 1px solid #3C90FC;
+}
+#img--prod-items .img--miniature img {
+  width: 100%;
+}
+
+#zoom {
+  width: 410px;
+  height: 410px;
+  position: absolute;
+  z-index: 3;
+  visibility: hidden;
+  background-position: 150px 50px;
+  background-repeat: no-repeat;
+  background-size: 250%;
+  transform: translateX(calc(100% + 25px));
+  border: 1px solid #c5c5c5;
+  border-radius: 8px;
+}
+
+#container--dets {
+  width: 410px;
+  position: relative;
+}
+#container--dets h1 {
+  margin: 0;
+}
+#container--dets h2 {
+  margin: 7px 0;
+}
+#container--dets #info--sku {
+  margin-top: 0px;
+}
+#container--dets .label {
+  margin-bottom: 25px;
+  margin-right: 10px;
+}
+#container--dets #info--disc-price {
+  margin-bottom: 0;
+  text-decoration: line-through;
+}
+#container--dets #info--iva {
+  margin-top: 0;
+}
+#container--dets #info--units {
+  color: #3C90FC;
+  margin-top: 25px;
+  position: absolute;
+  bottom: 43px;
+}
+#container--dets #info--buy {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+#container--dets #info--buy img {
+  position: absolute;
+  right: 25px;
+}
+
+/**
+  * * Specificaciones
+  * Estos estilos se usan para establecer tablas de especificaciones
+  */
+#product--specs {
+  display: flex;
+  gap: 25px;
+  padding: 0;
+  margin-bottom: 25px;
+}
+#product--specs #product--specs-items h1 {
+  width: 100%;
+}
+#product--specs #product--specs-items section {
+  min-height: 1000px;
+}
+#product--specs #product--specs-items section .item .table-container {
+  margin-bottom: 0;
+}
+#product--specs #product--specs-items section .item .table-container table {
+  background: #ffffff;
+}
+#product--specs #product--specs-items section .item .table-container table tr:nth-child(odd) {
+  background: #fafafa;
+}
+#product--specs #product--specs-items section .item .table-container table tr td:nth-child(1) {
+  width: 50%;
+}
+#product--specs #product--specs-items section .item .table-container table tr td:nth-child(2) {
+  font-weight: 600;
+}
+#product--specs #product--specs-items section .item .table-container table tr:first-child td:nth-child(1) {
+  border-top-left-radius: 8px;
+}
+#product--specs #product--specs-items section .item .table-container table tr:first-child td:nth-child(2) {
+  border-top-right-radius: 8px;
+}
+
+/**
+  * * Warranty
+  * Estos estilos se usan para establecer las garantías al final
+  * de la tabla de especificaciones
+  */
+#product--wty {
+  margin-bottom: 25px;
+}
+
+#product--wty-items {
+  display: flex;
+  gap: 25px;
+  flex-direction: row;
+}
+#product--wty-items div {
+  width: 100%;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#product--wty-items div i {
+  font-size: 50px;
+  color: #3C90FC;
+}
+#product--wty-items div p {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+/**
+  * * Touch slider
+  * Estos estilos se usan para establecer el touch slider
+  * que se muestra solo en dispositivos pequeños
+  */
+.touch-slider {
+  width: 100vw;
+  height: 100vw;
+  overflow: hidden;
+  border-bottom: 1px solid #c5c5c5;
+  position: relative;
+}
+.touch-slider .prev-button, .touch-slider .next-button {
+  margin: 15px;
+  position: absolute;
+  z-index: 1;
+  border-radius: 100%;
+  bottom: 0;
+}
+.touch-slider .prev-button button, .touch-slider .next-button button {
+  border-radius: 100%;
+}
+.touch-slider .next-button {
+  right: 0;
+}
+.touch-slider .count {
+  position: absolute;
+  background: #fafafa;
+  border: 1px solid #c5c5c5;
+  z-index: 1;
+  padding: 7px;
+  margin: 15px;
+  border-radius: 6px;
+}
+.touch-slider .count p {
+  margin: 0;
+}
+.touch-slider .slider-container {
+  height: 100vw;
+  display: inline-flex;
+  overflow: hidden;
+  transform: translateX(0);
+  transition: transform 0.25s ease-out;
+  cursor: grab;
+  position: relative;
+}
+.touch-slider .slider-container .slide {
+  max-height: 100vw;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  overflow: hidden;
+}
+.touch-slider .slider-container .slide img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.25s ease-in-out;
+}
+.touch-slider .slider-message {
+  position: absolute;
+  z-index: 99;
+}
+
+.grabbing {
+  cursor: grabbing;
+}
+.grabbing .slide img {
+  transform: scale(0.9);
+}
+
+/**
+  * * Scroll to top
+  * Estilos para botón que ejecuta la función scrollToTop()
+  */
+.scrollTop {
+  background: #3C90FC;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  left: 25px;
+  bottom: 25px;
+  border-radius: 100%;
+  z-index: 5;
+  display: none;
+  opacity: 0.75;
+  cursor: pointer;
+}
+.scrollTop i {
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.scrollTop:hover {
+  opacity: 1;
+}
+
+/**
+  * * BREAKPOINTS REFERENCES
+  * https://www.geeksforgeeks.org/how-to-target-desktop-tablet-and-mobile-using-media-query/
+  * https://stackoverflow.com/questions/20301680/responsive-design-standard-breakpoint-media-queries-for-smartphone-and-tablet
+  */
+/**
+  * * RESPONSIVE INDICATOR
+  */
+#responsive-indicator {
+  position: fixed;
+  z-index: 3;
+  background: yellow;
+  top: 100px;
+}
+#responsive-indicator a {
+  text-decoration: underline;
+}
+
+/**
+  * *  MIXINS
+  */
+/**
+  * * MEDIA
+  */
+@media (max-width: 480px) {
+  .shortcut-keys {
+    display: none;
+  }
+
+  #responsive-indicator::before {
+    content: "Small";
+  }
+
+  .header {
+    padding: 0 15px;
+  }
+  .header .header--container {
+    gap: 10px;
+  }
+  .header .header--container .input-search input {
+    padding-right: 0;
+  }
+  .header #header--search {
+    min-width: 215px;
+    max-width: none;
+  }
+
+  #header--logo #logo-large {
+    display: none;
+  }
+
+  #header--nav--buttons a {
+    display: none;
+  }
+
+  .popup-message {
+    display: none;
+  }
+
+  .footer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto auto auto auto auto auto;
+    padding: 15px;
+  }
+  .footer #footer--logo {
+    grid-column: 1/3;
+    margin: 0;
+    height: 100%;
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer #footer--buttons {
+    grid-column: 1/3;
+    grid-row: 4/5;
+    padding: initial;
+    padding-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+  }
+  .footer #footer--buttons :nth-child(4) {
+    display: none;
+  }
+  .footer #footer--number {
+    border: 0;
+    padding: initial;
+    grid-column: 1/3;
+    grid-row: 5/6;
+  }
+  .footer #footer--number p {
+    position: initial;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+  .footer #footer--adress {
+    padding: initial;
+    grid-column: 1/3;
+    grid-row: 6/7;
+    text-align: center;
+    border-top: 0;
+  }
+  .footer #footer--adress p {
+    position: initial;
+    margin-top: 8px;
+  }
+  .footer #footer--links {
+    text-align: center;
+    grid-column: 1/3;
+    grid-row: 7/8;
+  }
+  .footer #footer--currencies {
+    grid-column: 1/3;
+    grid-row: 8/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .footer div > img {
+    height: 20px;
+  }
+  .footer #cryptocurrencies {
+    min-width: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .cookie-consent {
+    flex-direction: column;
+    padding: 15px;
+  }
+  .cookie-consent span {
+    margin-bottom: 15px;
+  }
+
+  /**
+    * * SMALL HOME VIEW
+    */
+  #main--products {
+    margin: 15px;
+    padding: 0;
+  }
+
+  #container--catalog {
+    width: 100%;
+    max-width: none;
+    min-width: none;
+  }
+
+  #catalog {
+    gap: 10px;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+
+  .product--card {
+    width: 100%;
+    height: 145px;
+    min-width: initial;
+    max-width: initial;
+    display: grid;
+    grid-template-columns: 145px auto;
+    pointer-events: none;
+  }
+  .product--card:hover .product--image-cover {
+    opacity: 1;
+  }
+  .product--card .product--image {
+    height: 100%;
+    border-bottom: 0;
+    border-right: 1px solid #c5c5c5;
+  }
+  .product--card .product--image .label {
+    right: 7px;
+    top: 7px;
+  }
+  .product--card .product--info {
+    padding: 15px;
+    grid-template-columns: auto 100px;
+  }
+  .product--card .product--info #product--title {
+    margin: 0;
+    font-size: 14px;
+  }
+  .product--card .product--info #product--description {
+    margin: 0;
+  }
+  .product--card .product--info #product--price {
+    grid-column: 1/3;
+    grid-row: 3/4;
+    font-size: 18px;
+  }
+  .product--card .product--info #product--orig-price {
+    opacity: 1;
+    transform: translateY(0);
+    grid-column: 1/2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: left;
+  }
+  .product--card .product--info #product--discount {
+    grid-column: 2/3;
+  }
+
+  #panel #paginate {
+    margin-top: 0;
+  }
+  #panel #paginate #elements #buttons {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    overflow-x: scroll;
+  }
+  #panel #paginate #arrow-l, #panel #paginate #arrow-r {
+    display: none;
+  }
+
+  /**
+    * * SMALL PRODUCT VIEW
+    */
+  #product--info, #product--specs, #product--wty, .container-breadcrumb-product {
+    width: calc(100% - 30px);
+    min-width: 0;
+    margin: 15px;
+  }
+
+  .container-breadcrumb-product {
+    padding: 0;
+    margin: 0;
+    margin-left: 15px;
+  }
+  .container-breadcrumb-product .breadcrumb {
+    margin-bottom: 0;
+  }
+
+  #product--info {
+    flex-direction: column;
+  }
+  #product--info #container--imgs {
+    display: none;
+  }
+  #product--info #container--dets {
+    width: 100%;
+  }
+  #product--info #container--dets h1 {
+    font-size: 24px;
+  }
+  #product--info #container--dets h2 {
+    font-size: 18.72px;
+  }
+  #product--info #container--dets #info--orig-price {
+    font-size: 32px;
+  }
+  #product--info #container--dets #info--units {
+    position: initial;
+    bottom: initial;
+  }
+  #product--info #container--dets #info--buy {
+    position: initial;
+    bottom: initial;
+  }
+
+  #product--specs-items {
+    flex-wrap: nowrap;
+  }
+  #product--specs-items h1 {
+    font-size: 24px;
+  }
+  #product--specs-items section {
+    column-gap: 0;
+    row-gap: 0;
+    max-height: 4000px;
+  }
+  #product--specs-items section .item {
+    margin-bottom: 7px;
+  }
+
+  #product--wty-items {
+    gap: 10px;
+    flex-direction: column;
+  }
+  #product--wty-items div {
+    padding: 15px;
+  }
+
+  #product--index {
+    display: none;
+  }
+
+  /**
+    * * SMALL PANEL VIEW
+    */
+  #panel {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  #panel nav:first-child {
+    width: 100%;
+    height: 53px;
+    position: initial;
+    border-radius: 8px;
+    border: 0;
+    padding-bottom: 3px;
+    display: grid;
+    grid-template-columns: 80px auto 35px 35px;
+    gap: 10px;
+  }
+  #panel nav:first-child a h2 {
+    text-align: center;
+    margin: 0;
+    line-height: 33px;
+    vertical-align: middle;
+  }
+  #panel nav:first-child #logout {
+    position: initial;
+  }
+  #panel nav:first-child span {
+    display: none;
+  }
+  #panel nav:first-child #stock {
+    display: none;
+  }
+  #panel header, #panel main {
+    width: 100%;
+    margin-left: 0;
+  }
+  #panel main {
+    overflow-x: scroll;
+    width: calc(100% - 30px);
+    overflow-x: scroll;
+    border: 1px solid #c5c5c5;
+    border-radius: 8px;
+    margin: 15px;
+  }
+  #panel header {
+    display: grid;
+    grid-template-columns: 129px auto auto;
+    grid-template-rows: auto auto;
+    column-gap: 0;
+    row-gap: 15px;
+    justify-content: initial;
+    padding: 15px;
+    position: sticky;
+    background: #ffffff;
+    z-index: 2;
+    margin-bottom: 0;
+    border-bottom: 1px solid #c5c5c5;
+  }
+  #panel header h2 {
+    display: none;
+  }
+  #panel header form {
+    grid-column: 1/4;
+    grid-row: 2/3;
+    width: 100%;
+  }
+  #panel header form input {
+    width: 100%;
+    min-width: none;
+    max-width: none;
+  }
+  #panel header .btn-create {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  #panel header a {
+    margin-left: 15px;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    max-width: fit-content;
+  }
+  #panel header a .manual {
+    margin: 0;
+  }
+  #panel header .message {
+    justify-content: flex-end;
+    grid-column: 3/4;
+    grid-row: 1/2;
+  }
+  #panel .main-panel-table .table-container {
+    border: 0;
+  }
+  #panel .main-panel-table .table-container .table-panel {
+    min-width: 750px;
+    border: 0;
+    font-size: 16px;
+  }
+  #panel .main-panel-table .table-container .table-panel thead tr th:first-child {
+    border-top-left-radius: 6px;
+  }
+  #panel .main-panel-table .table-container .table-panel thead tr th:last-child {
+    border-top-right-radius: 6px;
+  }
+  #panel .main-panel-table .table-container .table-panel tbody tr td {
+    padding: 15px;
+  }
+  #panel .main-panel-table .table-container .table-panel tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 6px;
+  }
+  #panel .main-panel-table .table-container .table-panel tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 6px;
+  }
+
+  .modal-container--panel {
+    position: fixed;
+  }
+  .modal-container--panel .modal {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    margin: 0;
+    border-radius: 0;
+    max-width: none;
+    padding: 0;
+  }
+  .modal-container--panel .modal .content {
+    padding: 15px;
+    padding-top: 0;
+  }
+  .modal-container--panel .modal .content .header {
+    margin: 0;
+    grid-template-rows: auto auto;
+    grid-template-columns: 43px auto 127px;
+  }
+  .modal-container--panel .modal .content .header h2 {
+    padding: 15px 0 15px 0;
+    grid-column: 1/4;
+    grid-row: 1/2;
+  }
+  .modal-container--panel .modal .content .header .btn-submit {
+    grid-column: 3/4;
+    grid-row: 2/3;
+  }
+  .modal-container--panel .modal .content .header .btn-close {
+    width: initial;
+  }
+  .modal-container--panel .modal .content .group {
+    width: 100%;
+  }
+  .modal-container--panel .modal .content .group select {
+    background: #ffffff;
+  }
+  .modal-container--panel .modal .content .group .fields {
+    flex-flow: column wrap;
+  }
+  .modal-container--panel .modal .content .group .fields .item .discod select {
+    margin-left: 15px;
+  }
+  .modal-container--panel .modal .content .group .fields .item textarea {
+    width: 100%;
+    height: 70px;
+  }
+  .modal-container--panel .modal .content .group .fields .item .file-upload {
+    width: calc(50% - 7.5px);
+  }
+  .modal-container--panel .modal .content .group .fields .item .file-upload .file {
+    width: 100%;
+  }
+  .modal-container--panel .modal .content .group .fields .item .file-upload .popup-confirm {
+    width: 100%;
+    min-width: 185px;
+    transform: translate(0);
+  }
+  .modal-container--panel .modal .content .subgroup .fields {
+    display: flex;
+    flex-flow: column wrap;
+  }
+  .modal-container--panel .modal .content .input {
+    min-width: 100px;
+  }
+  .modal-container--panel .modal-mid {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+  }
+  .modal-container--panel .modal-mid .content .header {
+    padding-bottom: 0;
+  }
+}
+@media (min-width: 481px) {
+  #responsive-indicator::before {
+    content: "Large size";
+  }
+
+  #universal--container {
+    min-width: 1200px;
+    border: 0;
+  }
+
+  #logo-tiny {
+    display: none;
+  }
+
+  #header--nav--buttons .menu {
+    display: none;
+  }
+
+  .static-message {
+    display: none;
+  }
+
+  .menu--container {
+    display: none;
+  }
+
+  .modal .content::-webkit-scrollbar {
+    width: 10px;
+  }
+  .modal .content::-webkit-scrollbar-track {
+    background: transparent;
+    border: 1px solid #c5c5c5;
+    border-radius: 50px;
+  }
+  .modal .content::-webkit-scrollbar-thumb {
+    background-color: #929292;
+    border-radius: 50px;
+  }
+
+  .table-container::-webkit-scrollbar {
+    height: 10px;
+  }
+  .table-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .table-container::-webkit-scrollbar-thumb {
+    background: #C0C0C0;
+    border-radius: 8px;
+  }
+
+  /**
+   * * LARGE HOME VIEW
+   */
+  .product--card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.15);
+  }
+  .product--card:hover #product--orig-price {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+
+  /**
+    * * LARGE PRODUCT VIEW
+    */
+  .touch-slider {
+    display: none;
+  }
+
+  #container--catalog {
+    min-width: 950px;
+  }
+
+  #product--specs-items section {
+    width: 100%;
+    max-height: 1510px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    column-gap: 25px;
+  }
+  #product--specs-items section .item {
+    width: calc(50% - 12.5px);
+  }
+
+  /**
+    * * LARGE PANEL VIEW
+    */
+  nav:first-child h2 {
+    display: none;
+  }
+
+  #panel header .message {
+    width: 150px;
+    min-width: 150px;
+    justify-content: flex-end;
+  }
+
+  #footer--links {
+    display: flex;
+    align-items: left;
+  }
+}
+@media (min-width: 1600px) {
+  #responsive-indicator::before {
+    content: "xLarge size";
+  }
+
+  #container--catalog {
+    min-width: 1275px;
+    max-width: 1275px;
+  }
+}
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+main {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type=checkbox],
+[type=radio] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type=search] {
+  -webkit-appearance: textfield;
+  /* 1 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+/**
+ * Add the correct display in IE 10+.
+ */
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+[hidden] {
+  display: none;
+}
+
+@keyframes slideUpModal {
+  0% {
+    transform: translateY(25px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes slideDownModal {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(25px);
+    opacity: 0;
+  }
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/**
+  * * BASE
+  * Estilos de aplicación general
+  */
+@font-face {
+  font-family: "Pacifico";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Pacifico Regular"), local("Pacifico-Regular"), url(https://fonts.gstatic.com/s/pacifico/v12/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2) format("woff2");
+  font-display: swap;
+}
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  color: #2a2a2a;
+}
+body::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+body::-webkit-scrollbar-track {
+  background: #F1F1F1;
+}
+body::-webkit-scrollbar-thumb {
+  background: #C0C0C0;
+}
+
+#universal--container {
+  width: 100%;
+  background: #ffffff;
+  margin: 0 auto;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  scroll-behavior: smooth;
+}
+
+header {
+  background: #3C90FC;
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  padding: 0 100px;
+}
+header .header--container {
+  width: 100%;
+  max-width: 1235px;
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 25px;
+}
+header .header--container #header--logo {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+header .header--container #header--logo img, header .header--container #header--logo a {
+  height: 30px;
+}
+header .header--container form {
+  width: 100%;
+}
+
+footer {
+  background: #ffffff;
+  width: 100%;
+  border-top: 1px solid #c5c5c5;
+  padding: 25px 100px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto auto;
+}
+footer div {
+  padding: 15px 0;
+}
+footer div > img {
+  height: 30px;
+}
+footer div p {
+  margin: 16px 0;
+  width: 100%;
+}
+footer .static-message {
+  width: 100%;
+  grid-column: 1/3;
+}
+footer #footer--logo {
+  grid-column: 1/3;
+  padding: 0;
+  margin: 0 0 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+footer #footer--logo img {
+  height: 30px;
+}
+footer #footer--buttons {
+  border-bottom: 1px solid #c5c5c5;
+  justify-content: right;
+  padding-top: 0;
+}
+footer #footer--buttons .outl--blue-ow:hover {
+  border: 1px solid transparent;
+}
+footer #footer--buttons .input--ow:hover {
+  border: 1px solid #3C90FC;
+}
+footer #footer--number {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 10px;
+  border-bottom: 1px solid #c5c5c5;
+  position: relative;
+  padding-top: 0;
+}
+footer #footer--number p {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 10px;
+  position: absolute;
+  bottom: 0;
+}
+footer #footer--adress {
+  position: relative;
+  padding-bottom: 0;
+}
+footer #footer--adress p {
+  position: absolute;
+  top: 0;
+}
+footer #footer--currencies {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 25px;
+  padding-bottom: 0;
+}
+footer #footer--currencies #cryptocurrencies {
+  min-width: 107px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  padding: 10px;
+}
+footer #footer--links {
+  width: 100%;
+  grid-column: 1/3;
+  padding: 0;
+}
+footer #footer--links p {
+  margin: 0;
+}
+
+button, input[type=submit], .btn-upload {
+  height: 43px;
+  border-radius: 8px;
+  padding: 10px 25px;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  white-space: nowrap;
+  position: relative;
+}
+button img, input[type=submit] img, .btn-upload img {
+  height: 21px;
+}
+
+select {
+  border-radius: 6px;
+  padding: 4.5px;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #3C90FC;
+}
+a i {
+  color: #3C90FC;
+}
+
+a:active {
+  color: #3C90FC;
+}
+
+p::selection {
+  background: #3C90FC;
+  color: #ffffff;
+}
+
+p::-moz-selection {
+  /* Firefox */
+  background: #3C90FC;
+  color: #ffffff;
+}
+
+i {
+  color: #2a2a2a;
+}
+
+span {
+  font-size: 14px;
+}
+
+i {
+  font-size: 20px;
+  color: #2a2a2a;
+}
+
+/**
+ * * TABLE
+ */
+.table-container {
+  margin-bottom: 16px;
+  border: 1px solid #c5c5c5;
+  border-radius: 8px;
+}
+.table-container table {
+  width: 100%;
+  border-spacing: 0;
+  background: #fafafa;
+  border-radius: 8px;
+}
+.table-container table td, .table-container table th {
+  padding: 15px;
+}
+.table-container table thead tr {
+  position: sticky;
+  z-index: 1;
+  top: -6px;
+}
+.table-container table thead tr th {
+  border-bottom: 0;
+  background: #fafafa;
+  color: #929292;
+  text-align: left;
+}
+.table-container table thead tr th::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #c5c5c5;
+}
+.table-container table thead tr th:first-child {
+  border-top-left-radius: 15px;
+}
+.table-container table thead tr th:last-child {
+  border-top-right-radius: 15px;
+}
+.table-container table tbody tr td {
+  border-bottom: 1px solid #c5c5c5;
+}
+.table-container table tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+.table-container table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.table-container table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+.table-container table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
+}
+
+.table-container-100w {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/*# sourceMappingURL=main.css.map */

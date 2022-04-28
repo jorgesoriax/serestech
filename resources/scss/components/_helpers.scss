@@ -2,8 +2,16 @@
 @use "../tools/crossbrowsing" as *;
 @use "../tools/mixins" as *; 
 
-// * Iconos con enlace
-// Comportamiento de un enlace con imagen
+/**
+ * * Helpers
+ * Estilos sin categoria
+ */
+
+/**
+ * * Enlace con iconos
+ * Estos estilos se usan para establecer el comportamiento de
+ * un enlace con imagen
+ */
 .a--icon{
     width: 35px;
     height: 35px;
@@ -15,18 +23,27 @@
         height: 100%;
     }
 }
-// * Texto descriptivo
-// Se utiliza para indicar que el texto contenido 
-// se trata de una descripción
+/**
+ * * Descripción
+ * Estos estilos se usan para indicar que el texto contenido 
+ * se trata de una descripción
+ */
 .p--description{
     color: setcolor(gray);
 }
-// * Boton cuadrado
+
+/**
+ * * Botón cuadrado
+ * Estos estilos se usan para establecer un botón cuadrado
+ */
 .sq{
     width: 43px;
     padding: 10px 10px;
 }
-// * Label
+/**
+ * * Label
+ * Estos estilos se usan para establecer el elemento label
+ */
 .label{
     background: setcolor(yellow);
     padding: $label-text--padd;
@@ -49,8 +66,11 @@
     color: setcolor(blue);
 }
 /**
-  * * BORDER FIX
-  * Soluciona especificidad del hover de inputs (redes sociales footer)
+  * * Border fix
+  * Estos estilos solucionan especificidad del hover en elementos
+  * que no aplican adecuadamente el outline
+  *
+  * Por ejemplo en footer para redes sociales
   */
 .input--ow{
     border: $border--px solid setcolor(gray, light);
@@ -79,47 +99,5 @@
     &:disabled{
         opacity: 1;
         color: setcolor(black);
-    }
-}
-/**
-  * * MENU
-  * Menu colapsable
-  */
-  .menu--container{
-    .content{
-        display: flex;
-        flex-direction: column;
-        gap: $gap--max;
-        text-align: center;
-
-        .content--social-media{
-            @include flex;
-            flex-direction: row;
-            gap: $gap--max;
-        }
-        .content--whatsapp{
-            @include flex;
-            flex-direction: row;
-        }
-        .static-message{
-            width: 100%;
-        }
-    }
-}
-/**
- * * PERMALINK
- */
-.permalink{
-    position: relative;
-    color: setcolor(black);
-
-    &:active{
-        color: setcolor(black);
-    }
-    &:hover::before{
-        content: '#';
-        color: setcolor(blue);
-        margin-left: $container--padd-max * -1;
-        position: absolute;
     }
 }
