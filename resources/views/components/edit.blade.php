@@ -931,7 +931,6 @@ $(document).ready(function(){
  * Eliminar imagen existente en modal edit
  */
 function replaceExistingImage(){
-    alert("replaceExistingImage se ejecuta")
     const replaceFields = document.querySelectorAll('.file-upload');
 
     for(i = 0; i < replaceFields.length; i++){

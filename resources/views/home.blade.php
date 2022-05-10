@@ -82,15 +82,29 @@
             @if ( $specsLaptop->isNotEmpty() )
                 <div id="catalog">
                     @foreach ($specsLaptop as $specLaptop)
-                        {{-- Comprueba si el producto cuenta con por lo menos 1 existencia--}}
-                        @if ($specLaptop->product->inventory->stock > 0)
-                            <a href="{{ route('product.index', $specLaptop) }}" title="Ver laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
-                                <div class="box--ow-max product--card">
+                        <a href="{{ route('product.index', $specLaptop) }}" title="Ver laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
+                            <div class="box--ow-max product--card">
                                 <div class="product--image">
-                                    <label class="label">
-                                        {{ $specLaptop->product->status_usage}}
+                                    {{-- Comprueba si el producto cuenta con por lo menos 1 existencia--}}
+                                    @if ($specLaptop->product->inventory->stock > 0)
+                                        @php
+                                            $hasStock = true;
+                                            $textStock = $specLaptop->product->status_usage;
+                                        @endphp
+                                    @else
+                                        @php
+                                            $hasStock = false;
+                                            $textStock = "AGOTADO";
+                                        @endphp
+                                    @endif
+
+                                    <label @class([
+                                        "label",
+                                        "label--b" => ! $hasStock
+                                    ])>
+                                        {{$textStock}}
                                     </label>
-                                
+
                                     @if ($specLaptop->product->file->image_1)
                                         @if ($specLaptop->product->file->image_2)
                                             <img src="{{ asset($specLaptop->product->file->image_2) }}" alt="Segunda imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
@@ -122,9 +136,8 @@
                                         <p id="product--discount">{{ round( 100 - (($specLaptop->product->price_discount / $specLaptop->product->price) * 100)) }} % OFF</p>
                                     @endif
                                 </div>
-                                </div>
-                            </a>
-                        @endif
+                            </div>
+                        </a>
                     @endforeach
                 </div>
             @else
