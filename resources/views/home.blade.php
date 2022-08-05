@@ -1,8 +1,8 @@
 @extends('layouts.shop')
 @section('title', 'SeresTech Monterrey | Laptops seminuevas a precios económicos con envío inmediato')
 @section('meta')
-    <meta name="description" content="Venta de laptops seminuevas en excelentes condiciones a precios económicos. Visita nuestro negocio establecido en Monterrey y conoce nuestro stock."> 
-    <meta name="keywords" content="SeresTech, laptops buenas y baratas, laptops económicas, venta de laptops seminuevas, laptops usadas, entrega inmediata, envío inmediato, ph, dell, acer, lenovo"> 
+    <meta name="description" content="Venta de laptops seminuevas en excelentes condiciones a precios económicos. Visita nuestro negocio establecido en Monterrey y conoce nuestro stock.">
+    <meta name="keywords" content="SeresTech, laptops buenas y baratas, laptops económicas, venta de laptops seminuevas, laptops usadas, entrega inmediata, envío inmediato, ph, dell, acer, lenovo">
 @endsection
 @section('content')
     {{-- SLIDER --}}
@@ -11,20 +11,20 @@
             <div class="slider--section">
             <img src="{{ asset('storage/images/slider/slider_1.webp') }}">
             </div>
-        
+
             <div class="slider--section">
             <img src="{{ asset('storage/images/slider/slider_2.webp') }}">
             </div>
-        
+
             <div class="slider--section">
             <img src="{{ asset('storage/images/slider/slider_3.webp') }}">
             </div>
         </div>
-    
+
         <button class="button--neutral-ow slider--button slider--button-r" id="button--r">
             <i class='bx bx-chevron-right'></i>
         </button>
-    
+
         <button class="button--neutral-ow slider--button slider--button-l" id="button--l">
             <i class='bx bx-chevron-left'></i>
         </button>
@@ -38,17 +38,6 @@
                     <div class="container-breadcrumb container-breadcrumb-home">
                         {{ Breadcrumbs::render('search', count($specsLaptop).' resultado(s) para '.$query) }}
                     </div>
-
-                    {{-- <div class="catalog-filter">
-                        <form method="GET">
-                            Ordenar por:
-                            <select class="input--ow outl--blue-ow" name="direction" id="direction">
-                                <option value="all">Predeterminado</option>
-                                <option value="desc">Precio más alto</option>
-                                <option value="asc">Precio más bajo</option>
-                            </select>
-                        </form>
-                    </div> --}}
                 </div>
             @else
                 <div class="catalog-header">
@@ -111,7 +100,7 @@
                                             <img src="{{ asset($specLaptop->product->file->image_1) }}" class="product--image-cover" alt="Primera imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
                                         @else
                                             <img src="{{ asset($specLaptop->product->file->image_1) }}" alt="Primera imágen de Laptop {{ $specLaptop->equipo_marca }}{{ $specLaptop->equipo_linea }}{{ $specLaptop->equipo_modelo }}, {{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}">
-                                        @endif 
+                                        @endif
                                     @else
                                         <img src="{{ asset('storage/images/icons/noimage_75.png') }}" class="noimage-75" alt="Imagen no disponible">
                                     @endif
@@ -120,16 +109,16 @@
                                     <h3 id="product--title">{{ $specLaptop->equipo_marca }} {{ $specLaptop->equipo_linea }} {{ $specLaptop->equipo_modelo }}</h3>
 
                                     <p id="product--description" class="p--description">{{ $specLaptop->procesador_marca }} {{ $specLaptop->procesador_linea }} {{ $specLaptop->procesador_modelo }} @if ($specLaptop->procesador_gen > 0) {{ $specLaptop->procesador_gen }} @endif {{ $specLaptop->procesador_ghz }} {{ $specLaptop->procesador_nucleos }}, RAM {{ $specLaptop->ram_tipo }} {{ $specLaptop->ram_gb }}, Disco duro {{ $specLaptop->discod_tipo }} {{ $specLaptop->discod_gb }}</p>
-                                
+
                                     {{-- Evalúa si el precio tiene descuento --}}
                                     @if ($specLaptop->product->price_discount)
                                         <h2 id="product--price">@convert($specLaptop->product->price_discount)</h2>
-                                    
+
                                         <p id="product--orig-price" class="p--description">@convert($specLaptop->product->price)</p>
                                     @else
                                         <h2 id="product--price">@convert($specLaptop->product->price)</h2>
                                     @endif
-                                    
+
                                     {{-- Evalúa si es necesario calcular el porcentaje del descuento --}}
                                     @if ($specLaptop->product->price_discount)
                                         {{-- Cálculo de descuento --}}
@@ -154,4 +143,3 @@
     <script src="{{ asset('storage/js/components/slider.js') }}"></script>
 @endsection
 @endsection
-

@@ -56,7 +56,7 @@ Route::get('panel/search', [SearchController::class, 'panel'])
 
 /**
  * * Slider
- * 
+ *
  * 1 — Muestra formulario Create para slider
  * 2 — Ejecuta función sliderStore
  */
@@ -69,7 +69,7 @@ Route::post('panel/slider/store', [PanelController::class, 'sliderStore'])
 
 /**
  * * Create
- * 
+ *
  * 1 — Muestra formulario Create
  * 2 — Ejecuta función store
  */
@@ -82,7 +82,7 @@ Route::post('panel', [PanelController::class, 'store'])
 
 /**
  * * Read
- * 
+ *
  * 1 — Muestra formulario Read
  */
 Route::get('panel/{specLaptop}', [PanelController::class, 'show'])
@@ -91,7 +91,7 @@ Route::get('panel/{specLaptop}', [PanelController::class, 'show'])
 
 /**
  * * Update
- * 
+ *
  * 1 — Muestra formulario Edit
  * 2 — Ejecuta función update
  * 3 — Ejecuta función replace, elimina imagenes existentes en formulario Update
@@ -109,7 +109,7 @@ Route::get('panel/{specLaptop}/replace/{col}', [PanelController::class, 'replace
 
 /**
  * * Delete
- * 
+ *
  * 1 — Muestra vista Delete
  * 2 — Ejecuta función destroy
  */
@@ -127,7 +127,7 @@ Route::delete('panel/{specLaptop}', [PanelController::class, 'destroy'])
 */
 
 // Muestra vista home
-Route::get('/', [HomeController::class, 'index'])   
+Route::get('/', [HomeController::class, 'index'])
     ->name('home.index');
 // Ejecuta función sort
 Route::get('/sort', [HomeController::class, 'sort'])
