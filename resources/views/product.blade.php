@@ -189,7 +189,7 @@
                                 <tr>
                                     <td>Generación</td>
                                     <td>{{ $specLaptop->procesador_gen }}</td>
-                                </tr>    
+                                </tr>
                             @endif
                             <tr>
                                 <td>Velocidad</td>
@@ -444,7 +444,7 @@
                 <i class='bx bxs-package'></i>
                 <p>{{ $specLaptop->product->delivery }}</p>
             </div>
-        </div> 
+        </div>
     </section>
 @section('scripts')
     <script src="{{ asset('storage/js/product.js') }}"></script>

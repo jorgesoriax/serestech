@@ -33,7 +33,7 @@ function tarjetagYN(){
             $('#tarjetag_modelo').prop('disabled', false);
             $('#tarjetag_tipomemoria').prop('disabled', false);
             $('#tarjetag_gb').prop('disabled', false);
-        }; 
+        };
     }
 
     $('#tarjetag').change(function(){ tarjetagYN(); });
@@ -45,7 +45,7 @@ function tarjetagYN(){
 function fieldLoadFocus(){
     // Si el campo #tarjetag no es readonly, ejecuta
     if($('#tarjetag').attr('readonly') != 'readonly'){
-        $('#equipo_marca').focus(); 
+        $('#equipo_marca').focus();
     };
     // Si el campo #tarjetag contiene la clase modal-mid, ejecuta
     if($('.modal').hasClass('modal-mid')){
@@ -73,7 +73,7 @@ function checkForm(){
         $(form).validate({
             rules : {
                 stock                  : { required: true, digits: true, maxlength: 11 },
-          
+
                 image_1                : { accept: 'image/*' },
                 image_2                : { accept: 'image/*' },
                 image_3                : { accept: 'image/*' },
@@ -81,7 +81,7 @@ function checkForm(){
                 image_5                : { accept: 'image/*' },
                 image_6                : { accept: 'image/*' },
                 image_7                : { accept: 'image/*' },
-                
+
                 sku                    : { required: true, maxlength: 45 },
                 price                  : { required: true, number: true, max: 999999.99 },
                 price_discount         : { number: true, max: 999999.99 },
@@ -90,7 +90,7 @@ function checkForm(){
                 warranty_days          : { required: true, digits: true, maxlength: 11 },
                 support                : { required: true, maxlength: 90 },
                 delivery               : { required: true, maxlength: 45 },
-    
+
                 equipo_marca           : { required: true, maxlength: 45 },
                 equipo_linea           : { required: true, maxlength: 45 },
                 equipo_modelo          : { required: true, maxlength: 45 },
@@ -138,6 +138,74 @@ function checkForm(){
                 lectura_sd             : { required: true, range: [0, 1] },
                 bateria_tipo           : { required: true, maxlength: 45 },
                 bateria_celdas         : { required: true, digits: true, maxlength: 11 }
+            },
+            messages:{
+                stock                  : { required: 'Campo obligatorio', digits: 'Solo números enteros', maxlength: 'Máx. 11 caracteres' },
+
+                image_1                : { accept: 'Solo imágenes' },
+                image_2                : { accept: 'Solo imágenes' },
+                image_3                : { accept: 'Solo imágenes' },
+                image_4                : { accept: 'Solo imágenes' },
+                image_5                : { accept: 'Solo imágenes' },
+                image_6                : { accept: 'Solo imágenes' },
+                image_7                : { accept: 'Solo imágenes' },
+
+                sku                    : { required: 'Campo obligatorio', maxlength: 'Máx. 45 caracteres' },
+                price                  : { required: 'Campo obligatorio', number: 'Solo números', max: 'Valor máx. $ 999,999.99' },
+                price_discount         : { number: 'Solo números', max: 'Valor máx. $ 999,999.99' },
+                status_usage           : { required: 'Campo obligatorio', maxlength: 'Máx. 45 caracteres' },
+                status_aesthetic       : { required: 'Campo obligatorio', number: 'Solo números'},
+                warranty_days          : { required: 'Campo obligatorio', digits: 'Solo números enteros', maxlength: 'Máx. 11 caracteres' },
+                support                : { required: 'Campo obligatorio', maxlength: 'Máx. 90 caracteres' },
+                delivery               : { required: 'Campo obligatorio', maxlength: 'Máx. 45 caracteres' },
+
+                equipo_marca           : { required: 'Campo obligatorio', maxlength: 'Máx. 45 caracteres' },
+                equipo_linea           : { required: 'Campo obligatorio', maxlength: 'Máx. 45 caracteres' },
+                equipo_modelo          : { required: 'Campo obligatorio', maxlength: 'Máx. 45 caracteres' },
+                ram_gb                 : { required: 'Campo obligatorio', maxlength: 'Máx. 45 caracteres' },
+                ram_tipo               : { required: 'Campo obligatorio', maxlength: 'Máx. 45 caracteres' },
+                discod_amount          : { required: 'Campo obligatorio', number: 'Solo números', maxlength: 'Máx. 43 caracteres' },
+                discod_storage         : { required: 'Campo obligatorio', maxlength: 'Máx. 2 caracteres' },
+                discod_tipo            : { required: 'Campo obligatorio', maxlength: 'Máx. 45 caracteres' },
+                procesador_marca       : { required: 'Campo obligatorio', maxlength: 'Máx. 45 caracteres' },
+                procesador_linea       : { maxlength: 'Máx. 45 caracteres' },
+                procesador_modelo      : { required: 'Campo obligatorio', maxlength: 'Máx. 45 caracteres' },
+                procesador_gen         : { required: 'Campo obligatorio', maxlength: 'Máx. 45 caracteres' },
+                procesador_ghz         : { required: 'Campo obligatorio', maxlength: 'Máx. 45 caracteres' },
+                procesador_nucleos     : { required: 'Campo obligatorio', maxlength: 'Máx. 45 caracteres' },
+                tarjetag               : { required: 'Campo obligatorio'},
+                tarjetag_marca         : { maxlength: 'Máx. 45 caracteres' },
+                tarjetag_modelo        : { maxlength: 'Máx. 45 caracteres' },
+                tarjetag_tipomemoria   : { maxlength: 'Máx. 45 caracteres' },
+                tarjetag_gb            : { maxlength: 'Máx. 45 caracteres' },
+                pantalla_tipo          : { required: 'Campo obligatorio', maxlength: 'Máx. 45 caracteres' },
+                pantalla_tamano        : { required: 'Campo obligatorio', maxlength: 'Máx. 45 caracteres' },
+                pantalla_tactil        : { required: 'Campo obligatorio'},
+                pantalla_resolucion    : { required: 'Campo obligatorio', digits: 'Solo números enteros', minlength: 'Mín. 3 caracteres', maxlength: 'Máx. 4 caracteres' },
+                pantalla_resolucion_y  : { required: 'Campo obligatorio', digits: 'Solo números enteros', minlength: 'Mín. 3 caracteres', maxlength: 'Máx. 4 caracteres' },
+                teclado_idioma         : { required: 'Campo obligatorio', maxlength: 'Máx. 45 caracteres' },
+                teclado_retroi         : { required: 'Campo obligatorio'},
+                teclado_num            : { required: 'Campo obligatorio'},
+                conectv_usb2           : { required: 'Campo obligatorio', digits: 'Solo números enteros', maxlength: 'Máx. 11 caracteres' },
+                conectv_usb3           : { required: 'Campo obligatorio', digits: 'Solo números enteros', maxlength: 'Máx. 11 caracteres' },
+                conectv_usbc           : { required: 'Campo obligatorio', digits: 'Solo números enteros', maxlength: 'Máx. 11 caracteres' },
+                conectv_wifi           : { required: 'Campo obligatorio'},
+                conectv_bluetooth      : { required: 'Campo obligatorio'},
+                conectv_jack           : { required: 'Campo obligatorio'},
+                conectv_hdmi           : { required: 'Campo obligatorio'},
+                conectv_vga            : { required: 'Campo obligatorio'},
+                conectv_displayp       : { required: 'Campo obligatorio'},
+                conectv_ethernet       : { required: 'Campo obligatorio'},
+                conectv_serialcom      : { required: 'Campo obligatorio'},
+                conectv_ieee1394       : { required: 'Campo obligatorio'},
+                so                     : { required: 'Campo obligatorio', maxlength: 'Máx. 45 caracteres' },
+                software_ad            : { required: 'Campo obligatorio', maxlength: 'Máx. 155 caracteres' },
+                audiov_camara          : { required: 'Campo obligatorio'},
+                audiov_microfono       : { required: 'Campo obligatorio'},
+                lectura_unidadoptica   : { required: 'Campo obligatorio'},
+                lectura_sd             : { required: 'Campo obligatorio'},
+                bateria_tipo           : { required: 'Campo obligatorio', maxlength: 'Máx. 45 caracteres' },
+                bateria_celdas         : { required: 'Campo obligatorio', digits: 'Solo números enteros', maxlength: 'Máx. 11 caracteres' }
             }
         });
     };
@@ -147,7 +215,7 @@ function checkForm(){
  * Cerrar modal con tecla ESC o haciendo clic sobre el botón
  */
 function closeModal(){
-    $(document).bind('keydown', function(e) { 
+    $(document).bind('keydown', function(e) {
         if (e.which == 27) {
             $('.btn-close').click();
         };
@@ -190,13 +258,13 @@ const btnsCancel = document.querySelectorAll('.btn-show-popup-replace');
 };
 /**
  * STRING CLEANING
- * Limpia el valor de cada campo en el array, 
+ * Limpia el valor de cada campo en el array,
  * extrayendo cualquier caracter excepto dígitos y puntos
  */
 function stringClean(){
     const dirtyFields = [
         '#ram_gb',
-        '#procesador_ghz', 
+        '#procesador_ghz',
         '#procesador_nucleos',
         '#tarjetag_gb',
         '#pantalla_tamano',

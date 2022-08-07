@@ -18,7 +18,7 @@ const btnCreate = document.querySelectorAll('.btn-create'),
       shadowModal = document.querySelector('.modal-shadow--panel'),
       modalContainer = document.querySelector('.modal-container'),
       navSlider = document.querySelectorAll('#slider');
-          
+
 const buttonsCollection = [btnCreate, btnShow, linkShow, btnEdit, btnDelete, navSlider];
 
 showPhrases();

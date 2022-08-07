@@ -210,7 +210,7 @@
                                     @if ($specLaptop->product->file->image_3)
                                         <img src="{{ asset($specLaptop->product->file->image_3) }}">
                                         @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_3) @endphp
-                                    @endif                                    
+                                    @endif
                                     @break
                                 @case(4)
                                     @if ($specLaptop->product->file->image_4)
@@ -235,7 +235,7 @@
                                         <img src="{{ asset($specLaptop->product->file->image_7) }}">
                                         @php $imageName = str_replace('/storage/images/upload/', '', $specLaptop->product->file->image_7) @endphp
                                     @endif
-                                    @break 
+                                    @break
                             @endswitch
                         </div>
                         {{-- Campo para mostrar nombre de imagen--}}
@@ -251,7 +251,7 @@
                                 <button type="button" class="button--negative-ow sq btn-show-popup-replace" id="{{ 'btn-show-popup-replace-'.$i }}" tabindex="1"><i class='bx bxs-trash'></i></button>
                             @else
                                 {{-- Botón para seleccionar imagen --}}
-                                <label for="{{ 'image_'.$i }}" class="btn-upload button--alternative-ow" id="{{ 'btn-upload-'.$i }}" tabindex="1">Cargar</label> 
+                                <label for="{{ 'image_'.$i }}" class="btn-upload button--alternative-ow" id="{{ 'btn-upload-'.$i }}" tabindex="1">Cargar</label>
                             @endif
                             @break
                         @case(2)
@@ -262,7 +262,7 @@
                                 <button type="button" class="button--negative-ow sq btn-show-popup-replace" id="{{ 'btn-show-popup-replace-'.$i }}" tabindex="1"><i class='bx bxs-trash'></i></button>
                             @else
                                 {{-- Botón para seleccionar imagen --}}
-                                <label for="{{ 'image_'.$i }}" class="btn-upload button--alternative-ow" id="{{ 'btn-upload-'.$i }}" tabindex="1">Cargar</label> 
+                                <label for="{{ 'image_'.$i }}" class="btn-upload button--alternative-ow" id="{{ 'btn-upload-'.$i }}" tabindex="1">Cargar</label>
                             @endif
                             @break
                         @case(3)
@@ -273,7 +273,7 @@
                                 <button type="button" class="button--negative-ow sq btn-show-popup-replace" id="{{ 'btn-show-popup-replace-'.$i }}" tabindex="1"><i class='bx bxs-trash'></i></button>
                             @else
                                 {{-- Botón para seleccionar imagen --}}
-                                <label for="{{ 'image_'.$i }}" class="btn-upload button--alternative-ow" id="{{ 'btn-upload-'.$i }}" tabindex="1">Cargar</label> 
+                                <label for="{{ 'image_'.$i }}" class="btn-upload button--alternative-ow" id="{{ 'btn-upload-'.$i }}" tabindex="1">Cargar</label>
                             @endif
                             @break
                         @case(4)
@@ -284,7 +284,7 @@
                                 <button type="button" class="button--negative-ow sq btn-show-popup-replace" id="{{ 'btn-show-popup-replace-'.$i }}" tabindex="1"><i class='bx bxs-trash'></i></button>
                             @else
                                 {{-- Botón para seleccionar imagen --}}
-                                <label for="{{ 'image_'.$i }}" class="btn-upload button--alternative-ow" id="{{ 'btn-upload-'.$i }}" tabindex="1">Cargar</label> 
+                                <label for="{{ 'image_'.$i }}" class="btn-upload button--alternative-ow" id="{{ 'btn-upload-'.$i }}" tabindex="1">Cargar</label>
                             @endif
                             @break
                         @case(5)
@@ -295,7 +295,7 @@
                                 <button type="button" class="button--negative-ow sq btn-show-popup-replace" id="{{ 'btn-show-popup-replace-'.$i }}" tabindex="1"><i class='bx bxs-trash'></i></button>
                             @else
                                 {{-- Botón para seleccionar imagen --}}
-                                <label for="{{ 'image_'.$i }}" class="btn-upload button--alternative-ow" id="{{ 'btn-upload-'.$i }}" tabindex="1">Cargar</label> 
+                                <label for="{{ 'image_'.$i }}" class="btn-upload button--alternative-ow" id="{{ 'btn-upload-'.$i }}" tabindex="1">Cargar</label>
                             @endif
                             @break
                         @case(6)
@@ -306,7 +306,7 @@
                                 <button type="button" class="button--negative-ow sq btn-show-popup-replace" id="{{ 'btn-show-popup-replace-'.$i }}" tabindex="1"><i class='bx bxs-trash'></i></button>
                             @else
                                 {{-- Botón para seleccionar imagen --}}
-                                <label for="{{ 'image_'.$i }}" class="btn-upload button--alternative-ow" id="{{ 'btn-upload-'.$i }}" tabindex="1">Cargar</label> 
+                                <label for="{{ 'image_'.$i }}" class="btn-upload button--alternative-ow" id="{{ 'btn-upload-'.$i }}" tabindex="1">Cargar</label>
                             @endif
                             @break
                         @case(7)
@@ -317,7 +317,7 @@
                                 <button type="button" class="button--negative-ow sq btn-show-popup-replace" id="{{ 'btn-show-popup-replace-'.$i }}" tabindex="1"><i class='bx bxs-trash'></i></button>
                             @else
                                 {{-- Botón para seleccionar imagen --}}
-                                <label for="{{ 'image_'.$i }}" class="btn-upload button--alternative-ow" id="{{ 'btn-upload-'.$i }}" tabindex="1">Cargar</label> 
+                                <label for="{{ 'image_'.$i }}" class="btn-upload button--alternative-ow" id="{{ 'btn-upload-'.$i }}" tabindex="1">Cargar</label>
                             @endif
                             @break
                     @endswitch
@@ -414,7 +414,7 @@
                             <p>Línea</p>
                         </div>
                         <div class="input input-min">
-                            <input type="text" name="procesador_linea" id="procesador_linea" class="input--ow outl--blue-ow" required placeholder="Línea de procesador" tabindex="1"
+                            <input type="text" name="procesador_linea" id="procesador_linea" class="input--ow outl--blue-ow" placeholder="Línea de procesador" tabindex="1"
                             value="{{ $specLaptop->procesador_linea }}">
                         </div>
                     </div>
@@ -888,31 +888,31 @@ $(document).ready(function(){
     // Filtramos el contenido de discod_storage para recuperar texto (GB o TB)
     const discodStorageRaw = '{{ $specLaptop->discod_gb }}',
           discodStorage = discodStorageRaw.replace(/[0-9]+/g, '').trim();
-    // Filtramos el contenido de procesador_gen para recuperar números 
+    // Filtramos el contenido de procesador_gen para recuperar números
     const procesadorGenRaw = '{{ $specLaptop->procesador_gen }}',
           procesadorGen = procesadorGenRaw.replace(/[^0-9]+/g, '').trim();
     // Creamos la colección (selectId: consulta)
     let editSelects = {
         'status_usage'         : '{{ $specLaptop->product->status_usage }}',
         'status_aesthetic'     : '{{ $specLaptop->product->status_aesthetic }}',
-        'discod_storage'       : 'a',   
-        'procesador_gen'       : procesadorGen,                 
-        'tarjetag'             : '{{ $specLaptop->tarjetag }}', 
-        'pantalla_tipo'        : '{{ $specLaptop->pantalla_tipo }}', 
-        'pantalla_tactil'      : '{{ $specLaptop->pantalla_tactil }}', 
-        'teclado_idioma'       : '{{ $specLaptop->teclado_idioma }}', 
-        'teclado_retroi'       : '{{ $specLaptop->teclado_retroi }}', 
-        'teclado_num'          : '{{ $specLaptop->teclado_num }}', 
-        'conectv_wifi'         : '{{ $specLaptop->conectv_wifi }}', 
-        'conectv_bluetooth'    : '{{ $specLaptop->conectv_bluetooth }}', 
-        'conectv_jack'         : '{{ $specLaptop->conectv_jack }}', 
-        'conectv_hdmi'         : '{{ $specLaptop->conectv_hdmi }}', 
-        'conectv_vga'          : '{{ $specLaptop->conectv_vga }}', 
-        'conectv_displayp'     : '{{ $specLaptop->conectv_displayp }}', 
-        'audiov_camara'        : '{{ $specLaptop->audiov_camara }}', 
-        'audiov_microfono'     : '{{ $specLaptop->audiov_microfono }}', 
-        'lectura_unidadoptica' : '{{ $specLaptop->lectura_unidadoptica }}', 
-        'lectura_sd'           : '{{ $specLaptop->lectura_sd }}', 
+        'discod_storage'       : 'a',
+        'procesador_gen'       : procesadorGen,
+        'tarjetag'             : '{{ $specLaptop->tarjetag }}',
+        'pantalla_tipo'        : '{{ $specLaptop->pantalla_tipo }}',
+        'pantalla_tactil'      : '{{ $specLaptop->pantalla_tactil }}',
+        'teclado_idioma'       : '{{ $specLaptop->teclado_idioma }}',
+        'teclado_retroi'       : '{{ $specLaptop->teclado_retroi }}',
+        'teclado_num'          : '{{ $specLaptop->teclado_num }}',
+        'conectv_wifi'         : '{{ $specLaptop->conectv_wifi }}',
+        'conectv_bluetooth'    : '{{ $specLaptop->conectv_bluetooth }}',
+        'conectv_jack'         : '{{ $specLaptop->conectv_jack }}',
+        'conectv_hdmi'         : '{{ $specLaptop->conectv_hdmi }}',
+        'conectv_vga'          : '{{ $specLaptop->conectv_vga }}',
+        'conectv_displayp'     : '{{ $specLaptop->conectv_displayp }}',
+        'audiov_camara'        : '{{ $specLaptop->audiov_camara }}',
+        'audiov_microfono'     : '{{ $specLaptop->audiov_microfono }}',
+        'lectura_unidadoptica' : '{{ $specLaptop->lectura_unidadoptica }}',
+        'lectura_sd'           : '{{ $specLaptop->lectura_sd }}',
         'bateria_tipo'         : '{{ $specLaptop->bateria_tipo }}'
     };
     replaceExistingImage();
@@ -934,7 +934,7 @@ function replaceExistingImage(){
     const replaceFields = document.querySelectorAll('.file-upload');
 
     for(i = 0; i < replaceFields.length; i++){
-        let rBtnReplace          = replaceFields[i].querySelector('.btn-replace'), 
+        let rBtnReplace          = replaceFields[i].querySelector('.btn-replace'),
             rRouteReplace        = '',
             rInputReplace        = replaceFields[i].querySelector('.input-file'),
             rImgContainerReplace = replaceFields[i].querySelector('.file'),
@@ -983,7 +983,7 @@ function replaceExistingImage(){
     function replace(btnReplace, routeReplace, inputReplace, imgContainerReplace, imgNameReplace, btnCancelReplace, popupReplace, btnUploadReplace, btnShowPopUpReplace){
         $(btnReplace).click(function(){
             $.ajax({
-                url: routeReplace 
+                url: routeReplace
             }).done(function(){
                 // Reseteamos campos de upload
                 $(inputReplace).val('');

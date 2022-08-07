@@ -48,7 +48,7 @@
         {{-- * HEADER --}}
         <header>
             <a href="{{ route('panel.index') }}"><h2>Stock</h2></a>
-            
+
             <form action="{{ route('search.panel') }}" method="GET" class="form-search-panel">
                 @include('components/search', ['style' => "input--ow outl--blue-ow"])
             </form>
@@ -180,7 +180,7 @@
                             <tr class="tr--empty">
                                 <td colspan="11">
                                     @if (isset($query))
-                                        <p class="p--description">{{ $msgEmpty }}<a href="{{ route('panel.index') }}"> Mostrar todos los registros.</a></p> 
+                                        <p class="p--description">{{ $msgEmpty }}<a href="{{ route('panel.index') }}"> Mostrar todos los registros.</a></p>
                                     @else
                                         <p class="p--description">{{ $msgEmpty }}</p>
                                     @endif

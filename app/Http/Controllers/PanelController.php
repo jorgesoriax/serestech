@@ -35,7 +35,7 @@ class PanelController extends Controller
     /**
      * Esta función muestra la vista Show, formulario empleado para
      * mostrar registros existentes
-     * 
+     *
      * @param object $specLaptop — Establece registro a mostrar al compararlo con el campo id o slug en búsqueda de coincidencias
      */
     public function show(SpecificationsLaptop $specLaptop){
@@ -44,7 +44,7 @@ class PanelController extends Controller
     /**
      * Esta función muestra la vista Edit, formulario empleado para
      * editar registros existentes
-     * 
+     *
      * @param object $specLaptop — Establece registro a editar al compararlo con el campo id o slug en búsqueda de coincidencias
      */
     public function edit(SpecificationsLaptop $specLaptop){
@@ -53,7 +53,7 @@ class PanelController extends Controller
     /**
      * Esta función muestra la vista Delete, formulario empleado para
      * eliminar registros existentes
-     * 
+     *
      * @param object $specLaptop — Establece registro a eliminar al compararlo con el campo id o slug en búsqueda de coincidencias
      */
     public function delete(SpecificationsLaptop $specLaptop){
@@ -68,7 +68,7 @@ class PanelController extends Controller
     }
     /**
      * Esta función Create, inserta registros para Inventory, Image, Product y SpecificationsLaptop
-     * 
+     *
      * @param object $request — Establece la información para insertar un nuevo registro
      */
     public function store(Request $request){
@@ -78,7 +78,7 @@ class PanelController extends Controller
         Inventory::create($request->all());
         // Recuperamos id de último registro
         $id = Inventory::orderBy('id', 'desc')->first();
-        /** 
+        /**
          * * Image
          */
         $image = new File();
@@ -86,9 +86,9 @@ class PanelController extends Controller
             if($request->file('image_'.$i)){
                 $name = Str::random(40) . '.webp';
                 $url = public_path() . '/storage/images/upload/' . $name;
-    
+
                 Image::make($request->file('image_'.$i))->fit(600)->save($url);
-    
+
                 switch($i){
                     case 1:
                         $image->image_1 = '/storage/images/upload/' . $name;
@@ -163,12 +163,12 @@ class PanelController extends Controller
             'pantalla_resolucion' => $request->pantalla_resolucion . ' x ' . $request->pantalla_resolucion_y.' px',
             'product_id' => $id->id
         ]));
-        
+
         return redirect()->back();
     }
     /**
      * Esta función Update, modifica registros para Inventory, Image, Product y SpecificationsLaptop
-     * 
+     *
      * @param object $request    — Establece la información para modificar el registro existente
      * @param object $specLaptop — Establece registro a modificar al compararlo con el campo id o slug en búsqueda de coincidencias
      */
@@ -190,7 +190,7 @@ class PanelController extends Controller
                 $url = public_path() . '/storage/images/upload/' . $name;
 
                 Image::make($request->file('image_'.$i))->fit(600)->save($url);
-    
+
                 switch($i){
                     case 1:
                         $imageOld = $specLaptop->product->file->image_1;
@@ -284,11 +284,11 @@ class PanelController extends Controller
             'pantalla_resolucion' => $request->pantalla_resolucion . ' x ' . $request->pantalla_resolucion_y.' px',
         ]));
 
-        return redirect()->back();  
+        return redirect()->back();
     }
     /**
      * Esta function Delete, elimina registros para Inventory, Image, Product y SpecificationsLaptop
-     * 
+     *
      * @param object $specLaptop — Establece registro a eliminar al compararlo con el campo id o slug en búsqueda de coincidencias
      */
     public function destroy(SpecificationsLaptop $specLaptop){
@@ -317,14 +317,14 @@ class PanelController extends Controller
          * * SpecificationsLaptop
          */
         $specLaptop->delete();
-        return redirect()->back();  
+        return redirect()->back();
     }
     /**
      * Esta función Delete, elimina imagenes existentes en formulario Update por medio de Ajax,
      * debido a que la tabla files cuenta con 7 imágenes por cada registro,
      * se usa $col para identificar la imagen que se desea eliminar al usarla en un switch case
      * Funciona para eliminar imagenes existente y reemplazarlas
-     * 
+     *
      * @param object $specLaptop — Establece registro a eliminar al compararlo con el campo id o slug en búsqueda de coincidencias
      * @param integer $col       — Establece la posición de la imagen en la tabla files
      */
@@ -332,10 +332,10 @@ class PanelController extends Controller
         /**
          * 1 Recupera la url de la imagen seleccionada para eliminarla por medio del facade Storage
          * 2 Reemplaza el registro para esta imagen con null
-         * 
+         *
          * $imageOld recupera la url de la imagen seleccionada
          * @var string
-         * 
+         *
          * $urlOld establece la url de la imagen seleccionada
          * @var string
          */
@@ -349,7 +349,7 @@ class PanelController extends Controller
                 // 2
                 $specLaptop->product->file->image_1 = null;
                 $specLaptop->product->file->save();
-                
+
                 break;
             case 2:
                 $imageOld = $specLaptop->product->file->image_2;
@@ -405,7 +405,7 @@ class PanelController extends Controller
     }
     /**
      * Esta función Update, actualiza las imágenes del slider
-     * 
+     *
      * @param object $request — Establece las imagenes a modificar
      */
     public function sliderStore(Request $request){

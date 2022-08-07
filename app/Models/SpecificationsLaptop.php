@@ -22,7 +22,7 @@ class SpecificationsLaptop extends Model
     }
     /**
      * Función que reemplaza el id como nombre de ruta por el slug
-     * 
+     *
      * @return string — Columna que contiene el slug
      */
     public function getRouteKeyName(){
@@ -30,7 +30,7 @@ class SpecificationsLaptop extends Model
     }
     /**
      * Función que se encarga de indexar Columnas
-     * 
+     *
      * @return array — Columnas indexados para comparar con query
      */
     public function toSearchableArray(){
@@ -45,7 +45,7 @@ class SpecificationsLaptop extends Model
             'procesador_ghz' => $this->procesador_ghz,
             'descripcion'    => $this->descripcion
         ];
-        
+
         return $array;
     }
 }

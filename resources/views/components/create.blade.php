@@ -253,7 +253,7 @@
                             <p>Línea</p>
                         </div>
                         <div class="input input-min">
-                            <input type="text" name="procesador_linea" id="procesador_linea" class="input--ow outl--blue-ow" required placeholder="Línea de procesador" tabindex="1">
+                            <input type="text" name="procesador_linea" id="procesador_linea" class="input--ow outl--blue-ow" placeholder="Línea de procesador" tabindex="1">
                         </div>
                     </div>
                     <div class="item">
@@ -704,7 +704,7 @@
         </div>
     </div>
 </form>
-<script>
+{{-- <script>
 $(document).ready(function(){
     let createFields = {
         '#equipo_marca'          : 'A',
@@ -739,16 +739,16 @@ $(document).ready(function(){
         $(createField).val(createFields[createField]);
     }
 })
-</script>
+</script> --}}
 <script>
 $(document).ready(function(){
     let createSelects = {
-            'pantalla_tactil'      : 0, 
-            'teclado_idioma'       : 'Inglés', 
-            'teclado_retroi'       : 0, 
-            'teclado_num'          : 0, 
-            'conectv_vga'          : 0, 
-            'conectv_displayp'     : 0,  
+            'pantalla_tactil'      : 0,
+            'teclado_idioma'       : 'Inglés',
+            'teclado_retroi'       : 0,
+            'teclado_num'          : 0,
+            'conectv_vga'          : 0,
+            'conectv_displayp'     : 0,
             'lectura_unidadoptica' : 0,
     };
     closeModal();

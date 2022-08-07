@@ -10,9 +10,6 @@ use Illuminate\Support\Facades\DB;
 /**
  * Este controlador se encarga de manejar vistas y funcionamiento para el inicio
  */
-/**
- * Products::where('city',$usercity) ->orWhere('state',$userstate) ->orWhere('country',$usercountry) ->orderByRaw(' CASE WHEN city = ? THEN 1 WHEN state = ? THEN 2 WHEN country = ? THEN 3 ELSE 4 END',[$usercity,$userstate,$usercountry])->get();
- */
 class HomeController extends Controller
 {
     /**
